@@ -1,0 +1,11 @@
+-hblib
+
+-o../../lib/${hb_name}
+
+../../hmg3.hbc
+
+-D__HBIDE__
+
+-w2 -es2
+
+h_edit_ex.prg
