@@ -22,29 +22,29 @@ libs=vfw32
 
 # harbour contrib libs
 
-libs=hbmysql
-libs=mysql
-libs=hbfimage
-libs=hbpgsql
-libs=sddmy
+#libs=hbmysql
+#libs=mysql
+#libs=hbfimage
+#libs=hbpgsql
+#libs=sddmy
 
-libs=hbvpdf
+#libs=hbvpdf
 
 libs=hbct
 libs=hbwin
 libs=hbmzip
 libs=minizip
-libs=hbmemio
+#libs=hbmemio
 libs=hbmisc
 libs=hbtip
-libs=sqlite3
-libs=hbsqlit3
-libs=sddodbc
-libs=rddsql
-libs=hbodbc
-libs=odbc32
+#libs=sqlite3
+#libs=hbsqlit3
+#libs=sddodbc
+#libs=rddsql
+#libs=hbodbc
+#libs=odbc32
 libs=hbhpdf
-libs=hbnetio
+#libs=hbnetio
 libs=xhb
 libs=png
 libs=libhpdf

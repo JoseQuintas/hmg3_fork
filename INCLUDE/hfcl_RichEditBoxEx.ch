@@ -36,7 +36,7 @@
    [ SAVEAS <FullFileName> ] ;
 => ;
 _HMG_SYSDATA \[ 513 \] := .f. ;;
-_HMG_SYSDATA \[ 373 \]  = HMG_PrintDialogEx( <"parent"> )  ;;
+_HMG_SYSDATA \[ 373 \]  = HMG_PrintDialogEx( <(parent)> )  ;;
 _HMG_SYSDATA \[ 374 \] := _HMG_SYSDATA \[ 373 \] \[1\]    ;;
 _HMG_SYSDATA \[ 375 \] := _HMG_SYSDATA \[ 373 \] \[2\]  ;;
 _HMG_SYSDATA \[ 376 \] := _HMG_SYSDATA \[ 373 \] \[3\] ;;
@@ -48,7 +48,7 @@ _HMG_SYSDATA \[ 507 \] := HMG_IsNotDefParam ( <FullFileName>   , NIL );;
 _HMG_SYSDATA \[ 508 \] := <.Preview.> ;;
 _HMG_SYSDATA \[ 378 \] := if ( _HMG_SYSDATA \[ 507 \] <> NIL, .T., <.Preview.> ) ;;
 _hmg_printer_InitUserMessages()         ;;
-_HMG_SYSDATA \[ 379 \] := strzero( Seconds() * 100 , 8 ) 
+_HMG_SYSDATA \[ 379 \] := strzero( Seconds() * 100 , 8 )
 
 #xcommand SELECT PRINTER DIALOG EX ;
    [ PARENT <parent> ] ;
@@ -59,7 +59,7 @@ _HMG_SYSDATA \[ 379 \] := strzero( Seconds() * 100 , 8 )
    [ SAVEAS <FullFileName> ] ;
 => ;
 _HMG_SYSDATA \[ 513 \] := .f. ;;
-_HMG_SYSDATA \[ 373 \]  = HMG_PrintDialogEx( <"parent"> )  ;;
+_HMG_SYSDATA \[ 373 \]  = HMG_PrintDialogEx( <(parent)> )  ;;
 _HMG_SYSDATA \[ 374 \] := _HMG_SYSDATA \[ 373 \] \[1\]    ;;
 _HMG_SYSDATA \[ 375 \] := _HMG_SYSDATA \[ 373 \] \[2\]  ;;
 _HMG_SYSDATA \[ 376 \] := _HMG_SYSDATA \[ 373 \] \[3\] ;;
@@ -72,6 +72,6 @@ _HMG_SYSDATA \[ 507 \] := HMG_IsNotDefParam ( <FullFileName>   , NIL );;
 _HMG_SYSDATA \[ 508 \] := <.Preview.> ;;
 _HMG_SYSDATA \[ 378 \] := if ( _HMG_SYSDATA \[ 507 \] <> NIL, .T., <.Preview.> ) ;;
 _hmg_printer_InitUserMessages() ;;
-_HMG_SYSDATA \[ 379 \] := strzero( Seconds() * 100 , 8 ) 
+_HMG_SYSDATA \[ 379 \] := strzero( Seconds() * 100 , 8 )
 
 

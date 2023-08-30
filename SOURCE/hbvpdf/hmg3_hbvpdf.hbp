@@ -8,6 +8,7 @@
 
 
 -o../../lib/${hb_name}
+-hbx=../../lib/${hb_name}.hbx
 
 -w3 -es2
 
