@@ -109,9 +109,9 @@
 
 #xcommand COLUMNWHEN          <columnwhen>         => _HMG_SYSDATA \[ 386 \]  := <columnwhen>
 
-#xcommand WORKAREA            <workarea>           => _HMG_SYSDATA \[ 480 \]  := <"workarea">
+#xcommand WORKAREA            <workarea>           => _HMG_SYSDATA \[ 480 \]  := <(workarea)>
 
-#xcommand FIELD               <field>              => _HMG_SYSDATA \[ 385 \]  := <"field">
+#xcommand FIELD               <field>              => _HMG_SYSDATA \[ 385 \]  := <(field)>
 
 #xcommand FIELDS              <fields>             => _HMG_SYSDATA \[ 481 \]  := <fields>
 
@@ -311,7 +311,7 @@
 
 #xcommand COL                 <col>                => _HMG_SYSDATA \[ 432 \]  := <col>
 
-#xcommand PARENT              <of>                 => _HMG_SYSDATA \[ 417 \]  := <"of">
+#xcommand PARENT              <of>                 => _HMG_SYSDATA \[ 417 \]  := <(of)>
 
 #xcommand CAPTION             <caption>            => _HMG_SYSDATA \[ 418 \]  := <caption>
 
@@ -460,7 +460,7 @@ Frame
 
 #xcommand DEFINE FRAME <name> ;
    =>;
-   _HMG_SYSDATA \[ 416 \]     := <"name"> ;;
+   _HMG_SYSDATA \[ 416 \]     := <(name)> ;;
    _HMG_SYSDATA \[ 417 \]     := NIL      ;;
    _HMG_SYSDATA \[ 431 \]     := NIL      ;;
    _HMG_SYSDATA \[ 432 \]     := NIL      ;;
@@ -507,7 +507,7 @@ Frame
 #xcommand DEFINE ACTIVEX <name>;
    =>;
    _HMG_SYSDATA \[ 432 \]     := 0     ;;
-   _HMG_SYSDATA \[ 416 \]     := <"name"> ;;
+   _HMG_SYSDATA \[ 416 \]     := <(name)> ;;
    _HMG_SYSDATA \[ 417 \]     := ""    ;;
    _HMG_SYSDATA \[ 431 \]     := 0     ;;
    _HMG_SYSDATA \[ 420 \]     := 0     ;;
@@ -531,7 +531,7 @@ List Box
 #xcommand DEFINE LISTBOX <name>;
    =>;
    _HMG_SYSDATA \[ 383 \]     := .T.      ;;
-   _HMG_SYSDATA \[ 416 \]     := <"name"> ;;
+   _HMG_SYSDATA \[ 416 \]     := <(name)> ;;
    _HMG_SYSDATA \[ 417 \]     := NIL      ;;
    _HMG_SYSDATA \[ 432 \]     := NIL      ;;
    _HMG_SYSDATA \[ 431 \]     := NIL      ;;
@@ -599,7 +599,7 @@ List Box
 
 #xcommand DEFINE ANIMATEBOX <name>;
    =>;
-   _HMG_SYSDATA \[ 416 \]     := <"name"> ;;
+   _HMG_SYSDATA \[ 416 \]     := <(name)> ;;
    _HMG_SYSDATA \[ 417 \]     := NIL      ;;
    _HMG_SYSDATA \[ 432 \]     := NIL      ;;
    _HMG_SYSDATA \[ 431 \]     := NIL      ;;
@@ -629,7 +629,7 @@ List Box
 
 #xcommand DEFINE PLAYER <name> ;
    =>;
-   _HMG_SYSDATA \[ 416 \]     := <"name"> ;;
+   _HMG_SYSDATA \[ 416 \]     := <(name)> ;;
    _HMG_SYSDATA \[ 417 \]     := NIL      ;;
    _HMG_SYSDATA \[ 487 \]     := NIL      ;;
    _HMG_SYSDATA \[ 432 \]     := NIL      ;;
@@ -678,7 +678,7 @@ Progress Bar
 
 #xcommand DEFINE PROGRESSBAR <name>;
    =>;
-   _HMG_SYSDATA \[ 416 \]     := <"name"> ;;
+   _HMG_SYSDATA \[ 416 \]     := <(name)> ;;
    _HMG_SYSDATA \[ 417 \]     := NIL      ;;
    _HMG_SYSDATA \[ 432 \]     := NIL      ;;
    _HMG_SYSDATA \[ 431 \]     := NIL      ;;
@@ -721,7 +721,7 @@ Radio Group
 
 #xcommand DEFINE RADIOGROUP <name>;
    =>;
-   _HMG_SYSDATA \[ 416 \]     := <"name"> ;;
+   _HMG_SYSDATA \[ 416 \]     := <(name)> ;;
    _HMG_SYSDATA \[ 417 \]     := NIL      ;;
    _HMG_SYSDATA \[ 432 \]     := NIL      ;;
    _HMG_SYSDATA \[ 431 \]     := NIL      ;;
@@ -780,7 +780,7 @@ Slider
 
 #xcommand DEFINE SLIDER <name>;
    =>;
-   _HMG_SYSDATA \[ 416 \]     := <"name"> ;;
+   _HMG_SYSDATA \[ 416 \]     := <(name)> ;;
    _HMG_SYSDATA \[ 417 \]     := NIL      ;;
    _HMG_SYSDATA \[ 432 \]     := NIL      ;;
    _HMG_SYSDATA \[ 431 \]     := NIL      ;;
@@ -832,7 +832,7 @@ Text Box
 
 #xcommand DEFINE TEXTBOX <name>;
    =>;
-   _HMG_SYSDATA \[ 416 \]  := <"name"> ;;
+   _HMG_SYSDATA \[ 416 \]  := <(name)> ;;
    _HMG_SYSDATA \[ 417 \]  := NIL      ;;
    _HMG_SYSDATA \[ 432 \]  := NIL      ;;
    _HMG_SYSDATA \[ 298 \]     := NIL      ;;
@@ -934,7 +934,7 @@ Month Calendar
 
 #xcommand DEFINE MONTHCALENDAR <name> ;
   =>;
-  _HMG_SYSDATA \[ 416 \]    := <"name"> ;;
+  _HMG_SYSDATA \[ 416 \]    := <(name)> ;;
   _HMG_SYSDATA \[ 417 \]    := NIL    ;;
   _HMG_SYSDATA \[ 432 \]    := NIL    ;;
   _HMG_SYSDATA \[ 431 \]    := NIL    ;;
@@ -1007,7 +1007,7 @@ Button
 
 #xcommand DEFINE BUTTON <name> ;
         =>;
-        _HMG_SYSDATA \[ 416 \]              := <"name"> ;;
+        _HMG_SYSDATA \[ 416 \]              := <(name)> ;;
         _HMG_SYSDATA \[ 417 \]                := NIL      ;;
    _HMG_SYSDATA \[ 432 \]     := NIL      ;;
    _HMG_SYSDATA \[ 431 \]     := NIL      ;;
@@ -1110,7 +1110,7 @@ Image
 
 #xcommand DEFINE IMAGE <name> ;
    =>;
-   _HMG_SYSDATA \[ 416 \]     := <"name"> ;;
+   _HMG_SYSDATA \[ 416 \]     := <(name)> ;;
    _HMG_SYSDATA \[ 417 \]     := NIL      ;;
    _HMG_SYSDATA \[ 432 \]     := NIL      ;;
    _HMG_SYSDATA \[ 431 \]     := NIL      ;;
@@ -1155,7 +1155,7 @@ Check Box/Button
 
 #xcommand DEFINE CHECKBOX <name> ;
    =>;
-   _HMG_SYSDATA \[ 416 \]     := <"name">    ;;
+   _HMG_SYSDATA \[ 416 \]     := <(name)>    ;;
    _HMG_SYSDATA \[ 417 \]        := NIL         ;;
    _HMG_SYSDATA \[ 432 \]     := NIL      ;;
    _HMG_SYSDATA \[ 431 \]     := NIL      ;;
@@ -1184,7 +1184,7 @@ Check Box/Button
 
 #xcommand DEFINE CHECKBUTTON <name> ;
    =>;
-   _HMG_SYSDATA \[ 416 \]     := <"name">    ;;
+   _HMG_SYSDATA \[ 416 \]     := <(name)>    ;;
    _HMG_SYSDATA \[ 417 \]        := NIL         ;;
    _HMG_SYSDATA \[ 418 \]     := NIL      ;;
    _HMG_SYSDATA \[ 420 \]     := NIL      ;;
@@ -1287,7 +1287,7 @@ Combo Box
 #xcommand DEFINE COMBOBOX <name>;
    =>;
    _HMG_SYSDATA \[ 383 \]     := .T.      ;;
-   _HMG_SYSDATA \[ 416 \]     := <"name"> ;;
+   _HMG_SYSDATA \[ 416 \]     := <(name)> ;;
    _HMG_SYSDATA \[ 417 \]     := NIL      ;;
    _HMG_SYSDATA \[ 432 \]     := NIL      ;;
    _HMG_SYSDATA \[ 431 \]     := NIL      ;;
@@ -1370,7 +1370,7 @@ Datepicker
 
 #xcommand DEFINE DATEPICKER <name> ;
    => ;
-   _HMG_SYSDATA \[ 416 \]     := <"name"> ;;
+   _HMG_SYSDATA \[ 416 \]     := <(name)> ;;
    _HMG_SYSDATA \[ 417 \]     := NIL      ;;
    _HMG_SYSDATA \[ 432 \]     := NIL      ;;
    _HMG_SYSDATA \[ 431 \]     := NIL      ;;
@@ -1434,7 +1434,7 @@ Timepicker  ( by Dr. Claudio Soto, April 2013 )
 
 #xcommand DEFINE TIMEPICKER <name> ;
       => ;
-      _HMG_SYSDATA \[ 416 \]  := <"name"> ;;
+      _HMG_SYSDATA \[ 416 \]  := <(name)> ;;
       _HMG_SYSDATA \[ 417 \]  := NIL ;;
       _HMG_SYSDATA \[ 432 \]  := NIL ;;
       _HMG_SYSDATA \[ 431 \]  := NIL ;;
@@ -1498,7 +1498,7 @@ Edit Box
 #xcommand DEFINE EDITBOX <name> ;
    =>;
    _HMG_SYSDATA \[ 383 \]     := .T.      ;;
-   _HMG_SYSDATA \[ 416 \]     := <"name"> ;;
+   _HMG_SYSDATA \[ 416 \]     := <(name)> ;;
    _HMG_SYSDATA \[ 417 \]     := NIL      ;;
    _HMG_SYSDATA \[ 432 \]     := NIL      ;;
    _HMG_SYSDATA \[ 298 \]     := NIL      ;;
@@ -1571,7 +1571,7 @@ Rich Edit Box
 #xcommand DEFINE RICHEDITBOX <name> ;
    =>;
    _HMG_SYSDATA \[ 383 \]     := .T.      ;;
-   _HMG_SYSDATA \[ 416 \]     := <"name"> ;;
+   _HMG_SYSDATA \[ 416 \]     := <(name)> ;;
    _HMG_SYSDATA \[ 417 \]     := NIL      ;;
    _HMG_SYSDATA \[ 432 \]     := NIL      ;;
    _HMG_SYSDATA \[ 431 \]     := NIL      ;;
@@ -1639,7 +1639,7 @@ Label
 
 #xcommand DEFINE LABEL <name> ;
    =>;
-   _HMG_SYSDATA \[ 416 \]     := <"name"> ;;
+   _HMG_SYSDATA \[ 416 \]     := <(name)> ;;
    _HMG_SYSDATA \[ 417 \]     := NIL      ;;
    _HMG_SYSDATA \[ 432 \]     := NIL      ;;
    _HMG_SYSDATA \[ 431 \]     := NIL      ;;
@@ -1709,7 +1709,7 @@ IP Address
 
 #xcommand DEFINE IPADDRESS <name> ;
    =>;
-   _HMG_SYSDATA \[ 416 \]     := <"name"> ;;
+   _HMG_SYSDATA \[ 416 \]     := <(name)> ;;
    _HMG_SYSDATA \[ 417 \]     := NIL      ;;
    _HMG_SYSDATA \[ 432 \]     := NIL      ;;
    _HMG_SYSDATA \[ 431 \]     := NIL      ;;
@@ -1765,7 +1765,7 @@ Grid
    =>;
    _HMG_SYSDATA \[ 383 \]  := .T.      ;;
    _HMG_SYSDATA \[ 382 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 416 \]  := <"name"> ;;
+   _HMG_SYSDATA \[ 416 \]  := <(name)> ;;
    _HMG_SYSDATA \[ 417 \]  := NIL      ;;
    _HMG_SYSDATA \[ 432 \]  := NIL      ;;
    _HMG_SYSDATA \[ 431 \]  := NIL      ;;
@@ -1892,7 +1892,7 @@ BROWSE
 #xcommand DEFINE BROWSE <name> ;
    =>;
    _HMG_SYSDATA \[ 383 \]     := .T.      ;;
-   _HMG_SYSDATA \[ 416 \]     := <"name"> ;;
+   _HMG_SYSDATA \[ 416 \]     := <(name)> ;;
    _HMG_SYSDATA \[ 417 \]     := NIL      ;;
    _HMG_SYSDATA \[ 432 \]               := NIL          ;;
    _HMG_SYSDATA \[ 431 \]               := NIL          ;;
@@ -1989,7 +1989,7 @@ Hyperlink
 
 #xcommand DEFINE HYPERLINK <name> ;
    =>;
-   _HMG_SYSDATA \[ 416 \]     := <"name"> ;;
+   _HMG_SYSDATA \[ 416 \]     := <(name)> ;;
    _HMG_SYSDATA \[ 417 \]     := NIL      ;;
    _HMG_SYSDATA \[ 432 \]           := NIL          ;;
    _HMG_SYSDATA \[ 431 \]           := NIL          ;;
@@ -2057,7 +2057,7 @@ Spinner
 
 #xcommand DEFINE SPINNER <name>;
    =>;
-   _HMG_SYSDATA \[ 416 \]     := <"name"> ;;
+   _HMG_SYSDATA \[ 416 \]     := <(name)> ;;
    _HMG_SYSDATA \[ 417 \]     := NIL      ;;
    _HMG_SYSDATA \[ 432 \]     := NIL      ;;
    _HMG_SYSDATA \[ 431 \]     := NIL      ;;

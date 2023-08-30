@@ -1,5 +1,6 @@
 -hblib
 -o../../lib/${hb_name}
+-hbx=../../lib/${hb_name}.hbx
 
 ../../hmg3.hbc
 

@@ -1,11 +1,12 @@
 -hblib
 -o../lib/${hb_name}
+-hbx=../lib/${hb_name}.hbx
 
 ../hmg3.hbc
 
 -D__HBIDE__
 
--w2 -es2
+-m -n -w2 -es2
 
 debugger/dbgHB.prg
 debugger/dbgGUI.prg
