@@ -53,4 +53,3 @@ libs=hbzebra
 # link compiled resources
 
 #sources=${hb_curdir}_temp.o
-
