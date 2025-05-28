@@ -26,57 +26,54 @@ Function Main
          INVISIBLE ;
          ON CHANGE MsgInfo ( "Month_1 Change" , "Info" )
 
-      @ 10,370 BUTTON Button_11 ;
+      @ 10,300 BUTTON Button_11 ;
          CAPTION "SHOW" ;
          ACTION Form_1.Month_1.Show
 
-      @ 50,370 BUTTON Button_12 ;
+      @ 50,300 BUTTON Button_12 ;
          CAPTION "HIDE" ;
          ACTION Form_1.Month_1.Hide
 
-      @ 90,370 BUTTON Button_13 ;
+      @ 90,300 BUTTON Button_13 ;
          CAPTION "IS VISIBLE ?" ;
          ACTION MsgInfo ( if ( Form_1.Month_1.Visible , "TRUE" , "FALSE" ) , "Info" )
 
-      @ 10,490 BUTTON Button_14 ;
+      @ 10,450 BUTTON Button_14 ;
          CAPTION "SET DATE" ;
          ACTION Form_1.Month_1.Value := Date()
 
-      @ 50,490 BUTTON Button_15 ;
+      @ 50,450 BUTTON Button_15 ;
          CAPTION "GET DATE" ;
          ACTION MsgInfo ( GetDate ( Form_1.Month_1.Value ) , "Info" )
 
-      // month calendar 2
+		// month calendar 2
 
       @ 210,10 MONTHCALENDAR Month_2 ;
-         VALUE D"2001/01/01" ;
-         FONT "Arial" SIZE 12 ;
-         WIDTH 320 ;
-         HEIGHT 205 ;
-         TOOLTIP "Month Calendar Control NoTodayCircle WeekNumbers NoTabStop BoldDays" ;
+         VALUE CTOD("01/01/2001") ;
+         FONT "Courier" SIZE 12 ;
+         TOOLTIP "Month Calendar Control NoTodayCircle WeekNumbers NoTabStop" ;
          NOTODAYCIRCLE ;
          WEEKNUMBERS ;
          NOTABSTOP ;
-         ON CHANGE MsgInfo( "Month_2 Change" , "Info" ) ;
-         ON GETBOLDDAYS { | dStart, dEnd | BoldDays( dStart, dEnd ) }
+         ON CHANGE MsgInfo( "Month_2 Change" , "Info" )
 
-      @ 210,370 BUTTON Button_21 ;
+      @ 210,300 BUTTON Button_21 ;
          CAPTION "SHOW" ;
          ACTION Form_1.Month_2.Show
 
-      @ 250,370 BUTTON Button_22 ;
+      @ 250,300 BUTTON Button_22 ;
          CAPTION "HIDE" ;
          ACTION Form_1.Month_2.Hide
 
-      @ 290,370 BUTTON Button_23 ;
+      @ 290,300 BUTTON Button_23 ;
          CAPTION "IS VISIBLE ?" ;
          ACTION MsgInfo ( if ( Form_1.Month_2.Visible , "TRUE" , "FALSE" ) , "Info" )
 
-      @ 210,490 BUTTON Button_24 ;
+      @ 210,450 BUTTON Button_24 ;
          CAPTION "SET DATE" ;
-         ACTION Form_1.Month_2.Value := D"2001/01/01"
+         ACTION Form_1.Month_2.Value := CToD("01/01/2001")
 
-      @ 250,490 BUTTON Button_25 ;
+      @ 250,450 BUTTON Button_25 ;
          CAPTION "GET DATE" ;
          ACTION MsgInfo ( GetDate ( Form_1.Month_2.Value ) , "Info" )
 
@@ -103,16 +100,4 @@ Static Function GetDate ( dDate )
 
    Return cRet
 
-STATIC FUNCTION BoldDays ( dStart, dEnd )
 
-  LOCAL aBold := {}
-  LOCAL dTest := dStart
-
-  WHILE dTest <= dEnd
-    IF DAY(dTest) == 1 .OR. DAY(dTest) == 15 .OR. DAY(dTest) == 29
-      AADD(aBold, dTest)
-    ENDIF
-    dTest ++
-  END WHILE
-
-  RETURN aBold

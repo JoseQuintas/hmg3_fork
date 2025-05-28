@@ -1,40 +1,40 @@
 /*
- * Implementaci√≥n del comando EDIT EXTENDED para la librer√≠a HMG.
- * (c) Crist√≥bal Moll√° [cemese@terra.es]
+ * ImplementaciÛn del comando EDIT EXTENDED para la librerÌa HMG.
+ * (c) CristÛbal Moll· [cemese@terra.es]
 
- This program is free software; you can redistribute it and/or modify it under
- the terms of the GNU General Public License as published by the Free Software
- Foundation; either version 2 of the License, or (at your option) any later
- version.
+ This program is free software; you can redistribute it and/or modify it under 
+ the terms of the GNU General Public License as published by the Free Software 
+ Foundation; either version 2 of the License, or (at your option) any later 
+ version. 
 
- This program is distributed in the hope that it will be useful, but WITHOUT
- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ This program is distributed in the hope that it will be useful, but WITHOUT 
+ ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS 
  FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
- You should have received a copy of the GNU General Public License along with
- this software; see the file COPYING. If not, write to the Free Software
- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA (or
+ You should have received a copy of the GNU General Public License along with 
+ this software; see the file COPYING. If not, write to the Free Software 
+ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA (or 
  visit the web site http://www.gnu.org/).
 
- As a special exception, you have permission for additional uses of the text
+ As a special exception, you have permission for additional uses of the text 
  contained in this file.
 
- The exception is that, if you link this code with other
- files to produce an executable, this does not by itself cause the resulting
+ The exception is that, if you link this code with other 
+ files to produce an executable, this does not by itself cause the resulting 
  executable to be covered by the GNU General Public License.
- Your use of that executable is in no way restricted on account of linking
+ Your use of that executable is in no way restricted on account of linking  
  this code into it.
 
  *
- * - Descripci√≥n -
+ * - DescripciÛn -
  * ===============
  *      EDIT EXTENDED, es un comando que permite realizar el mantenimiento de una bdd. En principio
- *      est√° dise√±ado para administrar bases de datos que usen los divers DBFNTX y DBFCDX,
+ *      est· diseÒado para administrar bases de datos que usen los divers DBFNTX y DBFCDX,
  *      presentando otras bases de datos con diferentes drivers resultados inesperados.
  *
- * - Sint√°xis -
+ * - Sint·xis -
  * ============
- *      Todos los par√°metros del comando EDIT son opcionales.
+ *      Todos los par·metros del comando EDIT son opcionales.
  *
  *      EDIT EXTENDED                           ;
  *       [ WORKAREA cWorkArea ]                 ;
@@ -48,110 +48,110 @@
  *       [ ON FIND bFind ]                      ;
  *       [ ON PRINT bPrint ]
  *
- *      Si no se pasa ning√∫n par√°metro, el comando EDIT toma como bdd de trabajo la del
+ *      Si no se pasa ning˙n par·metro, el comando EDIT toma como bdd de trabajo la del
  *      area de trabajo actual.
  *
  *      [cWorkArea]             Cadena de texto con el nombre del alias de la base de datos
  *                              a editar. Por defecto el alias de la base de datos activa.
- *      [cTitle]                Cadena de texto con el t√≠tulo de la ventana de visualizaci√≥n
+ *      [cTitle]                Cadena de texto con el tÌtulo de la ventana de visualizaciÛn
  *                              de registros. Por defecto se toma el alias de la base de datos
  *                              activa.
  *      [acFieldNames]          Matriz de cadenas de texto con el nombre descriptivo de los
- *                              campos de la base de datos. Tiene que tener el mismo n√∫mero
+ *                              campos de la base de datos. Tiene que tener el mismo n˙mero
  *                              de elementos que campos la bdd. Por defecto se toma el nombre
  *                              de los campos de la estructura de la bdd.
- *      [acFieldMessages]       Matriz de cadenas de texto con el texto que aparaecer√° en la
- *                              barra de estado cuando se este a√±adiento o editando un registro.
+ *      [acFieldMessages]       Matriz de cadenas de texto con el texto que aparaecer· en la
+ *                              barra de estado cuando se este aÒadiento o editando un registro.
  *                              Tiene que tener el mismo numero de elementos que campos la bdd.
  *                              Por defecto se rellena con valores internos.
- *      [alFieldEnabled]        Matriz de valores l√≥gicos que indica si el campo referenciado
- *                              por la matriz esta activo durante la edici√≥n de registro. Tiene
+ *      [alFieldEnabled]        Matriz de valores lÛgicos que indica si el campo referenciado
+ *                              por la matriz esta activo durante la ediciÛn de registro. Tiene
  *                              que tener el mismo numero de elementos que campos la bdd. Por
  *                              defecto toma todos los valores como verdaderos ( .t. ).
- *      [aTableView]            Matriz de valores l√≥gicos que indica si el campo referenciado
+ *      [aTableView]            Matriz de valores lÛgicos que indica si el campo referenciado
  *                              por la matriz es visible en la tabla. Tiene que tener el mismo
  *                              numero de elementos que campos la bdd. Por defecto toma todos
  *                              los valores como verdaderos ( .t. ).
- *      [aOptions]              Matriz de 2 niveles. el primero de tipo texto es la descripci√≥n
- *                              de la opci√≥n. El segundo de tipo bloque de c√≥digo es la opci√≥n
+ *      [aOptions]              Matriz de 2 niveles. el primero de tipo texto es la descripciÛn
+ *                              de la opciÛn. El segundo de tipo bloque de cÛdigo es la opciÛn
  *                              a ejecutar cuando se selecciona. Si no se pasa esta variable,
  *                              se desactiva la lista desplegable de opciones.
  *      [bSave]                 Bloque de codigo con el formato {|aValores, lNuevo| Accion } que
- *                              se ejecutar√° al pulsar la tecla de guardar registro. Se pasan
+ *                              se ejecutar· al pulsar la tecla de guardar registro. Se pasan
  *                              las variables aValores con el contenido del registro a guardar y
- *                              lNuevo que indica si se est√° a√±adiendo (.t.) o editando (.f.).
- *                              Esta variable ha de devolver .t. para salir del modo de edici√≥n.
- *                              Por defecto se graba con el c√≥digo de la funci√≥n.
+ *                              lNuevo que indica si se est· aÒadiendo (.t.) o editando (.f.).
+ *                              Esta variable ha de devolver .t. para salir del modo de ediciÛn.
+ *                              Por defecto se graba con el cÛdigo de la funciÛn.
  *      [bFind]                 Bloque de codigo a ejecutar cuando se pulsa la tecla de busqueda.
- *                              Por defecto se usa el c√≥digo de la funci√≥n.
- *      [bPrint]                Bloque de c√≥digo a ejecutar cuando se pulsa la tecla de listado.
- *                              Por defecto se usa el codigo de la funci√≥n.
+ *                              Por defecto se usa el cÛdigo de la funciÛn.
+ *      [bPrint]                Bloque de cÛdigo a ejecutar cuando se pulsa la tecla de listado.
+ *                              Por defecto se usa el codigo de la funciÛn.
  *
  *      Ver DEMO.PRG para ejemplo de llamada al comando.
  *
  *
  * - Historial -
  * =============
- *      Mar 03  - Definici√≥n de la funci√≥n.
+ *      Mar 03  - DefiniciÛn de la funciÛn.
  *              - Pruebas.
- *              - Soporte para lenguaje en ingl√©s.
+ *              - Soporte para lenguaje en inglÈs.
  *              - Corregido bug al borrar en bdds con CDX.
- *              - Mejora del control de par√°metros.
- *              - Mejorada la funci√≥n de de busqueda.
+ *              - Mejora del control de par·metros.
+ *              - Mejorada la funciÛn de de busqueda.
  *              - Soprte para multilenguaje.
- *              - Versi√≥n 1.0 lista.
- *      Abr 03  - Corregido bug en la funci√≥n de busqueda (Nombre del bot√≥n).
- *              - A√±adido soporte para idioma Ruso (Grigory Filiatov).
- *              - A√±adido soporte para idioma Catal√°n (Por corregir).
- *              - A√±adido soporte para idioma Portugu√©s (Clovis Nogueira Jr).
- *              - A√±adido soporte para idioma Polaco (Janusz Poura).
- *              - A√±adido soporte para idioma Franc√©s (C. Jouniauxdiv).
- *      May 03  - A√±adido soporte para idioma Italiano (Lupano Piero).
- *              - A√±adido soporte para idioma Alem√°n (Janusz Poura).
+ *              - VersiÛn 1.0 lista.
+ *      Abr 03  - Corregido bug en la funciÛn de busqueda (Nombre del botÛn).
+ *              - AÒadido soporte para idioma Ruso (Grigory Filiatov).
+ *              - AÒadido soporte para idioma Catal·n (Por corregir).
+ *              - AÒadido soporte para idioma PortuguÈs (Clovis Nogueira Jr).
+ *              - AÒadido soporte para idioma Polaco (Janusz Poura).
+ *              - AÒadido soporte para idioma FrancÈs (C. Jouniauxdiv).
+ *      May 03  - AÒadido soporte para idioma Italiano (Lupano Piero).
+ *              - AÒadido soporte para idioma Alem·n (Janusz Poura).
  *              - Cambio del formato de llamada al comando.
- *              - La creaci√≥n de ventanas se realiza en funci√≥n del alto y ancho
+ *              - La creaciÛn de ventanas se realiza en funciÛn del alto y ancho
  *                de la pantalla.
- *              - Se elimina la restricci√≥n de tama√±o en los nombre de etiquetas.
- *              - Se elimina la restricci√≥n de numero de campos del area de la bdd.
- *              - Se elimina la restricci√≥n de que los campos tipo MEMO tienen que ir
+ *              - Se elimina la restricciÛn de tamaÒo en los nombre de etiquetas.
+ *              - Se elimina la restricciÛn de numero de campos del area de la bdd.
+ *              - Se elimina la restricciÛn de que los campos tipo MEMO tienen que ir
  *                al final de la base de datos.
- *              - Se a√±ade la opci√≥n de visualizar comentarios en la barra de estado.
- *              - Se a√±ade opci√≥n de control de visualizaci√≥n de campos en el browse.
- *              - Se modifica el par√°metro nombre del area de la bdd que pasa a ser
+ *              - Se aÒade la opciÛn de visualizar comentarios en la barra de estado.
+ *              - Se aÒade opciÛn de control de visualizaciÛn de campos en el browse.
+ *              - Se modifica el par·metro nombre del area de la bdd que pasa a ser
  *                opcional.
- *              - Se a√±ade la opci√≥n de saltar al siguiente foco mediante la pulsaci√≥n
+ *              - Se aÒade la opciÛn de saltar al siguiente foco mediante la pulsaciÛn
  *                de la tecla ENTER (Solo a controles tipo TEXTBOX).
- *              - Se a√±ade la opci√≥n de cambio del indice activo.
+ *              - Se aÒade la opciÛn de cambio del indice activo.
  *              - Mejora de la rutina de busqueda.
- *              - Mejora en la ventana de definici√≥n de listados.
- *              - Peque√±os cambios en el formato del listado.
- *              - Actualizaci√≥n del soporte multilenguaje.
- *      Jun 03  - Pruebas de la versi√≥n 1.5
- *              - Se implementan las nuevas opciones de la librer√≠a de Ryszard Rylko
+ *              - Mejora en la ventana de definiciÛn de listados.
+ *              - PequeÒos cambios en el formato del listado.
+ *              - ActualizaciÛn del soporte multilenguaje.
+ *      Jun 03  - Pruebas de la versiÛn 1.5
+ *              - Se implementan las nuevas opciones de la librerÌa de Ryszard Rylko
  *              - Se implementa el filtrado de la base de datos.
  *      Ago 03  - Se corrige bug en establecimiento de filtro.
  *              - Actualizado soporte para italiano (Arcangelo Molinaro).
  *              - Actualizado soporte multilenguage.
  *              - Actualizado el soporte para filtrado.
- *      Sep 03  - Idioma Vasco listo. Gracias a Gerardo Fern√°ndez.
+ *      Sep 03  - Idioma Vasco listo. Gracias a Gerardo Fern·ndez.
  *              - Idioma Italaino listo. Gracias a Arcangelo Molinaro.
- *              - Idioma Franc√©s listo. Gracias a Chris Jouniauxdiv.
+ *              - Idioma FrancÈs listo. Gracias a Chris Jouniauxdiv.
  *              - Idioma Polaco listo. Gracias a Jacek Kubica.
  *      Oct 03  - Solucionado problema con las clausulas ON FIND y ON PRINT, ahora
  *                ya tienen el efecto deseado. Gracias a Grigory Filiatov.
  *              - Se cambia la referencia a _ExtendedNavigation por _HMG_SYSDATA [ 255 ]
- *                para adecuarse a la sintaxis de la construci√≥n 76.
- *              - Idioma Alem√°n listo. Gracias a Andreas Wiltfang.
+ *                para adecuarse a la sintaxis de la construciÛn 76.
+ *              - Idioma Alem·n listo. Gracias a Andreas Wiltfang.
  *      Nov 03  - Problema con dbs en set exclusive. Gracias a cas_HMG.
  *              - Problema con tablas con pocos campos. Gracias a cas_HMG.
  *              - Cambio en demo para ajustarse a nueva sintaxis RDD Harbour (DBFFPT).
  *      Dic 03  - Ajuste de la longitud del control para fecha. Gracias a Laszlo Henning.
- *      Ene 04  - Problema de bloqueo con SET DELETED ON. Gracias a Grigory Filiatov y Roberto L¬¢pez.
+ *      Ene 04  - Problema de bloqueo con SET DELETED ON. Gracias a Grigory Filiatov y Roberto L¢pez.
  *
  *
  * - Limitaciones -
  * ================
- *      - No se pueden realizar busquedas por campos l√≥gico o memo.
+ *      - No se pueden realizar busquedas por campos lÛgico o memo.
  *      - No se pueden realizar busquedas en indices con claves compuestas, la busqueda
  *        se realiza por el primer campo de la clave compuesta.
  *
@@ -171,9 +171,9 @@ MEMVAR _HMG_CMACROTEMP
 #include "hmg.ch"
 #include "dbstruct.ch"
 
-// Declaraci√≥n de definiciones.------------------------------------------------
+// DeclaraciÛn de definiciones.------------------------------------------------
 // Generales.
-#define ABM_CRLF                hb_osNewLine()
+#define ABM_CRLF                HB_OsNewLine()
 
 // Estructura de la etiquetas.
 #define ABM_LBL_LEN             5
@@ -183,7 +183,7 @@ MEMVAR _HMG_CMACROTEMP
 #define ABM_LBL_WIDTH           4
 #define ABM_LBL_HEIGHT          5
 
-// Estructura de los controles de edici√≥n.
+// Estructura de los controles de ediciÛn.
 #define ABM_CON_LEN             7
 #define ABM_CON_NAME            1
 #define ABM_CON_ROW             2
@@ -193,7 +193,7 @@ MEMVAR _HMG_CMACROTEMP
 #define ABM_CON_DES             6
 #define ABM_CON_TYPE            7
 
-// Tipos de controles de edici√≥n.
+// Tipos de controles de ediciÛn.
 #define ABM_TEXTBOXC            1
 #define ABM_TEXTBOXN            2
 #define ABM_DATEPICKER          3
@@ -204,23 +204,23 @@ MEMVAR _HMG_CMACROTEMP
 #define ABM_OPC_TEXTO           1
 #define ABM_OPC_BLOQUE          2
 
-// Tipo de acci√≥n al definir las columnas del listado.
+// Tipo de acciÛn al definir las columnas del listado.
 #define ABM_LIS_ADD             1
 #define ABM_LIS_DEL             2
 
-// Tipo de acci√≥n al definir los registros del listado.
+// Tipo de acciÛn al definir los registros del listado.
 #define ABM_LIS_SET1            1
 #define ABM_LIS_SET2            2
 
-// Declaraci√≥n de variables globales.------------------------------------------
+// DeclaraciÛn de variables globales.------------------------------------------
 __THREAD STATIC _cArea           as character            // Nombre del area de la bdd.
 __THREAD STATIC _aEstructura     as array                // Estructura de la bdd.
 __THREAD STATIC _aIndice         as array                // Nombre de los indices de la bdd.
-__THREAD STATIC _aIndiceCampo    as array                // N√∫mero del campo indice.
+__THREAD STATIC _aIndiceCampo    as array                // N˙mero del campo indice.
 __THREAD STATIC _nIndiceActivo   as array                // Indice activo.
 __THREAD STATIC _aNombreCampo    as array                // Nombre desciptivo de los campos de la bdd.
 __THREAD STATIC _aEditable       as array                // Indicador de si son editables.
-__THREAD STATIC _cTitulo         as character            // T√≠tulo de la ventana.
+__THREAD STATIC _cTitulo         as character            // TÌtulo de la ventana.
 __THREAD STATIC _nAltoPantalla   as numeric              // Alto de la pantalla.
 __THREAD STATIC _nAnchoPantalla  as numeric              // Ancho de la pantalla.
 __THREAD STATIC _aEtiqueta       as array                // Datos de las etiquetas.
@@ -228,41 +228,41 @@ __THREAD STATIC _aControl        as array                // Datos de los control
 __THREAD STATIC _aCampoTabla     as array                // Nombre de los campos para la tabla.
 __THREAD STATIC _aAnchoTabla     as array                // Anchos de los campos para la tabla.
 __THREAD STATIC _aCabeceraTabla  as array                // Texto de las columnas de la tabla.
-__THREAD STATIC _aAlineadoTabla  as array                // Alineaci√≥n de las columnas de la tabla.
+__THREAD STATIC _aAlineadoTabla  as array                // AlineaciÛn de las columnas de la tabla.
 __THREAD STATIC _aVisibleEnTabla as array                // Campos visibles en la tabla.
 __THREAD STATIC _nControlActivo  as numeric              // Control con foco.
 __THREAD STATIC _aOpciones       as array                // Opciones del usuario.
-__THREAD STATIC _bGuardar        as codeblock            // Acci√≥n para guardar registro.
-__THREAD STATIC _bBuscar         as codeblock            // Acci√≥n para buscar registro.
-__THREAD STATIC _bImprimir       as codeblock            // Acci√≥n para imprimir listado.
+__THREAD STATIC _bGuardar        as codeblock            // AcciÛn para guardar registro.
+__THREAD STATIC _bBuscar         as codeblock            // AcciÛn para buscar registro.
+__THREAD STATIC _bImprimir       as codeblock            // AcciÛn para imprimir listado.
 __THREAD STATIC _lFiltro         as logical              // Indicativo de filtro activo.
-__THREAD STATIC _cFiltro         as character            // Condici√≥n de filtro.
+__THREAD STATIC _cFiltro         as character            // CondiciÛn de filtro.
 
 
 
 /****************************************************************************************
- *  Aplicaci√≥n: Comando EDIT para HMG
- *       Autor: Crist√≥bal Moll√° [cemese@terra.es]
- *     Funci√≥n: ABM()
- * Descripci√≥n: Funci√≥n inicial. Comprueba los par√°metros pasados, crea la estructura
- *              para las etiquetas y controles de edici√≥n y crea la ventana de visualizaci√≥n
+ *  AplicaciÛn: Comando EDIT para HMG
+ *       Autor: CristÛbal Moll· [cemese@terra.es]
+ *     FunciÛn: ABM()
+ * DescripciÛn: FunciÛn inicial. Comprueba los par·metros pasados, crea la estructura
+ *              para las etiquetas y controles de ediciÛn y crea la ventana de visualizaciÛn
  *              de registro.
- *  Par√°metros: cArea           Nombre del area de la bdd. Por defecto se toma el area
+ *  Par·metros: cArea           Nombre del area de la bdd. Por defecto se toma el area
  *                              actual.
- *              cTitulo         T√≠tulo de la ventana de edici√≥n. Por defecto se toma el
+ *              cTitulo         TÌtulo de la ventana de ediciÛn. Por defecto se toma el
  *                              nombre de la base de datos actual.
- *              aNombreCampo    Matriz de valores car√°cter con los nombres descriptivos de
+ *              aNombreCampo    Matriz de valores car·cter con los nombres descriptivos de
  *                              los campos de la bdd.
- *              aAvisoCampo     Matriz con los textos que se presentar√°n en la barra de
- *                              estado al editar o a√±adir un registro.
- *              aEditable       Matriz de val√≥re l√≥gicos que indica si el campo referenciado
- *                              esta activo en la ventana de edici√≥n de registro.
- *              aVisibleEnTabla Matriz de valores l√≥gicos que indica la visibilidad de los
- *                              campos del browse de la ventana de edici√≥n.
+ *              aAvisoCampo     Matriz con los textos que se presentar·n en la barra de
+ *                              estado al editar o aÒadir un registro.
+ *              aEditable       Matriz de valÛre lÛgicos que indica si el campo referenciado
+ *                              esta activo en la ventana de ediciÛn de registro.
+ *              aVisibleEnTabla Matriz de valores lÛgicos que indica la visibilidad de los
+ *                              campos del browse de la ventana de ediciÛn.
  *              aOpciones       Matriz con los valores de las opciones de usuario.
- *              bGuardar        Bloque de c√≥digo para la acci√≥n de guardar registro.
- *              bBuscar         Bloque de c√≥digo para la acci√≥n de buscar registro.
- *              bImprimir       Bloque de c√≥digo para la acci√≥n imprimir.
+ *              bGuardar        Bloque de cÛdigo para la acciÛn de guardar registro.
+ *              bBuscar         Bloque de cÛdigo para la acciÛn de buscar registro.
+ *              bImprimir       Bloque de cÛdigo para la acciÛn imprimir.
  *    Devuelve: NIL
 ****************************************************************************************/
 function ABM2( cArea, cTitulo, aNombreCampo, ;
@@ -270,40 +270,40 @@ function ABM2( cArea, cTitulo, aNombreCampo, ;
                aOpciones, bGuardar, bBuscar, ;
                bImprimir )
 
-////////// Declaraci√≥n de variables locales.-----------------------------------
-        local   i              as numeric       // Indice de iteraci√≥n.
-        local   k              as numeric       // Indice de iteraci√≥n.
+////////// DeclaraciÛn de variables locales.-----------------------------------
+        local   i              as numeric       // Indice de iteraciÛn.
+        local   k              as numeric       // Indice de iteraciÛn.
         local   nArea          as numeric       // Numero del area de la bdd.
-        local   nRegistro      as numeric       // N√∫mero de regisrto de la bdd.
+        local   nRegistro      as numeric       // N˙mero de regisrto de la bdd.
         local   lSalida        as logical       // Control de bucle.
-        local   nVeces         as numeric       // Indice de iteraci√≥n.
+        local   nVeces         as numeric       // Indice de iteraciÛn.
         local   cIndice        as character     // Nombre del indice.
         local   cIndiceActivo  as character     // Nombre del indice activo.
         local   cClave         as character     // Clave del indice.
         local   nInicio        as numeric       // Inicio de la cadena de busqueda.
         local   nAnchoCampo    as numeric       // Ancho del campo actual.
-        local   nAnchoEtiqueta as numeric       // Ancho m√°ximo de las etiquetas.
-        local   nFila          as numeric       // Fila de creaci√≥n del control de edici√≥n.
-        local   nColumna       as numeric       // Columna de creaci√≥n del control de edici√≥n.
+        local   nAnchoEtiqueta as numeric       // Ancho m·ximo de las etiquetas.
+        local   nFila          as numeric       // Fila de creaciÛn del control de ediciÛn.
+        local   nColumna       as numeric       // Columna de creaciÛn del control de ediciÛn.
         local   aTextoOp       as numeric       // Texto de las opciones de usuario.
         local   _BakExtendedNavigation          // Estado de SET NAVIAGTION.
         Local _BackDeleted
-        Local cFiltroAnt     as character     // Condici√≥n del filtro anterior.
+        Local cFiltroAnt     as character     // CondiciÛn del filtro anterior.
         public  nImpLen
 
 
 ////////// Gusrdar estado actual de SET DELETED y activarlo
-        _BackDeleted := Set( _SET_DELETED )
+        _BackDeleted := set( _SET_DELETED )
         SET DELETED ON
 
-////////// Inicializaci√≥n del soporte multilenguaje.---------------------------
-    InitMessages()
+////////// InicializaciÛn del soporte multilenguaje.---------------------------
+	InitMessages()
 
-////////// Desactivaci√≥n de SET NAVIGATION.------------------------------------
+////////// DesactivaciÛn de SET NAVIGATION.------------------------------------
         _BakExtendedNavigation := _HMG_SYSDATA [ 255 ]
         _HMG_SYSDATA [ 255 ]    := .F.
 
-////////// Control de par√°metros.----------------------------------------------
+////////// Control de par·metros.----------------------------------------------
         // Area de la base de datos.
         if ( ValType( cArea ) != "C" ) .or. Empty( cArea )
                 _cArea := Alias()
@@ -316,11 +316,11 @@ function ABM2( cArea, cTitulo, aNombreCampo, ;
         endif
         _aEstructura := (_cArea)->( dbStruct() )
 
-        // T√≠tulo de la ventana.
+        // TÌtulo de la ventana.
         if ( cTitulo == NIL )
                 _cTitulo := _cArea
         else
-                if ( ValType( cTitulo ) != "C" )
+                if ( Valtype( cTitulo ) != "C" )
                         _cTitulo := _cArea
                 else
                         _cTitulo := cTitulo
@@ -348,12 +348,12 @@ function ABM2( cArea, cTitulo, aNombreCampo, ;
         else
                 _aNombreCampo := {}
                 for i := 1 to HMG_LEN( _aEstructura )
-                        aAdd( _aNombreCampo, HMG_UPPER( hb_ULeft( _aEstructura[i,DBS_NAME], 1 ) ) + ;
-                                             HMG_LOWER( hb_USubStr( _aEstructura[i,DBS_NAME], 2 ) ) )
+                        aAdd( _aNombreCampo, HMG_UPPER( HB_ULEFT( _aEstructura[i,DBS_NAME], 1 ) ) + ;
+                                             HMG_LOWER( HB_USUBSTR( _aEstructura[i,DBS_NAME], 2 ) ) )
                 next
         endif
 
-        // Texto de aviso en la barra de estado de la ventana de edici√≥n de registro.
+        // Texto de aviso en la barra de estado de la ventana de ediciÛn de registro.
         lSalida := .t.
         if ( ValType( aAvisoCampo ) != "A" )
                 lSalida := .f.
@@ -362,7 +362,7 @@ function ABM2( cArea, cTitulo, aNombreCampo, ;
                         lSalida := .f.
                 else
                         for i := 1 to HMG_LEN( aAvisoCampo )
-                                if ValType( aAvisoCampo[i] ) != "C"
+                                if Valtype( aAvisoCampo[i] ) != "C"
                                         lSalida := .f.
                                         exit
                                 endif
@@ -389,9 +389,9 @@ function ABM2( cArea, cTitulo, aNombreCampo, ;
                 next
         endif
 
-        // Campos visibles en la tabla de la ventana de visualizaci√≥n de registros.
+        // Campos visibles en la tabla de la ventana de visualizaciÛn de registros.
         lSalida := .t.
-        if ( ValType( aVisibleEnTabla ) != "A" )
+        if ( Valtype( aVisibleEnTabla ) != "A" )
                 lSalida := .f.
         else
                 if HMG_LEN( aVisibleEnTabla ) != HMG_LEN( _aEstructura )
@@ -414,7 +414,7 @@ function ABM2( cArea, cTitulo, aNombreCampo, ;
                 next
         endif
 
-        // Estado de los campos en la ventana de edici√≥n de registro.
+        // Estado de los campos en la ventana de ediciÛn de registro.
         lSalida := .t.
         if ( ValType( aEditable ) != "A" )
                 lSalida := .f.
@@ -441,27 +441,27 @@ function ABM2( cArea, cTitulo, aNombreCampo, ;
 
 **** JK 104
 
-    // Opciones del usuario.
-    lSalida := .t.
+	// Opciones del usuario.
+	lSalida := .t.
 
-    if ValType( aOpciones ) != "A"
-        lSalida := .f.
-    elseif HMG_LEN(aOpciones)<1
-        lSalida := .f.
-    elseif HMG_LEN( aOpciones[1] ) != 2
-        lSalida := .f.
-    else
-        for i := 1 to HMG_LEN( aOpciones )
-            if ValType( aOpciones [i,ABM_OPC_TEXTO] ) != "C"
-                lSalida := .f.
-                exit
-            endif
-            if ValType( aOpciones [i,ABM_OPC_BLOQUE] ) != "B"
-                lSalida := .f.
-                exit
-            endif
-        next
-    endif
+	if ValType( aOpciones ) != "A" 
+		lSalida := .f.
+	elseif HMG_LEN(aOpciones)<1
+		lSalida := .f.
+	elseif HMG_LEN( aOpciones[1] ) != 2
+		lSalida := .f.
+	else
+		for i := 1 to HMG_LEN( aOpciones )
+			if ValType( aOpciones [i,ABM_OPC_TEXTO] ) != "C"
+				lSalida := .f.
+				exit
+			endif
+			if ValType( aOpciones [i,ABM_OPC_BLOQUE] ) != "B"
+				lSalida := .f.
+				exit
+			endif
+		next
+	endif
 
 **** END JK 104
 
@@ -471,28 +471,28 @@ function ABM2( cArea, cTitulo, aNombreCampo, ;
                 _aOpciones := {}
         endif
 
-        // Acci√≥n al guardar.
+        // AcciÛn al guardar.
         if ValType( bGuardar ) == "B"
                 _bGuardar := bGuardar
         else
                 _bGuardar := NIL
         endif
 
-        // Acci√≥n al buscar.
+        // AcciÛn al buscar.
         if ValType( bBuscar ) == "B"
                 _bBuscar := bBuscar
         else
                 _bBuscar := NIL
         endif
 
-        // Acci√≥n al buscar.
+        // AcciÛn al buscar.
         if ValType( bImprimir ) == "B"
                 _bImprimir := bImprimir
         else
                 _bImprimir := NIL
         endif
 
-////////// Selecci√≥n del area de la bdd.---------------------------------------
+////////// SelecciÛn del area de la bdd.---------------------------------------
         nRegistro     := (_cArea)->( RecNo() )
         nArea         := Select()
         cIndiceActivo := (_cArea)->( ordSetFocus() )
@@ -500,7 +500,7 @@ function ABM2( cArea, cTitulo, aNombreCampo, ;
         dbSelectArea( _cArea )
         (_cArea)->( dbGoTop() )
 
-////////// Inicializaci√≥n de variables.----------------------------------------
+////////// InicializaciÛn de variables.----------------------------------------
         // Filtro.
         if (_cArea)->( dbFilter() ) == ""
                 _lFiltro := .f.
@@ -526,7 +526,7 @@ function ABM2( cArea, cTitulo, aNombreCampo, ;
                         cClave := HMG_UPPER( (_cArea)->( ordKey( k ) ) )
                         for i := 1 to HMG_LEN( _aEstructura )
                                 if nVeces <= 1
-                                        nInicio := hb_UAt( _aEstructura[i,DBS_NAME], cClave )
+                                        nInicio := HB_UAT( _aEstructura[i,DBS_NAME], cClave )
                                         if  nInicio != 0
                                                 aAdd( _aIndiceCampo, i )
                                                 nVeces++
@@ -545,11 +545,11 @@ function ABM2( cArea, cTitulo, aNombreCampo, ;
                 _nIndiceActivo := aScan( _aIndice, (_cArea)->( ordSetFocus() ) )
         endif
 
-        // Tama√±o de la pantalla.
+        // TamaÒo de la pantalla.
         _nAltoPantalla  := getDesktopHeight()
         _nAnchoPantalla := getDesktopWidth()
 
-        // Datos de las etiquetas y los controles de la ventana de edici√≥n.
+        // Datos de las etiquetas y los controles de la ventana de ediciÛn.
         _aEtiqueta     := Array( HMG_LEN( _aEstructura ), ABM_LBL_LEN )
         _aControl      := Array( HMG_LEN( _aEstructura ), ABM_CON_LEN )
         nFila          := 10
@@ -561,14 +561,14 @@ function ABM2( cArea, cTitulo, aNombreCampo, ;
                                        HMG_LEN( _aNombreCampo[i] ) * 9 )
         next
         for i := 1 to HMG_LEN( _aEstructura )
-                _aEtiqueta[i,ABM_LBL_NAME]   := "ABM2Etiqueta" + ALLTRIM( Str( i ,4,0) )
+                _aEtiqueta[i,ABM_LBL_NAME]   := "ABM2Etiqueta" + ALLTRIM( STR( i ,4,0) )
                 _aEtiqueta[i,ABM_LBL_ROW]    := nFila
                 _aEtiqueta[i,ABM_LBL_COL]    := nColumna
                 _aEtiqueta[i,ABM_LBL_WIDTH]  := HMG_LEN( _aNombreCampo[i] ) * 9
                 _aEtiqueta[i,ABM_LBL_HEIGHT] := 25
                 do case
                         case _aEstructura[i,DBS_TYPE] == "C"
-                                _aControl[i,ABM_CON_NAME]   := "ABM2Control" + ALLTRIM( Str( i ,4,0) )
+                                _aControl[i,ABM_CON_NAME]   := "ABM2Control" + ALLTRIM( STR( i ,4,0) )
                                 _aControl[i,ABM_CON_ROW]    := nFila
                                 _aControl[i,ABM_CON_COL]    := nColumna + nAnchoEtiqueta + 20
                                 _aControl[i,ABM_CON_WIDTH]  := iif( ( _aEstructura[i,DBS_LEN] * 10 ) < 50, 50, _aEstructura[i,DBS_LEN] * 10 )
@@ -577,7 +577,7 @@ function ABM2( cArea, cTitulo, aNombreCampo, ;
                                 _aControl[i,ABM_CON_TYPE]   := ABM_TEXTBOXC
                                 nFila += 35
                         case _aEstructura[i,DBS_TYPE] == "D"
-                                _aControl[i,ABM_CON_NAME]   := "ABM2Control" + ALLTRIM( Str( i ,4,0) )
+                                _aControl[i,ABM_CON_NAME]   := "ABM2Control" + ALLTRIM( STR( i ,4,0) )
                                 _aControl[i,ABM_CON_ROW]    := nFila
                                 _aControl[i,ABM_CON_COL]    := nColumna + nAnchoEtiqueta + 20
                                 _aControl[i,ABM_CON_WIDTH]  := _aEstructura[i,DBS_LEN] * 10
@@ -586,7 +586,7 @@ function ABM2( cArea, cTitulo, aNombreCampo, ;
                                 _aControl[i,ABM_CON_TYPE]   := ABM_DATEPICKER
                                 nFila += 35
                         case _aEstructura[i,DBS_TYPE] == "N"
-                                _aControl[i,ABM_CON_NAME]   := "ABM2Control" + ALLTRIM( Str( i ,4,0) )
+                                _aControl[i,ABM_CON_NAME]   := "ABM2Control" + ALLTRIM( STR( i ,4,0) )
                                 _aControl[i,ABM_CON_ROW]    := nFila
                                 _aControl[i,ABM_CON_COL]    := nColumna + nAnchoEtiqueta + 20
                                 _aControl[i,ABM_CON_WIDTH]  := iif( ( _aEstructura[i,DBS_LEN] * 10 ) < 50, 50, _aEstructura[i,DBS_LEN] * 10 )
@@ -595,7 +595,7 @@ function ABM2( cArea, cTitulo, aNombreCampo, ;
                                 _aControl[i,ABM_CON_TYPE]   := ABM_TEXTBOXN
                                 nFila += 35
                         case _aEstructura[i,DBS_TYPE] == "L"
-                                _aControl[i,ABM_CON_NAME]   := "ABM2Control" + ALLTRIM( Str( i ,4,0) )
+                                _aControl[i,ABM_CON_NAME]   := "ABM2Control" + ALLTRIM( STR( i ,4,0) )
                                 _aControl[i,ABM_CON_ROW]    := nFila
                                 _aControl[i,ABM_CON_COL]    := nColumna + nAnchoEtiqueta + 20
                                 _aControl[i,ABM_CON_WIDTH]  := 25
@@ -604,7 +604,7 @@ function ABM2( cArea, cTitulo, aNombreCampo, ;
                                 _aControl[i,ABM_CON_TYPE]   := ABM_CHECKBOX
                                 nFila += 35
                         case _aEstructura[i,DBS_TYPE] == "M"
-                                _aControl[i,ABM_CON_NAME]   := "ABM2Control" + ALLTRIM( Str( i ,4,0) )
+                                _aControl[i,ABM_CON_NAME]   := "ABM2Control" + ALLTRIM( STR( i ,4,0) )
                                 _aControl[i,ABM_CON_ROW]    := nFila
                                 _aControl[i,ABM_CON_COL]    := nColumna + nAnchoEtiqueta + 20
                                 _aControl[i,ABM_CON_WIDTH]  := 300
@@ -615,7 +615,7 @@ function ABM2( cArea, cTitulo, aNombreCampo, ;
                 endcase
          next
 
-        // Datos de la tabla de la ventana de visualizaci√≥n.
+        // Datos de la tabla de la ventana de visualizaciÛn.
         _aCampoTabla    := {}
         _aAnchoTabla    := {}
         _aCabeceraTabla := {}
@@ -637,7 +637,7 @@ function ABM2( cArea, cTitulo, aNombreCampo, ;
                 endif
         next
 
-////////// Definici√≥n de la ventana de visualizaci√≥n.--------------------------
+////////// DefiniciÛn de la ventana de visualizaciÛn.--------------------------
         define window wndABM2Edit               ;
                 AT 60, 30                       ;
                 width _nAnchoPantalla - 60      ;
@@ -650,14 +650,14 @@ function ABM2( cArea, cTitulo, aNombreCampo, ;
                 on release {|| ABM2salir(nRegistro, cIndiceActivo, cFiltroAnt, nArea) }   ;
                 font "ms sans serif" size 9
 
-                // Define la barra de estado de la ventana de visualizaci√≥n.
+                // Define la barra de estado de la ventana de visualizaciÛn.
                 define statusbar font "ms sans serif" size 9
                         statusitem _HMG_SYSDATA [ 129 ][19]                           // 1
                         statusitem _HMG_SYSDATA [ 129 ][20]         width 100 raised  // 2
                         statusitem _HMG_SYSDATA [ 129 ][2] +': '     width 200 raised // 3
                 end statusbar
 
-                // Define la barra de botones de la ventana de visualizaci√≥n.
+                // Define la barra de botones de la ventana de visualizaciÛn.
                 define toolbar tbEdit buttonsize 90, 32 flat righttext border
                         button tbbCerrar  caption _HMG_SYSDATA [ 128 ][1]   ;
                                           picture "HMG_EDIT_CLOSE"          ;
@@ -681,7 +681,7 @@ function ABM2( cArea, cTitulo, aNombreCampo, ;
 
         end window
 
-////////// Creaci√≥n de los controles de la ventana de visualizaci√≥n.-----------
+////////// CreaciÛn de los controles de la ventana de visualizaciÛn.-----------
         @ 45, 10 frame frmEditOpciones          ;
                 of wndABM2Edit                  ;
                 caption ""                      ;
@@ -757,39 +757,39 @@ function ABM2( cArea, cTitulo, aNombreCampo, ;
                 wndABM2Edit.cbOpciones.Enabled := .f.
         endif
 
-////////// Activaci√≥n de la ventana de visualizaci√≥n.--------------------------
+////////// ActivaciÛn de la ventana de visualizaciÛn.--------------------------
         activate window wndABM2Edit
 
-////////// Restauraci√≥n de SET NAVIGATION.-------------------------------------
+////////// RestauraciÛn de SET NAVIGATION.-------------------------------------
         _HMG_SYSDATA [ 255 ] := _BakExtendedNavigation
 
 ////////// Restaurar SET DELETED a su valor inicial
 
-        Set( _SET_DELETED , _BackDeleted  )
+        set( _SET_DELETED , _BackDeleted  )
 
 return NIL
 
 
 /****************************************************************************************
- *  Aplicaci√≥n: Comando EDIT para HMG
- *       Autor: Crist√≥bal Moll√° [cemese@terra.es]
- *     Funci√≥n: ABM2salir()
- * Descripci√≥n: Cierra la ventana de visualizaci√≥n de registros y sale.
- *  Par√°metros: Ninguno.
+ *  AplicaciÛn: Comando EDIT para HMG
+ *       Autor: CristÛbal Moll· [cemese@terra.es]
+ *     FunciÛn: ABM2salir()
+ * DescripciÛn: Cierra la ventana de visualizaciÛn de registros y sale.
+ *  Par·metros: Ninguno.
  *    Devuelve: NIL
 ****************************************************************************************/
 STATIC function ABM2salir( nRegistro, cIndiceActivo, cFiltroAnt, nArea )
 
-////////// Declaraci√≥n de variables locales.-----------------------------------
-        local bFiltroAnt as codeblock           // Bloque de c√≥digo del filtro.
+////////// DeclaraciÛn de variables locales.-----------------------------------
+        local bFiltroAnt as codeblock           // Bloque de cÛdigo del filtro.
 
-////////// Inicializaci√≥n de variables.----------------------------------------
+////////// InicializaciÛn de variables.----------------------------------------
         bFiltroAnt := iif( Empty( cFiltroAnt ),;
                            &("{||NIL}"),;
                            &("{||" + cFiltroAnt + "}") )
 
 ////////// Restaura el area de la bdd inicial.---------------------------------
-        (_cArea)->( dbGoto( nRegistro ) )
+        (_cArea)->( dbGoTo( nRegistro ) )
         (_cArea)->( ordSetFocus( cIndiceActivo ) )
         (_cArea)->( dbSetFilter( bFiltroAnt, cFiltroAnt ) )
         dbSelectArea( nArea )
@@ -799,16 +799,16 @@ return NIL
 
 
 /****************************************************************************************
- *  Aplicaci√≥n: Comando EDIT para HMG
- *       Autor: Crist√≥bal Moll√° [cemese@terra.es]
- *     Funci√≥n: ABM2Redibuja()
- * Descripci√≥n: Actualizaci√≥n de la ventana de visualizaci√≥n de registros.
- *  Par√°metros: Ninguno
+ *  AplicaciÛn: Comando EDIT para HMG
+ *       Autor: CristÛbal Moll· [cemese@terra.es]
+ *     FunciÛn: ABM2Redibuja()
+ * DescripciÛn: ActualizaciÛn de la ventana de visualizaciÛn de registros.
+ *  Par·metros: Ninguno
  *    Devuelve: NIL
 ****************************************************************************************/
 STATIC function ABM2Redibuja( lTabla )
 
-////////// Control de par√°metros.----------------------------------------------
+////////// Control de par·metros.----------------------------------------------
         if ValType( lTabla ) != "L"
                 lTabla := .f.
         endif
@@ -830,8 +830,8 @@ STATIC function ABM2Redibuja( lTabla )
         wndABM2Edit.StatusBar.Item( 1 ) := _HMG_SYSDATA [ 129 ][19] + _cFiltro
         wndABM2Edit.StatusBar.Item( 2 ) := _HMG_SYSDATA [ 129 ][20] + iif( _lFiltro, _HMG_SYSDATA [ 130 ][29], _HMG_SYSDATA [ 130 ][30] )
         wndABM2Edit.StatusBar.Item( 3 ) := _HMG_SYSDATA [ 129 ][2] + ': '+                                  ;
-                                           ALLTRIM( Str( (_cArea)->( RecNo() ) ) ) + "/" + ;
-                                           ALLTRIM( Str( (_cArea)->( RecCount() ) ) )
+                                           ALLTRIM( STR( (_cArea)->( RecNo() ) ) ) + "/" + ;
+                                           ALLTRIM( STR( (_cArea)->( RecCount() ) ) )
 
 
 ////////// Refresca el browse si se indica.
@@ -848,22 +848,22 @@ return NIL
 
 
 /****************************************************************************************
- *  Aplicaci√≥n: Comando EDIT para HMG
- *       Autor: Crist√≥bal Moll√° [cemese@terra.es]
- *     Funci√≥n: ABM2CambiarOrden()
- * Descripci√≥n: Cambia el orden activo.
- *  Par√°metros: Ninguno
+ *  AplicaciÛn: Comando EDIT para HMG
+ *       Autor: CristÛbal Moll· [cemese@terra.es]
+ *     FunciÛn: ABM2CambiarOrden()
+ * DescripciÛn: Cambia el orden activo.
+ *  Par·metros: Ninguno
  *    Devuelve: NIL
 ****************************************************************************************/
 STATIC function ABM2CambiarOrden()
 
-////////// Declaraci√≥n de variables locales.-----------------------------------
-       // local cIndice as character              // Nombre del indice.
-        local nIndice as numeric                // N√∫mero del indice.
+////////// DeclaraciÛn de variables locales.-----------------------------------
+        local cIndice as character              // Nombre del indice.
+        local nIndice as numeric                // N˙mero del indice.
 
 ////////// Inicializa las variables.-------------------------------------------
         nIndice := wndABM2Edit.cbIndices.Value
-       // cIndice := wndABM2Edit.cbIndices.Item( nIndice ) //Variable 'CINDICE' is assigned but not used in function. asistex
+        cIndice := wndABM2Edit.cbIndices.Item( nIndice )
 
 ////////// Cambia el orden del area de trabajo.--------------------------------
         nIndice--
@@ -878,24 +878,24 @@ return NIL
 
 
 /****************************************************************************************
- *  Aplicaci√≥n: Comando EDIT para HMG
- *       Autor: Crist√≥bal Moll√° [cemese@terra.es]
- *     Funci√≥n: ABM2EjecutaOpcion()
- * Descripci√≥n: Ejecuta las opciones del usuario.
- *  Par√°metros: Ninguno
+ *  AplicaciÛn: Comando EDIT para HMG
+ *       Autor: CristÛbal Moll· [cemese@terra.es]
+ *     FunciÛn: ABM2EjecutaOpcion()
+ * DescripciÛn: Ejecuta las opciones del usuario.
+ *  Par·metros: Ninguno
  *    Devuelve: NIL
 ****************************************************************************************/
 STATIC function ABM2EjecutaOpcion()
 
-////////// Declaraci√≥n de variables locales.-----------------------------------
+////////// DeclaraciÛn de variables locales.-----------------------------------
         local nItem    as numeric               // Numero del item seleccionado.
         local bBloque  as codebloc              // Bloque de codigo a ejecutar.
 
-////////// Inicializaci√≥n de variables.----------------------------------------
+////////// InicializaciÛn de variables.----------------------------------------
         nItem   := wndABM2Edit.cbOpciones.Value
         bBloque := _aOpciones[nItem,ABM_OPC_BLOQUE]
 
-////////// Ejecuta la opci√≥n.--------------------------------------------------
+////////// Ejecuta la opciÛn.--------------------------------------------------
         Eval( bBloque )
 
 ////////// Refresca el browse.
@@ -906,36 +906,36 @@ return NIL
 
 
 /****************************************************************************************
- *  Aplicaci√≥n: Comando EDIT para HMG
- *       Autor: Crist√≥bal Moll√° [cemese@terra.es]
- *     Funci√≥n: ABM2Editar( lNuevo )
- * Descripci√≥n: Creaci√≥n de la ventana de edici√≥n de registro.
- *  Par√°metros: lNuevo          Valor l√≥gico que indica si se est√° a√±adiendo un registro
+ *  AplicaciÛn: Comando EDIT para HMG
+ *       Autor: CristÛbal Moll· [cemese@terra.es]
+ *     FunciÛn: ABM2Editar( lNuevo )
+ * DescripciÛn: CreaciÛn de la ventana de ediciÛn de registro.
+ *  Par·metros: lNuevo          Valor lÛgico que indica si se est· aÒadiendo un registro
  *                              o editando el actual.
  *    Devuelve:
 ****************************************************************************************/
 STATIC function ABM2Editar( lNuevo )
 
-////////// Declaraci√≥n de variables locales.-----------------------------------
-        local i              as numeric         // Indice de iteraci√≥n.
-        local nAnchoEtiqueta as numeric         // Ancho m√°ximo de las etiquetas.
-        local nAltoControl   as numeric         // Alto total de los controles de edici√≥n.
-        local nAncho         as numeric         // Ancho de la ventana de edici√≥n .
-        local nAlto          as numeric         // Alto de la ventana de edici√≥n.
-        local nAnchoTope     as numeric         // Ancho m√°ximo de la ventana de edici√≥n.
-        local nAltoTope      as numeric         // Alto m√°ximo de la ventana de edici√≥n.
+////////// DeclaraciÛn de variables locales.-----------------------------------
+        local i              as numeric         // Indice de iteraciÛn.
+        local nAnchoEtiqueta as numeric         // Ancho m·ximo de las etiquetas.
+        local nAltoControl   as numeric         // Alto total de los controles de ediciÛn.
+        local nAncho         as numeric         // Ancho de la ventana de ediciÛn .
+        local nAlto          as numeric         // Alto de la ventana de ediciÛn.
+        local nAnchoTope     as numeric         // Ancho m·ximo de la ventana de ediciÛn.
+        local nAltoTope      as numeric         // Alto m·ximo de la ventana de ediciÛn.
         local nAnchoSplit    as numeric         // Ancho de la ventana Split.
         local nAltoSplit     as numeric         // Alto de la ventana Split.
-        local cTitulo        as character       // T√≠tulo de la ventana.
-        local cMascara       as array           // M√°scara de edici√≥n de los controles num√©ricos.
-    local NANCHOCONTROL
+        local cTitulo        as character       // TÌtulo de la ventana.
+        local cMascara       as array           // M·scara de ediciÛn de los controles numÈricos.
+	local NANCHOCONTROL
 
-////////// Control de par√°metros.----------------------------------------------
+////////// Control de par·metros.----------------------------------------------
         if ( ValType( lNuevo ) != "L" )
                 lNuevo := .t.
         endif
 
-////////// Incializaci√≥n de variables.-----------------------------------------
+////////// IncializaciÛn de variables.-----------------------------------------
         nAnchoEtiqueta := 0
         nAnchoControl  := 0
         nAltoControl   := 0
@@ -957,7 +957,7 @@ STATIC function ABM2Editar( lNuevo )
         nAnchoTope  := _nAnchoPantalla - 60
         cTitulo     := iif( lNuevo, _HMG_SYSDATA [ 129 ][6], _HMG_SYSDATA [ 129 ][7] )
 
-////////// Define la ventana de edici√≥n de registro.---------------------------
+////////// Define la ventana de ediciÛn de registro.---------------------------
         define window wndABM2EditNuevo                                  ;
                 AT 70, 40                                               ;
                 width iif( nAncho > nAnchoTope, nAnchoTope, nAncho )    ;
@@ -968,14 +968,14 @@ STATIC function ABM2Editar( lNuevo )
                 nosysmenu                                               ;
                 font "ms sans serif" size 9
 
-                // Define la barra de estado de la ventana de edici√≥n de registro.
+                // Define la barra de estado de la ventana de ediciÛn de registro.
                 define statusbar font "ms sans serif" size 9
                         statusitem ""
                 end statusbar
 
                 define splitbox
 
-                        // Define la barra de botones de la ventana de edici√≥n de registro.
+                        // Define la barra de botones de la ventana de ediciÛn de registro.
                         define toolbar tbEditNuevo buttonsize 90, 32 flat righttext
                                 button tbbCancelar caption _HMG_SYSDATA [ 128 ][7]              ;
                                                    picture "HMG_EDIT_CANCEL"        ;
@@ -988,7 +988,7 @@ STATIC function ABM2Editar( lNuevo )
                                                    action  ABM2EditarCopiar()
                         end toolbar
 
-                        // Define la ventana donde van contenidos los controles de edici√≥n.
+                        // Define la ventana donde van contenidos los controles de ediciÛn.
                         define window wndABM2EditNuevoSplit             ;
                                 width iif( nAncho > nAnchoTope,         ;
                                            nAnchoTope - 10,             ;
@@ -1020,7 +1020,7 @@ STATIC function ABM2Editar( lNuevo )
                         font "ms sans serif" size 9
         next
 
-////////// Define los controles de edici√≥n.------------------------------------
+////////// Define los controles de ediciÛn.------------------------------------
         for i := 1 to HMG_LEN( _aControl )
                 do case
                         case _aControl[i,ABM_CON_TYPE] == ABM_TEXTBOXC
@@ -1045,7 +1045,7 @@ STATIC function ABM2Editar( lNuevo )
                                         height _aControl[i,ABM_CON_HEIGHT]              ;
                                         width _aControl[i,ABM_CON_WIDTH] + 25           ;
                                         font "arial" size 9                             ;
-                    SHOWNONE                    ;
+					SHOWNONE 					;
                                         on gotfocus ABM2ConFoco()                       ;
                                         on lostfocus ABM2SinFoco()
                         case _aControl[i,ABM_CON_TYPE] == ABM_TEXTBOXN
@@ -1065,10 +1065,10 @@ STATIC function ABM2Editar( lNuevo )
                                                 on enter ABM2AlEntrar()
                                 else
                                         cMascara := ""
-                                        cMascara := Replicate( "9", _aEstructura[i,DBS_LEN] -   ;
+                                        cMascara := REPLICATE( "9", _aEstructura[i,DBS_LEN] -   ;
                                                             ( _aEstructura[i,DBS_DEC] + 1 ) )
                                         cMascara += "."
-                                        cMascara += Replicate( "9", _aEstructura[i,DBS_DEC] )
+                                        cMascara += REPLICATE( "9", _aEstructura[i,DBS_DEC] )
                                         _HMG_cMacroTemp := _aControl[i,ABM_CON_NAME]
                                         @ _aControl[i,ABM_CON_ROW], _aControl[i,ABM_CON_COL]    ;
                                                 textbox &_HMG_cMacroTemp              ;
@@ -1107,7 +1107,7 @@ STATIC function ABM2Editar( lNuevo )
                 endcase
         next
 
-////////// Actualiza los controles si se est√° editando.------------------------
+////////// Actualiza los controles si se est· editando.------------------------
         if !lNuevo
                 for i := 1 to HMG_LEN( _aControl )
                         _HMG_cMacroTemp := _aControl[i,ABM_CON_NAME]
@@ -1122,12 +1122,12 @@ STATIC function ABM2Editar( lNuevo )
                 wndABM2EditNuevoSplit.&(_HMG_cMacroTemp).Enabled := _aEditable[i]
         next
 
-////////// Establece el estado del bot√≥n de copia.-----------------------------
+////////// Establece el estado del botÛn de copia.-----------------------------
         if !lNuevo
                 wndABM2EditNuevo.tbbCopiar.Enabled := .f.
         endif
 
-////////// Activa la ventana de edici√≥n de registro.---------------------------
+////////// Activa la ventana de ediciÛn de registro.---------------------------
         activate window wndABM2EditNuevo
 
 return NIL
@@ -1135,23 +1135,23 @@ return NIL
 
 
 /****************************************************************************************
- *  Aplicaci√≥n: Comando EDIT para HMG
- *       Autor: Crist√≥bal Moll√° [cemese@terra.es]
- *     Funci√≥n: ABM2ConFoco()
- * Descripci√≥n: Actualiza las etiquetas de los controles y presenta los mensajes en la
- *              barra de estado de la ventana de edici√≥n de registro al obtener un
- *              control de edici√≥n el foco.
- *  Par√°metros: Ninguno
+ *  AplicaciÛn: Comando EDIT para HMG
+ *       Autor: CristÛbal Moll· [cemese@terra.es]
+ *     FunciÛn: ABM2ConFoco()
+ * DescripciÛn: Actualiza las etiquetas de los controles y presenta los mensajes en la
+ *              barra de estado de la ventana de ediciÛn de registro al obtener un
+ *              control de ediciÛn el foco.
+ *  Par·metros: Ninguno
  *    Devuelve: NIL
 ****************************************************************************************/
 STATIC function ABM2ConFoco()
 
-////////// Declaraci√≥n de variables locales.-----------------------------------
-        local i         as numeric              // Indice de iteraci√≥n.
+////////// DeclaraciÛn de variables locales.-----------------------------------
+        local i         as numeric              // Indice de iteraciÛn.
         local cControl  as character            // Nombre del control activo.
         local acControl as array                // Matriz con los nombre de los controles.
 
-////////// Inicializaci√≥n de variables.----------------------------------------
+////////// InicializaciÛn de variables.----------------------------------------
         cControl := This.Name
         acControl := {}
         for i := 1 to HMG_LEN( _aControl )
@@ -1171,12 +1171,12 @@ return nil
 
 
 /****************************************************************************************
- *  Aplicaci√≥n: Comando EDIT para HMG
- *       Autor: Crist√≥bal Moll√° [cemese@terra.es]
- *     Funci√≥n: ABM2SinFoco()
- * Descripci√≥n: Restaura el estado de las etiquetas y de la barra de estado de la ventana
- *              de edici√≥n de registros al dejar un control de edici√≥n sin foco.
- *  Par√°metros: Ninguno
+ *  AplicaciÛn: Comando EDIT para HMG
+ *       Autor: CristÛbal Moll· [cemese@terra.es]
+ *     FunciÛn: ABM2SinFoco()
+ * DescripciÛn: Restaura el estado de las etiquetas y de la barra de estado de la ventana
+ *              de ediciÛn de registros al dejar un control de ediciÛn sin foco.
+ *  Par·metros: Ninguno
  *    Devuelve: NIL
 ****************************************************************************************/
 STATIC function ABM2SinFoco()
@@ -1193,17 +1193,17 @@ return NIL
 
 
 /****************************************************************************************
- *  Aplicaci√≥n: Comando EDIT para HMG
- *       Autor: Crist√≥bal Moll√° [cemese@terra.es]
- *     Funci√≥n: ABM2AlEntrar()
- * Descripci√≥n: Cambia al siguiente control de edici√≥n tipo TEXTBOX al pulsar la tecla
+ *  AplicaciÛn: Comando EDIT para HMG
+ *       Autor: CristÛbal Moll· [cemese@terra.es]
+ *     FunciÛn: ABM2AlEntrar()
+ * DescripciÛn: Cambia al siguiente control de ediciÛn tipo TEXTBOX al pulsar la tecla
  *              ENTER.
- *  Par√°metros: Ninguno
+ *  Par·metros: Ninguno
  *    Devuelve: NIL
 ****************************************************************************************/
 STATIC function ABM2AlEntrar()
 
-////////// Declaraci√≥n de variables locales.-----------------------------------
+////////// DeclaraciÛn de variables locales.-----------------------------------
         local lSalida   as logical              // * Tipo de salida.
         local nTipo     as numeric              // * Tipo del control.
 
@@ -1235,18 +1235,18 @@ return NIL
 
 
 /****************************************************************************************
- *  Aplicaci√≥n: Comando EDIT para HMG
- *       Autor: Crist√≥bal Moll√° [cemese@terra.es]
- *     Funci√≥n: ABM2EditarGuardar( lNuevo )
- * Descripci√≥n: A√±ade o guarda el registro en la bdd.
- *  Par√°metros: lNuevo          Valor l√≥gico que indica si se est√° a√±adiendo un registro
+ *  AplicaciÛn: Comando EDIT para HMG
+ *       Autor: CristÛbal Moll· [cemese@terra.es]
+ *     FunciÛn: ABM2EditarGuardar( lNuevo )
+ * DescripciÛn: AÒade o guarda el registro en la bdd.
+ *  Par·metros: lNuevo          Valor lÛgico que indica si se est· aÒadiendo un registro
  *                              o editando el actual.
  *    Devuelve: NIL
 ****************************************************************************************/
 STATIC function ABM2EditarGuardar( lNuevo )
 
-////////// Declaraci√≥n de variables locales.-----------------------------------
-        local i          as numeric             // * Indice de iteraci√≥n.
+////////// DeclaraciÛn de variables locales.-----------------------------------
+        local i          as numeric             // * Indice de iteraciÛn.
         local xValor                            // * Valor a guardar.
         local lResultado as logical             // * Resultado del bloque del usuario.
         local aValores   as array               // * Valores del registro.
@@ -1254,12 +1254,12 @@ STATIC function ABM2EditarGuardar( lNuevo )
 ////////// Guarda el registro.-------------------------------------------------
         if _bGuardar == NIL
 
-                // No hay bloque de c√≥digo del usuario.
+                // No hay bloque de cÛdigo del usuario.
                 if lNuevo
                         (_cArea)->( dbAppend() )
                 endif
 
-                if (_cArea)->(RLock())
+                if (_cArea)->(rlock())
 
                     for i := 1 to HMG_LEN( _aEstructura )
                             _HMG_cMacroTemp := _aControl[i,ABM_CON_NAME]
@@ -1269,7 +1269,7 @@ STATIC function ABM2EditarGuardar( lNuevo )
 
                     Unlock
 
-                      // Refresca la ventana de visualizaci√≥n.
+                      // Refresca la ventana de visualizaciÛn.
                     wndABM2EditNuevo.Release
                     ABM2Redibuja( .t. )
 
@@ -1278,7 +1278,7 @@ STATIC function ABM2EditarGuardar( lNuevo )
                 endif
         else
 
-                // Hay bloque de c√≥digo del usuario.
+                // Hay bloque de cÛdigo del usuario.
                 aValores := {}
                 for i := 1 to HMG_LEN( _aControl )
                         _HMG_cMacroTemp := _aControl[i,ABM_CON_NAME]
@@ -1290,7 +1290,7 @@ STATIC function ABM2EditarGuardar( lNuevo )
                         lResultado := .t.
                 endif
 
-                // Refresca la ventana de visualizaci√≥n.
+                // Refresca la ventana de visualizaciÛn.
                 if lResultado
                         wndABM2EditNuevo.Release
                         ABM2Redibuja( .t. )
@@ -1302,22 +1302,22 @@ return NIL
 
 
 /****************************************************************************************
- *  Aplicaci√≥n: Comando EDIT para HMG
- *       Autor: Crist√≥bal Moll√° [cemese@terra.es]
- *     Funci√≥n: ABM2Seleccionar()
- * Descripci√≥n: Presenta una ventana para la selecci√≥n de un registro.
- *  Par√°metros: Ninguno
+ *  AplicaciÛn: Comando EDIT para HMG
+ *       Autor: CristÛbal Moll· [cemese@terra.es]
+ *     FunciÛn: ABM2Seleccionar()
+ * DescripciÛn: Presenta una ventana para la selecciÛn de un registro.
+ *  Par·metros: Ninguno
  *    Devuelve: [nReg]          Numero de registro seleccionado, o cero si no se ha
  *                              seleccionado ninguno.
 ****************************************************************************************/
 STATIC function ABM2Seleccionar()
 
-////////// Declaraci√≥n de variables locales.-----------------------------------
+////////// DeclaraciÛn de variables locales.-----------------------------------
         local lSalida   as logical              // Control de bucle.
         local nReg      as numeric              // Valores del registro
-        local nRegistro as numeric              // N√∫mero de registro.
+        local nRegistro as numeric              // N˙mero de registro.
 
-////////// Inicializaci√≥n de variables.----------------------------------------
+////////// InicializaciÛn de variables.----------------------------------------
         lSalida   := .f.
         nReg      := 0
         nRegistro := (_cArea)->( RecNo() )
@@ -1325,7 +1325,7 @@ STATIC function ABM2Seleccionar()
 ////////// Se situa en el primer registro.-------------------------------------
         (_cArea)->( dbGoTop() )
 
-////////// Creaci√≥n de la ventana de selecci√≥n de registro.--------------------
+////////// CreaciÛn de la ventana de selecciÛn de registro.--------------------
         define window wndSeleccionar            ;
                 AT 0, 0                         ;
                 width 500                       ;
@@ -1336,7 +1336,7 @@ STATIC function ABM2Seleccionar()
                 nosysmenu                       ;
                 font "ms sans serif" size 9
 
-                // Define la barra de botones de la ventana de selecci√≥n.
+                // Define la barra de botones de la ventana de selecciÛn.
                 define toolbar tbSeleccionar buttonsize 90, 32 flat righttext border
                         button tbbCancelarSel caption _HMG_SYSDATA [ 128 ][7]                   ;
                                               picture "HMG_EDIT_CANCEL"             ;
@@ -1350,12 +1350,12 @@ STATIC function ABM2Seleccionar()
                                                           wndSeleccionar.Release }
                 end toolbar
 
-                // Define la barra de estado de la ventana de selecci√≥n.
+                // Define la barra de estado de la ventana de selecciÛn.
                 define statusbar font "ms sans serif" size 9
                         statusitem _HMG_SYSDATA [ 130 ][7]
                 end statusbar
 
-                // Define la tabla de la ventana de selecci√≥n.
+                // Define la tabla de la ventana de selecciÛn.
                 @ 55, 20 browse brwSeleccionar                                          ;
                         width 460                                                       ;
                         height 190                                                      ;
@@ -1372,40 +1372,40 @@ STATIC function ABM2Seleccionar()
 
         end window
 
-////////// Activa la ventana de selecci√≥n de registro.-------------------------
+////////// Activa la ventana de selecciÛn de registro.-------------------------
         center window wndSeleccionar
         activate window wndSeleccionar
 
 ////////// Restuara el puntero de registro.------------------------------------
-        (_cArea)->( dbGoto( nRegistro ) )
+        (_cArea)->( dbGoTo( nRegistro ) )
 
 return ( nReg )
 
 
 
 /****************************************************************************************
- *  Aplicaci√≥n: Comando EDIT para HMG
- *       Autor: Crist√≥bal Moll√° [cemese@terra.es]
- *     Funci√≥n: ABM2EditarCopiar()
- * Descripci√≥n: Copia el registro seleccionado en los controles de edici√≥n del nuevo
+ *  AplicaciÛn: Comando EDIT para HMG
+ *       Autor: CristÛbal Moll· [cemese@terra.es]
+ *     FunciÛn: ABM2EditarCopiar()
+ * DescripciÛn: Copia el registro seleccionado en los controles de ediciÛn del nuevo
  *              registro.
- *  Par√°metros: Ninguno
+ *  Par·metros: Ninguno
  *    Devuelve: NIL
 ****************************************************************************************/
 STATIC function ABM2EditarCopiar()
 
-////////// Declaraci√≥n de variables locales.-----------------------------------
-        local i         as numeric              // Indice de iteraci√≥n.
+////////// DeclaraciÛn de variables locales.-----------------------------------
+        local i         as numeric              // Indice de iteraciÛn.
         local nRegistro as numeric              // Puntero de registro.
         local nReg      as numeric              // Numero de registro.
 
 ////////// Obtiene el registro a copiar.---------------------------------------
         nReg := ABM2Seleccionar()
 
-////////// Actualiza los controles de edici√≥n.---------------------------------
+////////// Actualiza los controles de ediciÛn.---------------------------------
         if nReg != 0
                 nRegistro := (_cArea)->( RecNo() )
-                (_cArea)->( dbGoto( nReg ) )
+                (_cArea)->( dbGoTo( nReg ) )
                 for i := 1 to HMG_LEN( _aControl )
                         if _aEditable[i]
                                 _HMG_cMacroTemp := _aControl[i,ABM_CON_NAME]
@@ -1413,7 +1413,7 @@ STATIC function ABM2EditarCopiar()
                                         (_cArea)->( FieldGet( i ) )
                         endif
                 next
-                (_cArea)->( dbGoto( nRegistro ) )
+                (_cArea)->( dbGoTo( nRegistro ) )
         endif
 
 return NIL
@@ -1421,29 +1421,29 @@ return NIL
 
 
 /****************************************************************************************
- *  Aplicaci√≥n: Comando EDIT para HMG
- *       Autor: Crist√≥bal Moll√° [cemese@terra.es]
- *     Funci√≥n: ABM2Borrar()
- * Descripci√≥n: Borra el registro activo.
- *  Par√°metros: Ninguno
+ *  AplicaciÛn: Comando EDIT para HMG
+ *       Autor: CristÛbal Moll· [cemese@terra.es]
+ *     FunciÛn: ABM2Borrar()
+ * DescripciÛn: Borra el registro activo.
+ *  Par·metros: Ninguno
  *    Devuelve: NIL
 ****************************************************************************************/
 function ABM2Borrar()
 
-////////// Declaraci√≥n de variables locales.-----------------------------------
+////////// DeclaraciÛn de variables locales.-----------------------------------
 
 ////////// Borra el registro si se acepta.-------------------------------------
 
         if MsgOKCancel( _HMG_SYSDATA [ 130 ][8], _HMG_SYSDATA [ 129 ][16] )
-                if (_cArea)->( RLock() )
+                if (_cArea)->( rlock() )
                    (_cArea)->( dbDelete() )
                    (_cArea)->( dbCommit() )
-                   (_cArea)->( dbUnlock() )
-                   if .not. Set( _SET_DELETED )
+                   (_cArea)->( dbunlock() )
+                   if .not. set( _SET_DELETED )
                       set deleted on
                    endif
                    (_cArea)->( dbSkip() )
-                   if (_cArea)->( Eof() )
+                   if (_cArea)->( eof() )
                       (_cArea)->( dbGoBottom() )
                    endif
                    ABM2Redibuja( .t. )
@@ -1457,27 +1457,27 @@ return NIL
 
 
 /****************************************************************************************
- *  Aplicaci√≥n: Comando EDIT para HMG
- *       Autor: Crist√≥bal Moll√° [cemese@terra.es]
- *     Funci√≥n: ABM2Buscar()
- * Descripci√≥n: Busca un registro por la clave del indice activo.
- *  Par√°metros: Ninguno
+ *  AplicaciÛn: Comando EDIT para HMG
+ *       Autor: CristÛbal Moll· [cemese@terra.es]
+ *     FunciÛn: ABM2Buscar()
+ * DescripciÛn: Busca un registro por la clave del indice activo.
+ *  Par·metros: Ninguno
  *    Devuelve: NIL
 ****************************************************************************************/
 STATIC function ABM2Buscar()
 
-////////// Declaraci√≥n de variables locales.-----------------------------------
+////////// DeclaraciÛn de variables locales.-----------------------------------
         local nControl   as numeric             // Numero del control.
         local lSalida    as logical             // Tipo de salida de la ventana.
         local xValor                            // Valor de busqueda.
-        local cMascara   as character           // Mascara de edici√≥n del control.
+        local cMascara   as character           // Mascara de ediciÛn del control.
         local lResultado as logical             // Resultado de la busqueda.
         local nRegistro  as numeric             // Numero de registro.
 
-////////// Inicializaci√≥n de variables.----------------------------------------
+////////// InicializaciÛn de variables.----------------------------------------
         nControl := _aIndiceCampo[_nIndiceActivo]
 
-////////// Comprueba si se ha pasado una acci√≥n del usuario.--------------------
+////////// Comprueba si se ha pasado una acciÛn del usuario.--------------------
         if _bBuscar != NIL
                 // msgInfo( "ON FIND" )
                 Eval( _bBuscar )
@@ -1547,7 +1547,7 @@ STATIC function ABM2Buscar()
         // Tipo de dato a buscar.
         do case
 
-                // Car√°cter.
+                // Car·cter.
                 case _aControl[nControl,ABM_CON_TYPE] == ABM_TEXTBOXC
                         @ 75, 20  textbox conBuscar                             ;
                                 of wndABMBuscar                                    ;
@@ -1583,10 +1583,10 @@ STATIC function ABM2Buscar()
 
                                 // Con decimales.
                                 cMascara := ""
-                                cMascara := Replicate( "9", _aEstructura[nControl,DBS_LEN] - ;
+                                cMascara := REPLICATE( "9", _aEstructura[nControl,DBS_LEN] - ;
                                                        ( _aEstructura[nControl,DBS_DEC] + 1 ) )
                                 cMascara += "."
-                                cMascara += Replicate( "9", _aEstructura[nControl,DBS_DEC] )
+                                cMascara += REPLICATE( "9", _aEstructura[nControl,DBS_DEC] )
                                 @ 75, 20 textbox conBuscar                              ;
                                         of wndABMBuscar                                    ;
                                         value ""                                        ;
@@ -1600,7 +1600,7 @@ STATIC function ABM2Buscar()
 ////////// Actualiza la barra de estado.---------------------------------------
         wndABMBuscar.StatusBar.Item( 1 ) := _aControl[nControl,ABM_CON_DES]
 
-////////// Comprueba el tama√±o del control de edici√≥n del dato a buscar.-------
+////////// Comprueba el tamaÒo del control de ediciÛn del dato a buscar.-------
         if wndABMBuscar.conBuscar.Width > wndABM2Edit.Width - 45
                 wndABMBuscar.conBuscar.Width := wndABM2Edit.Width - 45
         endif
@@ -1615,7 +1615,7 @@ STATIC function ABM2Buscar()
                 lResultado := (_cArea)->( dbSeek( xValor ) )
                 if !lResultado
                         msgExclamation( _HMG_SYSDATA [ 130 ][11], _cTitulo )
-                        (_cArea)->( dbGoto( nRegistro ) )
+                        (_cArea)->( dbGoTo( nRegistro ) )
                 else
                         ABM2Redibuja( .t. )
                 endif
@@ -1626,16 +1626,16 @@ return NIL
 
 
 /****************************************************************************************
- *  Aplicaci√≥n: Comando EDIT para HMG
- *       Autor: Crist√≥bal Moll√° [cemese@terra.es]
- *     Funci√≥n: ABM2Filtro()
- * Descripci√≥n: Filtra la base de datos.
- *  Par√°metros: Ninguno
+ *  AplicaciÛn: Comando EDIT para HMG
+ *       Autor: CristÛbal Moll· [cemese@terra.es]
+ *     FunciÛn: ABM2Filtro()
+ * DescripciÛn: Filtra la base de datos.
+ *  Par·metros: Ninguno
  *    Devuelve: NIL
 ****************************************************************************************/
 STATIC function ABM2ActivarFiltro()
 
-////////// Declaraci√≥n de variables locales.-----------------------------------
+////////// DeclaraciÛn de variables locales.-----------------------------------
         local aCompara   as array               // Comparaciones.
         local aCampos    as array               // Nombre de los campos.
 
@@ -1644,7 +1644,7 @@ STATIC function ABM2ActivarFiltro()
                 MsgInfo( _HMG_SYSDATA [ 130 ][34], '' )
         endif
 
-////////// Inicializaci√≥n de variables.----------------------------------------
+////////// InicializaciÛn de variables.----------------------------------------
         aCampos    := _aNombreCampo
         aCompara   := { _HMG_SYSDATA [ 129 ][27],;
                         _HMG_SYSDATA [ 129 ][28],;
@@ -1744,16 +1744,16 @@ return NIL
 
 
 /****************************************************************************************
- *  Aplicaci√≥n: Comando EDIT para HMG
- *       Autor: Crist√≥bal Moll√° [cemese@terra.es]
- *     Funci√≥n: ABM2ControlFiltro()
- * Descripci√≥n: Comprueba que el filtro se puede aplicar.
- *  Par√°metros: Ninguno
+ *  AplicaciÛn: Comando EDIT para HMG
+ *       Autor: CristÛbal Moll· [cemese@terra.es]
+ *     FunciÛn: ABM2ControlFiltro()
+ * DescripciÛn: Comprueba que el filtro se puede aplicar.
+ *  Par·metros: Ninguno
  *    Devuelve: NIL
 ****************************************************************************************/
 STATIC function ABM2ControlFiltro()
 
-////////// Declaraci√≥n de variables locales.-----------------------------------
+////////// DeclaraciÛn de variables locales.-----------------------------------
         local nControl as numeric
         local cMascara as character
         local cMensaje as character
@@ -1776,7 +1776,7 @@ STATIC function ABM2ControlFiltro()
         cMensaje := _aControl[nControl,ABM_CON_DES]
         do case
 
-                // Car√°cter.
+                // Car·cter.
                 case _aControl[nControl,ABM_CON_TYPE] == ABM_TEXTBOXC
                         @ 226, 20  textbox conValor                                     ;
                                 of wndABM2Filtro                                        ;
@@ -1822,10 +1822,10 @@ STATIC function ABM2ControlFiltro()
 
                                 // Con decimales.
                                 cMascara := ""
-                                cMascara := Replicate( "9", _aEstructura[nControl,DBS_LEN] - ;
+                                cMascara := REPLICATE( "9", _aEstructura[nControl,DBS_LEN] - ;
                                                        ( _aEstructura[nControl,DBS_DEC] + 1 ) )
                                 cMascara += "."
-                                cMascara += Replicate( "9", _aEstructura[nControl,DBS_DEC] )
+                                cMascara += REPLICATE( "9", _aEstructura[nControl,DBS_DEC] )
                                 @ 226, 20 textbox conValor                                      ;
                                         of wndABM2Filtro                                        ;
                                         value ""                                                ;
@@ -1858,7 +1858,7 @@ STATIC function ABM2ControlFiltro()
 ////////// Actualiza la barra de estado.---------------------------------------
         //wndABM2Filtro.StatusBar.Item( 1 ) := _aControl[nControl,ABM_CON_DES]
 
-////////// Comprueba el tama√±o del control de edici√≥n del dato a buscar.-------
+////////// Comprueba el tamaÒo del control de ediciÛn del dato a buscar.-------
         if wndABM2Filtro.conValor.Width > wndABM2Filtro.Width - 45
                 wndABM2Filtro.conValor.Width := wndABM2Filtro.Width - 45
         endif
@@ -1868,25 +1868,25 @@ return NIL
 
 
 /****************************************************************************************
- *  Aplicaci√≥n: Comando EDIT para HMG
- *       Autor: Crist√≥bal Moll√° [cemese@terra.es]
- *     Funci√≥n: ABM2EstableceFiltro()
- * Descripci√≥n: Establece el filtro seleccionado.
- *  Par√°metros: Ninguno.
+ *  AplicaciÛn: Comando EDIT para HMG
+ *       Autor: CristÛbal Moll· [cemese@terra.es]
+ *     FunciÛn: ABM2EstableceFiltro()
+ * DescripciÛn: Establece el filtro seleccionado.
+ *  Par·metros: Ninguno.
  *    Devuelve: NIL
 ****************************************************************************************/
 STATIC function ABM2EstableceFiltro()
 
-////////// Declaraci√≥n de variables locales.-----------------------------------
+////////// DeclaraciÛn de variables locales.-----------------------------------
         local aOperador  as array
         local nCampo     as numeric
         local nCompara   as numeric
         local cValor     as character
 
-////////// Inicializaci√≥n de variables.----------------------------------------
+////////// InicializaciÛn de variables.----------------------------------------
         nCompara  := wndABM2Filtro.lbxCompara.Value
         nCampo    := wndABM2Filtro.lbxCampos.Value
-        cValor    := hb_ValToStr( wndABM2Filtro.conValor.Value )
+        cValor    := HB_ValToStr( wndABM2Filtro.conValor.Value )
         aOperador := { "=", "<>", ">", "<", ">=", "<=" }
 
 ////////// Comprueba que se puede filtrar.-------------------------------------
@@ -1942,11 +1942,11 @@ return NIL
 
 
 /****************************************************************************************
- *  Aplicaci√≥n: Comando EDIT para HMG
- *       Autor: Crist√≥bal Moll√° [cemese@terra.es]
- *     Funci√≥n:
- * Descripci√≥n:
- *  Par√°metros:
+ *  AplicaciÛn: Comando EDIT para HMG
+ *       Autor: CristÛbal Moll· [cemese@terra.es]
+ *     FunciÛn:
+ * DescripciÛn:
+ *  Par·metros:
  *    Devuelve:
 ****************************************************************************************/
 STATIC function ABM2DesactivarFiltro()
@@ -1969,16 +1969,16 @@ return NIL
 
 
 /****************************************************************************************
- *  Aplicaci√≥n: Comando EDIT para HMG
- *       Autor: Crist√≥bal Moll√° [cemese@terra.es]
- *     Funci√≥n: ABM2Imprimir()
- * Descripci√≥n: Presenta la ventana de recogida de datos para la definici√≥n del listado.
- *  Par√°metros: Ninguno
+ *  AplicaciÛn: Comando EDIT para HMG
+ *       Autor: CristÛbal Moll· [cemese@terra.es]
+ *     FunciÛn: ABM2Imprimir()
+ * DescripciÛn: Presenta la ventana de recogida de datos para la definiciÛn del listado.
+ *  Par·metros: Ninguno
  *    Devuelve: NIL
 ****************************************************************************************/
 STATIC function ABM2Imprimir()
 
-////////// Declaraci√≥n de variables locales.-----------------------------------
+////////// DeclaraciÛn de variables locales.-----------------------------------
         local aCampoBase    as array            // Campos de la bdd.
         local aCampoListado as array            // Campos del listado.
         local nRegistro     as numeric          // Numero de registro actual.
@@ -1986,7 +1986,7 @@ STATIC function ABM2Imprimir()
         local cRegistro1    as character        // Valor del registro inicial.
         local cRegistro2    as character        // Valor del registro final.
         local aImpresoras   as array            // Impresoras disponibles.
-    local NIMPLEN
+	local NIMPLEN
         private hbprn
 
 ////////// Comprueba si se ha pasado la clausula ON PRINT.---------------------
@@ -2011,7 +2011,7 @@ STATIC function ABM2Imprimir()
                 return NIL
         endif
 
-////////// Inicializaci√≥n de variables.----------------------------------------
+////////// InicializaciÛn de variables.----------------------------------------
         aCampoListado := {}
         aCampoBase    := _aNombreCampo
         nRegistro     := (_cArea)->( RecNo() )
@@ -2019,12 +2019,12 @@ STATIC function ABM2Imprimir()
         // Registro inicial y final.
         nCampo := _aIndiceCampo[_nIndiceActivo]
         ( _cArea)->( dbGoTop() )
-        cRegistro1 := hb_ValToStr( (_cArea)->( FieldGet( nCampo ) ) )
+        cRegistro1 := HB_ValToStr( (_cArea)->( FieldGet( nCampo ) ) )
         ( _cArea)->( dbGoBottom() )
-        cRegistro2 := hb_ValToStr( (_cArea)->( FieldGet( nCampo ) ) )
-        (_cArea)->( dbGoto( nRegistro ) )
+        cRegistro2 := HB_ValToStr( (_cArea)->( FieldGet( nCampo ) ) )
+        (_cArea)->( dbGoTo( nRegistro ) )
 
-////////// Definici√≥n de la ventana de formato de listado.---------------------
+////////// DefiniciÛn de la ventana de formato de listado.---------------------
         define window wndABM2Listado            ;
                 AT 0, 0                         ;
                 width 390                       ;
@@ -2053,7 +2053,7 @@ STATIC function ABM2Imprimir()
                 end statusbar
         end window
 
-////////// Define los controles de edici√≥n de la ventana de formato de listado.-
+////////// Define los controles de ediciÛn de la ventana de formato de listado.-
         // Frame.
         @ 45, 10 frame frmListado                       ;
                 of wndABM2Listado                       ;
@@ -2187,19 +2187,19 @@ STATIC function ABM2Imprimir()
         wndABM2Listado.txtRegistro1.Enabled := .f.
         wndABM2Listado.txtRegistro2.Enabled := .f.
 
-////////// Comrprueba que la selecci√≥n de registros es posible.----------------
+////////// Comrprueba que la selecciÛn de registros es posible.----------------
         nCampo := _aIndiceCampo[_nIndiceActivo]
         if _aEstructura[nCampo,DBS_TYPE] == "L" .or. _aEstructura[nCampo,DBS_TYPE] == "M"
                 wndABM2Listado.btnSet1.Enabled := .f.
                 wndABM2Listado.btnSet2.Enabled := .f.
         endif
 
-////////// Activaci√≥n de la ventana de formato de listado.---------------------
+////////// ActivaciÛn de la ventana de formato de listado.---------------------
         center window wndABM2Listado
         activate window wndABM2Listado
 
 ////////// Restaura.-----------------------------------------------------------
-        (_cArea)->( dbGoto( nRegistro ) )
+        (_cArea)->( dbGoTo( nRegistro ) )
         ABM2Redibuja( .f. )
 
 return NIL
@@ -2207,16 +2207,16 @@ return NIL
 
 
 /****************************************************************************************
- *  Aplicaci√≥n: Comando EDIT para HMG
- *       Autor: Crist√≥bal Moll√° [cemese@terra.es]
- *     Funci√≥n: ABM2DefinirRegistro( nAccion )
- * Descripci√≥n:
- *  Par√°metros:
+ *  AplicaciÛn: Comando EDIT para HMG
+ *       Autor: CristÛbal Moll· [cemese@terra.es]
+ *     FunciÛn: ABM2DefinirRegistro( nAccion )
+ * DescripciÛn:
+ *  Par·metros:
  *    Devuelve: NIL
 ****************************************************************************************/
 STATIC function ABM2DefinirRegistro( nAccion )
 
-////////// Declaraci√≥n de variables locales.-----------------------------------
+////////// DeclaraciÛn de variables locales.-----------------------------------
         local nRegistro as character            // * Puntero de registros.
         local nReg      as character            // * Registro seleccionado.
         local cValor    as character            // * Valor del registro seleccionado.
@@ -2224,20 +2224,20 @@ STATIC function ABM2DefinirRegistro( nAccion )
 
 ////////// Inicializa las variables.-------------------------------------------
         nRegistro := (_cArea)->( RecNo() )
-
+        cValor    := ""
 
 ////////// Selecciona el registro.---------------------------------------------
         nReg := ABM2Seleccionar()
         if nReg == 0
-                (_cArea)->( dbGoto( nRegistro ) )
+                (_cArea)->( dbGoTo( nRegistro ) )
                 return NIL
         else
-                (_cArea)->( dbGoto( nReg ) )
+                (_cArea)->( dbGoTo( nReg ) )
                 nCampo := _aIndiceCampo[_nIndiceActivo]
-                cValor := hb_ValToStr( (_cArea)->( FieldGet( nCampo ) ) )
+                cValor := HB_ValToStr( (_cArea)->( FieldGet( nCampo ) ) )
         endif
 
-////////// Actualiza seg√∫n la acci√≥n.------------------------------------------
+////////// Actualiza seg˙n la acciÛn.------------------------------------------
         do case
                 case nAccion == ABM_LIS_SET1
                         wndABM2Listado.txtRegistro1.Value := cValor
@@ -2246,31 +2246,31 @@ STATIC function ABM2DefinirRegistro( nAccion )
         endcase
 
 ////////// Restaura el registro.
-        (_cArea)->( dbGoto( nRegistro ) )
+        (_cArea)->( dbGoTo( nRegistro ) )
 
 return NIL
 
 
 
 /****************************************************************************************
- *  Aplicaci√≥n: Comando EDIT para HMG
- *       Autor: Crist√≥bal Moll√° [cemese@terra.es]
- *     Funci√≥n: ABM2DefinirColumnas( nAccion )
- * Descripci√≥n: Controla el contenido de las listas al pulsar los botones de a√±adir y
+ *  AplicaciÛn: Comando EDIT para HMG
+ *       Autor: CristÛbal Moll· [cemese@terra.es]
+ *     FunciÛn: ABM2DefinirColumnas( nAccion )
+ * DescripciÛn: Controla el contenido de las listas al pulsar los botones de aÒadir y
  *              eliminar campos del listado.
- *  Par√°metros: [nAccion]       Numerico. Indica el tipo de accion realizado.
+ *  Par·metros: [nAccion]       Numerico. Indica el tipo de accion realizado.
  *    Devuelve: NIL
 ****************************************************************************************/
 STATIC function ABM2DefinirColumnas( nAccion )
 
-////////// Declaraci√≥n de variables locales.-----------------------------------
+////////// DeclaraciÛn de variables locales.-----------------------------------
         local aCampoBase    as array            // * Campos de la bbd.
         local aCampoListado as array            // * Campos del listado.
-        local i             as numeric          // * Indice de iteraci√≥n.
+        local i             as numeric          // * Indice de iteraciÛn.
         local nItem         as numeric          // * Numero del item seleccionado.
-    local cvalor
+	local cvalor
 
-////////// Inicializaci√≥n de variables.----------------------------------------
+////////// InicializaciÛn de variables.----------------------------------------
         aCampoBase  := {}
         aCampoListado := {}
         for i := 1 to wndABM2Listado.lbxCampoBase.ItemCount
@@ -2280,11 +2280,11 @@ STATIC function ABM2DefinirColumnas( nAccion )
                 aAdd( aCampoListado, wndABM2Listado.lbxCampoListado.Item( i ) )
         next
 
-////////// Ejecuta seg√∫n la acci√≥n.--------------------------------------------
+////////// Ejecuta seg˙n la acciÛn.--------------------------------------------
         do case
                 case nAccion == ABM_LIS_ADD
 
-                        // Obtiene la columna a a√±adir.
+                        // Obtiene la columna a aÒadir.
                         nItem := wndABM2Listado.lbxCampoBase.Value
                         cValor := wndABM2Listado.lbxCampoBase.Item( nItem )
 
@@ -2357,21 +2357,21 @@ return NIL
 
 
 /****************************************************************************************
- *  Aplicaci√≥n: Comando EDIT para HMG
- *       Autor: Crist√≥bal Moll√° [cemese@terra.es]
- *     Funci√≥n: ABM2Listado()
- * Descripci√≥n: Imprime la selecciona realizada por ABM2Imprimir()
- *  Par√°metros: Ninguno
+ *  AplicaciÛn: Comando EDIT para HMG
+ *       Autor: CristÛbal Moll· [cemese@terra.es]
+ *     FunciÛn: ABM2Listado()
+ * DescripciÛn: Imprime la selecciona realizada por ABM2Imprimir()
+ *  Par·metros: Ninguno
  *    Devuelve: NIL
 ****************************************************************************************/
 STATIC function ABM2Listado( aImpresoras )
 
-////////// Declaraci√≥n de variables locales.-----------------------------------
-        local i             as numeric          // * Indice de iteraci√≥n.
+////////// DeclaraciÛn de variables locales.-----------------------------------
+        local i             as numeric          // * Indice de iteraciÛn.
         local cCampo        as character        // * Nombre del campo indice.
         local aCampo        as array            // * Nombres de los campos.
         local nCampo        as numeric          // * Numero del campo actual.
-        local nPosicion     as numeric          // * Posici√≥n del campo.
+        local nPosicion     as numeric          // * PosiciÛn del campo.
         local aNumeroCampo  as array            // * Numeros de los campos.
         local aAncho        as array            // * Anchos de las columnas.
         local nAncho        as array            // * Ancho de las columna actual.
@@ -2379,28 +2379,28 @@ STATIC function ABM2Listado( aImpresoras )
 //        local lVistas       as logical          // * Vistas en miniatura.
         local nImpresora    as numeric          // * Numero de la impresora.
         local cImpresora    as character        // * Nombre de la impresora.
-        local lOrientacion  as logical          // * Orientaci√≥n de la p√°gina.
+        local lOrientacion  as logical          // * OrientaciÛn de la p·gina.
         local lSalida       as logical          // * Control de bucle.
-        local lCabecera     as logical          // * ¬øImprimir cabecera?.
+        local lCabecera     as logical          // * øImprimir cabecera?.
         local nFila         as numeric          // * Numero de la fila.
         local nColumna      as numeric          // * Numero de la columna.
-        local nPagina       as numeric          // * Numero de p√°gina.
-        local nPaginas      as numeric          // * P√°ginas totales.
-        local cPie          as character        // * Texto del pie de p√°gina.
+        local nPagina       as numeric          // * Numero de p·gina.
+        local nPaginas      as numeric          // * P·ginas totales.
+        local cPie          as character        // * Texto del pie de p·gina.
         local nPrimero      as numeric          // * Numero del primer registro a imprimir.
         local nUltimo       as numeric          // * Numero del ultimo registro a imprimir.
         local nTotales      as numeric          // * Registros totales a imprimir.
         local nRegistro     as numeric          // * Numero del registro actual.
         local cRegistro1    as character        // * Valor del registro inicial.
         local cRegistro2    as character        // * Valor del registro final.
-        local xRegistro1                        // * Valor de comparaci√≥n.
-        local xRegistro2                        // * Valor de comparaci√≥n.
-    local lSuccess
-    local HBPRNMAXCOL   := 100
-    LOCAL RF        := 4
-    LOCAL CF        := 2
+        local xRegistro1                        // * Valor de comparaciÛn.
+        local xRegistro2                        // * Valor de comparaciÛn.
+	local lSuccess
+	local HBPRNMAXCOL	:= 100
+	LOCAL RF		:= 4
+	LOCAL CF		:= 2
 
-////////// Inicializaci√≥n de variables.----------------------------------------
+////////// InicializaciÛn de variables.----------------------------------------
         // Previsualizar.
         lPrevio := wndABM2Listado.chkPrevio.Value
 
@@ -2423,14 +2423,14 @@ STATIC function ABM2Listado( aImpresoras )
                 return NIL
         endif
 
-        // N√∫mero del campo.
+        // N˙mero del campo.
         aNumeroCampo := {}
         for i := 1 to HMG_LEN( aCampo )
                 nPosicion := aScan( _aNombreCampo, aCampo[i] )
                 aAdd( aNumeroCampo, nPosicion )
         next
 
-////////// Obtiene el ancho de impresi√≥n.--------------------------------------
+////////// Obtiene el ancho de impresiÛn.--------------------------------------
         aAncho := {}
         nAncho := 0
         for i := 1 to HMG_LEN( aNumeroCampo )
@@ -2449,7 +2449,7 @@ STATIC function ABM2Listado( aImpresoras )
                 aAdd( aAncho, 1 + nAncho )
         next
 
-////////// Comprueba el ancho de impresi√≥n.------------------------------------
+////////// Comprueba el ancho de impresiÛn.------------------------------------
         nAncho := 0
         for i := 1 to HMG_LEN( aAncho )
                 nAncho += aAncho[i]
@@ -2488,7 +2488,7 @@ STATIC function ABM2Listado( aImpresoras )
         (_cArea)->( dbSeek( xRegistro1 ) )
         nPrimero := (_cArea)->( RecNo() )
 
-////////// Obtiene el n√∫mero de p√°ginas.---------------------------------------
+////////// Obtiene el n˙mero de p·ginas.---------------------------------------
         nTotales := 0
         do while (_cArea)->( RecNo() ) != nUltimo .or. (_cArea)->( Eof() )
                 nTotales++
@@ -2507,66 +2507,66 @@ STATIC function ABM2Listado( aImpresoras )
                         nPaginas := Int( nTotales / 55 ) + 1
                 endif
         endif
-        (_cArea)->( dbGoto( nPrimero ) )
+        (_cArea)->( dbGoTo( nPrimero ) )
 
 ////////// Inicializa el listado.----------------------------------------------
 
-    // Opciones de la impresi√≥n.
-    if lPrevio
+	// Opciones de la impresiÛn.
+	if lPrevio
 
-        if lOrientacion
+		if lOrientacion
 
-            SELECT PRINTER cImpresora ;
-                TO lSuccess ;
-                ORIENTATION PRINTER_ORIENT_LANDSCAPE ;
-                PAPERSIZE PRINTER_PAPER_A4 ;
-                PREVIEW
+			SELECT PRINTER cImpresora ;
+				TO lSuccess ;
+				ORIENTATION PRINTER_ORIENT_LANDSCAPE ;
+				PAPERSIZE PRINTER_PAPER_A4 ;
+				PREVIEW
 
-        else
+		else
 
-            SELECT PRINTER cImpresora ;
-                TO lSuccess ;
-                ORIENTATION PRINTER_ORIENT_PORTRAIT ;
-                PAPERSIZE PRINTER_PAPER_A4 ;
-                PREVIEW
-
-                endif
-
-    else
-
-        if lOrientacion
-
-            SELECT PRINTER cImpresora ;
-                TO lSuccess ;
-                ORIENTATION PRINTER_ORIENT_LANDSCAPE ;
-                PAPERSIZE PRINTER_PAPER_A4
-
-        else
-
-            SELECT PRINTER cImpresora ;
-                TO lSuccess ;
-                ORIENTATION PRINTER_ORIENT_PORTRAIT ;
-                PAPERSIZE PRINTER_PAPER_A4
+			SELECT PRINTER cImpresora ;
+				TO lSuccess ;
+				ORIENTATION PRINTER_ORIENT_PORTRAIT ;
+				PAPERSIZE PRINTER_PAPER_A4 ;
+				PREVIEW
 
                 endif
 
-     endif
+	else
 
-    // Control de errores.
-    if lSuccess == .F.
-        msgExclamation( _HMG_SYSDATA [ 130 ][25], _cTitulo )
-        return nil
-    endif
+		if lOrientacion
 
-    // Inicio del listado.
-    lCabecera := .t.
-    lSalida   := .t.
-    nFila     := 13
-    nPagina   := 1
+			SELECT PRINTER cImpresora ;
+				TO lSuccess ;
+				ORIENTATION PRINTER_ORIENT_LANDSCAPE ;
+				PAPERSIZE PRINTER_PAPER_A4 
 
-    START PRINTDOC
+		else
 
-        START PRINTPAGE
+			SELECT PRINTER cImpresora ;
+				TO lSuccess ;
+				ORIENTATION PRINTER_ORIENT_PORTRAIT ;
+				PAPERSIZE PRINTER_PAPER_A4 
+
+                endif
+
+	 endif
+
+	// Control de errores.
+	if lSuccess == .F.
+		msgExclamation( _HMG_SYSDATA [ 130 ][25], _cTitulo )
+		return nil
+	endif
+
+	// Inicio del listado.
+	lCabecera := .t.
+	lSalida   := .t.
+	nFila     := 13
+	nPagina   := 1
+
+	START PRINTDOC
+
+		START PRINTPAGE
 
                         do while lSalida
 
@@ -2576,21 +2576,21 @@ STATIC function ABM2Listado( aImpresoras )
                                         @ 5*RF, (HBPRNMAXCOL-HMG_LEN(_cTitulo)-6)*CF PRINT _cTitulo  FONT "COURIER NEW" SIZE 12 BOLD
                                         @ (6*RF) + 1 , 10*CF PRINT LINE TO (6*RF) + 1 , (HBPRNMAXCOL-5)*CF PENWIDTH 0.2
 
-                                        @ 7*RF  , 11*CF PRINT _HMG_SYSDATA [ 130 ] [26] FONT "COURIER NEW" SIZE 9 BOLD
-                                        @ 8*RF  , 11*CF PRINT _HMG_SYSDATA [ 130 ][27]  FONT "COURIER NEW" SIZE 9 BOLD
-                                        @ 9*RF  , 11*CF PRINT _HMG_SYSDATA [ 130 ][28]  FONT "COURIER NEW" SIZE 9 BOLD
-                                        @ 10*RF , 11*CF PRINT _HMG_SYSDATA [ 130 ][33]  FONT "COURIER NEW" SIZE 9 BOLD
+                                        @ 7*RF	, 11*CF PRINT _HMG_SYSDATA [ 130 ] [26]	FONT "COURIER NEW" SIZE 9 BOLD 
+                                        @ 8*RF	, 11*CF PRINT _HMG_SYSDATA [ 130 ][27]	FONT "COURIER NEW" SIZE 9 BOLD 
+                                        @ 9*RF	, 11*CF PRINT _HMG_SYSDATA [ 130 ][28]	FONT "COURIER NEW" SIZE 9 BOLD 
+                                        @ 10*RF	, 11*CF PRINT _HMG_SYSDATA [ 130 ][33]	FONT "COURIER NEW" SIZE 9 BOLD 
 
-                                        @ 7*RF  , 23*CF PRINT (_cArea)->( ordName() )   FONT "COURIER NEW" SIZE 9
-                                        @ 8*RF  , 23*CF PRINT cRegistro1        FONT "COURIER NEW" SIZE 9
-                                        @ 9*RF  , 23*CF PRINT cRegistro2        FONT "COURIER NEW" SIZE 9
-                                        @ 10*RF , 23*CF PRINT _cFiltro          FONT "COURIER NEW" SIZE 9
+                                        @ 7*RF	, 23*CF PRINT (_cArea)->( ordName() )	FONT "COURIER NEW" SIZE 9  
+                                        @ 8*RF	, 23*CF PRINT cRegistro1		FONT "COURIER NEW" SIZE 9  
+                                        @ 9*RF	, 23*CF PRINT cRegistro2		FONT "COURIER NEW" SIZE 9 
+                                        @ 10*RF	, 23*CF PRINT _cFiltro			FONT "COURIER NEW" SIZE 9 
 
                                         nColumna := 10
 
                                         for i := 1 to HMG_LEN( aCampo )
-                                                @ 12*RF, nColumna*CF PRINT RECTANGLE TO 12*RF, nColumna + aAncho[i] PENWIDTH 0.2
-                                                @ 12*RF, (nColumna + 1) *CF PRINT aCampo[i] FONT "COURIER NEW" SIZE 9 BOLD
+                                                @ 12*RF, nColumna*CF PRINT RECTANGLE TO 12*RF, nColumna + aAncho[i] PENWIDTH 0.2 
+                                                @ 12*RF, (nColumna + 1) *CF PRINT aCampo[i] FONT "COURIER NEW" SIZE 9 BOLD 
                                                 nColumna += aAncho[i]
                                         next
 
@@ -2605,15 +2605,15 @@ STATIC function ABM2Listado( aImpresoras )
                                         do case
                                                 case _aEstructura[nCampo,DBS_TYPE] == "N"
 
-                                                        @ nFila*RF, ( nColumna + aAncho[i] ) *CF PRINT (_cArea)->( FieldGet( aNumeroCampo[i] ) ) FONT "COURIER NEW" SIZE 8
+                                                        @ nFila*RF, ( nColumna + aAncho[i] ) *CF PRINT (_cArea)->( FieldGet( aNumeroCampo[i] ) ) FONT "COURIER NEW" SIZE 8 
 
                                                 case _aEstructura[nCampo,DBS_TYPE] == "L"
 
-                                                        @ nFila*RF, ( nColumna + 1 )  *CF PRINT iif( (_cArea)->( FieldGet( aNumeroCampo[i] ) ), _HMG_SYSDATA [ 130 ][29], _HMG_SYSDATA [ 130 ][30] ) FONT "COURIER NEW" SIZE 8
+                                                        @ nFila*RF, ( nColumna + 1 )  *CF PRINT iif( (_cArea)->( FieldGet( aNumeroCampo[i] ) ), _HMG_SYSDATA [ 130 ][29], _HMG_SYSDATA [ 130 ][30] ) FONT "COURIER NEW" SIZE 8 
 
                                                 case _aEstructura[nCampo,DBS_TYPE] == "M"
 
-                                                        @ nFila*RF, ( nColumna + 1 )  *CF PRINT hb_USubStr( (_cArea)->( FieldGet( aNumeroCampo[i] ) ), 1, 20 ) FONT "COURIER NEW" SIZE 8
+                                                        @ nFila*RF, ( nColumna + 1 )  *CF PRINT HB_USUBSTR( (_cArea)->( FieldGet( aNumeroCampo[i] ) ), 1, 20 ) FONT "COURIER NEW" SIZE 8
 
                                                 otherwise
 
@@ -2631,7 +2631,7 @@ STATIC function ABM2Listado( aImpresoras )
                                 if (_cArea)->( RecNo() ) == nUltimo
                                         lSalida := .f.
                                 endif
-                                if (_cArea)->( Eof())
+                                if (_cArea)->( EOF())
                                         lSalida := .f.
                                 endif
                                 (_cArea)->( dbSkip( 1 ) )
@@ -2640,19 +2640,19 @@ STATIC function ABM2Listado( aImpresoras )
                                 if lOrientacion
                                         if nFila > 44
 
-                                                @ (46*RF) - 1 , 10 *CF  PRINT LINE TO (46*RF)-1, ( HBPRNMAXCOL - 5 ) *CF PENWIDTH 0.2
+                                                @ (46*RF) - 1 , 10 *CF  PRINT LINE TO (46*RF)-1, ( HBPRNMAXCOL - 5 ) *CF PENWIDTH 0.2 
 
-                                                cPie := hb_ValToStr( Date() ) + " " + Time()
+                                                cPie := HB_ValToStr( Date() ) + " " + Time()
 
-                                                @ 46*RF, 10 *CF  PRINT cPie FONT "COURIER NEW" SIZE 9 BOLD
+                                                @ 46*RF, 10 *CF  PRINT cPie FONT "COURIER NEW" SIZE 9 BOLD 
 
 
                                                 cPie := "Pagina:" + " " +          ;
-                                                        ALLTRIM( Str( nPagina) ) +      ;
+                                                        ALLTRIM( STR( nPagina) ) +      ;
                                                         "/" +                           ;
-                                                        ALLTRIM( Str( nPaginas ) )
+                                                        ALLTRIM( STR( nPaginas ) )
 
-                                                @ 46*RF, ( HBPRNMAXCOL - HMG_LEN(cPie)-5 )  *CF PRINT cPie FONT "COURIER NEW" SIZE 9 BOLD
+                                                @ 46*RF, ( HBPRNMAXCOL - HMG_LEN(cPie)-5 )  *CF PRINT cPie FONT "COURIER NEW" SIZE 9 BOLD 
 
                                                 nPagina++
                                                 nFila := 13
@@ -2668,16 +2668,16 @@ STATIC function ABM2Listado( aImpresoras )
 
                                                 @ (68*RF)-1, 10 *CF  PRINT LINE TO (68*RF)-1, ( HBPRNMAXCOL- 5 )  *CF PENWIDTH 0.2
 
-                                                cPie := hb_ValToStr( Date() ) + " " + Time()
+                                                cPie := HB_ValToStr( Date() ) + " " + Time()
 
-                                                @ 68*RF, 10 *CF PRINT cPie FONT "COURIER NEW" SIZE 9 BOLD
+                                                @ 68*RF, 10 *CF PRINT cPie FONT "COURIER NEW" SIZE 9 BOLD 
 
                                                 cPie := "Pagina: " +                    ;
-                                                        ALLTRIM( Str( nPagina) ) +      ;
+                                                        ALLTRIM( STR( nPagina) ) +      ;
                                                         "/" +                           ;
-                                                        ALLTRIM( Str( nPaginas ) )
+                                                        ALLTRIM( STR( nPaginas ) )
 
-                                                @ 68*RF, ( HBPRNMAXCOL - HMG_LEN(cPie)-5 )  *CF PRINT cPie FONT "COURIER NEW" SIZE 9 BOLD
+                                                @ 68*RF, ( HBPRNMAXCOL - HMG_LEN(cPie)-5 )  *CF PRINT cPie FONT "COURIER NEW" SIZE 9 BOLD 
 
                                                 nFila := 13
                                                 nPagina++
@@ -2697,35 +2697,35 @@ STATIC function ABM2Listado( aImpresoras )
 
                         @ (46*RF)-1, 10 *CF  PRINT LINE TO (46*RF)-1, ( HBPRNMAXCOL - 5 )  *CF PENWIDTH 0.2
 
-                        cPie := hb_ValToStr( Date() ) + " " + Time()
-                        @ 46*RF, 10 *CF  PRINT cPie FONT "COURIER NEW" SIZE 9 BOLD
+                        cPie := HB_ValToStr( Date() ) + " " + Time()
+                        @ 46*RF, 10 *CF  PRINT cPie FONT "COURIER NEW" SIZE 9 BOLD 
 
-                        cPie := "P√°gina: " +                    ;
-                                ALLTRIM( Str( nPagina) ) +      ;
+                        cPie := "P·gina: " +                    ;
+                                ALLTRIM( STR( nPagina) ) +      ;
                                 "/" +                           ;
-                                ALLTRIM( Str( nPaginas ) )
-                        @ 46*RF, ( HBPRNMAXCOL -HMG_LEN(cPie)-5 )  *CF PRINT cPie FONT "COURIER NEW" SIZE 9 BOLD
+                                ALLTRIM( STR( nPaginas ) )
+                        @ 46*RF, ( HBPRNMAXCOL -HMG_LEN(cPie)-5 )  *CF PRINT cPie FONT "COURIER NEW" SIZE 9 BOLD 
                 else
 
                         @ (68*RF)-1, 10  *CF PRINT LINE TO (68*RF)-1, ( HBPRNMAXCOL - 5 ) *CF PENWIDTH 0.2
-                        cPie := hb_ValToStr( Date() ) + " " + Time()
-                        @ 68*RF, 10 *CF  PRINT cPie FONT "COURIER NEW" SIZE 9 BOLD
+                        cPie := HB_ValToStr( Date() ) + " " + Time()
+                        @ 68*RF, 10 *CF  PRINT cPie FONT "COURIER NEW" SIZE 9 BOLD 
 
-                        cPie := "P√°gina: " +                    ;
-                                ALLTRIM( Str( nPagina) ) +      ;
+                        cPie := "P·gina: " +                    ;
+                                ALLTRIM( STR( nPagina) ) +      ;
                                 "/" +                           ;
-                                ALLTRIM( Str( nPaginas ) )
-                        @ 68*RF, ( HBPRNMAXCOL - HMG_LEN(cPie)-5)  *CF PRINT cPie FONT "COURIER NEW" SIZE 9 BOLD
+                                ALLTRIM( STR( nPaginas ) )
+                        @ 68*RF, ( HBPRNMAXCOL - HMG_LEN(cPie)-5)  *CF PRINT cPie FONT "COURIER NEW" SIZE 9 BOLD 
 
                 endif
 
 
-        END PRINTPAGE
+		END PRINTPAGE
 
-    END PRINTDOC
+	END PRINTDOC
 
 ////////// Cierra la ventana.--------------------------------------------------
-        (_cArea)->( dbGoto( nRegistro ) )
+        (_cArea)->( dbGoTo( nRegistro ) )
         wndABM2Listado.Release
 
 return NIL

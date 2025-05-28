@@ -50,7 +50,7 @@
 
 	"HWGUI"
   	Copyright 2001-2008 Alexander S.Kresin <alex@belacy.belgorod.su>
-//teste git  2020
+
 ---------------------------------------------------------------------------*/
 MEMVAR _HMG_SYSDATA
 #include "hmg.ch"
@@ -66,10 +66,10 @@ local h
 		Return 
 	endif
 
-	h := FOpen( cFile , FO_READ + FO_SHARED )
+	h := fopen( cFile , FO_READ + FO_SHARED )
 
 	If FError() != 0
-		MsgInfo( "Error Opening Help File. Error: " + Str( FError(), 2, 0 ) )
+		MsgInfo( "Error Opening Help File. Error: " + STR( ferror(), 2, 0 ) )
 		_HMG_SYSDATA [ 217 ] := ''
 	else
 		_HMG_SYSDATA [ 217 ] := cFile
@@ -83,7 +83,7 @@ Procedure _hmg_DisplayHelpTopic ( xTopic , nMet)
 *-----------------------------------------------------------------------------*
 local cFile
 
-	If Empty(_HMG_SYSDATA [ 217 ])
+	If empty(_HMG_SYSDATA [ 217 ])
 		Return		
 	endif
 

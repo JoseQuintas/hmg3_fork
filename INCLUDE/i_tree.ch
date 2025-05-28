@@ -12,27 +12,27 @@
       2012-2017 Dr. Claudio Soto <srvet@adinet.com.uy>
       http://srvet.blogspot.com
 
- This program is free software; you can redistribute it and/or modify it under
- the terms of the GNU General Public License as published by the Free Software
- Foundation; either version 2 of the License, or (at your option) any later
- version.
+ This program is free software; you can redistribute it and/or modify it under 
+ the terms of the GNU General Public License as published by the Free Software 
+ Foundation; either version 2 of the License, or (at your option) any later 
+ version. 
 
- This program is distributed in the hope that it will be useful, but WITHOUT
- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ This program is distributed in the hope that it will be useful, but WITHOUT 
+ ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS 
  FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
- You should have received a copy of the GNU General Public License along with
- this software; see the file COPYING. If not, write to the Free Software
- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA (or
+ You should have received a copy of the GNU General Public License along with 
+ this software; see the file COPYING. If not, write to the Free Software 
+ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA (or 
  visit the web site http://www.gnu.org/).
 
- As a special exception, you have permission for additional uses of the text
+ As a special exception, you have permission for additional uses of the text 
  contained in this release of HMG.
 
- The exception is that, if you link the HMG library with other
- files to produce an executable, this does not by itself cause the resulting
+ The exception is that, if you link the HMG library with other 
+ files to produce an executable, this does not by itself cause the resulting 
  executable to be covered by the GNU General Public License.
- Your use of that executable is in no way restricted on account of linking the
+ Your use of that executable is in no way restricted on account of linking the 
  HMG library code into it.
 
  Parts of this project are based upon:
@@ -46,7 +46,7 @@
 	Copyright 1999-2003, http://www.harbour-project.org/
 
 	"WHAT32"
-	Copyright 2002 AJ Wos <andrwos@aust1.net>
+	Copyright 2002 AJ Wos <andrwos@aust1.net> 
 
 	"HWGUI"
   	Copyright 2001-2007 Alexander S.Kresin <alex@belacy.belgorod.su>
@@ -84,7 +84,7 @@
    [ DYNAMICFORECOLOR <DynamicForeColor> ] ;
    [ DYNAMICFONT <DynamicFont> ] ;
 =>;
-_DefineTree ( <(name)> , <(parent)> , <row> , <col> , <width> , <height> , <{change}> , <tooltip> , <fontname> , <fontsize> , <{gotfocus}> , <{lostfocus}> , <{dblclick}> , .f. , <value>  , <helpid>, <aImgNode>, <aImgItem>, <.noBut.> ,<.bold.>, <.italic.>, <.underline.>, <.strikeout.> , <.itemids.> , Nil , <.NoTrans.> , <{OnExpand}> , <{OnCollapse}> , <aBackColor> , <aFontColor> , <DynamicBackColor> , <DynamicForeColor> , <DynamicFont> )
+_DefineTree ( <"name"> , <"parent"> , <row> , <col> , <width> , <height> , <{change}> , <tooltip> , <fontname> , <fontsize> , <{gotfocus}> , <{lostfocus}> , <{dblclick}> , .f. , <value>  , <helpid>, <aImgNode>, <aImgItem>, <.noBut.> ,<.bold.>, <.italic.>, <.underline.>, <.strikeout.> , <.itemids.> , Nil , <.NoTrans.> , <{OnExpand}> , <{OnCollapse}> , <aBackColor> , <aFontColor> , <DynamicBackColor> , <DynamicForeColor> , <DynamicFont> )
 
 
 * Alternate Syntax
@@ -121,7 +121,7 @@ _DefineTree ( <(name)> , <(parent)> , <row> , <col> , <width> , <height> , <{cha
    [ DYNAMICFORECOLOR <DynamicForeColor> ] ;
    [ DYNAMICFONT <DynamicFont> ] ;
 =>;
-_DefineTree ( <(name)> , <(parent)> , <row> , <col> , <width> , <height> , <{change}> , <tooltip> , <fontname> , <fontsize> , <{gotfocus}> , <{lostfocus}> , <{dblclick}> , .f. , <value>  , <helpid>, <aImgNode>, <aImgItem>, .f. ,<.bold.>, <.italic.>, <.underline.>, <.strikeout.> , <.itemids.> , <rootbutton> , <.Trans.> , <{OnExpand}> , <{OnCollapse}> , <aBackColor> , <aFontColor> , <DynamicBackColor> , <DynamicForeColor> , <DynamicFont> )
+_DefineTree ( <"name"> , <"parent"> , <row> , <col> , <width> , <height> , <{change}> , <tooltip> , <fontname> , <fontsize> , <{gotfocus}> , <{lostfocus}> , <{dblclick}> , .f. , <value>  , <helpid>, <aImgNode>, <aImgItem>, .f. ,<.bold.>, <.italic.>, <.underline.>, <.strikeout.> , <.itemids.> , <rootbutton> , <.Trans.> , <{OnExpand}> , <{OnCollapse}> , <aBackColor> , <aFontColor> , <DynamicBackColor> , <DynamicForeColor> , <DynamicFont> )
 
 
 #xcommand NODE <text> [ IMAGES <aImage> ] [ ID <id> ];
@@ -179,7 +179,7 @@ _EndTree()
    [ DYNAMICFORECOLOR <DynamicForeColor> ] ;
    [ DYNAMICFONT <DynamicFont> ] ;
 =>;
-_DefineTree ( <(name)> , <(parent)> ,  ,  , <width> , <height> , <{change}> , <tooltip> , <fontname> , <fontsize> , <{gotfocus}> , <{lostfocus}> , <{dblclick}> , <.break.> , <value>  , <helpid>, <aImgNode>, <aImgItem>, <.noBut.> ,<.bold.>, <.italic.>, <.underline.>, <.strikeout.>  , <.itemids.> , Nil , <.NoTrans.> , <{OnExpand}> , <{OnCollapse}> , <aBackColor> , <aFontColor> , <DynamicBackColor> , <DynamicForeColor> , <DynamicFont> )
+_DefineTree ( <"name"> , <"parent"> ,  ,  , <width> , <height> , <{change}> , <tooltip> , <fontname> , <fontsize> , <{gotfocus}> , <{lostfocus}> , <{dblclick}> , <.break.> , <value>  , <helpid>, <aImgNode>, <aImgItem>, <.noBut.> ,<.bold.>, <.italic.>, <.underline.>, <.strikeout.>  , <.itemids.> , Nil , <.NoTrans.> , <{OnExpand}> , <{OnCollapse}> , <aBackColor> , <aFontColor> , <DynamicBackColor> , <DynamicForeColor> , <DynamicFont> )
 
 
 * Extended
@@ -206,7 +206,7 @@ _DefineTree ( <(name)> , <(parent)> ,  ,  , <width> , <height> , <{change}> , <t
 	[ ITEMIMAGES <aImgItem> ] ;
 	[ ROOTBUTTON <rootbutton> ] ;
 	[ BREAK <break> ] ;
-   [ TRANSPARENT <Trans> ] ;
+   [ TRANSPARENT <Trans> ] ;   
    [ ONEXPAND <OnExpand> ] ;
    [ ONCOLLAPSE <OnCollapse> ] ;
    [ BACKCOLOR <aBackColor> ] ;
@@ -215,7 +215,7 @@ _DefineTree ( <(name)> , <(parent)> ,  ,  , <width> , <height> , <{change}> , <t
    [ DYNAMICFORECOLOR <DynamicForeColor> ] ;
    [ DYNAMICFONT <DynamicFont> ] ;
 =>;
-_DefineTree ( <(name)> , <(parent)> ,  ,  , <width> , <height> , <{change}> , <tooltip> , <fontname> , <fontsize> , <{gotfocus}> , <{lostfocus}> , <{dblclick}> , <.break.> , <value>  , <helpid>, <aImgNode>, <aImgItem>, .f. ,<.bold.>, <.italic.>, <.underline.>, <.strikeout.>  , <.itemids.> , <rootbutton> , <.Trans.> , <{OnExpand}> , <{OnCollapse}> , <aBackColor> , <aFontColor> , <DynamicBackColor> , <DynamicForeColor> , <DynamicFont>  )
+_DefineTree ( <"name"> , <"parent"> ,  ,  , <width> , <height> , <{change}> , <tooltip> , <fontname> , <fontsize> , <{gotfocus}> , <{lostfocus}> , <{dblclick}> , <.break.> , <value>  , <helpid>, <aImgNode>, <aImgItem>, .f. ,<.bold.>, <.italic.>, <.underline.>, <.strikeout.>  , <.itemids.> , <rootbutton> , <.Trans.> , <{OnExpand}> , <{OnCollapse}> , <aBackColor> , <aFontColor> , <DynamicBackColor> , <DynamicForeColor> , <DynamicFont>  )
 
 
 
@@ -233,9 +233,9 @@ _DefineTree ( <(name)> , <(parent)> ,  ,  , <width> , <height> , <{change}> , <t
 #define TREESORTNODE_LAST   1
 #define TREESORTNODE_MIX    2
 
-#xtranslate TREESORT <control> OF <parent>;
+#xtranslate TREESORT <control> OF <parent>; 
           [ ITEM <nItem> ] [ RECURSIVE <lRecursive> ] [ CASESENSITIVE <lCaseSensitive> ] [ ASCENDINGORDER <lAscendingOrder> ] [ NODEPOSITION <nNodePosition> ] =>;
-   TreeItemSort (<"control">, <(parent)>, <nItem>, <lRecursive>, <lCaseSensitive>, <lAscendingOrder>, <nNodePosition>)
+   TreeItemSort (<"control">, <"parent">, <nItem>, <lRecursive>, <lCaseSensitive>, <lAscendingOrder>, <nNodePosition>)
 
 
 #xtranslate This.TreeItemValue => _HMG_This_TreeItem_Value

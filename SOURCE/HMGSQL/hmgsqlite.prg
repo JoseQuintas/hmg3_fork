@@ -2,39 +2,39 @@
  HMG_SQL_Bridge - HMG -> SQL Bridges for MySQL,PostgreSQL and SQLite
 
  Copyright 2010 S. Rathinagiri <srgiri@dataone.in>
+ 
 
+ This program is free software; you can redistribute it and/or modify it under 
+ the terms of the GNU General Public License as published by the Free Software 
+ Foundation; either version 2 of the License, or (at your option) any later 
+ version. 
 
- This program is free software; you can redistribute it and/or modify it under
- the terms of the GNU General Public License as published by the Free Software
- Foundation; either version 2 of the License, or (at your option) any later
- version.
-
- This program is distributed in the hope that it will be useful, but WITHOUT
- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ This program is distributed in the hope that it will be useful, but WITHOUT 
+ ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS 
  FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
- You should have received a copy of the GNU General Public License along with
- this software; see the file COPYING. If not, write to the Free Software
- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA (or
+ You should have received a copy of the GNU General Public License along with 
+ this software; see the file COPYING. If not, write to the Free Software 
+ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA (or 
  visit the web site http://www.gnu.org/).
 
  As a special exception, you have permission for additional uses of the text
  contained in this release of HMG_SQL_Bridge.
 
- The exception is that, if you link the HMG_SQL_Bridge library with other
- files to produce an executable, this does not by itself cause the resulting
+ The exception is that, if you link the HMG_SQL_Bridge library with other 
+ files to produce an executable, this does not by itself cause the resulting 
  executable to be covered by the GNU General Public License.
- Your use of that executable is in no way restricted on account of linking the
+ Your use of that executable is in no way restricted on account of linking the 
  HMG_SQL_Bridge library code into it.
 
  Parts of this project (especially hbmysql, hbpgsql and hbsqlit3 library contributions) are based upon:
 
 	"Harbour Project"
 	Copyright 1999-2008, http://www.harbour-project.org/
-
+	
   "HMG - Harbour Windows GUI"
   Copyright 2002-2010 Roberto Lopez <mail.box.hmg@gmail.com>,http://sites.google.com/site/hmgweb/
-
+	
 	"HBMYSQL"  - Luiz Rafael Culik - <culik@sl.conex.net>
 	"HBPGSQL"  - Rodrigo Moreno rodrigo_moreno@yahoo.com
 	"HBSQLIT3" - P.Chornyj <myorg63@mail.ru>
@@ -42,20 +42,16 @@
 ---------------------------------------------------------------------------*/
 #include <hmg.ch>
 
-FUNCTION connect2db( dbname, lCreate, cMsg )
-local dbo1 := sqlite3_open( dbname, lCreate )
-default cMsg := ''
+FUNCTION connect2db(dbname,lCreate)
+local dbo1 := sqlite3_open(dbname,lCreate)
 IF Empty( dbo1 )
-   if PCount() > 2
-      cMsg := "Database could not be connected!"
-   else
-      Msgstop( "Database could not be connected!" )
-   endif
+   msginfo("Database could not be connected!")
+   RETURN nil
 ENDIF
 RETURN dbo1
 
 
-function sql( dbo1, qstr, cMsg )
+function sql( dbo1, qstr )
 local table := {}
 local currow := nil
 local tablearr := {}
@@ -67,27 +63,16 @@ local j := 0
 local type1 := ""
 local stmt := nil
 local cDate
-default cMsg := ''
-if empty( dbo1 )
-   if PCount() > 2
-      cMsg := "Database Connection Error!"
-   else
-      msgstop( "Database Connection Error!" )
-   endif
+if empty(dbo1)
+   msgstop("Database Connection Error!")
    return tablearr
-else
-   cMsg := ''
 endif
-table := sqlite3_get_table( dbo1, qstr )
-if sqlite3_errcode( dbo1 ) > 0 // error
-   if PCount() > 2
-      cMsg := sqlite3_errmsg(dbo1)+" Query is : "+qstr
-   else
-      msgstop( sqlite3_errmsg(dbo1)+" Query is : "+qstr )
-   endif
+table := sqlite3_get_table(dbo1,qstr)
+if sqlite3_errcode(dbo1) > 0 // error
+   msgstop(sqlite3_errmsg(dbo1)+" Query is : "+qstr)
    return nil
 endif
-stmt := sqlite3_prepare( dbo1, qstr )
+stmt := sqlite3_prepare(dbo1,qstr)
 IF ! Empty( stmt )
    for i := 1 to sqlite3_column_count( stmt )
       type1 := HMG_UPPER(alltrim(sqlite3_column_decltype( stmt,i)))
@@ -129,23 +114,14 @@ if HMG_LEN(table) > 1
 endif
 return tablearr
 
-function miscsql( dbo1, qstr, cMsg )
-default cMsg := ''
-if empty( dbo1 )
-   if PCount() > 2
-      cMsg := "Database Connection Error!"
-   else
-      MsgStop( "Database Connection Error!" )
-   endif
+function miscsql(dbo1,qstr)
+if empty(dbo1)
+   msgstop("Database Connection Error!")
    return .f.
 endif
-sqlite3_exec( dbo1, qstr )
-if sqlite3_errcode( dbo1 ) > 0 // error
-   if PCount() > 2
-      cMsg := sqlite3_errmsg(dbo1)+" Query is : "+qstr
-   else
-      MsgStop( sqlite3_errmsg(dbo1)+" Query is : "+qstr )
-   endif
+sqlite3_exec(dbo1,qstr)
+if sqlite3_errcode(dbo1) > 0 // error
+   msgstop(sqlite3_errmsg(dbo1)+" Query is : "+qstr)
    return .f.
 endif
 return .t.

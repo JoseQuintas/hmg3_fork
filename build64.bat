@@ -47,7 +47,7 @@ rem ****************************************************************************
 rem SET BINARIES PATHS
 rem ******************************************************************************
 
-SET PATH=%HMGPATH%\harbour-64\bin;%HMGPATH%\mingw-64\bin;%PATH%
+SET PATH=%HMGPATH%harbour64\bin;%HMGPATH%mingw64\bin;%PATH%
 
 rem *******************************************************************************
 rem PROCESS PARAMETERS 

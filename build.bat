@@ -1,5 +1,5 @@
 @ECHO OFF
-TITLE Building in 32 bits...
+TITLE Building in 64 bits...
 rem *******************************************************************************
 rem SYNTAX
 rem *******************************************************************************
@@ -38,7 +38,7 @@ rem ****************************************************************************
 rem SET HMGPATH
 rem ******************************************************************************
 rem
-rem Using %~dp0 the HMGPATH is automatically set to current (HMG) folder making it
+rem Using %~dp0 the HMGPATH is automatically set to current (hmg) folder making it
 rem portable (zero config)
 
 SET HMGPATH=%~dp0
@@ -47,25 +47,25 @@ rem ****************************************************************************
 rem SET BINARIES PATHS
 rem ******************************************************************************
 
-SET PATH=%HMGPATH%\harbour\bin;%HMGPATH%\mingw\bin;%PATH%
+SET PATH=%HMGPATH%harbour64\bin;%HMGPATH%mingw64\bin;%PATH%
 
 rem *******************************************************************************
 rem PROCESS PARAMETERS 
 rem *******************************************************************************
 rem
-rem /n   no run after build
-rem /d   enabled debugger
-rem /c   console mode
+rem   /n   no run after build
+rem   /d   enabled debugger
+rem   /c   console mode
 
 if "%1"=="" goto VERSION
 if /I [%1]==[/n] set runafterbuild=.f.
 if /I [%1]==[/n] shift
-
+   
 rem if /I [%1]==[/d] set gtdrivers=-gtwin -gtgui
 if /I [%1]==[/d] set debug=-b
 rem if /I [%1]==[/d] echo options norunatstartup > init.cld
 if /I [%1]==[/d] shift
-
+   
 if /I [%1]==[/c] set gtdrivers=-gtwin -gtgui
 if /I [%1]==[/c] shift
 
@@ -96,8 +96,8 @@ rem ****************************************************************************
 if exist build.log del build.log
 
 echo #define HMGRPATH %HmgPath%\RESOURCES > _hmg_resconfig.h
-COPY /b %HMGPATH%\resources\hmg32.rc+"%~n1.rc"+%HMGPATH%\resources\filler _temp.rc >NUL
-WINDRES -i _temp.rc -o _temp.o >windres.log 2>&1
+COPY /b %HMGPATH%\resources\hmg64.rc+"%~n1.rc"+%HMGPATH%\resources\filler _temp.rc >NUL
+windres -i _temp.rc -o _temp.o >windres.log 2>&1
 
 rem *******************************************************************************
 rem SET PROJECT OUTPUT FILE NAME 
@@ -125,7 +125,7 @@ rem ****************************************************************************
 rem -ldflag="-pthread  -static-libgcc  -static-libstdc++  -static -lpthread"  --> for gcc.exe link pthread library in static mode
 rem -trace --> for show execute command line
 
-HBMK2 -ldflag="-pthread  -static-libgcc  -static-libstdc++  -static -lpthread" -mt -o"%~n1" %HMGPATH%\hmg32.hbc %gtdrivers% %debug% -q %1 %2 %3 %4 %5 %6 %7 %8 >hbmk.log 2>&1
+HBMK2 -ldflag="-pthread  -static-libgcc  -static-libstdc++  -static -lpthread" -mt -o"%~n1" %HMGPATH%\hmg64.hbc %gtdrivers% %debug% -q %1 %2 %3 %4 %5 %6 %7 %8 >hbmk.log 2>&1
 
 
 rem ******************************************************************************
@@ -165,9 +165,8 @@ rem SHOW LOG
 rem ******************************************************************************
 
 :VIEWERROR
-if not exist error.log TYPE build.log
 if not exist error.log goto RUNAPP
-if not "%ViewError%"=="" %ViewError%\ViewError.exe error.log %HmgPath% %1 32
+if not "%ViewError%"=="" %ViewError%\ViewError.exe error.log %HmgPath% %1 64
 if [%runafterbuild%]==[.f.] goto END
 if "%ViewError%"=="" TYPE error.log
 rem if "%ViewError%"=="" PAUSE
@@ -179,12 +178,17 @@ rem ****************************************************************************
 
 :VERSION
 ECHO.
-ECHO Build [ /n ] [ /d ] [ /c ] <program.prg> | <project.hbp> [<hbmk2 params>]
 ECHO.
+ECHO Build [ /n ] [ /d ] [ /c ] <program.prg> | <project.hbp> [<hbmk2 params>]
 ECHO.
 ECHO.
 PAUSE
 GOTO END
+:OTHER
+SET /p "OTHER=" <dat
+COPY "%~n1".exe %other%
+if errorlevel 1 goto END
+CD /D %other%
 :RUNAPP
 if [%runafterbuild%]==[.f.] goto END
 if exist "%~n1".exe "%~n1".exe

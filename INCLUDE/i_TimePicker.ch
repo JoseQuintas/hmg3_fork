@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
- HMG Header File --> i_TimePicker.ch
+ HMG Header File --> i_TimePicker.ch  
 
- Copyright 2012-2017 by Dr. Claudio Soto (from Uruguay).
+ Copyright 2012-2017 by Dr. Claudio Soto (from Uruguay). 
 
  mail: <srvet@adinet.com.uy>
  blog: http://srvet.blogspot.com
@@ -40,8 +40,8 @@
          [ <invisible: INVISIBLE> ] ;
          [ <notabstop: NOTABSTOP> ] ;
    => ;
-   _DefineTimePick ( <(name)> , ;
-                     <(parent)> , ;
+   _DefineTimePick ( <"name"> , ;
+                     <"parent"> , ;
                      <col> , ;
                      <row> , ;
                      <w> , ;
@@ -54,8 +54,8 @@
                      <{lostfocus}> , ;
                      <{gotfocus}> , ;
                      <.shownone.> , ;
-                      <helpid> , ;
-                      <.invisible.> , ;
+                      <helpid> , ; 
+                      <.invisible.> , ; 
                       <.notabstop.> , ;
                       <.bold.>, <.italic.>, <.underline.>, <.strikeout.> , ;
                       <"field">, <{enter}>, <timeformat> )
