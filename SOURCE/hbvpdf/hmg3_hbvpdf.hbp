@@ -1,0 +1,17 @@
+#
+# $Id: hbvpdf.hbp 16868 2011-06-07 22:29:10Z vszakats $
+#
+
+
+
+-hblib
+
+
+-o../../lib/${hb_name}
+-hbx=../../lib/${hb_name}.hbx
+
+-w3 -es2
+
+hbvpdf.prg
+hbvpdft.prg
+hbvpsup.prg
