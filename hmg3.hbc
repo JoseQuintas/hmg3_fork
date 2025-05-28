@@ -1,0 +1,55 @@
+# paths
+
+incpaths=/.
+incpaths=include
+libpaths=lib
+
+# main hmg libs
+
+{hbexe}libs=hmg3_main
+{hbexe}libs=hmg3_crypt
+{hbexe}libs=hmg3_edit
+{hbexe}libs=hmg3_editex
+{hbexe}libs=hmg3_graph
+{hbexe}libs=hmg3_ini
+{hbexe}libs=hmg3_report
+{hbexe}libs=hmg3_hfcl
+
+# system libs
+
+libs=msvfw32
+libs=vfw32
+
+# harbour contrib libs
+
+#libs=hbmysql
+#libs=mysql
+#libs=hbfimage
+#libs=hbpgsql
+#libs=sddmy
+
+#libs=hbvpdf
+
+libs=hbct
+libs=hbwin
+libs=hbmzip
+libs=minizip
+#libs=hbmemio
+libs=hbmisc
+libs=hbtip
+#libs=sqlite3
+#libs=hbsqlit3
+#libs=sddodbc
+#libs=rddsql
+#libs=hbodbc
+#libs=odbc32
+libs=hbhpdf
+#libs=hbnetio
+libs=xhb
+libs=png
+libs=libhpdf
+libs=hbzebra
+
+# link compiled resources
+
+#sources=${hb_curdir}_temp.o
