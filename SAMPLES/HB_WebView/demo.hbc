@@ -1,0 +1,10 @@
+### paths ###
+
+libpaths=/.
+
+### lib ###
+
+# libs=hb_webview-64
+
+libs=sqlite3
+libs=hbsqlit3

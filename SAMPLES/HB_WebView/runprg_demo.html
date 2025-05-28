@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+   <meta http-equiv=“Pragma” content=”no-cache”>
+   <meta http-equiv=“Expires” content=”-1″>
+   <meta http-equiv=“CACHE-CONTROL” content=”NO-CACHE”>
+
+   <title>Harbour WebView - Run PRG Code Demo</title>
+
+   <style type="text/css">
+   </style>
+
+ </head>
+
+   <pre id="idCode"></pre>
+   <button onclick="injectPrgCode()">Inject prg code</button>
+
+   <script>
+   "use strict";
+
+/*
+   Remember that JavaScript is case sensitive: 
+   If you bind the HB_ALERT() function as "hb_Alert" in the Harbour environment, 
+   you must call it as hb_Alert() in JavaScript environment.
+
+   On the other hand, Harbour binding functions are passed as promises to JavaScript. 
+   Therefore, they are executed in the JavaScript environment as asynchronous functions.
+
+   For more details on promises in JavaScript, see:
+   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+   For promises to execute synchronously, you must chain the calls in chained .then() statements 
+   or call them with the await statement inside an asynchronous function.
+   For more details see:
+   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then
+   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await
+
+*/
+
+   var cPrgCode = '';
+   cPrgCode += ' FUNCTION Test()                               \n';
+   cPrgCode += ' LOCAL cFileName := "database_demo.dbf"        \n';
+   cPrgCode += ' LOCAL nTotal := 0                             \n';
+   cPrgCode += '    IF File( cFileName )                       \n';
+   cPrgCode += '       dbUseArea( .T., NIL, cFileName )        \n';
+   cPrgCode += '       IF Used()                               \n';
+   cPrgCode += '           DO WHILE .NOT. Eof()                \n';
+   cPrgCode += '              nTotal += FIELD->RESIDENTS       \n';
+   cPrgCode += '              dbSkip()                         \n';
+   cPrgCode += '           ENDDO                               \n';
+   cPrgCode += '           dbCloseArea()                       \n';
+   cPrgCode += '        ELSE                                   \n';
+   cPrgCode += '           hb_Alert("Error opening file " + cFileName)  \n';
+   cPrgCode += '        ENDIF                                  \n';
+   cPrgCode += '    ELSE                                       \n';
+   cPrgCode += '       hb_Alert("The file " + cFileName + " does not exist. Please run demo3.prg to create it.")  \n';
+   cPrgCode += '    ENDIF                                      \n';
+   cPrgCode += ' RETURN nTotal                                 \n';
+
+   document.getElementById("idCode").textContent = cPrgCode;
+
+   function isWebviewRun(){
+      return ( typeof __webview__ != "undefined" )   // __webview__ is an object defined by the Webview library that is responsible for bridging  between C/C++ and Javascript
+   }
+
+   if( ! isWebviewRun() ){
+      alert("ERROR: Webview is not available in this Javascript environment");
+      throw new Error();
+   }
+
+   async function injectPrgCode(){
+      alert( "Total Population: " + await runPrg( cPrgCode ) );
+   }
+
+    </script>
+</body>
+
+
+</html>

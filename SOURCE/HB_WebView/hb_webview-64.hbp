@@ -1,0 +1,15 @@
+-hblib
+
+-o../../lib-64/hb_webview-64
+
+-i/.
+
+-Iinclude
+
+-D__HBIDE__
+
+-w2 -es2
+
+-cpp
+
+hb_webview.prg

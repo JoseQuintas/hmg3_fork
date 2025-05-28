@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>HB_WebView - Directory Demo</title>
+
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+<style>
+
+   body {
+      margin: 0 auto;
+      position: relative;
+      border: 1px solid #cccccc;
+      background-color: white;
+   }
+
+   .MyJumbotron {
+      background-color: #e9ecef;
+      padding: 1em;
+   }
+
+   .file-icon {
+      float: left;
+      margin-top: 0.25em;
+      margin-left: -0.1em;
+      margin-right: 0.25em;
+   }
+
+  .pdf-icon       { color : red; }
+  .zip-icon       { color: blue; }
+  .excel-icon     { color: green; }
+  .word-icon      { color: darkblue; }
+  .powerpoint-icon { color: orange; }
+  .text-icon      { color: gray; }
+  .image-icon     { color: purple; }
+  .audio-icon     { color: cyan; }
+  .video-icon     { color: darkblue; }
+  .code-icon      { color: crimson; }
+  .csv-icon       { color: darkgreen; }
+  .sql-icon       { color: brown; }
+  .exe-icon       { color: black; }
+  .jar-icon       { color: #f0ad4e; }
+  .shell-icon     { color: darkgreen; }
+  .generic-icon   { color: darkgray; }
+
+  .folder-icon    { color: gold; }
+
+</style>
+
+  <title>HB_WebView - Directory Demo</title>
+
+</head>
+<body>
+
+    <h2 class="text-center">HB_WebView - Directory Demo</h2>
+
+<!-- Table Open File -->
+<div id="idMyTableOpenFile" class="MyJumbotron container">
+   <span><b>Open File Dialog</b></span>
+
+   <div class="input-group mb-3 mt-3">
+      <input class="form-control" id="idMyInputSearchOpenFile" type="text" placeholder="Search File...">
+      <div class="input-group-prepend">
+         <button class="btn btn-sm" type="button" onclick="$('#idMyTableListOpenFile tr').toggle(true); $('#idMyInputSearchOpenFile').val('');">
+            <i class="fas fa-solid fa-eraser"></i>
+         </button>
+      </div>
+   </div>
+
+   <div style="margin-top: -0.35em; margin-bottom: 0.5em;">
+      <i class="fas fa-folder-open folder-icon"></i>
+      <span class="text-break">
+         <small>Folder: <i><span class="text-secondary" id="idDisplayOpenFileFolderName"></span></i></small>
+      </span>
+   </div>
+
+   <table id="idMyTableOpenFileHead" class="table table-hover table-sm table-responsive" style="background-color: white">
+      <thead>
+         <tr>
+            <th onclick="sortTable('idMyTableOpenFileHead', 0)">#</th>
+            <th onclick="sortTable('idMyTableOpenFileHead', 1)">Name</th>
+            <th onclick="sortTable('idMyTableOpenFileHead', 2)">Date</th>
+            <th onclick="sortTable('idMyTableOpenFileHead', 3)">Time</th>
+            <th onclick="sortTable('idMyTableOpenFileHead', 4)">Size</th>
+         </tr>
+      </thead>
+      <tbody id="idMyTableListOpenFile">
+         <!-- File rows go here -->
+      </tbody>
+   </table>
+</div>
+<!-- END: Table Open File -->
+
+    <script>
+      "use strict";
+
+
+const F_NAME = 0;       /* File name */
+const F_SIZE = 1;       /* File size */
+const F_DATE = 2;       /* File date (write) */
+const F_TIME = 3;       /* File time (write) */
+const F_ATTR = 4;       /* File attribute */
+const F_PATH = 5;       /* File full path */
+
+
+function formatFileSize(bytes) {
+    if (bytes < 1024) {
+        return `${bytes} Bytes`;
+    } else if (bytes < 1024 * 1024) {
+        return `${(bytes / 1024).toFixed(2)} KB`;
+    } else {
+        return `${(bytes / (1024 * 1024)).toFixed(2)} MB`;
+    }
+}
+
+
+function CreateFileTable(cID, aFileList, cClickFuncName) {
+   let cHtml = '';
+   if (Array.isArray(aFileList)) {
+      cHtml += `<tbody id="${cID}">`;
+      aFileList.forEach((file, index) => {
+         const cScript = `javascript:${cClickFuncName}(${index});`;
+         let cIconName = "";
+         if( file[ F_ATTR ].search("D") >= 0 )
+            cIconName = "fas fa-folder folder-icon";
+         else
+            cIconName = getFileIcon(file[ F_NAME ]);
+         const cIconImg = `<i class="${cIconName} file-icon"></i>`;
+         const bytes = formatFileSize( file[ F_SIZE ] );
+         cHtml += `
+               <tr>
+                  <td><b>${("000" + (index + 1)).slice(-4)}</b></td>
+                  <td><a href="${cScript}">${cIconImg}${file[ F_NAME ]}</a></td>
+                  <td>${file[ F_DATE ]}</td>
+                  <td>${file[ F_TIME ]}</td>
+                  <td>${bytes}</td>
+               </tr>`;
+      });
+      cHtml += '</tbody>';
+   }
+   $(`#${cID}`).replaceWith(cHtml);
+}
+
+
+function sortTable( cID, n ){
+   let table, rows, switching, i, x, y, shouldSwitch;
+   table = document.getElementById( cID );
+   if( n == 1 ) n = 0;
+   switching = true;
+   // Make a loop that will continue until no switching has been done: 
+   while( switching ) {
+      switching = false;
+      rows = table.rows;
+      // Loop through all table rows (except the first, which contains table headers): 
+      for( i = 1; i < ( rows.length - 1 ); i++ ){
+         // Start by saying there should be no switching:
+         shouldSwitch = false;
+         // Get the two elements you want to compare, one from current row and one from the next:
+         x = rows[ i ].getElementsByTagName( "TD" )[ n ];
+         y = rows[ i + 1 ].getElementsByTagName( "TD" )[ n ];
+         // Check if the two rows should switch place:
+         if( x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase() ){
+            // If so, mark as a switch and break the loop:
+            shouldSwitch = true;
+            break;
+         }
+      }
+      if( shouldSwitch ){
+         // If a switch has been marked, make the switch and mark that a switch has been done:
+         rows[ i ].parentNode.insertBefore( rows[ i + 1 ], rows[ i ] );
+         switching = true;
+      }
+   }
+}
+
+
+// Filter Open File list  
+$("#idMyInputSearchOpenFile").on("keyup", function() {
+    let cInputValue = $(this).val().toLowerCase();
+    // Loop through table rows
+    $("#idMyTableListOpenFile tr").filter(function() {
+        let cCellText = $(this).find("td").eq(1).text(); // Get the file name from the second column
+        $(this).toggle(cCellText.toLowerCase().indexOf(cInputValue) > -1); 
+    });
+});
+
+
+function getFileExt( cFileName ) {
+   const n = cFileName.trim().lastIndexOf('.');
+   return n > -1 ? cFileName.trim().toLowerCase().substring( n ) : '';
+}
+
+
+const fileExtensions = [
+  { type: "Text",                extension: ".txt",      icon: "fas fa-file-alt text-icon" },
+  { type: "PDF",                 extension: ".pdf",      icon: "fas fa-file-pdf pdf-icon" },
+  { type: "Word Document",       extension: ".docx",     icon: "fas fa-file-word word-icon" },
+  { type: "Excel Spreadsheet",   extension: ".xlsx",     icon: "fas fa-file-excel excel-icon" },
+  { type: "PowerPoint",          extension: ".pptx",     icon: "fas fa-file-powerpoint powerpoint-icon" },
+  { type: "Image (PNG)",         extension: ".png",      icon: "fas fa-file-image image-icon" },
+  { type: "Image (JPEG)",        extension: ".jpg",      icon: "fas fa-file-image image-icon" },
+  { type: "Image (GIF)",         extension: ".gif",      icon: "fas fa-file-image image-icon" },
+  { type: "Image (SVG)",         extension: ".svg",      icon: "fas fa-file-image image-icon" },
+  { type: "Audio (MP3)",         extension: ".mp3",      icon: "fas fa-file-audio audio-icon" },
+  { type: "Audio (WAV)",         extension: ".wav",      icon: "fas fa-file-audio audio-icon" },
+  { type: "Video (MP4)",         extension: ".mp4",      icon: "fas fa-file-video video-icon" },
+  { type: "Video (MKV)",         extension: ".mkv",      icon: "fas fa-file-video video-icon" },
+  { type: "ZIP Archive",         extension: ".zip",      icon: "fas fa-file-archive zip-icon" },
+  { type: "Log File",            extension: ".log",      icon: "fas fa-file-alt text-icon" },
+  { type: "Executable",          extension: ".exe",      icon: "fas fa-cogs fa fa-cog fa-spin exe-icon" },
+  { type: "Harbour",             extension: ".prg",      icon: "fas fa-file-code code-icon" },
+  { type: "Harbour Header",      extension: ".ch",       icon: "fas fa-file-code code-icon" },
+  { type: "HTML",                extension: ".html",     icon: "fas fa-file-code code-icon" },
+  { type: "CSS",                 extension: ".css",      icon: "fas fa-file-code code-icon" },
+  { type: "JavaScript",          extension: ".js",       icon: "fas fa-file-code code-icon" },
+  { type: "JSON",                extension: ".json",     icon: "fas fa-file-code code-icon" },
+  { type: "Markdown",            extension: ".md",       icon: "fas fa-file-alt text-icon" },
+  { type: "CSV",                 extension: ".csv",      icon: "fas fa-file-csv csv-icon" },
+  { type: "SQL Database",        extension: ".sql",      icon: "fas fa-database sql-icon" },
+  { type: "XML",                 extension: ".xml",      icon: "fas fa-file-code code-icon" },
+  { type: "Java Archive",        extension: ".jar",      icon: "fas fa-cogs jar-icon" },
+  { type: "C Source Code",       extension: ".c",        icon: "fas fa-file-code code-icon" },
+  { type: "C++ Source Code",     extension: ".cpp",      icon: "fas fa-file-code code-icon" },
+  { type: "C++ Header",          extension: ".h",        icon: "fas fa-file-code code-icon" },
+  { type: "Python",              extension: ".py",       icon: "fas fa-file-code code-icon" },
+  { type: "Java",                extension: ".java",     icon: "fas fa-file-code code-icon" },
+  { type: "PHP",                 extension: ".php",      icon: "fas fa-file-code code-icon" },
+  { type: "Ruby",                extension: ".rb",       icon: "fas fa-file-code code-icon" },
+  { type: "Go",                  extension: ".go",       icon: "fas fa-file-code code-icon" },
+  { type: "Swift",               extension: ".swift",    icon: "fas fa-file-code code-icon" },
+  { type: "Rust",                extension: ".rs",       icon: "fas fa-file-code code-icon" },
+  { type: "Kotlin",              extension: ".kt",       icon: "fas fa-file-code code-icon" },
+  { type: "TypeScript",          extension: ".ts",       icon: "fas fa-file-code code-icon" },
+  { type: "Shell Script",        extension: ".sh",       icon: "fas fa-terminal shell-icon" },
+  { type: "Perl",                extension: ".pl",       icon: "fas fa-file-code code-icon" },
+  { type: "Lua",                 extension: ".lua",      icon: "fas fa-file-code code-icon" },
+  { type: "R",                   extension: ".r",        icon: "fas fa-file-code code-icon" },
+  { type: "Julia",               extension: ".jl",       icon: "fas fa-file-code code-icon" },
+  { type: "Haskell",             extension: ".hs",       icon: "fas fa-file-code code-icon" },
+  { type: "Scala",               extension: ".scala",    icon: "fas fa-file-code code-icon" },
+  { type: "Objective-C",         extension: ".m",        icon: "fas fa-file-code code-icon" },
+  { type: "Objective-C Header",  extension: ".h",        icon: "fas fa-file-code code-icon" },
+  { type: "Visual Basic",        extension: ".vb",       icon: "fas fa-file-code code-icon" },
+  { type: "Assembly",            extension: ".asm",      icon: "fas fa-file-code code-icon" },
+  { type: "VHDL",                extension: ".vhd",      icon: "fas fa-file-code code-icon" },
+  { type: "Verilog",             extension: ".v",        icon: "fas fa-file-code code-icon" },
+  { type: "Makefile",            extension: "Makefile",  icon: "fas fa-file-code code-icon" }
+];
+
+
+function getFileIcon( cFileName ) {
+  const extension = getFileExt( cFileName );
+  const file = fileExtensions.find(file => file.extension === extension);
+  return file ? file.icon : "fas fa-file generic-icon";
+}
+
+
+let aFileList;
+
+
+async function show( cPath = null  ){
+
+   function compareFn(a, b) {
+      let f1 = ( a[ F_ATTR ].search("D") >= 0 ? "1" :"2" ) + a[ F_NAME ].trim().toLowerCase();
+      let f2 = ( b[ F_ATTR ].search("D") >= 0 ? "1" :"2" ) + b[ F_NAME ].trim().toLowerCase();
+      return f1.localeCompare( f2 );
+   }
+
+   const cOsPathSeparator = await hb_ospathseparator();
+   const cRoot = await hb_curdrive() + await hb_osdriveseparator() + cOsPathSeparator;
+   if( ! cPath ){
+      // cPath = await hb_dirbase();
+      cPath = cRoot;
+   }
+   document.getElementById("idDisplayOpenFileFolderName").textContent = cPath;
+
+   aFileList = await directory( cPath + "*.*", "D");
+   aFileList.sort( compareFn );
+
+   aFileList.forEach((file, i) => {
+      if( file[ F_NAME ] == "." )
+         file[ F_PATH ] = cRoot;
+      else if( file[ F_NAME ] == ".." ){
+         let n = cPath.lastIndexOf( cOsPathSeparator );
+         if( n >= 0 ){
+            file[ F_PATH ] = cPath.substring( 0, n );
+            n = file[ F_PATH ].lastIndexOf( cOsPathSeparator );
+            file[ F_PATH ] = file[ F_PATH ].substring( 0, n + 1 );
+         }
+         else
+            file[ F_PATH ] = cPath;
+      }
+      else if( file[ F_ATTR ].search("D") >= 0 )
+         file[ F_PATH ] = cPath + file[ F_NAME ] + cOsPathSeparator;
+      else
+         file[ F_PATH ] = cPath + file[ F_NAME ];
+
+      if( file[ F_ATTR ].search("D") >= 0 )
+         file[ F_NAME ] = `[ ${file[ F_NAME ]} ]` 
+   });
+
+   CreateFileTable( "idMyTableListOpenFile", aFileList, "openFile" );
+// console.log( aFileList );
+}
+
+
+async function openFile( i ){
+   let file = aFileList[ i ];
+   if( file[ F_ATTR ].search("D") >= 0 ){
+      console.log( file[ F_PATH ] );
+      show( file[ F_PATH ] );
+   }
+   else{
+      const cFullName = file[ F_PATH ];
+      const openExt = [ ".txt", ".log", ".prg", ".ch", ".html", ".css", ".js", ".json", ".md", ".csv", ".xml", 
+                      ".c", ".cpp", ".h", ".py", ".java", ".php", ".rb", ".go", ".swift", ".rs", ".kt", ".ts", ".htm",
+                      ".sh", ".pl", ".lua", ".r", ".jl", ".hs", ".scala", ".m", ".vb", ".asm", ".vhd", ".v", "Makefile",
+                      ".bat", ".hbp", ".hbc" ];
+      const cExt = getFileExt( cFullName );
+      if( openExt.find((element) => element == cExt) ){
+         if( [ ".html", ".htm" ].find((element) => element == cExt) ){
+            await createWebview( cFullName, false, false, "Open: " + cFullName );
+         }
+         else {
+            let cText = await hb_memoread( cFullName );
+            await createWebview( "<pre>" + cText + "</pre>", true, false, "Open: " + cFullName );
+            // console.log( cFullName, cText );
+         }
+      }
+      else
+         hb_alert("Not be opened: " + cFullName + " because it is not of type " + openExt.toString() )
+   }
+}
+
+show();
+
+
+// hb_alert("Hello, this text is in Unicode: áéíóú");
+
+
+const WEBVIEW_HINT_NONE = 0;
+
+async function createWebview( html ="<h1>HB_WebView</h1>", 
+                              isHtml = true, 
+                              allowDevTools = true, 
+                              title = "Harbour WebView",
+                              width = 800, height = 480,
+                              hints = WEBVIEW_HINT_NONE
+                           ){
+   let url = html;
+
+   let w = await js_hb_webview_create( allowDevTools, null);
+
+   await js_hb_webview_set_size(w, width, height, hints);
+
+   await js_hb_webview_set_title(w, title);
+
+   if( isHtml )
+      await js_hb_webview_set_html(w, html);
+   else
+      await js_hb_webview_navigate(w, url);
+}
+
+    </script>
+
+</body>
+</html>

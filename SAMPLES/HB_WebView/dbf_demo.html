@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+   <meta http-equiv=“Pragma” content=”no-cache”>
+   <meta http-equiv=“Expires” content=”-1″>
+   <meta http-equiv=“CACHE-CONTROL” content=”NO-CACHE”>
+
+
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+   <title>Harbour WebView Data Base Demo</title>
+
+   <style type="text/css">
+   </style>
+
+ </head>
+  <body style="background-color: LemonChiffon;">
+
+   <div style="margin: 2em;">
+      <p style="border: 3px solid red;" id="idResult1"></p>
+      <pre style="border: 3px solid red;" id="idResult2"></pre>
+      <div style="margin: 2em;">
+         <button class="btn btn-primary" onclick="firstRec()">dbGoTop()</button>
+         <button class="btn btn-success" onclick="previousRec()">dbSkip(-1)</button>
+         <button class="btn btn-success" onclick="nextRec()">dbSkip(+1)</button>
+         <button class="btn btn-primary" onclick="finalRec()">dbGoBottom()</button>
+         <button class="btn btn-warning" onclick="appendRec()">dbAppend()</button>
+         <button class="btn btn-secondary" onclick="currRec()">RecNo()</button>
+      </div>
+      <pre style="border: 1px solid black;" id="idResultAll"></pre>
+   </div>
+
+   <script>
+   "use strict";
+
+/*
+   Remember that JavaScript is case sensitive: 
+   If you bind the HB_ALERT() function as "hb_Alert" in the Harbour environment, 
+   you must call it as hb_Alert() in JavaScript environment.
+
+   On the other hand, Harbour binding functions are passed as promises to JavaScript. 
+   Therefore, they are executed in the JavaScript environment as asynchronous functions.
+
+   For more details on promises in JavaScript, see:
+   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+   For promises to execute synchronously, you must chain the calls in chained .then() statements 
+   or call them with the await statement inside an asynchronous function.
+   For more details see:
+   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then
+   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await
+
+*/
+
+   function isWebviewRun(){
+      return ( typeof __webview__ != "undefined" )   // __webview__ is an object defined by the Webview library that is responsible for bridging  between C/C++ and Javascript
+   }
+
+
+   if( ! isWebviewRun() ){
+      alert("ERROR: Webview is not available in this Javascript environment");
+      throw new Error();
+   }
+
+
+   async function currRec(){
+      await hb_alert( "Current Record: " + await RecNo() );
+   }
+
+
+   async function firstRec(){
+      await dbGoTop();
+      displayRec();
+   }
+
+
+   async function finalRec(){
+      await dbGoBottom();
+      displayRec();
+   }
+
+
+   async function previousRec(){
+      await dbSkip( -1 );
+      if( await Bof() ){
+         await dbGoTop();
+         await hb_alert("Bof() is .T.");
+      }
+      displayRec();
+   }
+
+
+   async function nextRec(){
+      await dbSkip( 1 );
+      if( await Eof() ){
+         await dbGoBottom();
+         await hb_alert("Eof() is .T.");
+      }
+      displayRec();
+   }
+
+
+   async function appendRec(){
+      await dbAppend();
+      await FieldPut( 1, "URU");
+      await FieldPut( 2, "Uruguay");
+      await FieldPut( 3, 3500000);
+      updateDisplay( false );
+   }
+
+
+   async function displayTotalRec(){
+      let t = "Total Records: " + await LastRec() + "\n";
+      document.getElementById("idResult1").textContent =  t;
+   }
+
+
+   async function displayRec(){
+      let t = "RecNo: " + await RecNo() + "\n\n";
+      for(let i=1; i <= await FCount(); i++)
+         t += await FieldName( i ) + " : " + await FieldGet( i ) + "\n";
+      t += "\n";
+      document.getElementById("idResult2").textContent = t;
+      return t;
+   }
+
+
+   async function displayAll(){
+      let t = "";
+      await dbGoTop();
+      while( ! await Eof() ){
+         t += await displayRec();  // async functions always return a promise
+         await dbSkip( 1 );
+      }
+      document.getElementById("idResultAll").textContent = t;
+   }
+
+
+let updateDisplay;
+
+if( ! true ){ // two different ways with the same result
+
+   updateDisplay = function updateDisplay1( isDisplayFirst ){   // synchronous function
+      let myPromise = new Promise( ( resolve ) => {
+            resolve();
+      });
+      // Chained .then() calls cause promises to be fulfilled in the specified order, creating synchronous execution between them.
+      // But remember that the code execution in the function does not stop waiting for the promises invoked by the .then() 
+      // to be fulfilled and continues execution on the next line of code after the .then() statement.
+      myPromise.then( displayTotalRec )
+               .then( displayAll )
+               .then( isDisplayFirst ? dbGoTop : dbGoBottom )
+               .then( displayRec );
+      // This line of code executes immediately, it does not wait for previous promises to be fulfilled.
+      // console.log("This line is executed before displayTotalRec(), ... , and displayRec() are finished");
+   }
+
+} else {
+
+   updateDisplay = async function updateDisplay2( isDisplayFirst ){   // asynchronous function
+      // The execution of the asynchronous function is paused when it encounters an await and 
+      // resumes when the promise is resolved
+      await displayTotalRec();   // async functions always return a promise
+      await displayAll();
+      await isDisplayFirst ? dbGoTop() : dbGoBottom();
+      await displayRec();
+      // console.log("This line is always executed after displayTotalRec(), ... , and displayRec() finish their execution");
+   }
+
+}
+
+   document.addEventListener("DOMContentLoaded", function() {
+      updateDisplay( true );
+   });
+
+    </script>
+</body>
+
+
+</html>
