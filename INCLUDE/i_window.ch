@@ -553,7 +553,7 @@
 	=>;
     _ActivateAllWindows()
 
-#xcommand CENTER WINDOW <name> ;
+#xtranslate CENTER WINDOW <name> ;
 	=>;
 	DoMethod ( <"name"> , 'Center' )
 
