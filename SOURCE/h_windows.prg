@@ -221,11 +221,16 @@ MEMVAR _HMG_This_TreeItem_Value
 #define EN_MSGFILTER    1792    // ok
 #define DLGC_WANTCHARS   128    // ok
 #define DLGC_WANTMESSAGE  4     // ok
-
-#define MCN_FIRST           -750  // ok
+#ifndef MCN_FIRST
+   #define MCN_FIRST           -750  // ok
+#endif
 #define MCN_LAST            -759  // ok
-#define MCN_SELCHANGE       (MCN_FIRST + 1) // ok
-#define MCN_SELECT          (MCN_FIRST + 4) // ok
+#ifndef MCN_SELCHANGE
+   #define MCN_SELCHANGE       (MCN_FIRST + 1) // ok
+#endif
+#ifndef MCN_SELECT
+   #define MCN_SELECT          (MCN_FIRST + 4) // ok
+#endif
 // #define MCN_SELCHANGE  (-749)  // ok (MinGW)
 // #define MCN_SELECT     (-746)  // ok (MinGW)
 
