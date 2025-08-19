@@ -12,32 +12,32 @@
 
 FUNCTION Main()
 
-	DEFINE WINDOW Win1 ;
-		AT 0,0 ;
-		WIDTH 800 ;
-		HEIGHT 500 ;
-		TITLE 'HMG ActiveX Support Demo' ;
-		MAIN 
+   DEFINE WINDOW Win1 ;
+      AT 0,0 ;
+      WIDTH 800 ;
+      HEIGHT 500 ;
+      TITLE 'HMG ActiveX Support Demo' ;
+      MAIN 
 
-		DEFINE MAIN MENU
-			POPUP "Test"
-				MENUITEM "Play File" ACTION Test()
-			END POPUP 			
-		END MENU
+      DEFINE MAIN MENU
+         POPUP "Test"
+            MENUITEM "Play File" ACTION Test()
+         END POPUP          
+      END MENU
 
-		DEFINE ACTIVEX Test
-			ROW 10
-			COL 50
-			WIDTH 700  
-			HEIGHT 400  
-			PROGID "WMPlayer.OCX.7"  
-		END ACTIVEX
+      DEFINE ACTIVEX Test
+         ROW 10
+         COL 50
+         WIDTH 700  
+         HEIGHT 400  
+         PROGID "WMPlayer.OCX.7"  
+      END ACTIVEX
 
-	END WINDOW
+   END WINDOW
 
-	Center Window Win1
+   Center Window Win1
 
-	Activate Window Win1
+   Activate Window Win1
 
 RETURN NIL
 
@@ -47,27 +47,27 @@ Local i
 Local cChar
 Local cOut
 
-	cLocation := cLocation := GetCurrentFolder() + '\' 
+   cLocation := cLocation := GetCurrentFolder() + '\' 
 
-	cOut := ''
+   cOut := ''
 
-	For i := 1 To Len ( cLocation )
+   For i := 1 To Len ( cLocation )
 
-		cChar := SubStr ( cLocation , i , 1 )
+      cChar := SubStr ( cLocation , i , 1 )
 
-		If cChar == '\'
+      If cChar == '\'
 
-			cOut := cOut + '\\'
+         cOut := cOut + '\\'
 
-		Else
+      Else
 
-			cOut := cOut + cChar
+         cOut := cOut + cChar
 
-		EndIf
+      EndIf
 
-	Next i
+   Next i
 
 
-	Win1.Test.Object:url := cOut + 'sample.wav'
+   Win1.Test.Object:url := cOut + 'sample.wav'
 
 Return

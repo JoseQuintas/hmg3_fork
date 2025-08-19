@@ -9,12 +9,12 @@
 
 Function Main
 
-	DEFINE WINDOW Form_1 ;
-		AT 0,0 ;
-		WIDTH 600 HEIGHT 400 ;
-		TITLE "HMG Slider Demo" ;
-		MAIN ;
-		FONT "Arial" SIZE 10
+   DEFINE WINDOW Form_1 ;
+      AT 0,0 ;
+      WIDTH 600 HEIGHT 400 ;
+      TITLE "HMG Slider Demo" ;
+      MAIN ;
+      FONT "Arial" SIZE 10
 
       // Horizontal
 
@@ -24,7 +24,7 @@ Function Main
       TOOLTIP "Slider Horizontal" ;
       ON CHANGE {||Slider1_Change()}
 
-		@ 70,20 TEXTBOX TextBox_1 VALUE " 5" WIDTH 60 MAXLENGTH 5
+      @ 70,20 TEXTBOX TextBox_1 VALUE " 5" WIDTH 60 MAXLENGTH 5
 
       @ 20,160 SLIDER Slider_2 ;
       RANGE 1,10 ;
@@ -33,7 +33,7 @@ Function Main
       ON CHANGE {||Slider2_Change()} ;
       TOP
 
-		@ 70,160 TEXTBOX TextBox_2 VALUE " 5" WIDTH 60 MAXLENGTH 5
+      @ 70,160 TEXTBOX TextBox_2 VALUE " 5" WIDTH 60 MAXLENGTH 5
 
       @ 20,300 SLIDER Slider_3 ;
       RANGE 1,10 ;
@@ -42,7 +42,7 @@ Function Main
       ON CHANGE {||Slider3_Change()} ;
       BOTH
 
-		@ 70,300 TEXTBOX TextBox_3 VALUE " 5" WIDTH 60 MAXLENGTH 5
+      @ 70,300 TEXTBOX TextBox_3 VALUE " 5" WIDTH 60 MAXLENGTH 5
 
       @ 20,440 SLIDER Slider_4 ;
       RANGE 1,10 ;
@@ -51,7 +51,7 @@ Function Main
       ON CHANGE {||Slider4_Change()} ;
       NOTICKS
 
-		@ 70,440 TEXTBOX TextBox_4 VALUE " 5" WIDTH 60 MAXLENGTH 5
+      @ 70,440 TEXTBOX TextBox_4 VALUE " 5" WIDTH 60 MAXLENGTH 5
 
       // Vertical
 
@@ -62,7 +62,7 @@ Function Main
       VERTICAL ;
       ON CHANGE {||Slider5_Change()}
 
-		@ 280,20 TEXTBOX TextBox_5 VALUE " 5" WIDTH 60 MAXLENGTH 5
+      @ 280,20 TEXTBOX TextBox_5 VALUE " 5" WIDTH 60 MAXLENGTH 5
 
       @ 150,160 SLIDER Slider_6 ;
       RANGE 1,10 ;
@@ -72,7 +72,7 @@ Function Main
       ON CHANGE {||Slider6_Change()} ;
       LEFT
 
-		@ 280,160 TEXTBOX TextBox_6 VALUE " 5" WIDTH 60 MAXLENGTH 5
+      @ 280,160 TEXTBOX TextBox_6 VALUE " 5" WIDTH 60 MAXLENGTH 5
 
       @ 150,300 SLIDER Slider_7 ;
       RANGE 1,10 ;
@@ -82,7 +82,7 @@ Function Main
       ON CHANGE {||Slider7_Change()} ;
       BOTH
 
-		@ 280,300 TEXTBOX TextBox_7 VALUE " 5" WIDTH 60 MAXLENGTH 5
+      @ 280,300 TEXTBOX TextBox_7 VALUE " 5" WIDTH 60 MAXLENGTH 5
 
       @ 150,440 SLIDER Slider_8 ;
       RANGE 1,10 ;
@@ -92,22 +92,22 @@ Function Main
       ON CHANGE {||Slider8_Change()} ;
       NOTICKS
 
-		@ 280,440 TEXTBOX TextBox_8 VALUE " 5" WIDTH 60 MAXLENGTH 5
+      @ 280,440 TEXTBOX TextBox_8 VALUE " 5" WIDTH 60 MAXLENGTH 5
 
-	END WINDOW
+   END WINDOW
 
-	Form_1.TextBox_1.Enabled := .f.
-	Form_1.TextBox_2.Enabled := .f.
-	Form_1.TextBox_3.Enabled := .f.
-	Form_1.TextBox_4.Enabled := .f.
-	Form_1.TextBox_5.Enabled := .f.
-	Form_1.TextBox_6.Enabled := .f.
-	Form_1.TextBox_7.Enabled := .f.
-	Form_1.TextBox_8.Enabled := .f.
+   Form_1.TextBox_1.Enabled := .f.
+   Form_1.TextBox_2.Enabled := .f.
+   Form_1.TextBox_3.Enabled := .f.
+   Form_1.TextBox_4.Enabled := .f.
+   Form_1.TextBox_5.Enabled := .f.
+   Form_1.TextBox_6.Enabled := .f.
+   Form_1.TextBox_7.Enabled := .f.
+   Form_1.TextBox_8.Enabled := .f.
 
-	CENTER WINDOW Form_1
+   CENTER WINDOW Form_1
 
-	ACTIVATE WINDOW Form_1
+   ACTIVATE WINDOW Form_1
 
 Return Nil
 

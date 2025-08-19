@@ -10,41 +10,41 @@
 *
 */
 Function _DefineQhtm( ControlName, ParentForm, x, y, w, h, Value, fname, resname, fontname, fontsize, Change, lBorder, bold, italic, underline, strikeout)
-Local mVar, k := 0, ControlHandle, FontHandle, nId 
+Local mVar, k := 0, ControlHandle, FontHandle, nId
 
-   if _HMG_SYSDATA [ 264 ] = .T.
-      ParentForm := _HMG_SYSDATA [ 223 ]
-      if .Not. Empty (_HMG_SYSDATA [ 224 ]) .And. ValType(FontName) == "U"
-         FontName := _HMG_SYSDATA [ 224 ]
+   if oHmgApp():APP264 = .T.
+      ParentForm := oHmgApp():ActiveFormName
+      if .Not. Empty ( oHmgApp():APP224 ) .And. ValType(FontName) == "U"
+         FontName := oHmgApp():APP224
       EndIf
-      if .Not. Empty (_HMG_SYSDATA [ 182 ]) .And. ValType(FontSize) == "U"
-         FontSize := _HMG_SYSDATA [ 182 ]
+      if .Not. Empty ( oHmgApp():ActiveFontSize ) .And. ValType(FontSize) == "U"
+         FontSize := oHmgApp():ActiveFontSize
       EndIf
    endif
-   
-   if _HMG_SYSDATA [ 183 ] > 0
-      IF _HMG_SYSDATA [ 240 ] == .F.
-         x  := x + _HMG_SYSDATA [ 334 ] [_HMG_SYSDATA [ 183 ]]
-         y  := y + _HMG_SYSDATA [ 333 ] [_HMG_SYSDATA [ 183 ]] 
-         ParentForm := _HMG_SYSDATA [ 332 ] [_HMG_SYSDATA [ 183 ]]
-         cParentTabName := _HMG_SYSDATA [ 225 ] 
+
+   if oHmgApp():FrameLevel > 0
+      IF oHmgApp():APP240 == .F.
+         x  := x + oHmgApp():APP334 [ oHmgApp():FrameLevel ]
+         y  := y + oHmgApp():APP333 [ oHmgApp():FrameLevel ]
+         ParentForm := oHmgApp():APP332 [ oHmgApp():FrameLevel ]
+         cParentTabName := oHmgApp():APP225
       ENDIF
    EndIf
 
    If .Not. _IsWindowDefined (ParentForm)
-      MsgHMGError(_HMG_SYSDATA [ 136 ][1]+ ParentForm + _HMG_SYSDATA [ 136 ][2])
+      MsgHMGError(oHmgApp():APP136[1]+ ParentForm + oHmgApp():APP136[2])
    Endif
 
    If _IsControlDefined (ControlName,ParentForm)
-      MsgHMGError (_HMG_SYSDATA [ 136 ][4] + ControlName + _HMG_SYSDATA [ 136 ][5] + ParentForm + _HMG_SYSDATA [ 136 ][6])
+      MsgHMGError (oHmgApp():APP136[4] + ControlName + oHmgApp():APP136[5] + ParentForm + oHmgApp():APP136[6])
    endif
-   
+
    mVar := '_' + ParentForm + '_' + ControlName
 
    cParentForm = ParentForm
 
    ParentForm = GetFormHandle (ParentForm)
-   
+
    nId := _GetId()
 
    ControlHandle := CreateQHTM(ParentForm, nId, IIF (lBorder ==.T., WS_BORDER, 0), y, x, w, h)
@@ -52,7 +52,7 @@ Local mVar, k := 0, ControlHandle, FontHandle, nId
    if ValType(fontname) != "U" .and. ValType(fontsize) != "U"
       FontHandle := _SetFont (ControlHandle,FontName,FontSize,bold,italic,underline,strikeout)
    Else
-     FontHandle := _SetFont (ControlHandle,_HMG_SYSDATA [ 342 ],_HMG_SYSDATA [ 343 ],bold,italic,underline,strikeout)
+     FontHandle := _SetFont (ControlHandle, oHmgApp():APP342, oHmgApp():APP343,bold,italic,underline,strikeout)
    endif
 
 
@@ -68,47 +68,48 @@ Local mVar, k := 0, ControlHandle, FontHandle, nId
 
    k := _GetControlFree()
    Public &mVar. := k
+   oControl := ControlByIndex( k )
 
-   _HMG_SYSDATA [  1 ]   [k] := 'QHTM'
-   _HMG_SYSDATA [  2 ]   [k] := ControlName
-   _HMG_SYSDATA [  3 ]   [k] := ControlHandle
-   _HMG_SYSDATA [  4 ]   [k] := ParentForm
-   _HMG_SYSDATA [  5 ]   [k] := nId
-   _HMG_SYSDATA [  6 ]   [k] := ""
-   _HMG_SYSDATA [  7 ]   [k] := {}
-   _HMG_SYSDATA [  8 ]   [k] := Value
-   _HMG_SYSDATA [  9 ]   [k] := ""
-   _HMG_SYSDATA [ 10 ]   [k] := ""
-   _HMG_SYSDATA [ 11 ]   [k] := ""
-   _HMG_SYSDATA [ 12 ]   [k] := Change
-   _HMG_SYSDATA [ 13 ]   [k] := .F.
-   _HMG_SYSDATA [ 14 ]   [k] := NIL
-   _HMG_SYSDATA [ 15 ]   [k] := NIL
-   _HMG_SYSDATA [ 16 ]   [k] := ""
-   _HMG_SYSDATA [ 17 ]   [k] := {}
-   _HMG_SYSDATA [ 18 ]   [k] := x
-   _HMG_SYSDATA [ 19 ]   [k] := y
-   _HMG_SYSDATA [ 20 ]   [k] := w
-   _HMG_SYSDATA [ 21 ]   [k] := h
-   _HMG_SYSDATA [ 22 ]   [k] := 0
-   _HMG_SYSDATA [ 23 ]   [k] := iif ( _HMG_SYSDATA [ 183 ] > 0 ,_HMG_SYSDATA [ 333 ] [_HMG_SYSDATA [ 183 ]] , -1 ) 
-   _HMG_SYSDATA [ 24 ]   [k] := iif ( _HMG_SYSDATA [ 183 ] > 0 ,_HMG_SYSDATA [ 334 ] [_HMG_SYSDATA [ 183 ]] , -1 ) 
-   _HMG_SYSDATA [ 25 ]   [k] := ''
-   _HMG_SYSDATA [ 26 ]   [k] := 0
-   _HMG_SYSDATA [ 27 ]   [k] := fontname
-   _HMG_SYSDATA [ 28 ]   [k] := fontsize
-   _HMG_SYSDATA [ 29 ]   [k] := {bold,italic,underline,strikeout}
-   _HMG_SYSDATA [ 30 ]   [k] := ''
-   _HMG_SYSDATA [ 31 ]   [k] := 0
-   _HMG_SYSDATA [ 32 ]   [k] := 0
-   _HMG_SYSDATA [ 33 ]   [k] := ''
-   _HMG_SYSDATA [ 34 ]   [k] := .T.  
-   _HMG_SYSDATA [ 35 ]   [k] := 0
-   _HMG_SYSDATA [ 36 ]   [k] := ''
-   _HMG_SYSDATA [ 37 ]   [k] := 0
-   _HMG_SYSDATA [ 38 ]   [k] := .T.
-   _HMG_SYSDATA [ 39 ]   [k] := 0
-   _HMG_SYSDATA [ 40 ]   [k] := ''
+   oControl:Type := 'QHTM'
+   oControl:Name := ControlName
+   oControl:Handle := ControlHandle
+   oControl:ParentForm := ParentForm
+   oControl:CTRL005 := nId
+   oControl:CTRL006 := ""
+   oControl:CTRL007 := {}
+   oControl:CTRL008 := Value
+   oControl:CTRL009 := ""
+   oControl:CTRL010 := ""
+   oControl:CTRL011 := ""
+   oControl:CTRL012 := Change
+   oControl:IsDeleted := .F.
+   oControl:CTRL014 := NIL
+   oControl:CTRL015 := NIL
+   oControl:CTRL016 := ""
+   oControl:CTRL017 := {}
+   oControl:CTRL018 := x
+   oControl:CTRL019 := y
+   oControl:CTRL020 := w
+   oControl:CTRL021 := h
+   oControl:CTRL022 := 0
+   oControl:CTRL023 := iif ( oHmgApp():FrameLevel > 0 ,oHmgApp():APP333 [ oHmgApp():FrameLevel ] , -1 )
+   oControl:CTRL024 := iif ( oHmgApp():FrameLevel > 0 ,oHmgApp():APP334 [ oHmgApp():FrameLevel ] , -1 )
+   oControl:CTRL025 := ''
+   oControl:CTRL026 := 0
+   oControl:CTRL027 := fontname
+   oControl:CTRL028 := fontsize
+   oControl:CTRL029 := {bold,italic,underline,strikeout}
+   oControl:CTRL030 := ''
+   oControl:CTRL031 := 0
+   oControl:CTRL032 := 0
+   oControl:CTRL033 := ''
+   oControl:CTRL034 := .T.
+   oControl:CTRL035 := 0
+   oControl:CTRL036 := ''
+   oControl:CTRL037 := 0
+   oControl:CTRL038 := .T.
+   oControl:CTRL039 := 0
+   oControl:CTRL040 := ''
 
 Return Nil
 
@@ -182,7 +183,7 @@ Return cLink
 *
 *       nHandle - descriptor of QHTM
 *       nPos - old/new position of scrollbar
-*       
+*
 *       Get/Set position of scrollbar QHTM
 *
 */
@@ -191,7 +192,7 @@ Local nParamCount := PCount()
 
 Switch nParamCount
 
-   Case 0  
+   Case 0
      nPos := 0
      Exit
 
@@ -209,7 +210,7 @@ Switch nParamCount
      Else
         nPos := 0
      Endif
-   
+
 End Switch
 
 Return nPos
@@ -220,7 +221,7 @@ Return nPos
 *
 *       nHandle  - descriptor of QHTM
 *       nPercent - old/new position of scrollbar (in percentage)
-*       
+*
 *       Get/Set position of scrollbar QHTM
 *
 */
@@ -234,11 +235,11 @@ If HB_ISNUMERIC( nHandle )
 
    nHeight := GetWindowHeight( nHandle )
    aSize := QHTM_GetSize( nHandle )
-            
+
    If ( aSize[ 2 ] > nHeight )
       aSize[ 2 ] -= nHeight
     Endif
-    
+
 Endif
 
 Switch nParamCount
@@ -248,7 +249,7 @@ Switch nParamCount
      Exit
 
    Case 1
-   
+
      nPos  := QHTM_GetScrollPos( nHandle )
      nPercent := Min( Round( ( ( nPos / aSize[ 2 ] ) * 100 ), 2 ), 100.00 )
      Exit
@@ -275,14 +276,14 @@ Return nPercent
 */
 Procedure QHTM_EnableUpdate( ControlName, ParentForm, lEnable )
 
-IF Valtype(lEnable) == "U" 
+IF Valtype(lEnable) == "U"
    lEnable := .T.
 ENDIF
 
 If ( PCount() < 2 )
    Return
 Endif
- 
+
 SendMessage( GetControlHandle( ControlName, ParentForm ), WM_SETREDRAW, Iif( lEnable, 1, 0 ), 0 )
 
 Return

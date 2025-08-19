@@ -2,19 +2,19 @@
 function main
 define window x at 0,0 width 640 height 480 title "Shapes" main
 
-	DEFINE MAIN MENU
-		DEFINE POPUP 'File'
-			MENUITEM 'Erase All' ACTION EraseAll()
-		END POPUP
-	END MENU
+   DEFINE MAIN MENU
+      DEFINE POPUP 'File'
+         MENUITEM 'Erase All' ACTION EraseAll()
+      END POPUP
+   END MENU
 
    define splitbox horizontal
    define window y width 640 height 200 splitchild
 
-	DEFINE TEXTBOX TEXT_1
-		ROW 10
-		COL 10
-	END TEXTBOX
+   DEFINE TEXTBOX TEXT_1
+      ROW 10
+      COL 10
+   END TEXTBOX
 
    end window
    define window z width 640 height 150 splitchild
@@ -687,6 +687,6 @@ return nil
 
 Function EraseAll()
 
-	ERASE WINDOW Y
+   ERASE WINDOW Y
 
 Return Nil

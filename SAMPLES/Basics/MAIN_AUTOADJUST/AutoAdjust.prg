@@ -5,17 +5,17 @@ Function AutoAdjust( cForm )
 Local hWnd := GetFormHandle( cForm )
 
 Local i,;                    // From no
-      k,;                    // Control no                  
-      ParentForm,;  
-      ControlCount,; 
-      ControlName,; 
-      ControlType,; 
-      nWidth,; 
-      nHeight,; 
-      lvisible := .T.,; 
-      nDivw,; 
+      k,;                    // Control no
+      ParentForm,;
+      ControlCount,;
+      ControlName,;
+      ControlType,;
+      nWidth,;
+      nHeight,;
+      lvisible := .T.,;
+      nDivw,;
       nDivh
-      
+
 IF GetDesktopWidth() < GetWindowWidth ( hWnd )
    nWidth := GetDesktopWidth()
 ELSE
@@ -34,28 +34,29 @@ ELSE
    lvisible := .F.
 ENDIF
 
-i := aScan ( _HMG_SYSDATA[67], hWnd )
+oFormTmp := FormByHandle( hWnd )
+i := iif( xTmp == Nil, 0, oFormTmp:Index )
 
-ParentForm := _HMG_SYSDATA[66] [i]
+ParentForm := FormByIndex( I ):Name
 
-IF _HMG_SYSDATA[ 92, i ] > 0 .AND. _HMG_SYSDATA[ 91, i ] > 0
-   nDivw := nWidth  / _HMG_SYSDATA[ 92, i]
-   nDivh := nHeight / _HMG_SYSDATA[ 91, i]
+IF FormByIndex( I ):VirtualWidth > 0 .AND. FormByIndex( I ):VirtualHeight > 0
+   nDivw := nWidth  / FormByIndex( I ):VirtualWidth
+   nDivh := nHeight / FormByIndex( I ):VirtualHeight
 ELSE
    nDivw := 1
    nDivh := 1
 ENDIF
 
-ControlCount := LEN ( _HMG_SYSDATA[ 3 ] )
+ControlCount := oHmgApp():ControlCount()
 
 FOR k := 1 To ControlCount
-    ControlName := _HMG_SYSDATA[ 2, k ]
-    
+    ControlName := ControlByIndex( K ):Name
+
     IF _IsControlDefined ( ControlName, ParentForm )
-       ControlType := _HMG_SYSDATA[ 1, k ]
-    
+       ControlType := ControlByIndex( K ):Name
+
        IF !EMPTY( ControlName ) .AND. !( ControlType $ "MENU,HOTKEY,TOOLBAR,MESSAGEBAR,ITEMMESSAGE,TIMER" )
-    
+
           DO CASE
              CASE ControlType $ "RADIOGROUP,TEXT,BUTTON"
                   _SetControlSizePos( ControlName, ParentForm,;
@@ -63,32 +64,32 @@ FOR k := 1 To ControlCount
                    _GetControlCol ( ControlName, ParentForm ) * nDivw ,;  // column
                    _GetControlWidth( ControlName, ParentForm ) * nDivw,;  // with
                    _GetControlHeight ( ControlName, ParentForm ) )        // height
-                
+
              CASE ControlType == "SLIDER"
                   _SetControlSizePos ( ControlName, ParentForm,;
                   _GetControlRow ( ControlName, ParentForm ) * nDivh, _GetControlCol ( ControlName, ParentForm ) * nDivw,;
                   _GetControlWidth ( ControlName, ParentForm ) * nDivw, _GetControlHeight ( ControlName, ParentForm ) * nDivh )
-            
-             CASE ControlType == "STATUSBAR"  
+
+             CASE ControlType == "STATUSBAR"
                   // do nothing
-    
+
              CASE !ControlType $ "TOOLBUTTON"
                   _SetControlSizePos ( ControlName, ParentForm,;
                   _GetControlRow ( ControlName, ParentForm ) * nDivh, _GetControlCol ( ControlName, ParentForm ) * nDivw,;
                   _GetControlWidth ( ControlName, ParentForm ) * nDivw, _GetControlHeight ( ControlName, ParentForm ) * nDivh )
           OTHERWISE
-             IF EMPTY( _HMG_SYSDATA[ 28, k ] )
+             IF EMPTY( ControlByIndex( K ):CTRL028 )
                 _SetFontSize ( ControlName, ParentForm , 8 * nDivh )
              ELSE
-                _SetFontSize ( ControlName, ParentForm , _HMG_SYSDATA[28] [k] * nDivh )
+                _SetFontSize ( ControlName, ParentForm , ControlByIndex( K ):CTRL028 * nDivh )
              ENDIF
           ENDCASE
        ENDIF
     ENDIF
 NEXT k
 
-_HMG_SYSDATA[92] [i] := nWidth
-_HMG_SYSDATA[91] [i] := nHeight
+FormByIndex( I ):FORM092 := nWidth
+FOrmByIndex( I ):FORM091 := nHeight
 
 IF lvisible
    ShowWindow ( hWnd )

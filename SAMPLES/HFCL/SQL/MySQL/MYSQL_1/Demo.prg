@@ -58,10 +58,10 @@ Procedure Main()
 
                              DEFINE MAIN MENU
                                           POPUP "Sistema"
-                                                       ITEM "&Conecta MySql, Cria Base e Tabela, Insere Registros  " ACTION Operacoes()	
-                                                       SEPARATOR	                                       			                                    
+                                                       ITEM "&Conecta MySql, Cria Base e Tabela, Insere Registros  " ACTION Operacoes()   
+                                                       SEPARATOR                                                                                       
                                                        ITEM "&Exemplo de Grid com Pesquisa                                  "  ACTION Grid_Pesquisa()
-                                          END POPUP				
+                                          END POPUP            
                                           POPUP "Help"
                                                        ITEM "&Sobre o Sistema"  ACTION  Sobre_o_Sistema()
                                           END POPUP
@@ -99,17 +99,17 @@ Function Grid_Pesquisa()
                                                              MAXLENGTH 40 UPPERCASE  ;
                                                              ON ENTER Iif( !Empty(  Grid_Nomes.cPesquisa.Value ) , SqlPesquisa() , Grid_Nomes.cPesquisa.SetFocus )
 
-                                            @ 397,011 BUTTON Bt_Novo	          ;
+                                            @ 397,011 BUTTON Bt_Novo             ;
                                                              CAPTION '&Novo'                      ;
                                                              ACTION Tela_Nomes(1)              ;
                                                              FONT "MS Sans Serif" SIZE 09 FLAT
 
                                             @ 397,111 BUTTON Bt_Editar                    ;
                                                              CAPTION '&Editar'                    ;
-	                                               ACTION Tela_Nomes(2)            ;
+                                                  ACTION Tela_Nomes(2)            ;
                                                              FONT "MS Sans Serif" SIZE 09 FLAT
 
-                                            @ 397,211 BUTTON Bt_Excluir	         ;
+                                            @ 397,211 BUTTON Bt_Excluir            ;
                                                             CAPTION 'E&xcluir'                   ;
                                                             ACTION Deleta_Registro()         ;
                                                             FONT "MS Sans Serif" SIZE 09 FLAT
@@ -150,7 +150,7 @@ Function SqlPesquisa()
                   oQuery := oServer:Query( "Select Codigo , Nome From NOMES WHERE NOME LIKE "+cPesquisa+" Order By Nome" )
 
               /*  Verifica se ocorreu algum erro na Pesquisa */
-                  If oQuery:NetErr()												
+                  If oQuery:NetErr()                                    
                      MsgInfo("Erro de Pesquisa (Grid) (Select): " + oQuery:Error())
                      RELEASE WINDOW ALL
                      Quit
@@ -191,7 +191,7 @@ Function  Tela_Nomes( nOperacao )
             
                If nOperacao == 2   && Se operacao for 2 seleciona registro na Tabela Nomes e preenche variaveis
                   oQuery  := oServer:Query( "Select * From NOMES WHERE CODIGO = " + AllTrim( pCodigo )  )
-                  If oQuery:NetErr()												
+                  If oQuery:NetErr()                                    
                      MsgInfo("Erro de Pesquisa (Operação) (Select): " + oQuery:Error())
                      Return Nil
                   Endif               
@@ -206,67 +206,67 @@ Function  Tela_Nomes( nOperacao )
               DEFINE WINDOW Form_4          ;
                            AT 0,0                           ;
                            WIDTH 485 HEIGHT 240 ;
-                           TITLE 'Operação: '+Iif( nOperacao == 1 , "Incluindo Novo registro" , "Alterando Nome: "+cNome )  ;			
+                           TITLE 'Operação: '+Iif( nOperacao == 1 , "Incluindo Novo registro" , "Alterando Nome: "+cNome )  ;         
                            NOMAXIMIZE BACKCOLOR BLUE                                       
                                                    
-		@020,030 LABEL Label_Codigo             ;
-			 VALUE "Código"                     ;
-			 WIDTH 150		    ;
-			 HEIGHT 35		    ;
-			 FONT "Arial" SIZE 09;
+      @020,030 LABEL Label_Codigo             ;
+          VALUE "Código"                     ;
+          WIDTH 150          ;
+          HEIGHT 35          ;
+          FONT "Arial" SIZE 09;
                                            BACKCOLOR BLUE ;
                                            FONTCOLOR WHITE BOLD
 
-		@055,030 LABEL Label_Nome                ;
-			 VALUE "Nome              "        ;
-			 WIDTH 120		    ;
-			 HEIGHT 35		    ;
-			 FONT "Arial" SIZE 09;
+      @055,030 LABEL Label_Nome                ;
+          VALUE "Nome              "        ;
+          WIDTH 120          ;
+          HEIGHT 35          ;
+          FONT "Arial" SIZE 09;
                                            BACKCOLOR BLUE ;
                                            FONTCOLOR WHITE BOLD
 
-		@090,030 LABEL Label_Endereco          ;
-			 VALUE "Endereço         "        ;
-			 WIDTH 120		    ;
-			 HEIGHT 35		    ;
-			 FONT "Arial" SIZE 09;
+      @090,030 LABEL Label_Endereco          ;
+          VALUE "Endereço         "        ;
+          WIDTH 120          ;
+          HEIGHT 35          ;
+          FONT "Arial" SIZE 09;
                                            BACKCOLOR BLUE ;
                                            FONTCOLOR WHITE BOLD
 
-		@125,030 LABEL Label_eMail                ;
-			 VALUE "e-Mail              "        ;
-			 WIDTH 120		    ;
-			 HEIGHT 35		    ;
-			 FONT "Arial" SIZE 09;
+      @125,030 LABEL Label_eMail                ;
+          VALUE "e-Mail              "        ;
+          WIDTH 120          ;
+          HEIGHT 35          ;
+          FONT "Arial" SIZE 09;
                                            BACKCOLOR BLUE ;
                                            FONTCOLOR WHITE BOLD
 
-		@024,100 TEXTBOX p_Codigo                 ;
+      @024,100 TEXTBOX p_Codigo                 ;
                                             HEIGHT 25                           ;
                                             VALUE  cCodigo                   ;
-                                            WIDTH 50		    ;			
-                                            FONT "Arial" SIZE 09              ;					
+                                            WIDTH 50          ;         
+                                            FONT "Arial" SIZE 09              ;               
                                            ON ENTER Iif( !Empty( Form_4.p_Codigo.Value ) , Form_4.p_Nome.SetFocus , Form_4.p_Codigo.SetFocus )
 
                             @059,100 TEXTBOX  p_Nome                ;
                                             HEIGHT 25                            ;
                                             VALUE cNome                      ;
                                             WIDTH 350                           ;
-                                            FONT "Arial" SIZE 09              ;			                   
+                                            FONT "Arial" SIZE 09              ;                            
                                            ON ENTER Iif( !Empty(  Form_4.p_Nome.Value    ) ,  Form_4.p_Endereco.SetFocus  , Form_4.p_Nome.SetFocus )
-									
+                           
                             @094,100 TEXTBOX  p_Endereco           ;
                                             HEIGHT 25                            ;
                                             VALUE cEndereco                 ;
                                             WIDTH 350                           ;
-                                            FONT "Arial" SIZE 09              ;	                                      
+                                            FONT "Arial" SIZE 09              ;                                         
                                             ON ENTER  Iif( !Empty(  Form_4.p_Endereco.Value ) ,  Form_4.p_eMail.SetFocus ,  Form_4.p_Endereco.SetFocus )
-																									
+                                                                           
                             @129,100 TEXTBOX  p_eMail                ;
                                             HEIGHT 25                            ;
                                             VALUE cEMail                      ;
                                             WIDTH 350                           ;
-                                            FONT "Arial" SIZE 09              ;	                                      
+                                            FONT "Arial" SIZE 09              ;                                         
                                             ON ENTER  Iif( !Empty( Form_4.p_eMail.Value  ) ,  Form_4.Bt_Confirma.SetFocus  ,  Form_4.p_eMail.SetFocus )
 
                             @ 165,100 BUTTON Bt_Confirma           ;
@@ -279,12 +279,12 @@ Function  Tela_Nomes( nOperacao )
                                           ACTION Form_4.Release      ;
                                           FONT "MS Sans Serif" SIZE 09 FLAT
 
-	END WINDOW
+   END WINDOW
 
         Form_4.p_Codigo.Enabled := .F.
 
-	CENTER WINDOW Form_4
-	ACTIVATE WINDOW Form_4
+   CENTER WINDOW Form_4
+   ACTIVATE WINDOW Form_4
               Return Nil
 
 /*
@@ -304,7 +304,7 @@ Function Grava_Registro( nOperacao )
               Local cQuery      
               Local oQuery      
 
-	msginfo(cCodigo)
+   msginfo(cCodigo)
 
               If nOperacao == 1  && Inclusão de Registros                  
                    cQuery := "INSERT INTO NOMES  VALUES ( '"+cCodigo+"' , '"+ AllTrim(cNome)+"' , '"+cEndereco+"' , '"+cEmail+ "' ) "
@@ -313,13 +313,13 @@ Function Grava_Registro( nOperacao )
               Endif
 
               oQuery      := oQuery  :=  oServer:Query( cQuery )
-              If oQuery:NetErr()												
+              If oQuery:NetErr()                                    
                  MsgInfo("Erro na Alteração (UpDate): " + oQuery:Error())
                  Return Nil
-               Endif				
+               Endif            
 
                oQuery:Destroy()
-					 																			
+                                                                         
                MsgInfo( Iif( nOperacao == 1 , "Registro Incluído", "Registro Alterado!!" ) )
 
                Form_4.Release
@@ -342,11 +342,11 @@ Function Deleta_Registro()
               If MsgYesNo( "Confirma Exclusão de: "+ gNome+ "??" ) 
                    cQuery     := "DELETE FROM NOMES  WHERE CODIGO = " + AllTrim( gCodigo )         
                    oQuery      := oQuery  :=  oServer:Query( cQuery )
-                   If oQuery:NetErr()												
+                   If oQuery:NetErr()                                    
                       MsgInfo("Erro na Exclusão (Delete): " + oQuery:Error())
                       Return Nil
                    EndIf
-                   oQuery:Destroy()			 																			
+                   oQuery:Destroy()                                                                   
                    MsgInfo(  "Registro Excluído !!" )
                    SqlPesquisa() 
              EndIf
@@ -355,49 +355,49 @@ Function Deleta_Registro()
 */
 Function  Login() 
             
-            	DEFINE WINDOW Form_0 ;
-		AT 0,0 ;
-		WIDTH 280 HEIGHT 200 ;
-		TITLE 'Login MySql'  NOSYSMENU BACKCOLOR BLUE                                     
+               DEFINE WINDOW Form_0 ;
+      AT 0,0 ;
+      WIDTH 280 HEIGHT 200 ;
+      TITLE 'Login MySql'  NOSYSMENU BACKCOLOR BLUE                                     
                                                    
-		@020,030 LABEL Label_HostName        ;
-			 VALUE "HostName/IP"            ;
-			 WIDTH 150		    ;
-			 HEIGHT 35		    ;
-			 FONT "Arial" SIZE 09;
+      @020,030 LABEL Label_HostName        ;
+          VALUE "HostName/IP"            ;
+          WIDTH 150          ;
+          HEIGHT 35          ;
+          FONT "Arial" SIZE 09;
                                            BACKCOLOR BLUE ;
                                            FONTCOLOR WHITE BOLD
 
-		@055,030 LABEL Label_User                 ;
-			 VALUE "User                "        ;
-			 WIDTH 120		    ;
-			 HEIGHT 35		    ;
-			 FONT "Arial" SIZE 09;
+      @055,030 LABEL Label_User                 ;
+          VALUE "User                "        ;
+          WIDTH 120          ;
+          HEIGHT 35          ;
+          FONT "Arial" SIZE 09;
                                            BACKCOLOR BLUE ;
                                            FONTCOLOR WHITE BOLD
 
-		@090,030 LABEL Label_Password         ;
-			 VALUE "Password        "        ;
-			 WIDTH 120		    ;
-			 HEIGHT 35		    ;
-			 FONT "Arial" SIZE 09;
+      @090,030 LABEL Label_Password         ;
+          VALUE "Password        "        ;
+          WIDTH 120          ;
+          HEIGHT 35          ;
+          FONT "Arial" SIZE 09;
                                            BACKCOLOR BLUE ;
                                            FONTCOLOR WHITE BOLD
 
-		@020,120 TEXTBOX p_HostName          ;
+      @020,120 TEXTBOX p_HostName          ;
                                             HEIGHT 25                           ;      
                                             VALUE cHostName               ;                                      
-                                            WIDTH 120		    ;			
-                                            FONT "Arial" SIZE 09              ;					
+                                            WIDTH 120          ;         
+                                            FONT "Arial" SIZE 09              ;               
                                            ON ENTER Iif( !Empty( Form_0.p_HostName.Value ) ,  Form_0.p_User.SetFocus , Form_0.p_HostName.SetFocus )
 
                             @055,120 TEXTBOX  p_User                  ;
                                             HEIGHT 25                            ;
                                             VALUE cUser                       ;
                                             WIDTH 120                           ;
-                                            FONT "Arial" SIZE 09              ;			 
+                                            FONT "Arial" SIZE 09              ;          
                                            ON ENTER Iif( !Empty( Form_0.p_User.Value ) , Form_0.p_Password.SetFocus , Form_0.p_user.SetFocus  )
-									
+                           
                             @090,120 TEXTBOX  p_password           ;
                                             VALUE cPassWord               ;
                                             PASSWORD                         ;
@@ -415,9 +415,9 @@ Function  Login()
                                             ACTION Form_1.Release     ;
                                             FONT "MS Sans Serif" SIZE 09 FLAT
 
-	END WINDOW
-	CENTER WINDOW Form_0
-	ACTIVATE WINDOW Form_0
+   END WINDOW
+   CENTER WINDOW Form_0
+   ACTIVATE WINDOW Form_0
               
 /*  
 */
@@ -432,7 +432,7 @@ Function Set_Variaveis()
                  MsGInfo("Erro de Conexão com Servidor / <TMySQLServer> " + oServer:Error(),SISTEMA )
                  Release Window ALL
                  Quit
-              Endif               	
+              Endif                  
 
               MsgInfo("Conexão Com Servidor MySql Completada!!",SISTEMA)
 
@@ -454,11 +454,11 @@ Function Operacoes()
               Private cSenha           := cPassWord                             
               Private BaseDeDados := "CADASTROS"         
               *--------------------------------------------------------------------------------------- Abre uma conexão co  MySql             
-              My_Abre_uma_conexao_com_MySql()	
+              My_Abre_uma_conexao_com_MySql()   
               *--------------------------------------------------------------------------------------- Cria Base de Dados CADASTROS
               My_Cria_uma_Base_De_Dados( "CADASTROS" )
               *--------------------------------------------------------------------------------------- Conecta com o Banco de Dados CADASTROS
-              My_Conecta_Banco_De_Dados( "CADASTROS" )		    
+              My_Conecta_Banco_De_Dados( "CADASTROS" )          
               *--------------------------------------------------------------------------------------- Cria Tabela de NOMES na Base de Dados CADASTROS
               My_Cria_Tabela( "NOMES" )
               *--------------------------------------------------------------------------------------- Insere Registros na Tabela de Nomes usando um DBF
@@ -532,7 +532,7 @@ Function My_Conecta_Banco_de_Dados( cBaseDeDados )
               Local i                                           := 0
               Local aBaseDeDadosExistentes      := {}                                           
               cBaseDeDados                              := Lower(cBaseDeDados)
-			               
+                        
               /*  Verifica se esta conectado ao MySql */
                    If oServer == Nil ; MsgInfo("Conexão com MySql não foi Iniciada!!") ; Return Nil ; EndIf
               
@@ -567,7 +567,7 @@ Function My_Conecta_Banco_de_Dados( cBaseDeDados )
                  Return Nil
 /*
 */
-Function My_Cria_Tabela( cTabela )				
+Function My_Cria_Tabela( cTabela )            
               Local i                                := 0
               Local aTabelasExistentes    := {}                                           
               Local aStruc                       := {}            
@@ -596,19 +596,19 @@ Function My_Cria_Tabela( cTabela )
                   EndIf 
 
                /* Cria a Tabela */           
-                  oQuery := oServer:Query( cQuery )											
+                  oQuery := oServer:Query( cQuery )                                 
               
               /*  Verifica se ocorreu algum erro */
                    If oServer:NetErr() 
                      MsGInfo("Erro Criando Tabela "+cTabela+" / <TMySQLServer> " + oServer:Error(),SISTEMA )
-                     Release Window ALL		
+                     Release Window ALL      
                     Quit
                   Endif 
 
               /*  Elimina Objeto Query */
                   oQuery:Destroy()     
-							
-                  ////MsgInfo("Tabela << "+cTabela+" >> Criada com Sucesso!!" )   	    
+                     
+                  ////MsgInfo("Tabela << "+cTabela+" >> Criada com Sucesso!!" )          
                   
                   Return Nil
             
@@ -619,7 +619,7 @@ Function Insere_Registros_na_Tabela( cTabela )
               Local cQuery := ""    
               Local NrReg   := 0            
 
-	If ! MsgYesNo( "Importa Dados de NOMES.DBF para Nomes(MySql) ??" ) 
+   If ! MsgYesNo( "Importa Dados de NOMES.DBF para Nomes(MySql) ??" ) 
                 Return Nil
               EndIf                    
 
@@ -637,7 +637,7 @@ Function Insere_Registros_na_Tabela( cTabela )
               Nomes->(DBGoTop())
               Do While ! Nomes->(Eof())
 
-                    /* Monta Query */						
+                    /* Monta Query */                  
                        cQuery := "INSERT INTO "+ cTabela + " VALUES ( '"+Str(Nomes->Codigo,8)+"' , '"+ AllTrim(Nomes->Nome)+"' , '"+Nomes->endereco+"' , '"+Nomes->Email+ "' ) "   
 
                    /* Executa Query */

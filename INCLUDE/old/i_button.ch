@@ -37,114 +37,114 @@
 
  Parts of this project are based upon:
 
-	"Harbour GUI framework for Win32"
- 	Copyright 2001 Alexander S.Kresin <alex@belacy.belgorod.su>
- 	Copyright 2001 Antonio Linares <alinares@fivetech.com>
-	www - http://www.harbour-project.org
+   "Harbour GUI framework for Win32"
+    Copyright 2001 Alexander S.Kresin <alex@belacy.belgorod.su>
+    Copyright 2001 Antonio Linares <alinares@fivetech.com>
+   www - http://www.harbour-project.org
 
-	"Harbour Project"
-	Copyright 1999-2003, http://www.harbour-project.org/
+   "Harbour Project"
+   Copyright 1999-2003, http://www.harbour-project.org/
 
-	"WHAT32"
-	Copyright 2002 AJ Wos <andrwos@aust1.net> 
+   "WHAT32"
+   Copyright 2002 AJ Wos <andrwos@aust1.net> 
 
-	"HWGUI"
-  	Copyright 2001-2007 Alexander S.Kresin <alex@belacy.belgorod.su>
+   "HWGUI"
+     Copyright 2001-2007 Alexander S.Kresin <alex@belacy.belgorod.su>
 
 ---------------------------------------------------------------------------*/
 
 #xcommand @ <row>,<col> BUTTON <name> ;
-		[ <dummy1: OF, PARENT> <parent> ] ;
-		CAPTION <caption> ;
-		[ <dummy2: ACTION,ON CLICK,ONCLICK> <action> ];
-		[ WIDTH <w> ] ;
-		[ HEIGHT <h> ] ;
-		[ FONT <font> ] ;
-		[ SIZE <size> ] ;
-		[ <bold : BOLD> ] ;
-		[ <italic : ITALIC> ] ;
-		[ <underline : UNDERLINE> ] ;
-		[ <strikeout : STRIKEOUT> ] ;
-		[ TOOLTIP <tooltip> ] ;
-		[ <flat: FLAT> ] ;
-		[ ON GOTFOCUS <gotfocus> ] ;
-		[ ON LOSTFOCUS <lostfocus> ] ;
-		[ <notabstop: NOTABSTOP> ] ;
-		[ HELPID <helpid> ] 		;
-		[ <invisible: INVISIBLE> ] ;
-		[ <multiline: MULTILINE> ] ;
-	=>;
-	_DefineButton ( <"name">, <"parent">, <col>, <row>, <caption>, <{action}>, ;
+      [ <dummy1: OF, PARENT> <parent> ] ;
+      CAPTION <caption> ;
+      [ <dummy2: ACTION,ON CLICK,ONCLICK> <action> ];
+      [ WIDTH <w> ] ;
+      [ HEIGHT <h> ] ;
+      [ FONT <font> ] ;
+      [ SIZE <size> ] ;
+      [ <bold : BOLD> ] ;
+      [ <italic : ITALIC> ] ;
+      [ <underline : UNDERLINE> ] ;
+      [ <strikeout : STRIKEOUT> ] ;
+      [ TOOLTIP <tooltip> ] ;
+      [ <flat: FLAT> ] ;
+      [ ON GOTFOCUS <gotfocus> ] ;
+      [ ON LOSTFOCUS <lostfocus> ] ;
+      [ <notabstop: NOTABSTOP> ] ;
+      [ HELPID <helpid> ]       ;
+      [ <invisible: INVISIBLE> ] ;
+      [ <multiline: MULTILINE> ] ;
+   =>;
+   _DefineButton ( <"name">, <"parent">, <col>, <row>, <caption>, <{action}>, ;
                    <w>, <h>, <font>, <size>, <tooltip>, <{gotfocus}>, ;
                    <{lostfocus}>, <.flat.>, <.notabstop.>, <helpid>, ;
                    <.invisible.> ,<.bold.>, <.italic.>, <.underline.>, <.strikeout.> , <.multiline.> ) 
 
 #xcommand @ <row>,<col> BUTTON <name> ;
-		[ <dummy1: OF, PARENT> <parent> ] ;
-		PICTURE <bitmap> ;
-		[ <dummy2: ACTION,ON CLICK,ONCLICK> <action> ];
-		[ WIDTH <w> ] ;
-		[ HEIGHT <h> ] ;
-		[ TOOLTIP <tooltip>]  ;
-		[ <flat: FLAT> ] ;
-		[ <notrans: NOTRANSPARENT> ] ;
-		[ ON GOTFOCUS <gotfocus> ] ;
-		[ ON LOSTFOCUS <lostfocus> ] ;
-		[ <notabstop: NOTABSTOP> ] ;
-		[ HELPID <helpid> ] 		;
-		[ <invisible: INVISIBLE> ] ;
-	=>;
-	_DefineImageButton ( <"name">, <"parent">, <col>, <row>, "", <{action}>, ;
+      [ <dummy1: OF, PARENT> <parent> ] ;
+      PICTURE <bitmap> ;
+      [ <dummy2: ACTION,ON CLICK,ONCLICK> <action> ];
+      [ WIDTH <w> ] ;
+      [ HEIGHT <h> ] ;
+      [ TOOLTIP <tooltip>]  ;
+      [ <flat: FLAT> ] ;
+      [ <notrans: NOTRANSPARENT> ] ;
+      [ ON GOTFOCUS <gotfocus> ] ;
+      [ ON LOSTFOCUS <lostfocus> ] ;
+      [ <notabstop: NOTABSTOP> ] ;
+      [ HELPID <helpid> ]       ;
+      [ <invisible: INVISIBLE> ] ;
+   =>;
+   _DefineImageButton ( <"name">, <"parent">, <col>, <row>, "", <{action}>, ;
                         <w>, <h>, <bitmap>, <tooltip>, <{gotfocus}>, <{lostfocus}>, ;
                         <.flat.>, <.notrans.>, <helpid>, <.invisible.>, <.notabstop.> )
 
 
 #xcommand @ <row>,<col> BUTTON <name> ;
-		[ <dummy1: OF, PARENT> <parent> ] ;
-		CAPTION <caption> ;
-		PICTURE <bitmap> ;
-		[ <alignment:LEFT,RIGHT,TOP,BOTTOM> ] ;
-		[ <dummy2: ACTION,ON CLICK,ONCLICK> <action> ];
-		[ WIDTH <w> ] ;
-		[ HEIGHT <h> ] ;
-		[ FONT <font> ] ;
-		[ SIZE <size> ] ;
-		[ <bold : BOLD> ] ;
-		[ <italic : ITALIC> ] ;
-		[ <underline : UNDERLINE> ] ;
-		[ <strikeout : STRIKEOUT> ] ;
-		[ TOOLTIP <tooltip> ] ;
-		[ <flat: FLAT> ] ;
-		[ ON GOTFOCUS <gotfocus> ] ;
-		[ ON LOSTFOCUS <lostfocus> ] ;
-		[ <notabstop: NOTABSTOP> ] ;
-		[ HELPID <helpid> ] 		;
-		[ <invisible: INVISIBLE> ] ;
-		[ <multiline: MULTILINE> ] ;
+      [ <dummy1: OF, PARENT> <parent> ] ;
+      CAPTION <caption> ;
+      PICTURE <bitmap> ;
+      [ <alignment:LEFT,RIGHT,TOP,BOTTOM> ] ;
+      [ <dummy2: ACTION,ON CLICK,ONCLICK> <action> ];
+      [ WIDTH <w> ] ;
+      [ HEIGHT <h> ] ;
+      [ FONT <font> ] ;
+      [ SIZE <size> ] ;
+      [ <bold : BOLD> ] ;
+      [ <italic : ITALIC> ] ;
+      [ <underline : UNDERLINE> ] ;
+      [ <strikeout : STRIKEOUT> ] ;
+      [ TOOLTIP <tooltip> ] ;
+      [ <flat: FLAT> ] ;
+      [ ON GOTFOCUS <gotfocus> ] ;
+      [ ON LOSTFOCUS <lostfocus> ] ;
+      [ <notabstop: NOTABSTOP> ] ;
+      [ HELPID <helpid> ]       ;
+      [ <invisible: INVISIBLE> ] ;
+      [ <multiline: MULTILINE> ] ;
       [ <notrans: NOTRANSPARENT> ] ;
-	=>;
-	_DefineMixedButton ( <"name">, ;
-				<"parent">, ;
-				<col>, ;
-				<row>, ;
-				<caption>, ;
-				<{action}>, ;
-				<w>, ;
-				<h>, ;
-				<font>, ;
-				<size>, ;
-				<tooltip>, ;
-				<{gotfocus}>, ;
-				<{lostfocus}>, ;
-				<.flat.>, ;
-				<.notabstop.>, ;
-				<helpid>, ;
-				<.invisible.> ,;
-				<.bold.>, ;
-				<.italic.>, ;
-				<.underline.>, ;
-				<.strikeout.>,;
-				<bitmap> ,;
-				<"alignment"> , <.multiline.>, ;
-				<.notrans.> ) 
+   =>;
+   _DefineMixedButton ( <"name">, ;
+            <"parent">, ;
+            <col>, ;
+            <row>, ;
+            <caption>, ;
+            <{action}>, ;
+            <w>, ;
+            <h>, ;
+            <font>, ;
+            <size>, ;
+            <tooltip>, ;
+            <{gotfocus}>, ;
+            <{lostfocus}>, ;
+            <.flat.>, ;
+            <.notabstop.>, ;
+            <helpid>, ;
+            <.invisible.> ,;
+            <.bold.>, ;
+            <.italic.>, ;
+            <.underline.>, ;
+            <.strikeout.>,;
+            <bitmap> ,;
+            <"alignment"> , <.multiline.>, ;
+            <.notrans.> ) 
 

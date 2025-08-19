@@ -2,7 +2,7 @@
 
 Function Main
 
-	load window test
-	activate window test
+   load window test
+   activate window test
 
 Return

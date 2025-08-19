@@ -37,89 +37,89 @@
 
  Parts of this project are based upon:
 
-	"Harbour GUI framework for Win32"
- 	Copyright 2001 Alexander S.Kresin <alex@belacy.belgorod.su>
- 	Copyright 2001 Antonio Linares <alinares@fivetech.com>
-	www - http://www.harbour-project.org
+   "Harbour GUI framework for Win32"
+    Copyright 2001 Alexander S.Kresin <alex@belacy.belgorod.su>
+    Copyright 2001 Antonio Linares <alinares@fivetech.com>
+   www - http://www.harbour-project.org
 
-	"Harbour Project"
-	Copyright 1999-2003, http://www.harbour-project.org/
+   "Harbour Project"
+   Copyright 1999-2003, http://www.harbour-project.org/
 
-	"WHAT32"
-	Copyright 2002 AJ Wos <andrwos@aust1.net>
+   "WHAT32"
+   Copyright 2002 AJ Wos <andrwos@aust1.net>
 
-	"HWGUI"
-  	Copyright 2001-2007 Alexander S.Kresin <alex@belacy.belgorod.su>
+   "HWGUI"
+     Copyright 2001-2007 Alexander S.Kresin <alex@belacy.belgorod.su>
 
 ---------------------------------------------------------------------------*/
 
 #xcommand @ <row>,<col> CHECKBOX <name> ;
-		[ <dummy1: OF, PARENT> <parent> ] ;
-		CAPTION <caption> ;
-		[ WIDTH <w> ] ;
-		[ HEIGHT <h> ] ;
-		[ FIELD <field> ]		;
-		[ VALUE <value> ] ;
-		[ FONT <f> ] ;
-		[ SIZE <n> ] ;
-		[ <bold : BOLD> ] ;
-		[ <italic : ITALIC> ] ;
-		[ <underline : UNDERLINE> ] ;
-		[ <strikeout : STRIKEOUT> ] ;
-		[ TOOLTIP <tooltip> ] ;
-		[ BACKCOLOR <backcolor> ] ;
-		[ FONTCOLOR <fontcolor> ] ;
-		[ ON GOTFOCUS <gotfocus> ] ;
-		[ ON CHANGE <change> ] ;
-		[ ON LOSTFOCUS <lostfocus> ] ;
-		[ <transparent: TRANSPARENT> ] ;
-		[ HELPID <helpid> ] 		;
-		[ <invisible: INVISIBLE> ] ;
-		[ <notabstop: NOTABSTOP> ] ;
-		[ ON ENTER <OnEnter> ] ;
-	=>;
-	_DefineCheckBox ( <(name)>, <(parent)>, <col>, <row>, <caption>, <value> ,<f> ,<n> , <tooltip>  , <{change}>  , [<w>] , [<h>] , <{lostfocus}>, <{gotfocus}>  , <helpid>, <.invisible.>, <.notabstop.> ,<.bold.>, <.italic.>, <.underline.>, <.strikeout.> , <"field"> , <backcolor> , <fontcolor> , <.transparent.>, <{OnEnter}> )
+      [ <dummy1: OF, PARENT> <parent> ] ;
+      CAPTION <caption> ;
+      [ WIDTH <w> ] ;
+      [ HEIGHT <h> ] ;
+      [ FIELD <field> ]      ;
+      [ VALUE <value> ] ;
+      [ FONT <f> ] ;
+      [ SIZE <n> ] ;
+      [ <bold : BOLD> ] ;
+      [ <italic : ITALIC> ] ;
+      [ <underline : UNDERLINE> ] ;
+      [ <strikeout : STRIKEOUT> ] ;
+      [ TOOLTIP <tooltip> ] ;
+      [ BACKCOLOR <backcolor> ] ;
+      [ FONTCOLOR <fontcolor> ] ;
+      [ ON GOTFOCUS <gotfocus> ] ;
+      [ ON CHANGE <change> ] ;
+      [ ON LOSTFOCUS <lostfocus> ] ;
+      [ <transparent: TRANSPARENT> ] ;
+      [ HELPID <helpid> ]       ;
+      [ <invisible: INVISIBLE> ] ;
+      [ <notabstop: NOTABSTOP> ] ;
+      [ ON ENTER <OnEnter> ] ;
+   =>;
+   _DefineCheckBox ( <(name)>, <(parent)>, <col>, <row>, <caption>, <value> ,<f> ,<n> , <tooltip>  , <{change}>  , [<w>] , [<h>] , <{lostfocus}>, <{gotfocus}>  , <helpid>, <.invisible.>, <.notabstop.> ,<.bold.>, <.italic.>, <.underline.>, <.strikeout.> , <"field"> , <backcolor> , <fontcolor> , <.transparent.>, <{OnEnter}> )
 
 #xcommand @ <row>,<col> CHECKBUTTON <name> ;
-		[ <dummy1: OF, PARENT> <parent> ] ;
-		CAPTION <caption>  ;
-		[ WIDTH <w> ] ;
-		[ HEIGHT <h> ] ;
-		[ VALUE <value> ] ;
-		[ FONT <f> ] ;
-		[ SIZE <n> ] ;
-		[ <bold : BOLD> ] ;
-		[ <italic : ITALIC> ] ;
-		[ <underline : UNDERLINE> ] ;
-		[ <strikeout : STRIKEOUT> ] ;
-		[ TOOLTIP <tooltip> ] ;
-		[ ON GOTFOCUS <gotfocus> ] ;
-		[ ON CHANGE <change> ] ;
-		[ ON LOSTFOCUS <lostfocus> ] ;
-		[ HELPID <helpid> ] 		;
-		[ <invisible: INVISIBLE> ] ;
-		[ <notabstop: NOTABSTOP> ] ;
-		[ ON ENTER <OnEnter> ] ;
-	=>;
-	_DefineCheckButton ( <(name)>, <(parent)>, <col>, <row>, <caption>, <value> ,<f> ,<n> , <tooltip>  , <{change}>  , [<w>] , [<h>] , <{lostfocus}>, <{gotfocus}>  , <helpid>, <.invisible.>, <.notabstop.> ,<.bold.>, <.italic.>, <.underline.>, <.strikeout.>, <{OnEnter}> )
+      [ <dummy1: OF, PARENT> <parent> ] ;
+      CAPTION <caption>  ;
+      [ WIDTH <w> ] ;
+      [ HEIGHT <h> ] ;
+      [ VALUE <value> ] ;
+      [ FONT <f> ] ;
+      [ SIZE <n> ] ;
+      [ <bold : BOLD> ] ;
+      [ <italic : ITALIC> ] ;
+      [ <underline : UNDERLINE> ] ;
+      [ <strikeout : STRIKEOUT> ] ;
+      [ TOOLTIP <tooltip> ] ;
+      [ ON GOTFOCUS <gotfocus> ] ;
+      [ ON CHANGE <change> ] ;
+      [ ON LOSTFOCUS <lostfocus> ] ;
+      [ HELPID <helpid> ]       ;
+      [ <invisible: INVISIBLE> ] ;
+      [ <notabstop: NOTABSTOP> ] ;
+      [ ON ENTER <OnEnter> ] ;
+   =>;
+   _DefineCheckButton ( <(name)>, <(parent)>, <col>, <row>, <caption>, <value> ,<f> ,<n> , <tooltip>  , <{change}>  , [<w>] , [<h>] , <{lostfocus}>, <{gotfocus}>  , <helpid>, <.invisible.>, <.notabstop.> ,<.bold.>, <.italic.>, <.underline.>, <.strikeout.>, <{OnEnter}> )
 
 #xcommand @ <row>,<col> CHECKBUTTON <name> ;
-		[ <dummy1: OF, PARENT> <parent> ] ;
-		PICTURE <bitmap> ;
-		[ WIDTH <w> ] ;
-		[ HEIGHT <h> ] ;
-		[ VALUE <value> ] ;
-		[ TOOLTIP <tooltip> ] ;
-		[ ON GOTFOCUS <gotfocus> ] ;
-		[ ON CHANGE <change> ] ;
-		[ ON LOSTFOCUS <lostfocus> ] ;
-		[ HELPID <helpid> ] 		;
-		[ <invisible: INVISIBLE> ] ;
-		[ <notabstop: NOTABSTOP> ] ;
+      [ <dummy1: OF, PARENT> <parent> ] ;
+      PICTURE <bitmap> ;
+      [ WIDTH <w> ] ;
+      [ HEIGHT <h> ] ;
+      [ VALUE <value> ] ;
+      [ TOOLTIP <tooltip> ] ;
+      [ ON GOTFOCUS <gotfocus> ] ;
+      [ ON CHANGE <change> ] ;
+      [ ON LOSTFOCUS <lostfocus> ] ;
+      [ HELPID <helpid> ]       ;
+      [ <invisible: INVISIBLE> ] ;
+      [ <notabstop: NOTABSTOP> ] ;
       [ <notrans: NOTRANSPARENT>];
       [ ON ENTER <OnEnter> ] ;
-	=>;
-	_DefineImageCheckButton ( <(name)>, <(parent)>, <col>, <row>, <bitmap>,;
+   =>;
+   _DefineImageCheckButton ( <(name)>, <(parent)>, <col>, <row>, <bitmap>,;
                              <value> ,"" ,0 , <tooltip>  , <{change}>,;
                              [<w>] , [<h>] , <{lostfocus}>, <{gotfocus}> , <helpid>,;
                              <.invisible.>, <.notabstop.>, <.notrans.>, <{OnEnter}> )

@@ -37,19 +37,19 @@
 
  Parts of this project are based upon:
 
-	"Harbour GUI framework for Win32"
- 	Copyright 2001 Alexander S.Kresin <alex@belacy.belgorod.su>
- 	Copyright 2001 Antonio Linares <alinares@fivetech.com>
-	www - http://www.harbour-project.org
+   "Harbour GUI framework for Win32"
+    Copyright 2001 Alexander S.Kresin <alex@belacy.belgorod.su>
+    Copyright 2001 Antonio Linares <alinares@fivetech.com>
+   www - http://www.harbour-project.org
 
-	"Harbour Project"
-	Copyright 1999-2003, http://www.harbour-project.org/
+   "Harbour Project"
+   Copyright 1999-2003, http://www.harbour-project.org/
 
-	"WHAT32"
-	Copyright 2002 AJ Wos <andrwos@aust1.net> 
+   "WHAT32"
+   Copyright 2002 AJ Wos <andrwos@aust1.net> 
 
-	"HWGUI"
-  	Copyright 2001-2007 Alexander S.Kresin <alex@belacy.belgorod.su>
+   "HWGUI"
+     Copyright 2001-2007 Alexander S.Kresin <alex@belacy.belgorod.su>
 
 ---------------------------------------------------------------------------*/
 
@@ -58,90 +58,90 @@
 ******************************************************************************
 
 #xcommand  DEFINE TOOLBAR <controlname> ;
-		[ OF <parentwindowname> ] ;
+      [ OF <parentwindowname> ] ;
       [ BUTTONSIZE <buttonwidth> , <buttonheight> ] ;
       [ IMAGESIZE <imagewidth> , <imageheight> ] ;
-		[ <strictwidth : STRICTWIDTH> ] ;		
-		[ FONT <fontname> ] ;			
-		[ SIZE <fontsize> ] ;			
-		[ <bold : BOLD> ] ;		
-		[ <italic : ITALIC> ] ;		
-		[ <underline : UNDERLINE> ] ;	
-		[ <strikeout : STRIKEOUT> ] ;	
-		[ TOOLTIP <tooltip> ] ;		
-		[ <flat: FLAT> ] ;
-		[ <bottom: BOTTOM> ] ;
-		[ <righttext: RIGHTTEXT> ] ;
-		[ <dummy1: GRIPPERTEXT, CAPTION> <grippertext> ] ;
-		[ <border : BORDER> ] ;		
-	        [ <break: BREAK> ] ;                           
+      [ <strictwidth : STRICTWIDTH> ] ;      
+      [ FONT <fontname> ] ;         
+      [ SIZE <fontsize> ] ;         
+      [ <bold : BOLD> ] ;      
+      [ <italic : ITALIC> ] ;      
+      [ <underline : UNDERLINE> ] ;   
+      [ <strikeout : STRIKEOUT> ] ;   
+      [ TOOLTIP <tooltip> ] ;      
+      [ <flat: FLAT> ] ;
+      [ <bottom: BOTTOM> ] ;
+      [ <righttext: RIGHTTEXT> ] ;
+      [ <dummy1: GRIPPERTEXT, CAPTION> <grippertext> ] ;
+      [ <border : BORDER> ] ;      
+           [ <break: BREAK> ] ;                           
       => ;
-	_DefineToolBar ( <"controlname">	, ;
-		<"parentwindowname">		, ;
-		<buttonwidth>			, ;
-		<buttonheight>			, ;
-		<.flat.>			, ;
-		<.bottom.>			, ;
-		<.righttext.>			, ;
-		<.border.>			, ;
-		<fontname>			, ;
-		<fontsize>			, ;
-		<.bold.>			, ;
-		<.italic.>			, ;
-		<.underline.>			, ;
-		<.strikeout.>			, ;
-		<tooltip>			, ;
-		<grippertext>			, ;
-		<.break.>			, ;
-		<imagewidth> 			, ;
-		<imageheight>			, ;
-		<.strictwidth.>                   ;
-		)  
+   _DefineToolBar ( <"controlname">   , ;
+      <"parentwindowname">      , ;
+      <buttonwidth>         , ;
+      <buttonheight>         , ;
+      <.flat.>         , ;
+      <.bottom.>         , ;
+      <.righttext.>         , ;
+      <.border.>         , ;
+      <fontname>         , ;
+      <fontsize>         , ;
+      <.bold.>         , ;
+      <.italic.>         , ;
+      <.underline.>         , ;
+      <.strikeout.>         , ;
+      <tooltip>         , ;
+      <grippertext>         , ;
+      <.break.>         , ;
+      <imagewidth>          , ;
+      <imageheight>         , ;
+      <.strictwidth.>                   ;
+      )  
 
 ******************************************************************************
 * Propertized ToolBar
 ******************************************************************************
 
 #xcommand  DEFINE TOOLBAR <controlname> ;
-		[ PARENT <parentwindowname> ] ;
+      [ PARENT <parentwindowname> ] ;
       [ BUTTONWIDTH <buttonwidth> ] [ BUTTONHEIGHT <buttonheight> ] ;
       [ IMAGEWIDTH <imagewidth> ] [ IMAGEHEIGHT <imageheight> ] ;
-		[ STRICTWIDTH <strictwidth> ] ;		
-		[ FONTNAME <fontname> ] ;			
-		[ FONTSIZE <fontsize> ] ;			
-		[ FONTBOLD <bold> ] ;		
-		[ FONTITALIC <italic> ] ;		
-		[ FONTUNDERLINE <underline> ] ;	
-		[ FONTSTRIKEOUT <strikeout> ] ;	
-		[ TOOLTIP <tooltip> ] ;		
-		[ FLAT <flat> ] ;
-		[ BOTTOM <bottom> ] ;
-		[ RIGHTTEXT <righttext> ] ;
-		[ GRIPPERTEXT <grippertext> ] ;
-		[ BORDER <border> ] ;		
-	   [ BREAK <break> ] ;                           
+      [ STRICTWIDTH <strictwidth> ] ;      
+      [ FONTNAME <fontname> ] ;         
+      [ FONTSIZE <fontsize> ] ;         
+      [ FONTBOLD <bold> ] ;      
+      [ FONTITALIC <italic> ] ;      
+      [ FONTUNDERLINE <underline> ] ;   
+      [ FONTSTRIKEOUT <strikeout> ] ;   
+      [ TOOLTIP <tooltip> ] ;      
+      [ FLAT <flat> ] ;
+      [ BOTTOM <bottom> ] ;
+      [ RIGHTTEXT <righttext> ] ;
+      [ GRIPPERTEXT <grippertext> ] ;
+      [ BORDER <border> ] ;      
+      [ BREAK <break> ] ;                           
       => ;
-	_DefineToolBar ( <"controlname">	, ;
-		<"parentwindowname">		, ;
-		<buttonwidth>			, ;
-		<buttonheight>			, ;
-		<.flat.>			, ;
-		<.bottom.>			, ;
-		<.righttext.>			, ;
-		<.border.>			, ;
-		<fontname>			, ;
-		<fontsize>			, ;
-		<.bold.>			, ;
-		<.italic.>			, ;
-		<.underline.>			, ;
-		<.strikeout.>			, ;
-		<tooltip>			, ;
-		<grippertext>			, ;
-		<.break.>			, ;
-		<imagewidth> 			, ;
-		<imageheight>			, ;
-		<.strictwidth.>                   ;
-		)  
+   _DefineToolBar ( <"controlname">   , ;
+      <"parentwindowname">      , ;
+      <buttonwidth>         , ;
+      <buttonheight>         , ;
+      <.flat.>         , ;
+      <.bottom.>         , ;
+      <.righttext.>         , ;
+      <.border.>         , ;
+      <fontname>         , ;
+      <fontsize>         , ;
+      <.bold.>         , ;
+      <.italic.>         , ;
+      <.underline.>         , ;
+      <.strikeout.>         , ;
+      <tooltip>         , ;
+      <grippertext>         , ;
+      <.break.>         , ;
+      <imagewidth>          , ;
+      <imageheight>         , ;
+      <.strictwidth.>                   ;
+      )  
 
 
 ******************************************************************************
@@ -149,29 +149,29 @@
 ******************************************************************************
 
 #xcommand BUTTON <controlname> ;
-		[ CAPTION <caption> ] ;
-		[ PICTURE <picture> ] ;
-		[ ACTION <action> ] ;
-		[ TOOLTIP <tooltip> ] ;
-		[ <separator: SEPARATOR> ] ;
-	   [ <autosize: AUTOSIZE> ] ;             
-		[ <dropdown: DROPDOWN> ] ;
-		[ <wholedropdown: WHOLEDROPDOWN> ] ;
-		[ <check: CHECK> ] ;
-		[ <group: GROUP> ] ;
+      [ CAPTION <caption> ] ;
+      [ PICTURE <picture> ] ;
+      [ ACTION <action> ] ;
+      [ TOOLTIP <tooltip> ] ;
+      [ <separator: SEPARATOR> ] ;
+      [ <autosize: AUTOSIZE> ] ;             
+      [ <dropdown: DROPDOWN> ] ;
+      [ <wholedropdown: WHOLEDROPDOWN> ] ;
+      [ <check: CHECK> ] ;
+      [ <group: GROUP> ] ;
       [ <notrans: NOTRANSPARENT>];
-	=>;
-	_DefineToolButton ( <"controlname"> , ;
-		<picture> , ;
-		<caption> , ;
-		<{action}> , ;
-		<.separator.> , ;
-		<.autosize.> , ;
-		<.check.> , ;
-		<.group.> , ;
-		<.dropdown.> , ;
-		<.wholedropdown.> , ;
-		<tooltip>, ;
+   =>;
+   _DefineToolButton ( <"controlname"> , ;
+      <picture> , ;
+      <caption> , ;
+      <{action}> , ;
+      <.separator.> , ;
+      <.autosize.> , ;
+      <.check.> , ;
+      <.group.> , ;
+      <.dropdown.> , ;
+      <.wholedropdown.> , ;
+      <tooltip>, ;
       <.notrans.> ) 
 
 
@@ -181,29 +181,29 @@
 
 
 #xcommand TOOLBUTTON <controlname> ;
-		[ CAPTION <caption> ] ;
-		[ PICTURE <picture> ] ;
-		[ ONCLICK <action> ] ;
-		[ TOOLTIP <tooltip> ] ;
-		[ SEPARATOR <separator> ] ;
-	   [ AUTOSIZE <autosize> ] ;             
-		[ DROPDOWN <dropdown> ] ;
-		[ WHOLEDROPDOWN <wholedropdown> ] ;
-		[ CHECK <check> ] ;
-		[ GROUP <group> ] ;
+      [ CAPTION <caption> ] ;
+      [ PICTURE <picture> ] ;
+      [ ONCLICK <action> ] ;
+      [ TOOLTIP <tooltip> ] ;
+      [ SEPARATOR <separator> ] ;
+      [ AUTOSIZE <autosize> ] ;             
+      [ DROPDOWN <dropdown> ] ;
+      [ WHOLEDROPDOWN <wholedropdown> ] ;
+      [ CHECK <check> ] ;
+      [ GROUP <group> ] ;
       [ NOTRANSPARENT <notrans>];
-	=>;
-	_DefineToolButton ( <"controlname"> , ;
-		<picture> , ;
-		<caption> , ;
-		<{action}> , ;
-		<.separator.> , ;
-		<.autosize.> , ;
-		<.check.> , ;
-		<.group.> , ;
-		<.dropdown.> , ;
-		<.wholedropdown.> , ;
-		<tooltip> , ;
+   =>;
+   _DefineToolButton ( <"controlname"> , ;
+      <picture> , ;
+      <caption> , ;
+      <{action}> , ;
+      <.separator.> , ;
+      <.autosize.> , ;
+      <.check.> , ;
+      <.group.> , ;
+      <.dropdown.> , ;
+      <.wholedropdown.> , ;
+      <tooltip> , ;
       <.notrans.> ) 
 
 

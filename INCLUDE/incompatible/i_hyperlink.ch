@@ -37,72 +37,72 @@
 
  Parts of this project are based upon:
 
-	"Harbour GUI framework for Win32"
- 	Copyright 2001 Alexander S.Kresin <alex@belacy.belgorod.su>
- 	Copyright 2001 Antonio Linares <alinares@fivetech.com>
-	www - http://www.harbour-project.org
+   "Harbour GUI framework for Win32"
+    Copyright 2001 Alexander S.Kresin <alex@belacy.belgorod.su>
+    Copyright 2001 Antonio Linares <alinares@fivetech.com>
+   www - http://www.harbour-project.org
 
-	"Harbour Project"
-	Copyright 1999-2003, http://www.harbour-project.org/
+   "Harbour Project"
+   Copyright 1999-2003, http://www.harbour-project.org/
 
-	"WHAT32"
-	Copyright 2002 AJ Wos <andrwos@aust1.net>
+   "WHAT32"
+   Copyright 2002 AJ Wos <andrwos@aust1.net>
 
-	"HWGUI"
-  	Copyright 2001-2007 Alexander S.Kresin <alex@belacy.belgorod.su>
+   "HWGUI"
+     Copyright 2001-2007 Alexander S.Kresin <alex@belacy.belgorod.su>
 
 ---------------------------------------------------------------------------*/
 
 #xcommand @ <row>,<col> HYPERLINK <name>   ;
-	[ <dummy1: OF, PARENT> <parent> ] ;
-	[ VALUE <value> ]   ;
-	[ ADDRESS <address>];
-	[ WIDTH <width> ]   ;
-	[ HEIGHT <height> ]   ;
-	[ <autosize : AUTOSIZE> ] ;
-	[ FONT <fontname> ]   ;
-	[ SIZE <fontsize> ]   ;
-	[ <bold : BOLD> ] ;
-	[ <italic : ITALIC> ] ;
-	[ TOOLTIP <tooltip> ] ;
-	[ BACKCOLOR <backcolor> ] ;
-	[ <dummy2 : FONTCOLOR> <fontcolor> ] ;
-	[ <border: BORDER> ] ;
-	[ <clientedge: CLIENTEDGE> ] ;
-	[ <transparent: TRANSPARENT> ] ;
-	[ <handcursor: HANDCURSOR> ] ;
-	[ <rightalign: RIGHTALIGN> ]	;
-	[ <centeralign: CENTERALIGN> ]	;
-	[ HELPID <helpid> ] 		;
-	[ <invisible: INVISIBLE> ] ;
+   [ <dummy1: OF, PARENT> <parent> ] ;
+   [ VALUE <value> ]   ;
+   [ ADDRESS <address>];
+   [ WIDTH <width> ]   ;
+   [ HEIGHT <height> ]   ;
+   [ <autosize : AUTOSIZE> ] ;
+   [ FONT <fontname> ]   ;
+   [ SIZE <fontsize> ]   ;
+   [ <bold : BOLD> ] ;
+   [ <italic : ITALIC> ] ;
+   [ TOOLTIP <tooltip> ] ;
+   [ BACKCOLOR <backcolor> ] ;
+   [ <dummy2 : FONTCOLOR> <fontcolor> ] ;
+   [ <border: BORDER> ] ;
+   [ <clientedge: CLIENTEDGE> ] ;
+   [ <transparent: TRANSPARENT> ] ;
+   [ <handcursor: HANDCURSOR> ] ;
+   [ <rightalign: RIGHTALIGN> ]   ;
+   [ <centeralign: CENTERALIGN> ]   ;
+   [ HELPID <helpid> ]       ;
+   [ <invisible: INVISIBLE> ] ;
  =>;
 _DefineLabel (      ;
-	<(name)>,    ;
-	<(parent)>,    ;
-	<col>,     ;
-	<row>,     ;
-	<value>,    ;
-	<width>,    ;
-	<height>,    ;
-	<fontname>,    ;
-	<fontsize>,    ;
-	<.bold.>,    ;
-	<.border.> ,   ;
-	<.clientedge.> ,  ;
-	.f. ,   ;
-	.f. ,   ;
-	<.transparent.> ,   ;
-	[ <backcolor> ], ;
-	if ( ! <.dummy2.> , { 0 , 0 , 255 } , <fontcolor> ) , ;
-	if ( lower ( left ( <address> , 7 ) ) == 'http://' , {||ShellExecute(0, "open", "rundll32.exe", "url.dll,FileProtocolHandler " + <address> , ,1)} , {||ShellExecute(0, "open", "rundll32.exe", "url.dll,FileProtocolHandler mailto:" + <address> , ,1)} )  ,	;
-	<tooltip>,	;
-	<helpid>, ;
-	<.invisible.>, ;
-	<.italic.>, ;
-	.t., ;
-	.f. , ;
-	<.autosize.> , ;
-	<.rightalign.> , ;
-	<.centeralign.> ) ;;
-	if ( <.handcursor.> , INITHYPERLINKCURSOR ( GetControlhandle ( <(name)> , if ( !empty(_HMG_SYSDATA \[ 223 \]) , _HMG_SYSDATA \[ 223 \] , <(parent)> ) ) ) , _DUMMY() )
+   <(name)>,    ;
+   <(parent)>,    ;
+   <col>,     ;
+   <row>,     ;
+   <value>,    ;
+   <width>,    ;
+   <height>,    ;
+   <fontname>,    ;
+   <fontsize>,    ;
+   <.bold.>,    ;
+   <.border.> ,   ;
+   <.clientedge.> ,  ;
+   .f. ,   ;
+   .f. ,   ;
+   <.transparent.> ,   ;
+   [ <backcolor> ], ;
+   if ( ! <.dummy2.> , { 0 , 0 , 255 } , <fontcolor> ) , ;
+   if ( lower ( left ( <address> , 7 ) ) == 'http://' , {||ShellExecute(0, "open", "rundll32.exe", "url.dll,FileProtocolHandler " + <address> , ,1)} , {||ShellExecute(0, "open", "rundll32.exe", "url.dll,FileProtocolHandler mailto:" + <address> , ,1)} )  ,   ;
+   <tooltip>,   ;
+   <helpid>, ;
+   <.invisible.>, ;
+   <.italic.>, ;
+   .t., ;
+   .f. , ;
+   <.autosize.> , ;
+   <.rightalign.> , ;
+   <.centeralign.> ) ;;
+   if ( <.handcursor.> , INITHYPERLINKCURSOR ( GetControlhandle ( <(name)> , if ( !empty( oHmgApp():ActiveFormName ) , oHmgApp():ActiveFormName , <(parent)> ) ) ) , _DUMMY() )
 

@@ -29,15 +29,15 @@
 
  Parts of this project (especially hbmysql, hbpgsql and hbsqlit3 library contributions) are based upon:
 
-	"Harbour Project"
-	Copyright 1999-2008, http://www.harbour-project.org/
-	
+   "Harbour Project"
+   Copyright 1999-2008, http://www.harbour-project.org/
+   
   "HMG - Harbour Windows GUI"
   Copyright 2002-2010 Roberto Lopez <mail.box.hmg@gmail.com>,http://sites.google.com/site/hmgweb/
-	
-	"HBMYSQL"  - Luiz Rafael Culik - <culik@sl.conex.net>
-	"HBPGSQL"  - Rodrigo Moreno rodrigo_moreno@yahoo.com
-	"HBSQLIT3" - P.Chornyj <myorg63@mail.ru>
+   
+   "HBMYSQL"  - Luiz Rafael Culik - <culik@sl.conex.net>
+   "HBPGSQL"  - Rodrigo Moreno rodrigo_moreno@yahoo.com
+   "HBSQLIT3" - P.Chornyj <myorg63@mail.ru>
 
 ---------------------------------------------------------------------------*/
 #include <hmg.ch>
@@ -55,7 +55,7 @@ IF dbo:NetErr()
 ENDIF
 //msginfo("Successfully Connected to the MySQL Server")
 RETURN dbo
-	
+   
 function sql(dbo1,qstr)
 local table := nil
 local currow := nil

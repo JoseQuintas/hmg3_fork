@@ -2,20 +2,20 @@
 
 Function Main
 
-	SET MULTIPLE OFF WARNING
+   SET MULTIPLE OFF WARNING
 
-	DEFINE WINDOW Form_1 ;
-		AT 0,0 ;
-		WIDTH 400 ;
-		HEIGHT 400 ;
-		TITLE 'Hello World!' ;
-		MAIN  
+   DEFINE WINDOW Form_1 ;
+      AT 0,0 ;
+      WIDTH 400 ;
+      HEIGHT 400 ;
+      TITLE 'Hello World!' ;
+      MAIN  
 
-	END WINDOW
+   END WINDOW
 
-	CENTER WINDOW Form_1
+   CENTER WINDOW Form_1
 
-	ACTIVATE WINDOW Form_1
+   ACTIVATE WINDOW Form_1
 
 Return
 

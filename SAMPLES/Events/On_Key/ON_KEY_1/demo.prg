@@ -92,64 +92,64 @@ Available Keys
 Function Main
 Local bBlock
 
-	DEFINE WINDOW Win_1 ;
-		AT 0,0 ;
-		WIDTH 400 ;
-		HEIGHT 400 ;
-		TITLE 'Hello World!' ;
-		MAIN  
+   DEFINE WINDOW Win_1 ;
+      AT 0,0 ;
+      WIDTH 400 ;
+      HEIGHT 400 ;
+      TITLE 'Hello World!' ;
+      MAIN  
 
     ON KEY UNSHIFT+A ACTION MsgInfo ('Unshift+A')
-		ON KEY SHIFT+A ACTION MsgInfo ('Shift+A')
-		ON KEY TAB ACTION MsgInfo ('TAB')
-		ON KEY RETURN ACTION MsgInfo ('RETURN')
-		ON KEY CONTROL+END ACTION MsgInfo ('CONTROL+END')
+      ON KEY SHIFT+A ACTION MsgInfo ('Shift+A')
+      ON KEY TAB ACTION MsgInfo ('TAB')
+      ON KEY RETURN ACTION MsgInfo ('RETURN')
+      ON KEY CONTROL+END ACTION MsgInfo ('CONTROL+END')
     ON KEY CONTROL+ADD ACTION MsgInfo ('CONTROL+ADD')
-		ON KEY ESCAPE ACTION MsgInfo ('ESCAPE')
-		ON KEY ALT+C ACTION MsgInfo ('ALT+C')
+      ON KEY ESCAPE ACTION MsgInfo ('ESCAPE')
+      ON KEY ALT+C ACTION MsgInfo ('ALT+C')
 
-		DEFINE BUTTON Button_1
-			ROW 10
-			COL 10
-			CAPTION 'Activate F2'
-			ACTION EnableF2()
-		END BUTTON
+      DEFINE BUTTON Button_1
+         ROW 10
+         COL 10
+         CAPTION 'Activate F2'
+         ACTION EnableF2()
+      END BUTTON
 
-		DEFINE BUTTON Button_2
-			ROW 40
-			COL 10
-			CAPTION 'Release F2'
-			ACTION DisableF2()
-		END BUTTON
+      DEFINE BUTTON Button_2
+         ROW 40
+         COL 10
+         CAPTION 'Release F2'
+         ACTION DisableF2()
+      END BUTTON
 
-		DEFINE BUTTON Button_3
-			ROW 70
-			COL 10
-			CAPTION 'Store Key Test'
-			ACTION StoreTest()
-		END BUTTON
+      DEFINE BUTTON Button_3
+         ROW 70
+         COL 10
+         CAPTION 'Store Key Test'
+         ACTION StoreTest()
+      END BUTTON
 
-	END WINDOW
+   END WINDOW
 
-	ACTIVATE WINDOW Win_1
+   ACTIVATE WINDOW Win_1
 
 Return
 
 Procedure EnableF2()
-	ON KEY F2 OF Win_1 ACTION MsgInfo ('F2')
+   ON KEY F2 OF Win_1 ACTION MsgInfo ('F2')
 Return
 
 Procedure DisableF2()
-	RELEASE KEY F2 OF Win_1
+   RELEASE KEY F2 OF Win_1
 Return
 
 Procedure StoreTest()
 Local bBlock
 
-	STORE KEY RETURN OF Win_1 TO bBlock
+   STORE KEY RETURN OF Win_1 TO bBlock
 
-	RELEASE KEY RETURN OF Win_1
+   RELEASE KEY RETURN OF Win_1
 
-	ON KEY RETURN OF Win_1 ACTION Eval ( bBlock )
+   ON KEY RETURN OF Win_1 ACTION Eval ( bBlock )
 
 Return

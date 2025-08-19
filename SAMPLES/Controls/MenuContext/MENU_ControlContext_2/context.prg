@@ -6,8 +6,8 @@
 
 Function Main
 
-	Load Window Context
-	Activate Window Context
+   Load Window Context
+   Activate Window Context
 
 Return
 

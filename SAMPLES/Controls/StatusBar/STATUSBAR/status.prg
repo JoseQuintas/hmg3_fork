@@ -6,8 +6,8 @@
 
 Function Main
 
-	Load Window Status
-	Activate Window Status
+   Load Window Status
+   Activate Window Status
 
 Return
 

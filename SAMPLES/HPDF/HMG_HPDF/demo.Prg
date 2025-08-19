@@ -80,13 +80,13 @@ function pdf_create()
             Print_Content( cContent )
             cSyntax := "SELECT HPDFDOC cPDFFile ;" + ;
                         cLB + ;
-	                    "   [ ORIENTATION nOrientation ] ;"  + ;
+                       "   [ ORIENTATION nOrientation ] ;"  + ;
                         cLB + ;
-	                    "   [ PAPERSIZE nPaperSize ] ;" + ;
+                       "   [ PAPERSIZE nPaperSize ] ;" + ;
                         cLB + ;
-	                    "   [ PAPERLENGTH nPaperLength ] ;" + ;
+                       "   [ PAPERLENGTH nPaperLength ] ;" + ;
                         cLB + ;
-	                    "   [ PAPERWIDTH nPaperWidth ]" 
+                       "   [ PAPERWIDTH nPaperWidth ]" 
             Print_Syntax( cSyntax )
             @ 190,  10 HPDFPRINT "Examples:" SIZE 15
             @ 200,  10 HPDFPRINT 'SELECT HPDFDOC "sample.pdf"'
@@ -433,7 +433,7 @@ function pdf_create()
             Print_Content( cContent )
             cSyntax := '@ Row , Col HPDFPRINT cText ;' + ;
                        cLB + ;
-	                    '   [ FONT cFontName ] ;' + ;
+                       '   [ FONT cFontName ] ;' + ;
                        cLB + ;
                        '   [ SIZE nFontSize ] ;' + ;
                        cLB + ;
@@ -467,7 +467,7 @@ function pdf_create()
                        cLB + ;
                        '   TO ToRow, ToCol ;' + ;
                        cLB + ;
-	                    '   [ FONT cFontName ] ;' + ;
+                       '   [ FONT cFontName ] ;' + ;
                        cLB + ;
                        '   [ SIZE nFontSize ] ;' + ;
                        cLB + ;
@@ -741,7 +741,7 @@ function pdf_create()
                       cLB + ;
                       '   [ SIZE nFontSize ] ;' + ;
                       cLB + ;
-	                   '   [ COLOR aColor ] ;' + ;
+                      '   [ COLOR aColor ] ;' + ;
                       cLB + ;
                       '   [ CENTER|RIGHT ] ;' + ;
                       cLB + ;
@@ -772,16 +772,16 @@ function pdf_create()
                       cLB + ;
                       '   [ SIZE nFontSize ] ;' + ;
                       cLB + ;
-	                   '   [ COLOR aColor ] ;' + ;
+                      '   [ COLOR aColor ] ;' + ;
                       cLB + ;
                       '   [ CENTER|RIGHT ] ;' 
             Print_Syntax( cSyntax )
             @ 190,  10 HPDFPRINT "Examples:" SIZE 15
             @ 200,  10 HPDFPRINT '@ 230,  10 HPDFURLLINK "HMGFORUM" TO "http://www.hmgforum.com" color { 0, 0, 255 }'
             @ 205,  10 HPDFPRINT '@ 235,  10 HPDFURLLINK "Mail me" TO "mailto:srgiri@dataone.in"  color { 0, 0, 255 }'
-			@ 230,  10 HPDFURLLINK "HMGFORUM" TO "http://www.hmgforum.com" color { 0, 0, 255 }
-			@ 235,  10 HPDFURLLINK "Mail me" TO "mailto:srgiri@dataone.in"  color { 0, 0, 255 }
-			
+         @ 230,  10 HPDFURLLINK "HMGFORUM" TO "http://www.hmgforum.com" color { 0, 0, 255 }
+         @ 235,  10 HPDFURLLINK "Mail me" TO "mailto:srgiri@dataone.in"  color { 0, 0, 255 }
+         
          END HPDFPAGE
 
          && // Error Messages

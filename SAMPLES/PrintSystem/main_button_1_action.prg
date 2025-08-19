@@ -4,12 +4,12 @@ declare window Main
 
 Function main_button_1_action
 
-	Use Test
+   Use Test
 
-	LOAD REPORT Test
+   LOAD REPORT Test
 
-	EXECUTE REPORT Test PREVIEW SELECTPRINTER
+   EXECUTE REPORT Test PREVIEW SELECTPRINTER
 
-	Use
+   Use
 
 Return Nil

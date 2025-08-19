@@ -1,322 +1,335 @@
 /*----------------------------------------------------------------------------
- HMG - Harbour Windows GUI library source code
+HMG - Harbour Windows GUI library source code
 
- Copyright 2002-2017 Roberto Lopez <mail.box.hmg@gmail.com>
- http://sites.google.com/site/hmgweb/
+Copyright 2002-2017 Roberto Lopez <mail.box.hmg@gmail.com>
+http://sites.google.com/site/hmgweb/
 
- Head of HMG project:
+Head of HMG project:
 
-      2002-2012 Roberto Lopez <mail.box.hmg@gmail.com>
-      http://sites.google.com/site/hmgweb/
+2002-2012 Roberto Lopez <mail.box.hmg@gmail.com>
+http://sites.google.com/site/hmgweb/
 
-      2012-2017 Dr. Claudio Soto <srvet@adinet.com.uy>
-      http://srvet.blogspot.com
+2012-2017 Dr. Claudio Soto <srvet@adinet.com.uy>
+http://srvet.blogspot.com
 
- This program is free software; you can redistribute it and/or modify it under 
- the terms of the GNU General Public License as published by the Free Software 
- Foundation; either version 2 of the License, or (at your option) any later 
- version. 
+This program is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation; either version 2 of the License, or (at your option) any later
+version.
 
- This program is distributed in the hope that it will be useful, but WITHOUT 
- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS 
- FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
- You should have received a copy of the GNU General Public License along with 
- this software; see the file COPYING. If not, write to the Free Software 
- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA (or 
- visit the web site http://www.gnu.org/).
+You should have received a copy of the GNU General Public License along with
+this software; see the file COPYING. IF not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA (or
+visit the web site http://www.gnu.org/).
 
- As a special exception, you have permission for additional uses of the text 
- contained in this release of HMG.
+As a special exception, you have permission for additional uses of the text
+contained in this release of HMG.
 
- The exception is that, if you link the HMG library with other 
- files to produce an executable, this does not by itself cause the resulting 
- executable to be covered by the GNU General Public License.
- Your use of that executable is in no way restricted on account of linking the 
- HMG library code into it.
+The exception is that, IF you link the HMG library with other
+files to produce an executable, this does not by itself cause the resulting
+executable to be covered by the GNU General Public License.
+Your use of that executable is in no way restricted on account of linking the
+HMG library code into it.
 
- Parts of this project are based upon:
+Parts of this project are based upon:
 
-	"Harbour GUI framework for Win32"
- 	Copyright 2001 Alexander S.Kresin <alex@belacy.belgorod.su>
- 	Copyright 2001 Antonio Linares <alinares@fivetech.com>
-	www - http://www.harbour-project.org
+"Harbour GUI framework for Win32"
+Copyright 2001 Alexander S.Kresin <alex@belacy.belgorod.su>
+Copyright 2001 Antonio Linares <alinares@fivetech.com>
+www - http://www.harbour-project.org
 
-	"Harbour Project"
-	Copyright 1999-2008, http://www.harbour-project.org/
+"Harbour Project"
+Copyright 1999-2008, http://www.harbour-project.org/
 
-	"WHAT32"
-	Copyright 2002 AJ Wos <andrwos@aust1.net> 
+"WHAT32"
+Copyright 2002 AJ Wos <andrwos@aust1.net>
 
-	"HWGUI"
-  	Copyright 2001-2008 Alexander S.Kresin <alex@belacy.belgorod.su>
+"HWGUI"
+Copyright 2001-2008 Alexander S.Kresin <alex@belacy.belgorod.su>
 
 ---------------------------------------------------------------------------*/
-MEMVAR _HMG_SYSDATA
+
 #include "common.ch"
 #include "hmg.ch"
 
 *------------------------------------------------------------------------------*
-Function _StartStatusBar	(			;
-					cParent		, ;
-					cFontName	, ;
-					nFontSize	, ;
-					lBold		, ;
-					lItalic		, ;
-					lUnderline	, ;
-					lStrikeout	, ;
-					lTop		;
-				)
 
-   _HMG_SYSDATA [ 212 ]		:= cParent
-   _HMG_SYSDATA [ 213 ]		:= cFontname
-   _HMG_SYSDATA [ 165 ]		:= nFontSize
-   _HMG_SYSDATA [ 272 ]		:= lBold
-   _HMG_SYSDATA [ 273 ]		:= lItalic
-   _HMG_SYSDATA [ 274 ]		:= lUnderline
-   _HMG_SYSDATA [ 275 ]		:= lStrikeout
-   _HMG_SYSDATA [ 276 ]		:= lTop
-   _HMG_SYSDATA [ 143 ]		:= {}
-   _HMG_SYSDATA [ 144 ]		:= {}
-   _HMG_SYSDATA [ 145 ]		:= {}
-   _HMG_SYSDATA [ 146 ]		:= {}
-   _HMG_SYSDATA [ 147 ]		:= {} 
-   _HMG_SYSDATA [ 148 ]		:= {}
+FUNCTION _StartStatusBar   (         ;
+      cParent      , ;
+      cFontName   , ;
+      nFontSize   , ;
+      lBold      , ;
+      lItalic      , ;
+      lUnderline   , ;
+      lStrikeout   , ;
+      lTop      ;
+      )
 
-Return Nil
+   oHmgApp():APP212      := cParent
+   oHmgApp():APP213      := cFontname
+   oHmgApp():CurrentStatusbarFontSize      := nFontSize
+   oHmgApp():APP272      := lBold
+   oHmgApp():APP273      := lItalic
+   oHmgApp():APP274      := lUnderline
+   oHmgApp():APP275      := lStrikeout
+   oHmgApp():APP276      := lTop
+   oHmgApp():APP143      := {}
+   oHmgApp():APP144      := {}
+   oHmgApp():APP145      := {}
+   oHmgApp():APP146      := {}
+   oHmgApp():APP147      := {}
+   oHmgApp():APP148      := {}
 
-*------------------------------------------------------------------------------*
-Function _DefineStatusBarItem	(		;
-				cCaption	, ;
-				nWidth		, ;
-				cImage		, ;
-				cStyle		, ;
-				cTooltip	, ;
-				uAction		;
-				)
+   RETURN Nil
 
-   Default cStyle To ""
+   *------------------------------------------------------------------------------*
 
-   aadd ( _HMG_SYSDATA [ 143 ]	, cCaption	)
-   aadd ( _HMG_SYSDATA [ 144 ]	, nWidth	) 
-   aadd ( _HMG_SYSDATA [ 145 ]	, cImage	) 
-   aadd ( _HMG_SYSDATA [ 146 ]	,  if ( HMG_UPPER(cStyle) == 'FLAT', 1 , if(HMG_UPPER(cStyle) == 'RAISED', 2 , 0 ) ) ) 
-   aadd ( _HMG_SYSDATA [ 147 ]	, cTooltip	) 
-   aadd ( _HMG_SYSDATA [ 148 ]	, uAction	) 
+FUNCTION _DefineStatusBarItem   (      ;
+      cCaption   , ;
+      nWidth      , ;
+      cImage      , ;
+      cStyle      , ;
+      cTooltip   , ;
+      uAction      ;
+      )
 
-Return HMG_LEN(_HMG_SYSDATA [ 143 ])
+   DEFAULT cStyle To ""
 
-*-----------------------------------------------------------------------------*
-Function _EndStatusBar (	cParentForm	, ;
-				acCaptions	, ;
-				anWidths	, ;
-				acImages	, ;
-				abActions	, ;
-				acToolTips	, ;
-				anStyles	, ;
-				cFontName	, ;
-				nFontSize	, ;
-				lFontBold	, ;
-				lFontItalic	, ;
-				lFontUnderLine	, ;
-				lFontStrikeOut	, ;
-				lTop		;
-				)
+   aadd ( oHmgApp():APP143   , cCaption   )
+   aadd ( oHmgApp():APP144   , nWidth   )
+   aadd ( oHmgApp():APP145   , cImage   )
+   aadd ( oHmgApp():APP146   ,  IF ( HMG_UPPER(cStyle) == 'FLAT', 1 , if(HMG_UPPER(cStyle) == 'RAISED', 2 , 0 ) ) )
+   aadd ( oHmgApp():APP147   , cTooltip   )
+   aadd ( oHmgApp():APP148   , uAction   )
 
-Local nParentHandle
-Local nId
-Local i
-Local nTotWidth
-Local nControlHandle
-Local nFontHandle
-Local k
-Local mVar
+   RETURN HMG_LEN(oHmgApp():APP143)
 
-	If _HMG_SYSDATA [ 264 ] == TRUE
-		cParentForm := _HMG_SYSDATA [ 223 ]
-	Endif
+   *-----------------------------------------------------------------------------*
 
-	nParentHandle := GetFormHandle ( cParentForm )
+FUNCTION _EndStatusBar (   cParentForm   , ;
+      acCaptions   , ;
+      anWidths   , ;
+      acImages   , ;
+      abActions   , ;
+      acToolTips   , ;
+      anStyles   , ;
+      cFontName   , ;
+      nFontSize   , ;
+      lFontBold   , ;
+      lFontItalic   , ;
+      lFontUnderLine   , ;
+      lFontStrikeOut   , ;
+      lTop      ;
+      )
 
-	nId := _GetId()
+   LOCAL nParentHandle, oControl
+   LOCAL nId
+   LOCAL i
+   LOCAL nTotWidth
+   LOCAL nControlHandle
+   LOCAL nFontHandle
+   LOCAL k
+   LOCAL mVar
 
-	nTotWidth := 0
+   IF oHmgApp():APP264 == TRUE
+      cParentForm := oHmgApp():ActiveFormName
+   ENDIF
 
-	For i := 2 To HMG_LEN (anWidths)
-		If ValType ( anWidths [i] ) <> 'N'
-			anWidths [i] := 120
-		EndIf
-		nTotWidth := nTotWidth + anWidths [i]
-	Next i
+   nParentHandle := GetFormHandle ( cParentForm )
 
-	anWidths [1] := GetWIndowWidth ( nParentHandle ) - nTotWidth
+   nId := _GetId()
 
-	nControlhandle := InitStatusBar (	nParentHandle	, ;
-						nId		, ;
-						acCaptions	, ;
-						anWidths	, ;
-						acImages	, ;
-						acToolTips	, ;
-						anStyles	, ;
-						lTop		;
-					)
+   nTotWidth := 0
 
-	If ValType(cFontName) != "U" .and. ValType(nFontSize) != "U"
-		nFontHandle := _SetFont (nControlHandle,cFontName,nFontSize,lFontBold,lFontItalic,lFontUnderline,lFontStrikeout)
-	Else
-		nFontHandle := _SetFont (nControlHandle,_HMG_SYSDATA [ 342 ],_HMG_SYSDATA [ 343 ],lFontBold,lFontItalic,lFontUnderline,lFontStrikeout)
-	Endif
+   FOR i := 2 To HMG_LEN (anWidths)
+      IF ValType ( anWidths [i] ) <> 'N'
+         anWidths [i] := 120
+      ENDIF
+      nTotWidth := nTotWidth + anWidths [i]
+   NEXT i
 
-	k := _GetControlFree()
+   anWidths [1] := GetWIndowWidth ( nParentHandle ) - nTotWidth
 
-	mVar := '_' + cParentForm + '_' + "StatusBar"
+   nControlhandle := InitStatusBar (   nParentHandle   , ;
+      nId      , ;
+      acCaptions   , ;
+      anWidths   , ;
+      acImages   , ;
+      acToolTips   , ;
+      anStyles   , ;
+      lTop      ;
+      )
 
-	Public &mVar. := k
+   IF ValType(cFontName) != "U" .AND. ValType(nFontSize) != "U"
+      nFontHandle := _SetFont (nControlHandle,cFontName,nFontSize,lFontBold,lFontItalic,lFontUnderline,lFontStrikeout)
+   ELSE
+      nFontHandle := _SetFont (nControlHandle,oHmgApp():APP342,oHmgApp():APP343,lFontBold,lFontItalic,lFontUnderline,lFontStrikeout)
+   ENDIF
 
-	_HMG_SYSDATA [1]		[k]	:= "STATUSBAR" 
-	_HMG_SYSDATA [2]		[k]	:= "StatusBar"
-	_HMG_SYSDATA [3]		[k]	:= nControlhandle 
-	_HMG_SYSDATA [4]		[k]	:= nParentHandle 
-	_HMG_SYSDATA [  5 ]		[k]	:= nId
-	_HMG_SYSDATA [  6 ]		[k]	:= abActions 
-	_HMG_SYSDATA [  7 ]		[k]	:= Nil 
-	_HMG_SYSDATA [  8 ]		[k]	:= Nil 
-	_HMG_SYSDATA [  9 ]		[k]	:= Nil 
-	_HMG_SYSDATA [ 10 ]		[k]	:= Nil 
-	_HMG_SYSDATA [ 11 ]		[k]	:= Nil 
-	_HMG_SYSDATA [ 12 ]		[k]	:= Nil 
-	_HMG_SYSDATA [ 13 ]		[k]	:= .F. 
-	_HMG_SYSDATA [ 14 ]		[k]	:= Nil 
-	_HMG_SYSDATA [ 15 ]		[k]	:= Nil 
-	_HMG_SYSDATA [ 16 ]		[k]	:= Nil
-	_HMG_SYSDATA [ 17 ]		[k]	:= Nil 
-	_HMG_SYSDATA [ 18 ]		[k]	:= Nil 
-	_HMG_SYSDATA [ 19 ]		[k]	:= Nil
-	_HMG_SYSDATA [ 20 ]		[k]	:= anWidths
-	_HMG_SYSDATA [ 21 ]		[k]	:= Nil
-	_HMG_SYSDATA [ 22 ]		[k]	:= Nil
-	_HMG_SYSDATA [ 23 ]		[k]	:= -1 
-	_HMG_SYSDATA [ 24 ]		[k]	:= -1 
-	_HMG_SYSDATA [ 25 ]		[k]	:= Nil
-	_HMG_SYSDATA [ 26 ]		[k]	:= 0 
-	_HMG_SYSDATA [ 27 ]		[k]	:= cFontName
-	_HMG_SYSDATA [ 28 ]		[k]	:= nFontSize
-	_HMG_SYSDATA [ 29 ]		[k]	:= { lFontBold , lFontItalic , lFontUnderLine , lFontStrikeOut } 
-	_HMG_SYSDATA [ 30 ]		[k]	:= acToolTips
-	_HMG_SYSDATA [ 31 ]		[k]	:= 0  
-	_HMG_SYSDATA [ 32 ]		[k]	:= 0  
-	_HMG_SYSDATA [ 33 ]		[k]	:= acCaptions
-	_HMG_SYSDATA [ 34 ]		[k]	:= .T. 
-	_HMG_SYSDATA [ 35 ]		[k]	:= 0
-	_HMG_SYSDATA [ 36 ]		[k]	:= nFontHandle
-	_HMG_SYSDATA [ 37 ]		[k]	:= 0 
-	_HMG_SYSDATA [ 38 ]		[k]	:= .T. 
-	_HMG_SYSDATA [ 39 ]		[k]	:= 0
-	_HMG_SYSDATA [ 40 ] [k] := { NIL , NIL , NIL , NIL , NIL , NIL , NIL , NIL }
+   k := _GetControlFree()
 
-Return nControlhandle
-*------------------------------------------------------------------------------*
-Procedure SetStatusBarSize ( nParentHandle , nStatusHandle , anWidths )
-*------------------------------------------------------------------------------*
-Local i
-Local nTotWidth := 0
+   mVar := '_' + cParentForm + '_' + "StatusBar"
 
-	For i := 2 To HMG_LEN (anWidths)
-		nTotWidth := nTotWidth + anWidths [i]
-	Next i
+   PUBLIC &mVar. := k
 
-	anWidths [1] := GetWindowWidth ( nParentHandle ) - nTotWidth
+   oControl := ControlByIndex( k )
 
-	InitStatusBarSize ( nStatusHandle , anWidths )
+   WITH OBJECT oControl
+      :Type   := "STATUSBAR"
+      :Name   := "StatusBar"
+      :Handle   := nControlhandle
+      :ParentFormHandle   := nParentHandle
+      :CTRL005 := nId
+      :CTRL006 := abActions
+      :CTRL007 := Nil
+      :CTRL008 := Nil
+      :CTRL009 := Nil
+      :CTRL010 := Nil
+      :CTRL011 := Nil
+      :CTRL012 := Nil
+      :IsDeleted := .F.
+      :CTRL014 := Nil
+      :CTRL015 := Nil
+      :CTRL016 := Nil
+      :CTRL017 := Nil
+      :CTRL018 := Nil
+      :CTRL019 := Nil
+      :CTRL020 := anWidths
+      :CTRL021 := Nil
+      :CTRL022 := Nil
+      :CTRL023 := -1
+      :CTRL024 := -1
+      :CTRL025 := Nil
+      :CTRL026 := 0
+      :CTRL027 := cFontName
+      :CTRL028 := nFontSize
+      :CTRL029 := { lFontBold , lFontItalic , lFontUnderLine , lFontStrikeOut }
+      :CTRL030 := acToolTips
+      :CTRL031 := 0
+      :CTRL032 := 0
+      :CTRL033 := acCaptions
+      :CTRL034 := .T.
+      :CTRL035 := 0
+      :CTRL036 := nFontHandle
+      :CTRL037 := 0
+      :CTRL038 := .T.
+      :CTRL039 := 0
+      :CTRL040 := { NIL , NIL , NIL , NIL , NIL , NIL , NIL , NIL }
+   ENDWITH
 
-Return
-*---------------------------------------------------------------------------------*
-Function _SetStatusClock ( FormName , Width , ToolTip , action , nIntervalUpdate )
-*---------------------------------------------------------------------------------*
-local nrItem 
+   RETURN nControlhandle
+   *------------------------------------------------------------------------------*
 
-	if Empty (FormName)
-		FormName := _HMG_SYSDATA [ 212 ]
-	endif
+PROCEDURE SetStatusBarSize ( nParentHandle , nStatusHandle , anWidths )
 
-	If ValType (Width) == 'U'
-		Width := 70
-	EndIf
-	If ValType (ToolTip) == 'U'
-		ToolTip := 'Clock'
-	EndIf
-	If ValType (Action) == 'U'
-		Action := ''
-	EndIf
-	If ValType (nIntervalUpdate) == 'U'
-		nIntervalUpdate := 1000
-	EndIf
+   *------------------------------------------------------------------------------*
+   LOCAL i
+   LOCAL nTotWidth := 0
 
-        nrItem  := _DefineStatusBarItem	(		;
-				Time()	, ;
-				Width		, ;
-						, ;
-						, ;
-				ToolTip	, ;
-				action	;
-				)
+   FOR i := 2 To HMG_LEN (anWidths)
+      nTotWidth := nTotWidth + anWidths [i]
+   NEXT i
 
-	_DefineTimer ( 'StatusTimer' , FormName , nIntervalUpdate, {|| _SetItem ( 'StatusBar' , FormName , nrItem  , Time() ) } )
+   anWidths [1] := GetWindowWidth ( nParentHandle ) - nTotWidth
 
-Return Nil
-*---------------------------------------------------------------------------------*
-Function _SetStatusKeybrd ( FormName ,Width , ToolTip , action , nIntervalUpdate )
-*---------------------------------------------------------------------------------*
-local nrItem1 , nrItem2 , nrItem3
+   InitStatusBarSize ( nStatusHandle , anWidths )
 
-	if Empty (FormName)
-		FormName := _HMG_SYSDATA [ 212 ]
-	endif
+   RETURN
+   *---------------------------------------------------------------------------------*
 
-	If ValType (Width) == 'U'
-		Width := 75
-	EndIf
-	If ValType (ToolTip) == 'U'
-		ToolTip := ''
-	EndIf
-	If ValType (Action) == 'U'
-		Action := ''
-	EndIf
-	If ValType (nIntervalUpdate) == 'U'
-		nIntervalUpdate := 200
-	EndIf
+FUNCTION _SetStatusClock ( FormName , Width , ToolTip , action , nIntervalUpdate )
 
-        nrItem1 := _DefineStatusBarItem	(		;
-				"NumLock"	, ;
-				Width + 20	, ;
-				if ( IsNumLockActive() , "zzz_led_on" , "zzz_led_off" )	, ;
-						, ;
-				ToolTip	, ;
-				Action	;
-				)
+   *---------------------------------------------------------------------------------*
+   LOCAL nrItem
 
-        nrItem2 := _DefineStatusBarItem	(		;
-				"CapsLock"	, ;
-				Width + 20	, ;
-				if ( IsCapsLockActive() , "zzz_led_on" , "zzz_led_off" )	, ;
-						, ;
-				ToolTip	, ;
-				Action	;
-				)
+   IF Empty (FormName)
+      FormName := oHmgApp():APP212
+   ENDIF
 
-        nrItem3 := _DefineStatusBarItem	(		;
-				"Insert"	, ;
-				Width + 20	, ;
-				if ( IsInsertActive() , "zzz_led_on" , "zzz_led_off" )	, ;
-						, ;
-				ToolTip	, ;
-				Action	;
-				)
+   IF ValType (Width) == 'U'
+      WIDTH := 70
+   ENDIF
+   IF ValType (ToolTip) == 'U'
+      TOOLTIP := 'Clock'
+   ENDIF
+   IF ValType (Action) == 'U'
+      ACTION := ''
+   ENDIF
+   IF ValType (nIntervalUpdate) == 'U'
+      nIntervalUpdate := 1000
+   ENDIF
 
-	_DefineTimer ( 'StatusKeyBrd' , FormName , nIntervalUpdate , ;
-		{|| _SetStatusIcon ( 'StatusBar' , FormName , nrItem1 , if ( IsNumLockActive(),  "zzz_led_on" , "zzz_led_off" ) ), ;
-		    _SetStatusIcon ( 'StatusBar' , FormName , nrItem2 , if ( IsCapsLockActive(), "zzz_led_on" , "zzz_led_off" ) ), ;
-		    _SetStatusIcon ( 'StatusBar' , FormName , nrItem3 , if ( IsInsertActive(),   "zzz_led_on" , "zzz_led_off" ) ) ;
-      } )
+   nrItem  := _DefineStatusBarItem   (      ;
+      Time()   , ;
+      WIDTH      , ;
+      , ;
+      , ;
+      TOOLTIP   , ;
+      ACTION   ;
+      )
 
-Return Nil
+   _DefineTimer ( 'StatusTimer' , FormName , nIntervalUpdate, {|| _SetItem ( 'StatusBar' , FormName , nrItem  , Time() ) } )
+
+   RETURN Nil
+   *---------------------------------------------------------------------------------*
+
+FUNCTION _SetStatusKeybrd ( FormName ,Width , ToolTip , action , nIntervalUpdate )
+
+   *---------------------------------------------------------------------------------*
+   LOCAL nrItem1 , nrItem2 , nrItem3
+
+   IF Empty (FormName)
+      FormName := oHmgApp():APP212
+   ENDIF
+
+   IF ValType (Width) == 'U'
+      WIDTH := 75
+   ENDIF
+   IF ValType (ToolTip) == 'U'
+      TOOLTIP := ''
+   ENDIF
+   IF ValType (Action) == 'U'
+      ACTION := ''
+   ENDIF
+   IF ValType (nIntervalUpdate) == 'U'
+      nIntervalUpdate := 200
+   ENDIF
+
+   nrItem1 := _DefineStatusBarItem   (      ;
+      "NumLock"   , ;
+      WIDTH + 20   , ;
+      IF ( IsNumLockActive() , "zzz_led_on" , "zzz_led_off" )   , ;
+         , ;
+         TOOLTIP   , ;
+         ACTION   ;
+         )
+
+      nrItem2 := _DefineStatusBarItem   (      ;
+         "CapsLock"   , ;
+         WIDTH + 20   , ;
+         IF ( IsCapsLockActive() , "zzz_led_on" , "zzz_led_off" )   , ;
+            , ;
+            TOOLTIP   , ;
+            ACTION   ;
+            )
+
+         nrItem3 := _DefineStatusBarItem   (      ;
+            "Insert"   , ;
+            WIDTH + 20   , ;
+            IF ( IsInsertActive() , "zzz_led_on" , "zzz_led_off" )   , ;
+               , ;
+               TOOLTIP   , ;
+               ACTION   ;
+               )
+
+            _DefineTimer ( 'StatusKeyBrd' , FormName , nIntervalUpdate , ;
+               {|| _SetStatusIcon ( 'StatusBar' , FormName , nrItem1 , IF ( IsNumLockActive(),  "zzz_led_on" , "zzz_led_off" ) ), ;
+               _SetStatusIcon ( 'StatusBar' , FormName , nrItem2 , IF ( IsCapsLockActive(), "zzz_led_on" , "zzz_led_off" ) ), ;
+               _SetStatusIcon ( 'StatusBar' , FormName , nrItem3 , IF ( IsInsertActive(),   "zzz_led_on" , "zzz_led_off" ) ) ;
+               } )
+
+            RETURN Nil

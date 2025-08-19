@@ -21,32 +21,32 @@ PROC main()
    DBGOTOP()
 
 
-	DEFINE WINDOW Win_1 ;
-		ROW 0 ;
-		COL 0 ;
-		WIDTH 500 ;
-		HEIGHT 400 ;
-		TITLE 'RDD SQL' ;
-		WINDOWTYPE MAIN  
+   DEFINE WINDOW Win_1 ;
+      ROW 0 ;
+      COL 0 ;
+      WIDTH 500 ;
+      HEIGHT 400 ;
+      TITLE 'RDD SQL' ;
+      WINDOWTYPE MAIN  
 
-		DEFINE GRID grid1
-			ROW 		10
-			COL 		10
-			WIDTH		470			
-			HEIGHT		330
-			HEADERS 	{'Name','Family Name','Birth'}
-			WIDTHS		{135,135,135}
-			ROWSOURCE	"Persons"
-			COLUMNFIELDS	{'Name','FamilyName','Birth'}
-		END GRID
-		                           	
-	END WINDOW
+      DEFINE GRID grid1
+         ROW       10
+         COL       10
+         WIDTH      470         
+         HEIGHT      330
+         HEADERS    {'Name','Family Name','Birth'}
+         WIDTHS      {135,135,135}
+         ROWSOURCE   "Persons"
+         COLUMNFIELDS   {'Name','FamilyName','Birth'}
+      END GRID
+                                    
+   END WINDOW
 
-	Win_1.Grid1.Value := { 1 , 1 }
+   Win_1.Grid1.Value := { 1 , 1 }
 
-	Win_1.Center
+   Win_1.Center
 
-	Win_1.Activate
+   Win_1.Activate
 
 RETURN
 

@@ -131,7 +131,7 @@ FUNCTION MAIN
       Aadd( AARP , { 'AHORA'          ,'C',008,000 } )
       Aadd( AARP , { 'AATRIB'         ,'C',006,003 } )
       Aadd( AARP , { 'ACHARGED'       ,'N',001,000 } )
-      DBCreate( "RECENTS" , AARP  )	     
+      DBCreate( "RECENTS" , AARP  )        
    ENDIF   
 
    IF file("MNPSETUP.MEM")
@@ -177,103 +177,103 @@ FUNCTION MAIN
 
  
       DEFINE IMAGE RIBBON_1
-         ROW	0
-         COL	0
-         WIDTH	800
+         ROW   0
+         COL   0
+         WIDTH   800
          HEIGHT 136
-         PICTURE	'TAB1'
-         STRETCH	.T.
+         PICTURE   'TAB1'
+         STRETCH   .T.
       END IMAGE     
 
        DEFINE IMAGE MINITAB_0
-         ROW	41
-         COL	52
-         WIDTH	44
+         ROW   41
+         COL   52
+         WIDTH   44
          HEIGHT 22
-         PICTURE	'START_ON'
-         STRETCH	.T.
+         PICTURE   'START_ON'
+         STRETCH   .T.
       END IMAGE     
 
       DEFINE IMAGE MINITAB_1
-         ROW	41
-         COL	107
-         WIDTH	81
+         ROW   41
+         COL   107
+         WIDTH   81
          HEIGHT 22
-         PICTURE	'AUX1_OFF'
-         STRETCH	.T.
+         PICTURE   'AUX1_OFF'
+         STRETCH   .T.
       END IMAGE     
 
       DEFINE IMAGE MINITAB_2
-         ROW	41
-         COL	199
-         WIDTH	81
+         ROW   41
+         COL   199
+         WIDTH   81
          HEIGHT 22
-         PICTURE	'AUX2_OFF'
-         STRETCH	.T.
+         PICTURE   'AUX2_OFF'
+         STRETCH   .T.
       END IMAGE     
 
       DEFINE IMAGE MINITAB_3
-         ROW	41
-         COL	291
-         WIDTH	81
+         ROW   41
+         COL   291
+         WIDTH   81
          HEIGHT 22
-         PICTURE	'AUX3_OFF'
-         STRETCH	.T.
+         PICTURE   'AUX3_OFF'
+         STRETCH   .T.
       END IMAGE     
 
       DEFINE IMAGE MINITAB_4
-         ROW	41
-         COL	390
-         WIDTH	81
+         ROW   41
+         COL   390
+         WIDTH   81
          HEIGHT 22
-         PICTURE	'AUX4_OFF'
-         STRETCH	.T.
+         PICTURE   'AUX4_OFF'
+         STRETCH   .T.
       END IMAGE     
 
       DEFINE IMAGE MINITAB_5
-         ROW	41
-         COL	482
-         WIDTH	81
+         ROW   41
+         COL   482
+         WIDTH   81
          HEIGHT 22
-         PICTURE	'AUX5_OFF'
-         STRETCH	.T.
+         PICTURE   'AUX5_OFF'
+         STRETCH   .T.
       END IMAGE     
 
       DEFINE IMAGE MINITAB_6
-         ROW	41
-         COL	585
-         WIDTH	156
+         ROW   41
+         COL   585
+         WIDTH   156
          HEIGHT 22
-         PICTURE	'AUX_CLOSE_OFF'
-         STRETCH	.T.
+         PICTURE   'AUX_CLOSE_OFF'
+         STRETCH   .T.
       END IMAGE     
       
       
        DEFINE IMAGE MARCO_IZ
-         ROW	136
-         COL	0
-         WIDTH	3
+         ROW   136
+         COL   0
+         WIDTH   3
          HEIGHT 462
-         PICTURE	'MARCO_LAT'
-         STRETCH	.T.
+         PICTURE   'MARCO_LAT'
+         STRETCH   .T.
       END IMAGE     
 
        DEFINE IMAGE MARCO_DE
-         ROW	136
-         COL	797
-         WIDTH	3
+         ROW   136
+         COL   797
+         WIDTH   3
          HEIGHT 462
-         PICTURE	'MARCO_LAT'
-         STRETCH	.T.
+         PICTURE   'MARCO_LAT'
+         STRETCH   .T.
       END IMAGE     
 
        DEFINE IMAGE MARCO_INF
-         ROW	597
-         COL	0
-         WIDTH	800
+         ROW   597
+         COL   0
+         WIDTH   800
          HEIGHT 3
-         PICTURE	'MARCO_INF'
-         STRETCH	.T.
+         PICTURE   'MARCO_INF'
+         STRETCH   .T.
       END IMAGE     
 
       @ 150,10 RICHEDITBOX miniwrite_1 ;
@@ -369,172 +369,172 @@ FUNCTION MAIN
          Define_Control_Context_Menu ("Auxiliary_5")
  
        DEFINE IMAGE BOT_SHUT
-         ROW	4
-         COL	768
-         WIDTH	28
+         ROW   4
+         COL   768
+         WIDTH   28
          HEIGHT 28
-         PICTURE	'apagaon'
-         STRETCH	.T.
+         PICTURE   'apagaon'
+         STRETCH   .T.
       END IMAGE     
 
       DEFINE IMAGE BOT_BOLD
-         ROW	92
-         COL	123
-         WIDTH	23
+         ROW   92
+         COL   123
+         WIDTH   23
          HEIGHT 23
-         PICTURE	'bold_off'
-         STRETCH	.T.
+         PICTURE   'bold_off'
+         STRETCH   .T.
       END IMAGE     
 
       DEFINE IMAGE BOT_ITAL
-         ROW	92
-         COL	148
-         WIDTH	23
+         ROW   92
+         COL   148
+         WIDTH   23
          HEIGHT 23
-         PICTURE	'ital_off'
-         STRETCH	.T.
+         PICTURE   'ital_off'
+         STRETCH   .T.
       END IMAGE     
           
       DEFINE IMAGE BOT_SUBRA
-         ROW	92
-         COL	173
-         WIDTH	23
+         ROW   92
+         COL   173
+         WIDTH   23
          HEIGHT 23
-         PICTURE	'subra_off'
-         STRETCH	.T.
+         PICTURE   'subra_off'
+         STRETCH   .T.
       END IMAGE     
           
       DEFINE IMAGE BOT_TACHA
-         ROW	92
-         COL	198
-         WIDTH	23
+         ROW   92
+         COL   198
+         WIDTH   23
          HEIGHT 23
-         PICTURE	'tach_off'
-         STRETCH	.T.
+         PICTURE   'tach_off'
+         STRETCH   .T.
       END IMAGE     
           
       DEFINE IMAGE BOT_SUB
-         ROW	92
-         COL	229
-         WIDTH	23
+         ROW   92
+         COL   229
+         WIDTH   23
          HEIGHT 23
-         PICTURE	'sub_off'
-         STRETCH	.T.
+         PICTURE   'sub_off'
+         STRETCH   .T.
       END IMAGE     
 
       DEFINE IMAGE BOT_SUP
-         ROW	92
-         COL	254
-         WIDTH	23
+         ROW   92
+         COL   254
+         WIDTH   23
          HEIGHT 23
-         PICTURE	'sup_off'
-         STRETCH	.T.
+         PICTURE   'sup_off'
+         STRETCH   .T.
       END IMAGE     
 
       DEFINE IMAGE BOT_BULL
-         ROW	67
-         COL	289
-         WIDTH	36
+         ROW   67
+         COL   289
+         WIDTH   36
          HEIGHT 23
-         PICTURE	'bull_off'
-         STRETCH	.T.
+         PICTURE   'bull_off'
+         STRETCH   .T.
       END IMAGE     
       
       DEFINE IMAGE BOT_INDENTMEN
-         ROW	67
-         COL	327
-         WIDTH	67
+         ROW   67
+         COL   327
+         WIDTH   67
          HEIGHT 23
-         PICTURE	'sangrias_off'
-         STRETCH	.T.
+         PICTURE   'sangrias_off'
+         STRETCH   .T.
       END IMAGE     
 
       DEFINE IMAGE BOT_INTERLIN
-         ROW	67
-         COL	396
-         WIDTH	36
+         ROW   67
+         COL   396
+         WIDTH   36
          HEIGHT 23
-         PICTURE	'interl_off'
-         STRETCH	.T.
+         PICTURE   'interl_off'
+         STRETCH   .T.
       END IMAGE     
       
       DEFINE IMAGE BOT_ALIZQ
-         ROW	92
-         COL	289
-         WIDTH	26
+         ROW   92
+         COL   289
+         WIDTH   26
          HEIGHT 23
-         PICTURE	'alin_izq_off'
-         STRETCH	.T.
+         PICTURE   'alin_izq_off'
+         STRETCH   .T.
       END IMAGE     
 
       DEFINE IMAGE BOT_ALCENT
-         ROW	92
-         COL	318
-         WIDTH	26
+         ROW   92
+         COL   318
+         WIDTH   26
          HEIGHT 23
-         PICTURE	'alin_cent_off'
-         STRETCH	.T.
+         PICTURE   'alin_cent_off'
+         STRETCH   .T.
       END IMAGE     
       
       DEFINE IMAGE BOT_ALDER
-         ROW	92
-         COL	347
-         WIDTH	27
+         ROW   92
+         COL   347
+         WIDTH   27
          HEIGHT 23
-         PICTURE	'alin_dere_off'
-         STRETCH	.T.
+         PICTURE   'alin_dere_off'
+         STRETCH   .T.
       END IMAGE     
 
       DEFINE IMAGE BOT_JUSTI
-         ROW	92
-         COL	377
-         WIDTH	26
+         ROW   92
+         COL   377
+         WIDTH   26
          HEIGHT 23
-         PICTURE	'alin_justi_off'
-         STRETCH	.T.
+         PICTURE   'alin_justi_off'
+         STRETCH   .T.
       END IMAGE     
 
       DEFINE IMAGE BOT_FRENCH
-         ROW	92
-         COL	406
-         WIDTH	26
+         ROW   92
+         COL   406
+         WIDTH   26
          HEIGHT 23
-         PICTURE	'alin_french_off'
-         STRETCH	.T.
+         PICTURE   'alin_french_off'
+         STRETCH   .T.
       END IMAGE  
       
       DEFINE IMAGE BOT_CAPS
-         ROW	67
-         COL	714
-         WIDTH	76
+         ROW   67
+         COL   714
+         WIDTH   76
          HEIGHT 15
-         PICTURE	'caps_off'
-         STRETCH	.T.
+         PICTURE   'caps_off'
+         STRETCH   .T.
       END IMAGE     
 
       DEFINE IMAGE BOT_NUM
-         ROW	83
-         COL	714
-         WIDTH	76
+         ROW   83
+         COL   714
+         WIDTH   76
          HEIGHT 15
-         PICTURE	'num_off'
-         STRETCH	.T.
+         PICTURE   'num_off'
+         STRETCH   .T.
       END IMAGE     
 
       DEFINE IMAGE BOT_INS
-         ROW	99
-         COL	714
-         WIDTH	76
+         ROW   99
+         COL   714
+         WIDTH   76
          HEIGHT 15
-         PICTURE	'ins_off'
-         STRETCH	.T.
+         PICTURE   'ins_off'
+         STRETCH   .T.
       END IMAGE     
 
       
-	@ 93 , 565 COMBOBOX Combo_3 ;
+   @ 93 , 565 COMBOBOX Combo_3 ;
             ITEMS {'500%','300%','200%','150%','100%','75%','50%','25%'} ;
             VALUE 5 ;
-			   WIDTH 52 ;
+            WIDTH 52 ;
             HEIGHT 200 ;
             FONT "Calibri" SIZE 9 ;
             BOLD ;
@@ -720,7 +720,7 @@ FUNCTION MAIN
           ACTION MULTICUT() ;
           TOOLTIP 'Cut' ;
           TRANSPARENT 
-		  
+        
        @ 69,88 LABEL BOT_RIBC3 ;
           WIDTH 20 HEIGHT 19 ;
           VALUE '' ;
@@ -748,7 +748,7 @@ FUNCTION MAIN
           ACTION ( cheka_bold() ) ;
           TOOLTIP 'Bold' ;
           TRANSPARENT 
-		  
+        
        @ 94,150 LABEL BOT_RIBF2 ;
           WIDTH 19 HEIGHT 19 ;
           VALUE '' ;
@@ -762,7 +762,7 @@ FUNCTION MAIN
           ACTION ( cheka_subra() ) ;
           TOOLTIP 'Underline' ;
           TRANSPARENT 
-		  
+        
        @ 94,200 LABEL BOT_RIBF4 ;
           WIDTH 19 HEIGHT 19 ;
           VALUE '' ;
@@ -776,7 +776,7 @@ FUNCTION MAIN
           ACTION ( cheka_sub() );  
           TOOLTIP 'SubScript' ;
           TRANSPARENT 
-		  
+        
        @ 94,256 LABEL BOT_RIBF6 ;
           WIDTH 19 HEIGHT 19 ;
           VALUE '' ;
@@ -924,7 +924,7 @@ FUNCTION MAIN
           WIDTH 9 HEIGHT 19 ;
           VALUE '' ;
           ACTION ( aFontBackColor := GetColor ( Form_1.miniwrite_1.FontBackColor, NIL, .T.), IF (ValType (aFontBackColor [1]) == "N",( Form_1.miniwrite_1.FontBackColor := aFontBackColor  ) , NIL) ); 
-          TOOLTIP 'Select and apply new Font Background Color' ;		  
+          TOOLTIP 'Select and apply new Font Background Color' ;        
           TRANSPARENT 
          
        @ 94,485 LABEL BOT_RIBE7 ;
@@ -1007,10 +1007,10 @@ RETURN
 
 PROCEDURE QUICK_MENU
 cCurrentForm := "CALEN_F1"
-	DEFINE WINDOW CALEN_F1 ;
+   DEFINE WINDOW CALEN_F1 ;
       AT ctr + 33, ctc + 3 ; 
-		WIDTH 493 HEIGHT 487 ;
-		TITLE '' ;
+      WIDTH 493 HEIGHT 487 ;
+      TITLE '' ;
       MODAL ;
       NOSIZE ;
       NOSYSMENU ;
@@ -1018,12 +1018,12 @@ cCurrentForm := "CALEN_F1"
       BACKCOLOR { 218,229,243 } 
 
       DEFINE IMAGE MSGBUSCA_2
-         ROW	0
-         COL	0
-         WIDTH	493
+         ROW   0
+         COL   0
+         WIDTH   493
          HEIGHT 487
-         PICTURE	'COMANDOS'
-         STRETCH	.T.
+         PICTURE   'COMANDOS'
+         STRETCH   .T.
       END IMAGE         
       
       @ 33, 14 LABEL Q_1 ;
@@ -1229,25 +1229,25 @@ LOCAL ellugar
 
    DO CASE
       CASE Form_1.miniwrite_1.ParaAlignment == RTF_LEFT
-           Form_1.BOT_ALIZQ.PICTURE	:= 'alin_izq_on'
+           Form_1.BOT_ALIZQ.PICTURE   := 'alin_izq_on'
            Form_1.BOT_ALCENT.PICTURE := 'alin_cent_off'
            Form_1.BOT_ALDER.PICTURE := 'alin_dere_off'
            FORM_1.BOT_JUSTI.PICTURE := 'alin_justi_off'
            FORM_1.BOT_FRENCH.PICTURE := 'alin_french_off'
       CASE Form_1.miniwrite_1.ParaAlignment == RTF_CENTER
-           Form_1.BOT_ALIZQ.PICTURE	:= 'alin_izq_off'
+           Form_1.BOT_ALIZQ.PICTURE   := 'alin_izq_off'
            Form_1.BOT_ALCENT.PICTURE := 'alin_cent_on'
            Form_1.BOT_ALDER.PICTURE := 'alin_dere_off'
            FORM_1.BOT_JUSTI.PICTURE := 'alin_justi_off'
            FORM_1.BOT_FRENCH.PICTURE := 'alin_french_off'
       CASE Form_1.miniwrite_1.ParaAlignment == RTF_RIGHT
-           Form_1.BOT_ALIZQ.PICTURE	:= 'alin_izq_off'
+           Form_1.BOT_ALIZQ.PICTURE   := 'alin_izq_off'
            Form_1.BOT_ALCENT.PICTURE := 'alin_cent_off'
            Form_1.BOT_ALDER.PICTURE := 'alin_dere_on'
            FORM_1.BOT_JUSTI.PICTURE := 'alin_justi_off'
            FORM_1.BOT_FRENCH.PICTURE := 'alin_french_off'
       CASE Form_1.miniwrite_1.ParaAlignment == RTF_JUSTIFY
-           Form_1.BOT_ALIZQ.PICTURE	:= 'alin_izq_off'
+           Form_1.BOT_ALIZQ.PICTURE   := 'alin_izq_off'
            Form_1.BOT_ALCENT.PICTURE := 'alin_cent_off'
            Form_1.BOT_ALDER.PICTURE := 'alin_dere_off'
            FORM_1.BOT_JUSTI.PICTURE := 'alin_justi_on'
@@ -1304,39 +1304,39 @@ cCurrentForm := "Form_2"
       ON RELEASE  ( Form_1.BOT_MINI5.ENABLED := .T. );
 
       DEFINE IMAGE RIB_1
-         ROW	0
-         COL	0
-         WIDTH	636
+         ROW   0
+         COL   0
+         WIDTH   636
          HEIGHT 24
-         PICTURE	'HP_S'
-         STRETCH	.T.
+         PICTURE   'HP_S'
+         STRETCH   .T.
       END IMAGE     
 
       DEFINE IMAGE RIB_2
-         ROW	24
-         COL	0
-         WIDTH	7
+         ROW   24
+         COL   0
+         WIDTH   7
          HEIGHT 475
-         PICTURE	'BULLET_Il'
-         STRETCH	.T.
+         PICTURE   'BULLET_Il'
+         STRETCH   .T.
       END IMAGE     
 
       DEFINE IMAGE RIB_3
-         ROW	24
-         COL	626
-         WIDTH	10
+         ROW   24
+         COL   626
+         WIDTH   10
          HEIGHT 475
-         PICTURE	'HP_D'
-         STRETCH	.T.
+         PICTURE   'HP_D'
+         STRETCH   .T.
       END IMAGE     
   
       DEFINE IMAGE RIB_4
-         ROW	496
-         COL	0
-         WIDTH	636
+         ROW   496
+         COL   0
+         WIDTH   636
          HEIGHT 33
-         PICTURE	'HP_I'
-         STRETCH	.T.
+         PICTURE   'HP_I'
+         STRETCH   .T.
       END IMAGE     
       
       
@@ -1617,39 +1617,39 @@ DEFINE WINDOW Parabull ;
   BACKCOLOR { 218,229,243 } 
 
   DEFINE IMAGE RIB_1
-    ROW	0
-    COL	0
-    WIDTH	403
+    ROW   0
+    COL   0
+    WIDTH   403
     HEIGHT 24
-    PICTURE	'BULLET_S'
-    STRETCH	.T.
+    PICTURE   'BULLET_S'
+    STRETCH   .T.
   END IMAGE     
 
   DEFINE IMAGE RIB_2
-    ROW	24
-    COL	0
-    WIDTH	7
+    ROW   24
+    COL   0
+    WIDTH   7
     HEIGHT 200
-    PICTURE	'BULLET_Il'
-    STRETCH	.T.
+    PICTURE   'BULLET_Il'
+    STRETCH   .T.
   END IMAGE     
 
   DEFINE IMAGE RIB_3
-    ROW	24
-    COL	392
-    WIDTH	11
+    ROW   24
+    COL   392
+    WIDTH   11
     HEIGHT 200
-    PICTURE	'BULLET_ID'
-    STRETCH	.T.
+    PICTURE   'BULLET_ID'
+    STRETCH   .T.
   END IMAGE     
   
   DEFINE IMAGE RIB_4
-    ROW	206
-    COL	0
-    WIDTH	403
+    ROW   206
+    COL   0
+    WIDTH   403
     HEIGHT 33
-    PICTURE	'BULLET_I'
-    STRETCH	.T.
+    PICTURE   'BULLET_I'
+    STRETCH   .T.
   END IMAGE     
   
   @ 25, 10 FRAME frNum ;
@@ -1697,12 +1697,12 @@ DEFINE WINDOW Parabull ;
     NUMERIC INPUTMASK '999'
 
   DEFINE IMAGE BULL_SAMPLE
-    ROW	175
-    COL	25
-    WIDTH	205
+    ROW   175
+    COL   25
+    WIDTH   205
     HEIGHT 20
-    PICTURE	'MSGBULL00'
-    STRETCH	.T.
+    PICTURE   'MSGBULL00'
+    STRETCH   .T.
   END IMAGE         
 
   @ 210, 28 LABEL RESPDEL_CLEAR ;
@@ -1833,39 +1833,39 @@ DEFINE WINDOW SPACE_L ;
   
 
   DEFINE IMAGE RIB_1
-    ROW	0
-    COL	0
+    ROW   0
+    COL   0
     WIDTH  215
     HEIGHT 24
-    PICTURE	'SPACELIN_S'
-    STRETCH	.T.
+    PICTURE   'SPACELIN_S'
+    STRETCH   .T.
   END IMAGE     
 
   DEFINE IMAGE RIB_2
-    ROW	24
-    COL	0
-    WIDTH	7
+    ROW   24
+    COL   0
+    WIDTH   7
     HEIGHT 161
-    PICTURE	'BULLET_Il'
-    STRETCH	.T.
+    PICTURE   'BULLET_Il'
+    STRETCH   .T.
   END IMAGE     
 
   DEFINE IMAGE RIB_3
-    ROW	24
-    COL	204
-    WIDTH	11
+    ROW   24
+    COL   204
+    WIDTH   11
     HEIGHT 161
-    PICTURE	'BULLET_ID'
-    STRETCH	.T.
+    PICTURE   'BULLET_ID'
+    STRETCH   .T.
   END IMAGE     
   
   DEFINE IMAGE RIB_4
-    ROW	167
-    COL	0
-    WIDTH	215
+    ROW   167
+    COL   0
+    WIDTH   215
     HEIGHT 33
-    PICTURE	'SHORT_I'
-    STRETCH	.T.
+    PICTURE   'SHORT_I'
+    STRETCH   .T.
   END IMAGE     
 
   
@@ -1921,84 +1921,84 @@ DEFINE WINDOW REFAY ;
   ON INIT  nil
 
   DEFINE IMAGE RIB_1
-    ROW	0
-    COL	0
+    ROW   0
+    COL   0
     WIDTH  215
     HEIGHT 24
-    PICTURE	'CLEANUAX'
-    STRETCH	.T.
+    PICTURE   'CLEANUAX'
+    STRETCH   .T.
   END IMAGE     
 
   DEFINE IMAGE RIB_2
-    ROW	24
-    COL	0
-    WIDTH	7
+    ROW   24
+    COL   0
+    WIDTH   7
     HEIGHT 161
-    PICTURE	'BULLET_Il'
-    STRETCH	.T.
+    PICTURE   'BULLET_Il'
+    STRETCH   .T.
   END IMAGE     
 
   DEFINE IMAGE RIB_3
-    ROW	24
-    COL	204
-    WIDTH	11
+    ROW   24
+    COL   204
+    WIDTH   11
     HEIGHT 161
-    PICTURE	'BULLET_ID'
-    STRETCH	.T.
+    PICTURE   'BULLET_ID'
+    STRETCH   .T.
   END IMAGE     
   
   DEFINE IMAGE RIB_4
-    ROW	167
-    COL	0
-    WIDTH	215
+    ROW   167
+    COL   0
+    WIDTH   215
     HEIGHT 33
-    PICTURE	'CLEANINF'
-    STRETCH	.T.
+    PICTURE   'CLEANINF'
+    STRETCH   .T.
   END IMAGE     
 
   DEFINE IMAGE IAUX_BOT1
-    ROW	35
-    COL	40
+    ROW   35
+    COL   40
     WIDTH 121
     HEIGHT 21
-    PICTURE	'BOT_AUX1_OFF'
-    STRETCH	.T.
+    PICTURE   'BOT_AUX1_OFF'
+    STRETCH   .T.
   END IMAGE     
   
   DEFINE IMAGE IAUX_BOT2
-    ROW	60
-    COL	40
+    ROW   60
+    COL   40
     WIDTH 121
     HEIGHT 21
-    PICTURE	'BOT_AUX2_OFF'
-    STRETCH	.T.
+    PICTURE   'BOT_AUX2_OFF'
+    STRETCH   .T.
   END IMAGE     
 
   DEFINE IMAGE IAUX_BOT3
-    ROW	85
-    COL	40
+    ROW   85
+    COL   40
     WIDTH 121
     HEIGHT 21
-    PICTURE	'BOT_AUX3_OFF'
-    STRETCH	.T.
+    PICTURE   'BOT_AUX3_OFF'
+    STRETCH   .T.
   END IMAGE     
 
   DEFINE IMAGE IAUX_BOT4
-    ROW	110
-    COL	40
+    ROW   110
+    COL   40
     WIDTH 121
     HEIGHT 21
-    PICTURE	'BOT_AUX4_OFF'
-    STRETCH	.T.
+    PICTURE   'BOT_AUX4_OFF'
+    STRETCH   .T.
   END IMAGE     
 
   DEFINE IMAGE IAUX_BOT5
-    ROW	135
-    COL	40
+    ROW   135
+    COL   40
     WIDTH 121
     HEIGHT 21
-    PICTURE	'BOT_AUX5_OFF'
-    STRETCH	.T.
+    PICTURE   'BOT_AUX5_OFF'
+    STRETCH   .T.
   END IMAGE     
 
   @ 37, 42 LABEL BOT1_RESP ;
@@ -2084,39 +2084,39 @@ DEFINE WINDOW INDENT_L ;
   ON INIT  nil 
 
   DEFINE IMAGE RIB_1
-    ROW	0
-    COL	0
+    ROW   0
+    COL   0
     WIDTH  215
     HEIGHT 24
-    PICTURE	'INDENT_S'
-    STRETCH	.T.
+    PICTURE   'INDENT_S'
+    STRETCH   .T.
   END IMAGE     
 
   DEFINE IMAGE RIB_2
-    ROW	24
-    COL	0
-    WIDTH	7
+    ROW   24
+    COL   0
+    WIDTH   7
     HEIGHT 141 
-    PICTURE	'BULLET_Il'
-    STRETCH	.T.
+    PICTURE   'BULLET_Il'
+    STRETCH   .T.
   END IMAGE     
 
   DEFINE IMAGE RIB_3
-    ROW	24
-    COL	204
-    WIDTH	11
+    ROW   24
+    COL   204
+    WIDTH   11
     HEIGHT 141 
-    PICTURE	'BULLET_ID'
-    STRETCH	.T.
+    PICTURE   'BULLET_ID'
+    STRETCH   .T.
   END IMAGE     
   
   DEFINE IMAGE RIB_4
-    ROW	147 
-    COL	0
-    WIDTH	215
+    ROW   147 
+    COL   0
+    WIDTH   215
     HEIGHT 33
-    PICTURE	'SHORT_I'
-    STRETCH	.T.
+    PICTURE   'SHORT_I'
+    STRETCH   .T.
   END IMAGE     
 
   @   25, 10 FRAME IND_01 ;
@@ -2230,7 +2230,7 @@ PROCEDURE ABOUT
 cCurrentForm := "ABOUT_S"
 
 DEFINE WINDOW ABOUT_S ; 
-	AT ctr + 129, ctc + 208 ;
+   AT ctr + 129, ctc + 208 ;
   WIDTH 269 ;
   HEIGHT 349 ; 
   TITLE '' ;
@@ -2242,12 +2242,12 @@ DEFINE WINDOW ABOUT_S ;
   ON INIT  nil
 
   DEFINE IMAGE RIB_1
-    ROW	0
-    COL	0
+    ROW   0
+    COL   0
     WIDTH  269
     HEIGHT 349
-    PICTURE	'ABOUT'
-    STRETCH	.T.
+    PICTURE   'ABOUT'
+    STRETCH   .T.
   END IMAGE     
   
   @ 321, 144 LABEL RESPDEL_YES ;
@@ -2277,9 +2277,9 @@ ENDIF
 cCurrentForm := "BIG_S"
 
 DEFINE WINDOW BIG_S;
-	AT ctr + 60, ctc + 208 ;
-	WIDTH 275;
-	HEIGHT 423;
+   AT ctr + 60, ctc + 208 ;
+   WIDTH 275;
+   HEIGHT 423;
    TITLE '' ;
    MODAL ;
    BACKCOLOR { 255 , 255, 255 } ;
@@ -2333,19 +2333,19 @@ DEFINE WINDOW BIG_S;
          TOOLTIP ('Date of last access') 
 
    
-   @ 0, 0 GRID GRID_VISTA	;
-			WIDTH 275  ;
-			HEIGHT 219 	;	
-    		HEADERS {'A','                               RECENT FILES'} ;
-   	   WIDTHS { 25 , 225 }     ;
-			BACKCOLOR {255,255,255}; 
+   @ 0, 0 GRID GRID_VISTA   ;
+         WIDTH 275  ;
+         HEIGHT 219    ;   
+          HEADERS {'A','                               RECENT FILES'} ;
+         WIDTHS { 25 , 225 }     ;
+         BACKCOLOR {255,255,255}; 
          FONT "CALIBRI" SIZE 9 ;
          VALUE { 1 , 1 } ;
-			ROWSOURCE "RECENTS" ;
-      	COLUMNFIELDS { 'RECENTS->ASELEC' , 'RECENTS->ANOMBRE' } ;
+         ROWSOURCE "RECENTS" ;
+         COLUMNFIELDS { 'RECENTS->ASELEC' , 'RECENTS->ANOMBRE' } ;
          DYNAMICBACKCOLOR { bColor , bColor } ;
          DYNAMICFORECOLOR { hColor , hColor} ;
-			ON DBLCLICK ( nil ) ; 
+         ON DBLCLICK ( nil ) ; 
          ON CHANGE ( PUNTERO := BIG_S.GRID_VISTA.RECNO , MOSTRADOR() ) ; 
          JUSTIFY { GRID_JTFY_CENTER , GRID_JTFY_LEFT } ;
          CELLNAVIGATION
@@ -2363,31 +2363,31 @@ DEFINE WINDOW BIG_S;
          TRANSPARENT
          
    DEFINE IMAGE BOT_MASTER
-      ROW	344
-      COL	10
+      ROW   344
+      COL   10
       WIDTH  121
       HEIGHT 21
-      PICTURE	'BOT_AUX0_OFF'
-      STRETCH	.T.
+      PICTURE   'BOT_AUX0_OFF'
+      STRETCH   .T.
    END IMAGE     
 
    
    DEFINE IMAGE BOT_AUX0
-      ROW	369
-      COL	10
+      ROW   369
+      COL   10
       WIDTH  121
       HEIGHT 21
-      PICTURE	'BOT_AUX1_OFF'
-      STRETCH	.T.
+      PICTURE   'BOT_AUX1_OFF'
+      STRETCH   .T.
    END IMAGE     
 
    DEFINE IMAGE BOT_AUX2
-      ROW	394
-      COL	10
+      ROW   394
+      COL   10
       WIDTH  121
       HEIGHT 21
-      PICTURE	'BOT_AUX2_OFF'
-      STRETCH	.T.
+      PICTURE   'BOT_AUX2_OFF'
+      STRETCH   .T.
    END IMAGE     
 
    @ 345, 11 LABEL AUX_BOT0 ;
@@ -2412,12 +2412,12 @@ DEFINE WINDOW BIG_S;
           TRANSPARENT
   
    DEFINE IMAGE DEL_DOC_TABLE
-      ROW	339
-      COL	142
+      ROW   339
+      COL   142
       WIDTH  132
       HEIGHT 34
-      PICTURE	'BOT_DEL_TABLE'
-      STRETCH	.T.
+      PICTURE   'BOT_DEL_TABLE'
+      STRETCH   .T.
    END IMAGE     
    
    @ 340, 144 LABEL DEL_BOT_FILE ;
@@ -2429,12 +2429,12 @@ DEFINE WINDOW BIG_S;
           TRANSPARENT
 
    DEFINE IMAGE QUIT_TABLE
-      ROW	378
-      COL	142
+      ROW   378
+      COL   142
       WIDTH  132
       HEIGHT 34
-      PICTURE	'BOT_QUIT_TABLE'
-      STRETCH	.T.
+      PICTURE   'BOT_QUIT_TABLE'
+      STRETCH   .T.
    END IMAGE     
    
    @ 379, 144 LABEL QUIT_SEARCH ;
@@ -2620,9 +2620,9 @@ cCurrentForm := "NOTIEMPTY"
 
 
 DEFINE WINDOW NOTIEMPTY;
-	AT ctr + 85, ctc + 208 ;
-	WIDTH 211;
-	HEIGHT 170;
+   AT ctr + 85, ctc + 208 ;
+   WIDTH 211;
+   HEIGHT 170;
    TITLE '' ;
    MODAL ;
    BACKCOLOR { 255 , 255, 255 } ;
@@ -2631,12 +2631,12 @@ DEFINE WINDOW NOTIEMPTY;
    NOCAPTION 
 
    DEFINE IMAGE BOT_AUX0
-      ROW	0
-      COL	0
+      ROW   0
+      COL   0
       WIDTH  211
       HEIGHT 170
-      PICTURE	'EMPTY00'
-      STRETCH	.T.
+      PICTURE   'EMPTY00'
+      STRETCH   .T.
    END IMAGE     
 
    @ 142, 68 LABEL AUX_BOT4 ;
@@ -2911,7 +2911,7 @@ END CASE
 RETURN
 
 PROCEDURE AGAPITO_RTF
- 	If .Not. Empty(Buscar)
+    If .Not. Empty(Buscar)
        LOCATE FOR TRIM(Buscar) $ (HMG_UPPER(ADIRECC))
        DO WHILE FOUND()
           elloco := RecNo()
@@ -2940,10 +2940,10 @@ PROCEDURE GRANSALIDA
 cCurrentForm := "INFO_SALIDA"
 
 
-	DEFINE WINDOW INFO_SALIDA ;
+   DEFINE WINDOW INFO_SALIDA ;
       AT ctr + 38, ctc + 582 ;  
-		WIDTH 215 HEIGHT 170 ;
-		TITLE '' ;
+      WIDTH 215 HEIGHT 170 ;
+      TITLE '' ;
       MODAL ;
       NOSIZE ;
       NOSYSMENU ;
@@ -2951,12 +2951,12 @@ cCurrentForm := "INFO_SALIDA"
       BACKCOLOR { 250,241,228 } 
       
       DEFINE IMAGE RIBBON_1
-         ROW	0
-         COL	0
-         WIDTH	215
+         ROW   0
+         COL   0
+         WIDTH   215
          HEIGHT 170
-         PICTURE	'surequit'
-         STRETCH	.T.
+         PICTURE   'surequit'
+         STRETCH   .T.
       END IMAGE         
 
       @ 142, 54 LABEL RESP_YES ;
@@ -2993,10 +2993,10 @@ PROCEDURE NEWDOC1
 cCurrentForm := "INFO_NEW"
 
 
-	DEFINE WINDOW INFO_NEW ;
+   DEFINE WINDOW INFO_NEW ;
       AT ctr + 28, ctc + 53 ;  
-		WIDTH 196 HEIGHT 185 ;
-		TITLE '' ;
+      WIDTH 196 HEIGHT 185 ;
+      TITLE '' ;
       MODAL ;
       NOSIZE ;
       NOSYSMENU ;
@@ -3005,12 +3005,12 @@ cCurrentForm := "INFO_NEW"
 
       
       DEFINE IMAGE RIBBON_1
-         ROW	0
-         COL	0
-         WIDTH	196
+         ROW   0
+         COL   0
+         WIDTH   196
          HEIGHT 185
-         PICTURE	'warnewup'
-         STRETCH	.T.
+         PICTURE   'warnewup'
+         STRETCH   .T.
       END IMAGE         
 
       @ 157, 8 LABEL RESP_SAVE ;
@@ -3047,7 +3047,7 @@ PROCEDURE NEWDOC2
 cCurrentForm := "INFO_NEW"
 
 
-	DEFINE WINDOW INFO_NEW ;
+   DEFINE WINDOW INFO_NEW ;
       AT ctr + 60, ctc + 208 ;
       WIDTH 211;
       HEIGHT 170;
@@ -3060,12 +3060,12 @@ cCurrentForm := "INFO_NEW"
 
       
       DEFINE IMAGE RIBBON_1
-         ROW	0
-         COL	0
-         WIDTH	211
+         ROW   0
+         COL   0
+         WIDTH   211
          HEIGHT 170
-         PICTURE	'warnew'
-         STRETCH	.T.
+         PICTURE   'warnew'
+         STRETCH   .T.
       END IMAGE         
 
       @ 142, 23 LABEL RESP_SAVE ;
@@ -3104,9 +3104,9 @@ cCurrentForm := "PRIN_SET"
 
 
 DEFINE WINDOW PRIN_SET;
-	AT ctr + 60, ctc + 208 ;
-	WIDTH 275;
-	HEIGHT 413;
+   AT ctr + 60, ctc + 208 ;
+   WIDTH 275;
+   HEIGHT 413;
    TITLE '' ;
    MODAL ;
    BACKCOLOR { 255 , 255, 255 } ;
@@ -3115,49 +3115,49 @@ DEFINE WINDOW PRIN_SET;
    NOCAPTION 
 
    DEFINE IMAGE SET_TP
-      ROW	50
-      COL	1
+      ROW   50
+      COL   1
       WIDTH  269
       HEIGHT 24
-      PICTURE	'SETUP_PS'
-      STRETCH	.T.
+      PICTURE   'SETUP_PS'
+      STRETCH   .T.
    END IMAGE     
    
    
    DEFINE IMAGE SET_LP
-      ROW	74
-      COL	1
+      ROW   74
+      COL   1
       WIDTH  22
       HEIGHT 295
-      PICTURE	'SETUP_PL'
-      STRETCH	.T.
+      PICTURE   'SETUP_PL'
+      STRETCH   .T.
    END IMAGE     
    
    DEFINE IMAGE SET_PP
-      ROW	198
-      COL	1
+      ROW   198
+      COL   1
       WIDTH  22
       HEIGHT 57
-      PICTURE	'SETUP_PP'
-      STRETCH	.T.
+      PICTURE   'SETUP_PP'
+      STRETCH   .T.
    END IMAGE     
 
    DEFINE IMAGE SET_RP
-      ROW	74
-      COL	259
+      ROW   74
+      COL   259
       WIDTH  11
       HEIGHT 295
-      PICTURE	'SETUP_PR'
-      STRETCH	.T.
+      PICTURE   'SETUP_PR'
+      STRETCH   .T.
    END IMAGE     
 
    DEFINE IMAGE SET_BP
-      ROW	369
-      COL	1
+      ROW   369
+      COL   1
       WIDTH  269
       HEIGHT 33
-      PICTURE	'SETUP_PIF'
-      STRETCH	.T.
+      PICTURE   'SETUP_PIF'
+      STRETCH   .T.
    END IMAGE     
    
    @ 85, 27 FRAME PR_AREA ;
@@ -3597,39 +3597,39 @@ PROCEDURE CLIPP_VIEW
       ON INIT  ( Form_2X.CLIPFULL.RTFLoadFile ("CLIP.RTF", .F., 4) )
 
       DEFINE IMAGE RIB_1
-         ROW	0
-         COL	0
-         WIDTH	410
+         ROW   0
+         COL   0
+         WIDTH   410
          HEIGHT 24
-         PICTURE	'HP_CC'
-         STRETCH	.T.
+         PICTURE   'HP_CC'
+         STRETCH   .T.
       END IMAGE     
 
       DEFINE IMAGE RIB_2
-         ROW	24
-         COL	0
-         WIDTH	7
+         ROW   24
+         COL   0
+         WIDTH   7
          HEIGHT 475
-         PICTURE	'BULLET_Il'
-         STRETCH	.T.
+         PICTURE   'BULLET_Il'
+         STRETCH   .T.
       END IMAGE     
 
       DEFINE IMAGE RIB_3
-         ROW	24
-         COL	400
-         WIDTH	10
+         ROW   24
+         COL   400
+         WIDTH   10
          HEIGHT 475
-         PICTURE	'HP_D'
-         STRETCH	.T.
+         PICTURE   'HP_D'
+         STRETCH   .T.
       END IMAGE     
   
       DEFINE IMAGE RIB_4
-         ROW	496
-         COL	0
-         WIDTH	410
+         ROW   496
+         COL   0
+         WIDTH   410
          HEIGHT 33
-         PICTURE	'HP_IC'
-         STRETCH	.T.
+         PICTURE   'HP_IC'
+         STRETCH   .T.
       END IMAGE     
       
       

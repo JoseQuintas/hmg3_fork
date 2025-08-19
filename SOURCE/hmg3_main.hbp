@@ -15,6 +15,9 @@ BosTaurus/h_BosTaurus.prg
 
 class/HMG_TString.prg
 
+_hmgapp.prg
+_hmgform.prg
+_hmgcontrol.prg
 h_UNICODE.prg
 h_UNICODE_STRING.prg
 h_EventCB.prg

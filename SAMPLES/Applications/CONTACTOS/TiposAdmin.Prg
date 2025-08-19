@@ -101,11 +101,11 @@ DEFINE WINDOW Win_2               ;
         WIDTHS { 60 , 220 }
         ROWSOURCE "Tipos"
         COLUMNFIELDS { 'Cod_Tipo' , 'Desc' }
-		ON DBLCLICK Modificar()
+      ON DBLCLICK Modificar()
         ALLOWEDIT .F.
         ALLOWAPPEND .F.
         ALLOWDELETE .T.
-		CELLNAVIGATION .F.
+      CELLNAVIGATION .F.
     END GRID
     
 END WINDOW

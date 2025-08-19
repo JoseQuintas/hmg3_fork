@@ -35,20 +35,20 @@
    [ DIALOGFILENAME <DialogFileName> ] ;
    [ SAVEAS <FullFileName> ] ;
 => ;
-_HMG_SYSDATA \[ 513 \] := .f. ;;
-_HMG_SYSDATA \[ 373 \]  = HMG_PrintDialogEx( <"parent"> )  ;;
-_HMG_SYSDATA \[ 374 \] := _HMG_SYSDATA \[ 373 \] \[1\]    ;;
-_HMG_SYSDATA \[ 375 \] := _HMG_SYSDATA \[ 373 \] \[2\]  ;;
-_HMG_SYSDATA \[ 376 \] := _HMG_SYSDATA \[ 373 \] \[3\] ;;
-_HMG_SYSDATA \[ 377 \] := _HMG_SYSDATA \[ 373 \] \[4\] ;;
-_HMG_SYSDATA \[ 378 \] := <.Preview.>       ;;
-_HMG_SYSDATA \[ 505 \] := <.NoSaveButton.> ;;
-_HMG_SYSDATA \[ 506 \] := HMG_IsNotDefParam ( <DialogFileName> , NIL );;
-_HMG_SYSDATA \[ 507 \] := HMG_IsNotDefParam ( <FullFileName>   , NIL );;
-_HMG_SYSDATA \[ 508 \] := <.Preview.> ;;
-_HMG_SYSDATA \[ 378 \] := if ( _HMG_SYSDATA \[ 507 \] <> NIL, .T., <.Preview.> ) ;;
+oHmgApp():APP513 := .f. ;;
+oHmgApp():APP373  = HMG_PrintDialogEx( <"parent"> )  ;;
+oHmgApp():APP374 := oHmgApp():APP373 \[1\]    ;;
+oHmgApp():APP375 := oHmgApp():APP373 \[2\]  ;;
+oHmgApp():APP376 := oHmgApp():APP373 \[3\] ;;
+oHmgApp():APP377 := oHmgApp():APP373 \[4\] ;;
+oHmgApp():APP378 := <.Preview.>       ;;
+oHmgApp():APP505 := <.NoSaveButton.> ;;
+oHmgApp():APP506 := HMG_IsNotDefParam ( <DialogFileName> , NIL );;
+oHmgApp():APP507 := HMG_IsNotDefParam ( <FullFileName>   , NIL );;
+oHmgApp():APP508 := <.Preview.> ;;
+oHmgApp():APP378 := if ( oHmgApp():APP507 <> NIL, .T., <.Preview.> ) ;;
 _hmg_printer_InitUserMessages()         ;;
-_HMG_SYSDATA \[ 379 \] := strzero( Seconds() * 100 , 8 ) 
+oHmgApp():APP379 := strzero( Seconds() * 100 , 8 )
 
 #xcommand SELECT PRINTER DIALOG EX ;
    [ PARENT <parent> ] ;
@@ -58,20 +58,20 @@ _HMG_SYSDATA \[ 379 \] := strzero( Seconds() * 100 , 8 )
    [ DIALOGFILENAME <DialogFileName> ] ;
    [ SAVEAS <FullFileName> ] ;
 => ;
-_HMG_SYSDATA \[ 513 \] := .f. ;;
-_HMG_SYSDATA \[ 373 \]  = HMG_PrintDialogEx( <"parent"> )  ;;
-_HMG_SYSDATA \[ 374 \] := _HMG_SYSDATA \[ 373 \] \[1\]    ;;
-_HMG_SYSDATA \[ 375 \] := _HMG_SYSDATA \[ 373 \] \[2\]  ;;
-_HMG_SYSDATA \[ 376 \] := _HMG_SYSDATA \[ 373 \] \[3\] ;;
-_HMG_SYSDATA \[ 377 \] := _HMG_SYSDATA \[ 373 \] \[4\] ;;
-<lSuccess> := if ( _HMG_SYSDATA \[ 374 \] <> 0 , .T. , .F. ) ;;
-_HMG_SYSDATA \[ 378 \] := <.Preview.> ;;
-_HMG_SYSDATA \[ 505 \] := <.NoSaveButton.> ;;
-_HMG_SYSDATA \[ 506 \] := HMG_IsNotDefParam ( <DialogFileName> , NIL );;
-_HMG_SYSDATA \[ 507 \] := HMG_IsNotDefParam ( <FullFileName>   , NIL );;
-_HMG_SYSDATA \[ 508 \] := <.Preview.> ;;
-_HMG_SYSDATA \[ 378 \] := if ( _HMG_SYSDATA \[ 507 \] <> NIL, .T., <.Preview.> ) ;;
+oHmgApp():APP513 := .f. ;;
+oHmgApp():APP373  = HMG_PrintDialogEx( <"parent"> )  ;;
+oHmgApp():APP374 := oHmgApp():APP373 \[1\]    ;;
+oHmgApp():APP375 := oHmgApp():APP373 \[2\]  ;;
+oHmgApp():APP376 := oHmgApp():APP373 \[3\] ;;
+oHmgApp():APP377 := oHmgApp():APP373 \[4\] ;;
+<lSuccess> := if ( oHmgApp():APP374 <> 0 , .T. , .F. ) ;;
+oHmgApp():APP378 := <.Preview.> ;;
+oHmgApp():APP505 := <.NoSaveButton.> ;;
+oHmgApp():APP506 := HMG_IsNotDefParam ( <DialogFileName> , NIL );;
+oHmgApp():APP507 := HMG_IsNotDefParam ( <FullFileName>   , NIL );;
+oHmgApp():APP508 := <.Preview.> ;;
+oHmgApp():APP378 := if ( oHmgApp():APP507 <> NIL, .T., <.Preview.> ) ;;
 _hmg_printer_InitUserMessages() ;;
-_HMG_SYSDATA \[ 379 \] := strzero( Seconds() * 100 , 8 ) 
+oHmgApp():APP379 := strzero( Seconds() * 100 , 8 )
 
 

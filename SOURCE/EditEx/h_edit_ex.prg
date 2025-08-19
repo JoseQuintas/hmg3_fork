@@ -2,27 +2,27 @@
  * Implementación del comando EDIT EXTENDED para la librería HMG.
  * (c) Cristóbal Mollá [cemese@terra.es]
 
- This program is free software; you can redistribute it and/or modify it under 
- the terms of the GNU General Public License as published by the Free Software 
- Foundation; either version 2 of the License, or (at your option) any later 
- version. 
+ This program is free software; you can redistribute it and/or modify it under
+ the terms of the GNU General Public License as published by the Free Software
+ Foundation; either version 2 of the License, or (at your option) any later
+ version.
 
- This program is distributed in the hope that it will be useful, but WITHOUT 
- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS 
+ This program is distributed in the hope that it will be useful, but WITHOUT
+ ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
- You should have received a copy of the GNU General Public License along with 
- this software; see the file COPYING. If not, write to the Free Software 
- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA (or 
+ You should have received a copy of the GNU General Public License along with
+ this software; see the file COPYING. If not, write to the Free Software
+ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA (or
  visit the web site http://www.gnu.org/).
 
- As a special exception, you have permission for additional uses of the text 
+ As a special exception, you have permission for additional uses of the text
  contained in this file.
 
- The exception is that, if you link this code with other 
- files to produce an executable, this does not by itself cause the resulting 
+ The exception is that, if you link this code with other
+ files to produce an executable, this does not by itself cause the resulting
  executable to be covered by the GNU General Public License.
- Your use of that executable is in no way restricted on account of linking  
+ Your use of that executable is in no way restricted on account of linking
  this code into it.
 
  *
@@ -139,7 +139,7 @@
  *              - Idioma Polaco listo. Gracias a Jacek Kubica.
  *      Oct 03  - Solucionado problema con las clausulas ON FIND y ON PRINT, ahora
  *                ya tienen el efecto deseado. Gracias a Grigory Filiatov.
- *              - Se cambia la referencia a _ExtendedNavigation por _HMG_SYSDATA [ 255 ]
+ *              - Se cambia la referencia a _ExtendedNavigation por oHmgApp():APP255
  *                para adecuarse a la sintaxis de la construción 76.
  *              - Idioma Alemán listo. Gracias a Andreas Wiltfang.
  *      Nov 03  - Problema con dbs en set exclusive. Gracias a cas_HMG.
@@ -164,7 +164,6 @@
 */
 
 
-MEMVAR _HMG_SYSDATA
 MEMVAR _HMG_CMACROTEMP
 
 // Ficheros de definiciones.---------------------------------------------------
@@ -297,18 +296,18 @@ function ABM2( cArea, cTitulo, aNombreCampo, ;
         SET DELETED ON
 
 ////////// Inicialización del soporte multilenguaje.---------------------------
-	InitMessages()
+   InitMessages()
 
 ////////// Desactivación de SET NAVIGATION.------------------------------------
-        _BakExtendedNavigation := _HMG_SYSDATA [ 255 ]
-        _HMG_SYSDATA [ 255 ]    := .F.
+        _BakExtendedNavigation := oHmgApp():IsExtendedNavigation
+        oHmgApp():IsExtendedNavigation    := .F.
 
 ////////// Control de parámetros.----------------------------------------------
         // Area de la base de datos.
         if ( ValType( cArea ) != "C" ) .or. Empty( cArea )
                 _cArea := Alias()
                 if _cArea == ""
-                        msgExclamation( _HMG_SYSDATA [ 130 ][1], "EDIT EXTENDED" )
+                        msgExclamation( oHmgApp():APP130[1], "EDIT EXTENDED" )
                         return NIL
                 endif
         else
@@ -374,17 +373,17 @@ function ABM2( cArea, cTitulo, aNombreCampo, ;
                 for i := 1 to HMG_LEN( _aEstructura )
                         do case
                                 case _aEstructura[i,DBS_TYPE] == "C"
-                                        aAdd( aAvisoCampo, _HMG_SYSDATA [ 130 ][2] )
+                                        aAdd( aAvisoCampo, oHmgApp():APP130[2] )
                                 case _aEstructura[i,DBS_TYPE] == "N"
-                                        aAdd( aAvisoCampo, _HMG_SYSDATA [ 130 ][3] )
+                                        aAdd( aAvisoCampo, oHmgApp():APP130[3] )
                                 case _aEstructura[i,DBS_TYPE] == "D"
-                                        aAdd( aAvisoCampo, _HMG_SYSDATA [ 130 ][4] )
+                                        aAdd( aAvisoCampo, oHmgApp():APP130[4] )
                                 case _aEstructura[i,DBS_TYPE] == "L"
-                                        aAdd( aAvisoCampo, _HMG_SYSDATA [ 130 ][5] )
+                                        aAdd( aAvisoCampo, oHmgApp():APP130[5] )
                                 case _aEstructura[i,DBS_TYPE] == "M"
-                                        aAdd( aAvisoCampo, _HMG_SYSDATA [ 130 ][6] )
+                                        aAdd( aAvisoCampo, oHmgApp():APP130[6] )
                                 otherwise
-                                        aAdd( aAvisoCampo, _HMG_SYSDATA [ 130 ][7] )
+                                        aAdd( aAvisoCampo, oHmgApp():APP130[7] )
                         endcase
                 next
         endif
@@ -441,27 +440,27 @@ function ABM2( cArea, cTitulo, aNombreCampo, ;
 
 **** JK 104
 
-	// Opciones del usuario.
-	lSalida := .t.
+   // Opciones del usuario.
+   lSalida := .t.
 
-	if ValType( aOpciones ) != "A" 
-		lSalida := .f.
-	elseif HMG_LEN(aOpciones)<1
-		lSalida := .f.
-	elseif HMG_LEN( aOpciones[1] ) != 2
-		lSalida := .f.
-	else
-		for i := 1 to HMG_LEN( aOpciones )
-			if ValType( aOpciones [i,ABM_OPC_TEXTO] ) != "C"
-				lSalida := .f.
-				exit
-			endif
-			if ValType( aOpciones [i,ABM_OPC_BLOQUE] ) != "B"
-				lSalida := .f.
-				exit
-			endif
-		next
-	endif
+   if ValType( aOpciones ) != "A"
+      lSalida := .f.
+   elseif HMG_LEN(aOpciones)<1
+      lSalida := .f.
+   elseif HMG_LEN( aOpciones[1] ) != 2
+      lSalida := .f.
+   else
+      for i := 1 to HMG_LEN( aOpciones )
+         if ValType( aOpciones [i,ABM_OPC_TEXTO] ) != "C"
+            lSalida := .f.
+            exit
+         endif
+         if ValType( aOpciones [i,ABM_OPC_BLOQUE] ) != "B"
+            lSalida := .f.
+            exit
+         endif
+      next
+   endif
 
 **** END JK 104
 
@@ -515,7 +514,7 @@ function ABM2( cArea, cTitulo, aNombreCampo, ;
         _aIndice      := {}
         _aIndiceCampo := {}
         nVeces        := 1
-        aAdd( _aIndice, _HMG_SYSDATA [ 129 ][1] )
+        aAdd( _aIndice, oHmgApp():APP129[1] )
         aAdd( _aIndiceCampo, 0 )
         do while lSalida
                 if ( (_cArea)->( ordName( k ) ) == "" )
@@ -652,29 +651,29 @@ function ABM2( cArea, cTitulo, aNombreCampo, ;
 
                 // Define la barra de estado de la ventana de visualización.
                 define statusbar font "ms sans serif" size 9
-                        statusitem _HMG_SYSDATA [ 129 ][19]                           // 1
-                        statusitem _HMG_SYSDATA [ 129 ][20]         width 100 raised  // 2
-                        statusitem _HMG_SYSDATA [ 129 ][2] +': '     width 200 raised // 3
+                        statusitem oHmgApp():APP129[19]                           // 1
+                        statusitem oHmgApp():APP129[20]         width 100 raised  // 2
+                        statusitem oHmgApp():APP129[2] +': '     width 200 raised // 3
                 end statusbar
 
                 // Define la barra de botones de la ventana de visualización.
                 define toolbar tbEdit buttonsize 90, 32 flat righttext border
-                        button tbbCerrar  caption _HMG_SYSDATA [ 128 ][1]   ;
+                        button tbbCerrar  caption oHmgApp():APP128[1]   ;
                                           picture "HMG_EDIT_CLOSE"          ;
                                           action  wndABM2Edit.Release
-                        button tbbNuevo   caption _HMG_SYSDATA [ 128 ][2]               ;
+                        button tbbNuevo   caption oHmgApp():APP128[2]               ;
                                           picture "HMG_EDIT_NEW"            ;
                                           action  {|| ABM2Editar( .t. ) }
-                        button tbbEditar  caption _HMG_SYSDATA [ 128 ][3]               ;
+                        button tbbEditar  caption oHmgApp():APP128[3]               ;
                                           picture "HMG_EDIT_EDIT"           ;
                                           action  {|| ABM2Editar( .f. ) }
-                        button tbbBorrar  caption _HMG_SYSDATA [ 128 ][4]               ;
+                        button tbbBorrar  caption oHmgApp():APP128[4]               ;
                                           picture "HMG_EDIT_DELETE"         ;
                                           action  {|| ABM2Borrar() }
-                        button tbbBuscar  caption _HMG_SYSDATA [ 128 ][5]               ;
+                        button tbbBuscar  caption oHmgApp():APP128[5]               ;
                                           picture "HMG_EDIT_FIND"           ;
                                           action  {|| ABM2Buscar() }
-                        button tbbListado caption _HMG_SYSDATA [ 128 ][6]               ;
+                        button tbbListado caption oHmgApp():APP128[6]               ;
                                           picture "HMG_EDIT_PRINT"          ;
                                           action  {|| ABM2Imprimir() }
                 end toolbar
@@ -694,7 +693,7 @@ function ABM2( cArea, cTitulo, aNombreCampo, ;
                 height wndABM2Edit.Height - 165
          @ 60, 20 label lblIndice               ;
                 of wndABM2Edit                  ;
-                value _HMG_SYSDATA [ 130 ] [26]            ;
+                value oHmgApp():APP130 [26]            ;
                 width 150                       ;
                 height 25                       ;
                 font "ms sans serif" size 9
@@ -712,7 +711,7 @@ function ABM2( cArea, cTitulo, aNombreCampo, ;
         next
         @ 60, nColumna label lblOpciones        ;
                 of wndABM2Edit                  ;
-                value _HMG_SYSDATA [ 129 ] [5]            ;
+                value oHmgApp():APP129 [5]            ;
                 width 150                       ;
                 height 25                       ;
                 font "ms sans serif" size 9
@@ -725,14 +724,14 @@ function ABM2( cArea, cTitulo, aNombreCampo, ;
                 on change {|| ABM2EjecutaOpcion() }
         @ 65, (wndABM2Edit.Width / 2)-110 button btnFiltro1     ;
                 of wndABM2Edit                                  ;
-                caption _HMG_SYSDATA [ 128 ][10]                       ;
+                caption oHmgApp():APP128[10]                       ;
                 action {|| ABM2ActivarFiltro() }                ;
                 width 100                                       ;
                 height 32                                       ;
                 font "ms sans serif" size 9
         @ 65, (wndABM2Edit.Width / 2)+5 button btnFiltro2       ;
                 of wndABM2Edit                                  ;
-                caption _HMG_SYSDATA [ 128 ][11]                    ;
+                caption oHmgApp():APP128[11]                    ;
                 action {|| ABM2DesactivarFiltro() }             ;
                 width 100                                       ;
                 height 32                                       ;
@@ -761,7 +760,7 @@ function ABM2( cArea, cTitulo, aNombreCampo, ;
         activate window wndABM2Edit
 
 ////////// Restauración de SET NAVIGATION.-------------------------------------
-        _HMG_SYSDATA [ 255 ] := _BakExtendedNavigation
+        oHmgApp():IsExtendedNavigation := _BakExtendedNavigation
 
 ////////// Restaurar SET DELETED a su valor inicial
 
@@ -827,9 +826,9 @@ STATIC function ABM2Redibuja( lTabla )
         endif
 
 ////////// Refresco de la barra de estado.-------------------------------------
-        wndABM2Edit.StatusBar.Item( 1 ) := _HMG_SYSDATA [ 129 ][19] + _cFiltro
-        wndABM2Edit.StatusBar.Item( 2 ) := _HMG_SYSDATA [ 129 ][20] + iif( _lFiltro, _HMG_SYSDATA [ 130 ][29], _HMG_SYSDATA [ 130 ][30] )
-        wndABM2Edit.StatusBar.Item( 3 ) := _HMG_SYSDATA [ 129 ][2] + ': '+                                  ;
+        wndABM2Edit.StatusBar.Item( 1 ) := oHmgApp():APP129[19] + _cFiltro
+        wndABM2Edit.StatusBar.Item( 2 ) := oHmgApp():APP129[20] + iif( _lFiltro, oHmgApp():APP130[29], oHmgApp():APP130[30] )
+        wndABM2Edit.StatusBar.Item( 3 ) := oHmgApp():APP129[2] + ': '+                                  ;
                                            ALLTRIM( STR( (_cArea)->( RecNo() ) ) ) + "/" + ;
                                            ALLTRIM( STR( (_cArea)->( RecCount() ) ) )
 
@@ -928,7 +927,7 @@ STATIC function ABM2Editar( lNuevo )
         local nAltoSplit     as numeric         // Alto de la ventana Split.
         local cTitulo        as character       // Título de la ventana.
         local cMascara       as array           // Máscara de edición de los controles numéricos.
-	local NANCHOCONTROL
+   local NANCHOCONTROL
 
 ////////// Control de parámetros.----------------------------------------------
         if ( ValType( lNuevo ) != "L" )
@@ -955,7 +954,7 @@ STATIC function ABM2Editar( lNuevo )
         nAncho      := 15 + nAnchoSplit + 15
         nAncho      := iif( nAncho < 300, 300, nAncho )
         nAnchoTope  := _nAnchoPantalla - 60
-        cTitulo     := iif( lNuevo, _HMG_SYSDATA [ 129 ][6], _HMG_SYSDATA [ 129 ][7] )
+        cTitulo     := iif( lNuevo, oHmgApp():APP129[6], oHmgApp():APP129[7] )
 
 ////////// Define la ventana de edición de registro.---------------------------
         define window wndABM2EditNuevo                                  ;
@@ -977,13 +976,13 @@ STATIC function ABM2Editar( lNuevo )
 
                         // Define la barra de botones de la ventana de edición de registro.
                         define toolbar tbEditNuevo buttonsize 90, 32 flat righttext
-                                button tbbCancelar caption _HMG_SYSDATA [ 128 ][7]              ;
+                                button tbbCancelar caption oHmgApp():APP128[7]              ;
                                                    picture "HMG_EDIT_CANCEL"        ;
                                                    action  wndABM2EditNuevo.Release
-                                button tbbAceptar  caption _HMG_SYSDATA [ 128 ][8]              ;
+                                button tbbAceptar  caption oHmgApp():APP128[8]              ;
                                                    picture "HMG_EDIT_OK"            ;
                                                    action  ABM2EditarGuardar( lNuevo )
-                                button tbbCopiar   caption _HMG_SYSDATA [ 128 ][9]              ;
+                                button tbbCopiar   caption oHmgApp():APP128[9]              ;
                                                    picture "HMG_EDIT_COPY"          ;
                                                    action  ABM2EditarCopiar()
                         end toolbar
@@ -1045,7 +1044,7 @@ STATIC function ABM2Editar( lNuevo )
                                         height _aControl[i,ABM_CON_HEIGHT]              ;
                                         width _aControl[i,ABM_CON_WIDTH] + 25           ;
                                         font "arial" size 9                             ;
-					SHOWNONE 					;
+               SHOWNONE                ;
                                         on gotfocus ABM2ConFoco()                       ;
                                         on lostfocus ABM2SinFoco()
                         case _aControl[i,ABM_CON_TYPE] == ABM_TEXTBOXN
@@ -1330,7 +1329,7 @@ STATIC function ABM2Seleccionar()
                 AT 0, 0                         ;
                 width 500                       ;
                 height 300                      ;
-                title _HMG_SYSDATA [ 129 ][8]            ;
+                title oHmgApp():APP129[8]            ;
                 modal                           ;
                 nosize                          ;
                 nosysmenu                       ;
@@ -1338,12 +1337,12 @@ STATIC function ABM2Seleccionar()
 
                 // Define la barra de botones de la ventana de selección.
                 define toolbar tbSeleccionar buttonsize 90, 32 flat righttext border
-                        button tbbCancelarSel caption _HMG_SYSDATA [ 128 ][7]                   ;
+                        button tbbCancelarSel caption oHmgApp():APP128[7]                   ;
                                               picture "HMG_EDIT_CANCEL"             ;
                                               action  {|| lSalida := .f.,               ;
                                                           nReg    := 0,                 ;
                                                           wndSeleccionar.Release }
-                        button tbbAceptarSel  caption _HMG_SYSDATA [ 128 ][8]                                           ;
+                        button tbbAceptarSel  caption oHmgApp():APP128[8]                                           ;
                                               picture "HMG_EDIT_OK"                                         ;
                                               action  {|| lSalida := .t.,                                       ;
                                                           nReg    := wndSeleccionar.brwSeleccionar.Value,       ;
@@ -1352,7 +1351,7 @@ STATIC function ABM2Seleccionar()
 
                 // Define la barra de estado de la ventana de selección.
                 define statusbar font "ms sans serif" size 9
-                        statusitem _HMG_SYSDATA [ 130 ][7]
+                        statusitem oHmgApp():APP130[7]
                 end statusbar
 
                 // Define la tabla de la ventana de selección.
@@ -1434,7 +1433,7 @@ function ABM2Borrar()
 
 ////////// Borra el registro si se acepta.-------------------------------------
 
-        if MsgOKCancel( _HMG_SYSDATA [ 130 ][8], _HMG_SYSDATA [ 129 ][16] )
+        if MsgOKCancel( oHmgApp():APP130[8], oHmgApp():APP129[16] )
                 if (_cArea)->( rlock() )
                    (_cArea)->( dbDelete() )
                    (_cArea)->( dbCommit() )
@@ -1448,7 +1447,7 @@ function ABM2Borrar()
                    endif
                    ABM2Redibuja( .t. )
                 else
-                   Msgstop( _HMG_SYSDATA [ 130 ] [41] , _cTitulo )
+                   Msgstop( oHmgApp():APP130 [41] , _cTitulo )
                 endif
         endif
 
@@ -1487,13 +1486,13 @@ STATIC function ABM2Buscar()
 
 ////////// Comprueba si hay un indice activo.----------------------------------
         if _nIndiceActivo == 1
-                msgExclamation( _HMG_SYSDATA [ 130 ][9], _cTitulo )
+                msgExclamation( oHmgApp():APP130[9], _cTitulo )
                 return NIL
         endif
 
 ////////// Comprueba que el campo indice no es del tipo memo o logico.---------
         if _aEstructura[nControl,DBS_TYPE] == "L" .or. _aEstructura[nControl,DBS_TYPE] == "M"
-                msgExclamation( _HMG_SYSDATA [ 130 ][10], _cTitulo )
+                msgExclamation( oHmgApp():APP130[10], _cTitulo )
                 return nil
         endif
 
@@ -1502,7 +1501,7 @@ STATIC function ABM2Buscar()
                 AT 0, 0                         ;
                 width 500                       ;
                 height 170                      ;
-                title _HMG_SYSDATA [ 129 ][9]            ;
+                title oHmgApp():APP129[9]            ;
                 modal                           ;
                 nosize                          ;
                 nosysmenu                       ;
@@ -1510,12 +1509,12 @@ STATIC function ABM2Buscar()
 
                 // Define la barra de botones de la ventana de busqueda.
                 define toolbar tbBuscar buttonsize 90, 32 flat righttext border
-                        button tbbCancelarBus caption _HMG_SYSDATA [ 128 ][7]                           ;
+                        button tbbCancelarBus caption oHmgApp():APP128[7]                           ;
                                               picture "HMG_EDIT_CANCEL"                     ;
                                               action  {|| lSalida := .f.,                       ;
                                                           xValor := wndABMBuscar.conBuscar.Value,  ;
                                                           wndABMBuscar.Release }
-                        button tbbAceptarBus  caption _HMG_SYSDATA [ 128 ][8]                                ;
+                        button tbbAceptarBus  caption oHmgApp():APP128[8]                                ;
                                               picture "HMG_EDIT_OK"                         ;
                                               action  {|| lSalida := .t.,                       ;
                                                           xValor := wndABMBuscar.conBuscar.Value,  ;
@@ -1614,7 +1613,7 @@ STATIC function ABM2Buscar()
                 nRegistro := (_cArea)->( RecNo() )
                 lResultado := (_cArea)->( dbSeek( xValor ) )
                 if !lResultado
-                        msgExclamation( _HMG_SYSDATA [ 130 ][11], _cTitulo )
+                        msgExclamation( oHmgApp():APP130[11], _cTitulo )
                         (_cArea)->( dbGoTo( nRegistro ) )
                 else
                         ABM2Redibuja( .t. )
@@ -1641,17 +1640,17 @@ STATIC function ABM2ActivarFiltro()
 
 ////////// Comprueba que no hay ningun filtro activo.--------------------------
         if _cFiltro != ""
-                MsgInfo( _HMG_SYSDATA [ 130 ][34], '' )
+                MsgInfo( oHmgApp():APP130[34], '' )
         endif
 
 ////////// Inicialización de variables.----------------------------------------
         aCampos    := _aNombreCampo
-        aCompara   := { _HMG_SYSDATA [ 129 ][27],;
-                        _HMG_SYSDATA [ 129 ][28],;
-                        _HMG_SYSDATA [ 129 ][29],;
-                        _HMG_SYSDATA [ 129 ][30],;
-                        _HMG_SYSDATA [ 129 ][31],;
-                        _HMG_SYSDATA [ 129 ][32] }
+        aCompara   := { oHmgApp():APP129[27],;
+                        oHmgApp():APP129[28],;
+                        oHmgApp():APP129[29],;
+                        oHmgApp():APP129[30],;
+                        oHmgApp():APP129[31],;
+                        oHmgApp():APP129[32] }
 
 
 ////////// Crea la ventana de filtrado.----------------------------------------
@@ -1659,7 +1658,7 @@ STATIC function ABM2ActivarFiltro()
                 AT 0, 0                                 ;
                 width 400                               ;
                 height 325                              ;
-                title _HMG_SYSDATA [ 129 ][21]            ;
+                title oHmgApp():APP129[21]            ;
                 modal                                   ;
                 nosize                                  ;
                 nosysmenu                               ;
@@ -1668,11 +1667,11 @@ STATIC function ABM2ActivarFiltro()
 
                 // Define la barra de botones de la ventana de filtrado.
                 define toolbar tbBuscar buttonsize 90, 32 flat righttext border
-                        button tbbCancelarFil caption _HMG_SYSDATA [ 128 ][7]           ;
+                        button tbbCancelarFil caption oHmgApp():APP128[7]           ;
                                               picture "HMG_EDIT_CANCEL"     ;
                                               action  {|| wndABM2Filtro.Release,;
                                                           ABM2Redibuja( .f. ) }
-                        button tbbAceptarFil  caption _HMG_SYSDATA [ 128 ][8]           ;
+                        button tbbAceptarFil  caption oHmgApp():APP128[8]           ;
                                               picture "HMG_EDIT_OK"         ;
                                               action  {|| ABM2EstableceFiltro() }
                 end toolbar
@@ -1692,19 +1691,19 @@ STATIC function ABM2ActivarFiltro()
                 height wndABM2Filtro.Height - 100
         @ 65, 20 label lblCampos                ;
                 of wndABM2Filtro                ;
-                value _HMG_SYSDATA [ 129 ][22]        ;
+                value oHmgApp():APP129[22]        ;
                 width 140                       ;
                 height 25                       ;
                 font "ms sans serif" size 9
         @ 65, 220 label lblCompara              ;
                 of wndABM2Filtro                ;
-                value _HMG_SYSDATA [ 129 ][23]    ;
+                value oHmgApp():APP129[23]    ;
                 width 140                       ;
                 height 25                       ;
                 font "ms sans serif" size 9
         @ 200, 20 label lblValor                ;
                 of wndABM2Filtro                ;
-                value _HMG_SYSDATA [ 129 ][24]        ;
+                value oHmgApp():APP129[24]        ;
                 width 140                       ;
                 height 25                       ;
                 font "ms sans serif" size 9
@@ -1716,7 +1715,7 @@ STATIC function ABM2ActivarFiltro()
                 value 1                                 ;
                 font "Arial" size 9                     ;
                 on change {|| ABM2ControlFiltro() }     ;
-                on gotfocus wndABM2Filtro.StatusBar.Item(1) := _HMG_SYSDATA [ 129 ][25] ;
+                on gotfocus wndABM2Filtro.StatusBar.Item(1) := oHmgApp():APP129[25] ;
                 on lostfocus wndABM2Filtro.StatusBar.Item(1) := ""
         @ 85, 220 listbox lbxCompara                    ;
                 of wndABM2Filtro                        ;
@@ -1725,7 +1724,7 @@ STATIC function ABM2ActivarFiltro()
                 items aCompara                          ;
                 value 1                                 ;
                 font "Arial" size 9                     ;
-                on gotfocus wndABM2Filtro.StatusBar.Item(1) := _HMG_SYSDATA [ 129 ][26] ;
+                on gotfocus wndABM2Filtro.StatusBar.Item(1) := oHmgApp():APP129[26] ;
                 on lostfocus wndABM2Filtro.StatusBar.Item(1) := ""
         @ 220, 20 textbox conValor              ;
                 of wndABM2Filtro                ;
@@ -1763,11 +1762,11 @@ STATIC function ABM2ControlFiltro()
 
 ///////// Comprueba que se puede crear el control.-----------------------------
         if _aEstructura[nControl,DBS_TYPE] == "M"
-                msgExclamation( _HMG_SYSDATA [ 130 ][35], _cTitulo )
+                msgExclamation( oHmgApp():APP130[35], _cTitulo )
                 return NIL
         endif
         if nControl == 0
-                msgExclamation( _HMG_SYSDATA [ 130 ][36], _cTitulo )
+                msgExclamation( oHmgApp():APP130[36], _cTitulo )
                 return NIL
         endif
 
@@ -1891,19 +1890,19 @@ STATIC function ABM2EstableceFiltro()
 
 ////////// Comprueba que se puede filtrar.-------------------------------------
         if nCompara == 0
-                msgExclamation( _HMG_SYSDATA [ 130 ][37], _cTitulo )
+                msgExclamation( oHmgApp():APP130[37], _cTitulo )
                 return NIL
         endif
         if nCampo == 0
-                msgExclamation( _HMG_SYSDATA [ 130 ][36], _cTitulo )
+                msgExclamation( oHmgApp():APP130[36], _cTitulo )
                 return NIL
         endif
         if cValor == ""
-                msgExclamation( _HMG_SYSDATA [ 130 ][38], _cTitulo )
+                msgExclamation( oHmgApp():APP130[38], _cTitulo )
                 return NIL
         endif
         if _aEstructura[nCampo,DBS_TYPE] == "M"
-                msgExclamation( _HMG_SYSDATA [ 130 ][35], _cTitulo )
+                msgExclamation( oHmgApp():APP130[35], _cTitulo )
                 return NIL
         endif
 
@@ -1953,11 +1952,11 @@ STATIC function ABM2DesactivarFiltro()
 
 ////////// Desactiva el filtro si procede.
         if !_lFiltro
-                msgExclamation( _HMG_SYSDATA [ 130 ][39], _cTitulo )
+                msgExclamation( oHmgApp():APP130[39], _cTitulo )
                 ABM2Redibuja( .f. )
                 return NIL
         endif
-        if msgYesNo( _HMG_SYSDATA [ 130 ][40], _cTitulo )
+        if msgYesNo( oHmgApp():APP130[40], _cTitulo )
                 (_cArea)->( dbSetFilter( {|| NIL }, "" ) )
                 _lFiltro := .f.
                 _cFiltro := ""
@@ -1986,7 +1985,7 @@ STATIC function ABM2Imprimir()
         local cRegistro1    as character        // Valor del registro inicial.
         local cRegistro2    as character        // Valor del registro final.
         local aImpresoras   as array            // Impresoras disponibles.
-	local NIMPLEN
+   local NIMPLEN
         private hbprn
 
 ////////// Comprueba si se ha pasado la clausula ON PRINT.---------------------
@@ -2007,7 +2006,7 @@ STATIC function ABM2Imprimir()
 
 ////////// Comprueba que hay un indice activo.---------------------------------
         if _nIndiceActivo == 1
-                msgExclamation( _HMG_SYSDATA [ 130 ][9], _cTitulo )
+                msgExclamation( oHmgApp():APP130[9], _cTitulo )
                 return NIL
         endif
 
@@ -2029,7 +2028,7 @@ STATIC function ABM2Imprimir()
                 AT 0, 0                         ;
                 width 390                       ;
                 height 365                      ;
-                title _HMG_SYSDATA [ 129 ][10]   ;
+                title oHmgApp():APP129[10]   ;
                 icon "HMG_EDIT_PRINT"       ;
                 modal                           ;
                 nosize                          ;
@@ -2038,10 +2037,10 @@ STATIC function ABM2Imprimir()
 
                 // Define la barra de botones de la ventana de formato de listado.
                 define toolbar tbListado buttonsize 90, 32 flat righttext border
-                        button tbbCancelarLis caption _HMG_SYSDATA [ 128 ][7]                   ;
+                        button tbbCancelarLis caption oHmgApp():APP128[7]                   ;
                                               picture "HMG_EDIT_CANCEL"             ;
                                               action  wndABM2Listado.Release
-                        button tbbAceptarLis  caption _HMG_SYSDATA [ 128 ][8]                   ;
+                        button tbbAceptarLis  caption oHmgApp():APP128[8]                   ;
                                               picture "HMG_EDIT_OK"                 ;
                                               action  ABM2Listado( aImpresoras )
 
@@ -2064,31 +2063,31 @@ STATIC function ABM2Imprimir()
         // Label
         @ 65, 20 label lblCampoBase             ;
                 of wndABM2Listado               ;
-                value _HMG_SYSDATA [ 129 ][11]       ;
+                value oHmgApp():APP129[11]       ;
                 width 140                       ;
                 height 25                       ;
                 font "ms sans serif" size 9
         @ 65, 220 label lblCampoListado         ;
                 of wndABM2Listado               ;
-                value _HMG_SYSDATA [ 129 ][12]           ;
+                value oHmgApp():APP129[12]           ;
                 width 140                       ;
                 height 25                       ;
                 font "ms sans serif" size 9
         @ 200, 20 label lblImpresoras           ;
                 of wndABM2Listado               ;
-                value _HMG_SYSDATA [ 129 ][13]   ;
+                value oHmgApp():APP129[13]   ;
                 width 140                       ;
                 height 25                       ;
                 font "ms sans serif" size 9
         @ 200, 170 label lblInicial             ;
                 of wndABM2Listado               ;
-                value _HMG_SYSDATA [ 129 ][14]           ;
+                value oHmgApp():APP129[14]           ;
                 width 160                       ;
                 height 25                       ;
                 font "ms sans serif" size 9
         @ 255, 170 label lblFinal               ;
                 of wndABM2Listado               ;
-                value _HMG_SYSDATA [ 129 ][15]           ;
+                value oHmgApp():APP129[15]           ;
                 width 160                       ;
                 height 25                       ;
                 font "ms sans serif" size 9
@@ -2101,7 +2100,7 @@ STATIC function ABM2Imprimir()
                 items aCampoBase                                                ;
                 value 1                                                         ;
                 font "Arial" size 9                                             ;
-                on gotfocus wndABM2Listado.StatusBar.Item( 1 ) := _HMG_SYSDATA [ 130 ][12] ;
+                on gotfocus wndABM2Listado.StatusBar.Item( 1 ) := oHmgApp():APP130[12] ;
                 on lostfocus wndABM2Listado.StatusBar.Item( 1 ) := ""
         @ 85, 220 listbox lbxCampoListado                                       ;
                 of wndABM2Listado                                               ;
@@ -2110,7 +2109,7 @@ STATIC function ABM2Imprimir()
                 items aCampoListado                                             ;
                 value 1                                                         ;
                 font "Arial" size 9                                             ;
-                on gotFocus wndABM2Listado.StatusBar.Item( 1 ) := _HMG_SYSDATA [ 130 ][13];
+                on gotFocus wndABM2Listado.StatusBar.Item( 1 ) := oHmgApp():APP130[13];
                 on lostfocus wndABM2Listado.StatusBar.Item( 1 ) := ""
 
         // ComboBox.
@@ -2120,7 +2119,7 @@ STATIC function ABM2Imprimir()
                 value 1                                                         ;
                 width 140                                                       ;
                 font "Arial" size 9                                             ;
-                on gotfocus wndABM2Listado.StatusBar.Item( 1 ) := _HMG_SYSDATA [ 130 ][14] ;
+                on gotfocus wndABM2Listado.StatusBar.Item( 1 ) := oHmgApp():APP130[14] ;
                 on lostfocus wndABM2Listado.StatusBar.Item( 1 ) := ""
 
         // PicButton.
@@ -2130,7 +2129,7 @@ STATIC function ABM2Imprimir()
                 action ABM2DefinirColumnas( ABM_LIS_ADD )                       ;
                 width 40                                                        ;
                 height 40                                                       ;
-                on gotfocus wndABM2Listado.StatusBar.Item( 1 ) := _HMG_SYSDATA [ 130 ][15] ;
+                on gotfocus wndABM2Listado.StatusBar.Item( 1 ) := oHmgApp():APP130[15] ;
                 on lostfocus wndABM2Listado.StatusBar.Item( 1 ) := ""
         @ 140, 170 button btnMenos                                              ;
                 of wndABM2Listado                                               ;
@@ -2138,7 +2137,7 @@ STATIC function ABM2Imprimir()
                 action ABM2DefinirColumnas( ABM_LIS_DEL )                       ;
                 width 40                                                        ;
                 height 40                                                       ;
-                on gotfocus wndABM2Listado.StatusBar.Item( 1 ) := _HMG_SYSDATA [ 130 ][16] ;
+                on gotfocus wndABM2Listado.StatusBar.Item( 1 ) := oHmgApp():APP130[16] ;
                 on lostfocus wndABM2Listado.StatusBar.Item( 1 ) := ""
         @ 220, 170 button btnSet1                                               ;
                 of wndABM2Listado                                               ;
@@ -2146,7 +2145,7 @@ STATIC function ABM2Imprimir()
                 action ABM2DefinirRegistro( ABM_LIS_SET1 )                      ;
                 width 25                                                        ;
                 height 25                                                       ;
-                on gotfocus wndABM2Listado.StatusBar.Item( 1 ) := _HMG_SYSDATA [ 130 ][17] ;
+                on gotfocus wndABM2Listado.StatusBar.Item( 1 ) := oHmgApp():APP130[17] ;
                 on lostfocus wndABM2Listado.StatusBar.Item( 1 ) := ""
         @ 275, 170 button btnSet2                                               ;
                 of wndABM2Listado                                               ;
@@ -2154,14 +2153,14 @@ STATIC function ABM2Imprimir()
                 action ABM2DefinirRegistro( ABM_LIS_SET2 )                      ;
                 width 25                                                        ;
                 height 25                                                       ;
-                on gotfocus wndABM2Listado.StatusBar.Item( 1 ) := _HMG_SYSDATA [ 130 ][18] ;
+                on gotfocus wndABM2Listado.StatusBar.Item( 1 ) := oHmgApp():APP130[18] ;
                 on lostfocus wndABM2Listado.StatusBar.Item( 1 ) := ""
 
         // CheckBox.
 
         @ 275, 20 checkbox chkPrevio            ;
                 of wndABM2Listado               ;
-                caption _HMG_SYSDATA [ 129 ][17]      ;
+                caption oHmgApp():APP129[17]      ;
                 width 140                       ;
                 height 25                       ;
                 value .t.                       ;
@@ -2268,7 +2267,7 @@ STATIC function ABM2DefinirColumnas( nAccion )
         local aCampoListado as array            // * Campos del listado.
         local i             as numeric          // * Indice de iteración.
         local nItem         as numeric          // * Numero del item seleccionado.
-	local cvalor
+   local cvalor
 
 ////////// Inicialización de variables.----------------------------------------
         aCampoBase  := {}
@@ -2290,7 +2289,7 @@ STATIC function ABM2DefinirColumnas( nAccion )
 
                         // Actualiza los datos de los campos de la base.
                         if HMG_LEN( aCampoBase ) == 0
-                                msgExclamation( _HMG_SYSDATA [ 130 ][23], _cTitulo )
+                                msgExclamation( oHmgApp():APP130[23], _cTitulo )
                                 return NIL
                         else
                                 wndABM2Listado.lbxCampoBase.DeleteAllItems
@@ -2305,7 +2304,7 @@ STATIC function ABM2DefinirColumnas( nAccion )
 
                         // Actualiza los datos de los campos del listado.
                         if Empty( cValor )
-                                msgExclamation( _HMG_SYSDATA [ 130 ][23], _cTitulo )
+                                msgExclamation( oHmgApp():APP130[23], _cTitulo )
                                 return NIL
                         else
                                 wndABM2Listado.lbxCampoListado.AddItem( cValor )
@@ -2320,7 +2319,7 @@ STATIC function ABM2DefinirColumnas( nAccion )
 
                         // Actualiza los datos de los campos del listado.
                         if HMG_LEN( aCampoListado ) == 0
-                                msgExclamation( _HMG_SYSDATA [ 130 ][23], _cTitulo )
+                                msgExclamation( oHmgApp():APP130[23], _cTitulo )
                                 return NIL
                         else
                                 wndABM2Listado.lbxCampoListado.DeleteAllItems
@@ -2336,7 +2335,7 @@ STATIC function ABM2DefinirColumnas( nAccion )
 
                         // Actualiza los datos de los campos de la base.
                         if Empty( cValor )
-                                msgExclamation( _HMG_SYSDATA [ 130 ][23], _cTitulo )
+                                msgExclamation( oHmgApp():APP130[23], _cTitulo )
                                 return NIL
                         else
                                 wndABM2Listado.lbxCampoBase.DeleteAllItems
@@ -2395,10 +2394,10 @@ STATIC function ABM2Listado( aImpresoras )
         local cRegistro2    as character        // * Valor del registro final.
         local xRegistro1                        // * Valor de comparación.
         local xRegistro2                        // * Valor de comparación.
-	local lSuccess
-	local HBPRNMAXCOL	:= 100
-	LOCAL RF		:= 4
-	LOCAL CF		:= 2
+   local lSuccess
+   local HBPRNMAXCOL   := 100
+   LOCAL RF      := 4
+   LOCAL CF      := 2
 
 ////////// Inicialización de variables.----------------------------------------
         // Previsualizar.
@@ -2407,7 +2406,7 @@ STATIC function ABM2Listado( aImpresoras )
         // Nombre de la impresora.
         nImpresora := wndABM2Listado.cbxImpresoras.Value
         if nImpresora == 0
-                msgExclamation( _HMG_SYSDATA [ 130 ][32], '' )
+                msgExclamation( oHmgApp():APP130[32], '' )
         else
                 cImpresora := aImpresoras[nImpresora]
         endif
@@ -2419,7 +2418,7 @@ STATIC function ABM2Listado( aImpresoras )
                 aAdd( aCampo, cCampo )
         next
         if HMG_LEN( aCampo ) == 0
-                msgExclamation( _HMG_SYSDATA [ 130 ][23], _cTitulo )
+                msgExclamation( oHmgApp():APP130[23], _cTitulo )
                 return NIL
         endif
 
@@ -2455,7 +2454,7 @@ STATIC function ABM2Listado( aImpresoras )
                 nAncho += aAncho[i]
         next
         if nAncho > 164
-                MsgExclamation( _HMG_SYSDATA [ 130 ][24], _cTitulo )
+                MsgExclamation( oHmgApp():APP130[24], _cTitulo )
                 return NIL
         else
                 if nAncho > 109                 // Horizontal.
@@ -2511,62 +2510,62 @@ STATIC function ABM2Listado( aImpresoras )
 
 ////////// Inicializa el listado.----------------------------------------------
 
-	// Opciones de la impresión.
-	if lPrevio
+   // Opciones de la impresión.
+   if lPrevio
 
-		if lOrientacion
+      if lOrientacion
 
-			SELECT PRINTER cImpresora ;
-				TO lSuccess ;
-				ORIENTATION PRINTER_ORIENT_LANDSCAPE ;
-				PAPERSIZE PRINTER_PAPER_A4 ;
-				PREVIEW
+         SELECT PRINTER cImpresora ;
+            TO lSuccess ;
+            ORIENTATION PRINTER_ORIENT_LANDSCAPE ;
+            PAPERSIZE PRINTER_PAPER_A4 ;
+            PREVIEW
 
-		else
+      else
 
-			SELECT PRINTER cImpresora ;
-				TO lSuccess ;
-				ORIENTATION PRINTER_ORIENT_PORTRAIT ;
-				PAPERSIZE PRINTER_PAPER_A4 ;
-				PREVIEW
-
-                endif
-
-	else
-
-		if lOrientacion
-
-			SELECT PRINTER cImpresora ;
-				TO lSuccess ;
-				ORIENTATION PRINTER_ORIENT_LANDSCAPE ;
-				PAPERSIZE PRINTER_PAPER_A4 
-
-		else
-
-			SELECT PRINTER cImpresora ;
-				TO lSuccess ;
-				ORIENTATION PRINTER_ORIENT_PORTRAIT ;
-				PAPERSIZE PRINTER_PAPER_A4 
+         SELECT PRINTER cImpresora ;
+            TO lSuccess ;
+            ORIENTATION PRINTER_ORIENT_PORTRAIT ;
+            PAPERSIZE PRINTER_PAPER_A4 ;
+            PREVIEW
 
                 endif
 
-	 endif
+   else
 
-	// Control de errores.
-	if lSuccess == .F.
-		msgExclamation( _HMG_SYSDATA [ 130 ][25], _cTitulo )
-		return nil
-	endif
+      if lOrientacion
 
-	// Inicio del listado.
-	lCabecera := .t.
-	lSalida   := .t.
-	nFila     := 13
-	nPagina   := 1
+         SELECT PRINTER cImpresora ;
+            TO lSuccess ;
+            ORIENTATION PRINTER_ORIENT_LANDSCAPE ;
+            PAPERSIZE PRINTER_PAPER_A4
 
-	START PRINTDOC
+      else
 
-		START PRINTPAGE
+         SELECT PRINTER cImpresora ;
+            TO lSuccess ;
+            ORIENTATION PRINTER_ORIENT_PORTRAIT ;
+            PAPERSIZE PRINTER_PAPER_A4
+
+                endif
+
+    endif
+
+   // Control de errores.
+   if lSuccess == .F.
+      msgExclamation( oHmgApp():APP130[25], _cTitulo )
+      return nil
+   endif
+
+   // Inicio del listado.
+   lCabecera := .t.
+   lSalida   := .t.
+   nFila     := 13
+   nPagina   := 1
+
+   START PRINTDOC
+
+      START PRINTPAGE
 
                         do while lSalida
 
@@ -2576,21 +2575,21 @@ STATIC function ABM2Listado( aImpresoras )
                                         @ 5*RF, (HBPRNMAXCOL-HMG_LEN(_cTitulo)-6)*CF PRINT _cTitulo  FONT "COURIER NEW" SIZE 12 BOLD
                                         @ (6*RF) + 1 , 10*CF PRINT LINE TO (6*RF) + 1 , (HBPRNMAXCOL-5)*CF PENWIDTH 0.2
 
-                                        @ 7*RF	, 11*CF PRINT _HMG_SYSDATA [ 130 ] [26]	FONT "COURIER NEW" SIZE 9 BOLD 
-                                        @ 8*RF	, 11*CF PRINT _HMG_SYSDATA [ 130 ][27]	FONT "COURIER NEW" SIZE 9 BOLD 
-                                        @ 9*RF	, 11*CF PRINT _HMG_SYSDATA [ 130 ][28]	FONT "COURIER NEW" SIZE 9 BOLD 
-                                        @ 10*RF	, 11*CF PRINT _HMG_SYSDATA [ 130 ][33]	FONT "COURIER NEW" SIZE 9 BOLD 
+                                        @ 7*RF   , 11*CF PRINT oHmgApp():APP130 [26]   FONT "COURIER NEW" SIZE 9 BOLD
+                                        @ 8*RF   , 11*CF PRINT oHmgApp():APP130[27]   FONT "COURIER NEW" SIZE 9 BOLD
+                                        @ 9*RF   , 11*CF PRINT oHmgApp():APP130[28]   FONT "COURIER NEW" SIZE 9 BOLD
+                                        @ 10*RF   , 11*CF PRINT oHmgApp():APP130[33]   FONT "COURIER NEW" SIZE 9 BOLD
 
-                                        @ 7*RF	, 23*CF PRINT (_cArea)->( ordName() )	FONT "COURIER NEW" SIZE 9  
-                                        @ 8*RF	, 23*CF PRINT cRegistro1		FONT "COURIER NEW" SIZE 9  
-                                        @ 9*RF	, 23*CF PRINT cRegistro2		FONT "COURIER NEW" SIZE 9 
-                                        @ 10*RF	, 23*CF PRINT _cFiltro			FONT "COURIER NEW" SIZE 9 
+                                        @ 7*RF   , 23*CF PRINT (_cArea)->( ordName() )   FONT "COURIER NEW" SIZE 9
+                                        @ 8*RF   , 23*CF PRINT cRegistro1      FONT "COURIER NEW" SIZE 9
+                                        @ 9*RF   , 23*CF PRINT cRegistro2      FONT "COURIER NEW" SIZE 9
+                                        @ 10*RF   , 23*CF PRINT _cFiltro         FONT "COURIER NEW" SIZE 9
 
                                         nColumna := 10
 
                                         for i := 1 to HMG_LEN( aCampo )
-                                                @ 12*RF, nColumna*CF PRINT RECTANGLE TO 12*RF, nColumna + aAncho[i] PENWIDTH 0.2 
-                                                @ 12*RF, (nColumna + 1) *CF PRINT aCampo[i] FONT "COURIER NEW" SIZE 9 BOLD 
+                                                @ 12*RF, nColumna*CF PRINT RECTANGLE TO 12*RF, nColumna + aAncho[i] PENWIDTH 0.2
+                                                @ 12*RF, (nColumna + 1) *CF PRINT aCampo[i] FONT "COURIER NEW" SIZE 9 BOLD
                                                 nColumna += aAncho[i]
                                         next
 
@@ -2605,11 +2604,11 @@ STATIC function ABM2Listado( aImpresoras )
                                         do case
                                                 case _aEstructura[nCampo,DBS_TYPE] == "N"
 
-                                                        @ nFila*RF, ( nColumna + aAncho[i] ) *CF PRINT (_cArea)->( FieldGet( aNumeroCampo[i] ) ) FONT "COURIER NEW" SIZE 8 
+                                                        @ nFila*RF, ( nColumna + aAncho[i] ) *CF PRINT (_cArea)->( FieldGet( aNumeroCampo[i] ) ) FONT "COURIER NEW" SIZE 8
 
                                                 case _aEstructura[nCampo,DBS_TYPE] == "L"
 
-                                                        @ nFila*RF, ( nColumna + 1 )  *CF PRINT iif( (_cArea)->( FieldGet( aNumeroCampo[i] ) ), _HMG_SYSDATA [ 130 ][29], _HMG_SYSDATA [ 130 ][30] ) FONT "COURIER NEW" SIZE 8 
+                                                        @ nFila*RF, ( nColumna + 1 )  *CF PRINT iif( (_cArea)->( FieldGet( aNumeroCampo[i] ) ), oHmgApp():APP130[29], oHmgApp():APP130[30] ) FONT "COURIER NEW" SIZE 8
 
                                                 case _aEstructura[nCampo,DBS_TYPE] == "M"
 
@@ -2640,11 +2639,11 @@ STATIC function ABM2Listado( aImpresoras )
                                 if lOrientacion
                                         if nFila > 44
 
-                                                @ (46*RF) - 1 , 10 *CF  PRINT LINE TO (46*RF)-1, ( HBPRNMAXCOL - 5 ) *CF PENWIDTH 0.2 
+                                                @ (46*RF) - 1 , 10 *CF  PRINT LINE TO (46*RF)-1, ( HBPRNMAXCOL - 5 ) *CF PENWIDTH 0.2
 
                                                 cPie := HB_ValToStr( Date() ) + " " + Time()
 
-                                                @ 46*RF, 10 *CF  PRINT cPie FONT "COURIER NEW" SIZE 9 BOLD 
+                                                @ 46*RF, 10 *CF  PRINT cPie FONT "COURIER NEW" SIZE 9 BOLD
 
 
                                                 cPie := "Pagina:" + " " +          ;
@@ -2652,7 +2651,7 @@ STATIC function ABM2Listado( aImpresoras )
                                                         "/" +                           ;
                                                         ALLTRIM( STR( nPaginas ) )
 
-                                                @ 46*RF, ( HBPRNMAXCOL - HMG_LEN(cPie)-5 )  *CF PRINT cPie FONT "COURIER NEW" SIZE 9 BOLD 
+                                                @ 46*RF, ( HBPRNMAXCOL - HMG_LEN(cPie)-5 )  *CF PRINT cPie FONT "COURIER NEW" SIZE 9 BOLD
 
                                                 nPagina++
                                                 nFila := 13
@@ -2670,14 +2669,14 @@ STATIC function ABM2Listado( aImpresoras )
 
                                                 cPie := HB_ValToStr( Date() ) + " " + Time()
 
-                                                @ 68*RF, 10 *CF PRINT cPie FONT "COURIER NEW" SIZE 9 BOLD 
+                                                @ 68*RF, 10 *CF PRINT cPie FONT "COURIER NEW" SIZE 9 BOLD
 
                                                 cPie := "Pagina: " +                    ;
                                                         ALLTRIM( STR( nPagina) ) +      ;
                                                         "/" +                           ;
                                                         ALLTRIM( STR( nPaginas ) )
 
-                                                @ 68*RF, ( HBPRNMAXCOL - HMG_LEN(cPie)-5 )  *CF PRINT cPie FONT "COURIER NEW" SIZE 9 BOLD 
+                                                @ 68*RF, ( HBPRNMAXCOL - HMG_LEN(cPie)-5 )  *CF PRINT cPie FONT "COURIER NEW" SIZE 9 BOLD
 
                                                 nFila := 13
                                                 nPagina++
@@ -2698,31 +2697,31 @@ STATIC function ABM2Listado( aImpresoras )
                         @ (46*RF)-1, 10 *CF  PRINT LINE TO (46*RF)-1, ( HBPRNMAXCOL - 5 )  *CF PENWIDTH 0.2
 
                         cPie := HB_ValToStr( Date() ) + " " + Time()
-                        @ 46*RF, 10 *CF  PRINT cPie FONT "COURIER NEW" SIZE 9 BOLD 
+                        @ 46*RF, 10 *CF  PRINT cPie FONT "COURIER NEW" SIZE 9 BOLD
 
                         cPie := "Página: " +                    ;
                                 ALLTRIM( STR( nPagina) ) +      ;
                                 "/" +                           ;
                                 ALLTRIM( STR( nPaginas ) )
-                        @ 46*RF, ( HBPRNMAXCOL -HMG_LEN(cPie)-5 )  *CF PRINT cPie FONT "COURIER NEW" SIZE 9 BOLD 
+                        @ 46*RF, ( HBPRNMAXCOL -HMG_LEN(cPie)-5 )  *CF PRINT cPie FONT "COURIER NEW" SIZE 9 BOLD
                 else
 
                         @ (68*RF)-1, 10  *CF PRINT LINE TO (68*RF)-1, ( HBPRNMAXCOL - 5 ) *CF PENWIDTH 0.2
                         cPie := HB_ValToStr( Date() ) + " " + Time()
-                        @ 68*RF, 10 *CF  PRINT cPie FONT "COURIER NEW" SIZE 9 BOLD 
+                        @ 68*RF, 10 *CF  PRINT cPie FONT "COURIER NEW" SIZE 9 BOLD
 
                         cPie := "Página: " +                    ;
                                 ALLTRIM( STR( nPagina) ) +      ;
                                 "/" +                           ;
                                 ALLTRIM( STR( nPaginas ) )
-                        @ 68*RF, ( HBPRNMAXCOL - HMG_LEN(cPie)-5)  *CF PRINT cPie FONT "COURIER NEW" SIZE 9 BOLD 
+                        @ 68*RF, ( HBPRNMAXCOL - HMG_LEN(cPie)-5)  *CF PRINT cPie FONT "COURIER NEW" SIZE 9 BOLD
 
                 endif
 
 
-		END PRINTPAGE
+      END PRINTPAGE
 
-	END PRINTDOC
+   END PRINTDOC
 
 ////////// Cierra la ventana.--------------------------------------------------
         (_cArea)->( dbGoTo( nRegistro ) )

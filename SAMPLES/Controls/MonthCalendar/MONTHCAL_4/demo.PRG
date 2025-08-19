@@ -11,18 +11,18 @@ FUNCTION Main()
         MAIN ; 
         NOSIZE  
 
-	DEFINE MAIN MENU
-		DEFINE POPUP 'Test'
-			MENUITEM 'Set Row' ACTION Win_1.Control_1.Row := Val(InputBox('Enter Row',''))
-			MENUITEM 'Set Col' ACTION Win_1.Control_1.Col := Val(InputBox('Enter Col',''))
+   DEFINE MAIN MENU
+      DEFINE POPUP 'Test'
+         MENUITEM 'Set Row' ACTION Win_1.Control_1.Row := Val(InputBox('Enter Row',''))
+         MENUITEM 'Set Col' ACTION Win_1.Control_1.Col := Val(InputBox('Enter Col',''))
 
-			MENUITEM 'Get Row' ACTION MsgInfo ( Str ( Win_1.Control_1.Row ) )
-			MENUITEM 'Get Col' ACTION MsgInfo ( Str ( Win_1.Control_1.Col ) )
-			MENUITEM 'Get Width' ACTION MsgInfo ( Str ( Win_1.Control_1.Width ) )
-			MENUITEM 'Get Height' ACTION MsgInfo ( Str ( Win_1.Control_1.Height ) )
+         MENUITEM 'Get Row' ACTION MsgInfo ( Str ( Win_1.Control_1.Row ) )
+         MENUITEM 'Get Col' ACTION MsgInfo ( Str ( Win_1.Control_1.Col ) )
+         MENUITEM 'Get Width' ACTION MsgInfo ( Str ( Win_1.Control_1.Width ) )
+         MENUITEM 'Get Height' ACTION MsgInfo ( Str ( Win_1.Control_1.Height ) )
 
-		END POPUP
-	END MENU
+      END POPUP
+   END MENU
 
         @ 10,10 MONTHCALENDAR CONTROL_1 ; 
             OF Win_1 ; 

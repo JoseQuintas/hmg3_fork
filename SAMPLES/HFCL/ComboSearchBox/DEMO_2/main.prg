@@ -8,7 +8,7 @@
 
     #include "hmg.ch"
 
-    *!!!!!!!!!!!!!!!!!!!!!!	
+    *!!!!!!!!!!!!!!!!!!!!!!   
     #include "hfcl.ch"
     *!!!!!!!!!!!!!!!!!!!!!!
 
@@ -60,14 +60,14 @@
        frmCSBTest.Center
 
 
-	* !!!!!!
-	* CombosearchBox already inherits all properties events 
-	* and methods from TextBox!!!
-	* Test it uncommenting the following:
-	*
-	* frmCSBTest.s1.Value := '*'
-	*
-	* !!!!!!
+   * !!!!!!
+   * CombosearchBox already inherits all properties events 
+   * and methods from TextBox!!!
+   * Test it uncommenting the following:
+   *
+   * frmCSBTest.s1.Value := '*'
+   *
+   * !!!!!!
 
        
        frmCSBTest.Activate

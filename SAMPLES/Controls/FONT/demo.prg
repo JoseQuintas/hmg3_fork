@@ -75,11 +75,11 @@ Function Main
       CAPTION "Strikeout OFF" ;
       ACTION Form_1.Control_1.FontStrikeout := .f.
 
-	END WINDOW
+   END WINDOW
 
-	CENTER WINDOW Form_1
+   CENTER WINDOW Form_1
 
-	ACTIVATE WINDOW Form_1
+   ACTIVATE WINDOW Form_1
 
 Return Nil
 

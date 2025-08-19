@@ -1,12 +1,11 @@
 
 /*
-File:		MyCrypt.prg
-Author:		Grigory Filatov
-Description:	Crypto Library for HMG
-Status:		Public Domain
-Notes:		This is very simple crypt algorithm based on XOR encryption.
+File:      MyCrypt.prg
+Author:      Grigory Filatov
+Description:   Crypto Library for HMG
+Status:      Public Domain
+Notes:      This is very simple crypt algorithm based on XOR encryption.
 */
-MEMVAR _HMG_SYSDATA
 #define MSGALERT( c ) MsgEXCLAMATION( c, "Attention" )
 #define MSGSTOP( c ) MsgStop( c, "Stop!" )
 /*
@@ -17,7 +16,7 @@ FUNCTION _ENCRYPT(cStr, cPass)
 
    IF !EMPTY(cPass)
 
-	cXorStr := CHARXOR( cXorStr, cPass )
+   cXorStr := CHARXOR( cXorStr, cPass )
 
    ENDIF
 
@@ -563,7 +562,7 @@ Return ALLTRIM( If( n > 0, HB_ULEFT( cName, n - 1 ), cName ) )
 /*
 */
 FUNCTION DB_CODE(cData, cKey, aFields, cPass, cFor, cWhile)
-local cTmpFile := "__temp__.dbf", nRecno := recno(), cVal, cBuf 
+local cTmpFile := "__temp__.dbf", nRecno := recno(), cVal, cBuf
 
 Local aString[HMG_LEN(aFields)] , nFields , cSeek , i , cAlias , cTmpAlias // RL
 
@@ -633,11 +632,11 @@ Do while .not. eof()
       cVal:=&cSeek
       Select &cAlias
       seek cVal
-	rlock()
+   rlock()
       For i=1 to nFields
          FieldPut(i, &cTmpAlias->(FieldGet(i)))
       Next
-	dbunlock()
+   dbunlock()
       Select &cTmpAlias
       skip
 Enddo

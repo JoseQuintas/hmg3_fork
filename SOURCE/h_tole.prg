@@ -7,8 +7,6 @@
 *
 */
 
-MEMVAR _HMG_SYSDATA
-
 #include "hmg.ch"
 
 #define HB_CLS_NOTOBJECT  /* avoid definition of method: INIT */
@@ -23,13 +21,16 @@ MEMVAR _HMG_SYSDATA
 __THREAD STATIC s_bBreak := { | oError | Break( oError ) }
 
 STATIC PROCEDURE Throw( oError )
+
    LOCAL lError := Eval( ErrorBlock(), oError )
+
    IF ! ISLOGICAL( lError ) .OR. lError
       __ErrInHandler()
    ENDIF
    Break( oError )
 
 STATIC FUNCTION ThrowOpError( nSubCode, cOperator, ... )
+
    LOCAL oError
 
    oError := ErrorNew()
@@ -47,6 +48,7 @@ STATIC FUNCTION ThrowOpError( nSubCode, cOperator, ... )
    RETURN Throw( oError )
 
 CREATE CLASS TOLEAUTO FROM WIN_OLEAUTO
+
    /* TODO: Implement compatibility to the required extent */
    VAR cClassName
    METHOD New( xOle, cClass )
@@ -63,7 +65,7 @@ CREATE CLASS TOLEAUTO FROM WIN_OLEAUTO
    METHOD OleValueEqual( xArg )           OPERATOR "="
    METHOD OleValueExactEqual( xArg )      OPERATOR "=="
    METHOD OleValueNotEqual( xArg )        OPERATOR "!="
-ENDCLASS
+   ENDCLASS
 
 METHOD hObj( xOle ) CLASS TOLEAUTO
 
@@ -79,6 +81,7 @@ METHOD hObj( xOle ) CLASS TOLEAUTO
    RETURN ::__hObj
 
 METHOD New( xOle, cClass ) CLASS TOLEAUTO
+
    LOCAL hOle
    LOCAL oError
 
@@ -118,9 +121,11 @@ METHOD New( xOle, cClass ) CLASS TOLEAUTO
    RETURN Self
 
 FUNCTION CreateObject( xOle, cClass )
+
    RETURN TOleAuto():New( xOle, cClass )
 
 FUNCTION GetActiveObject( xOle, cClass )
+
    LOCAL o := TOleAuto():New()
    LOCAL hOle
    LOCAL oError
@@ -161,6 +166,7 @@ FUNCTION GetActiveObject( xOle, cClass )
    RETURN o
 
 METHOD OleValuePlus( xArg ) CLASS TOLEAUTO
+
    LOCAL xRet
 
    BEGIN SEQUENCE WITH s_bBreak
@@ -172,6 +178,7 @@ METHOD OleValuePlus( xArg ) CLASS TOLEAUTO
    RETURN xRet
 
 METHOD OleValueMinus( xArg ) CLASS TOLEAUTO
+
    LOCAL xRet
 
    BEGIN SEQUENCE WITH s_bBreak
@@ -183,6 +190,7 @@ METHOD OleValueMinus( xArg ) CLASS TOLEAUTO
    RETURN xRet
 
 METHOD OleValueMultiply( xArg ) CLASS TOLEAUTO
+
    LOCAL xRet
 
    BEGIN SEQUENCE WITH s_bBreak
@@ -194,6 +202,7 @@ METHOD OleValueMultiply( xArg ) CLASS TOLEAUTO
    RETURN xRet
 
 METHOD OleValueDivide( xArg ) CLASS TOLEAUTO
+
    LOCAL xRet
 
    BEGIN SEQUENCE WITH s_bBreak
@@ -205,6 +214,7 @@ METHOD OleValueDivide( xArg ) CLASS TOLEAUTO
    RETURN xRet
 
 METHOD OleValueModulus( xArg ) CLASS TOLEAUTO
+
    LOCAL xRet
 
    BEGIN SEQUENCE WITH s_bBreak
@@ -216,6 +226,7 @@ METHOD OleValueModulus( xArg ) CLASS TOLEAUTO
    RETURN xRet
 
 METHOD OleValuePower( xArg ) CLASS TOLEAUTO
+
    LOCAL xRet
 
    BEGIN SEQUENCE WITH s_bBreak
@@ -247,6 +258,7 @@ METHOD OleValueDec() CLASS TOLEAUTO
    RETURN Self
 
 METHOD OleValueEqual( xArg ) CLASS TOLEAUTO
+
    LOCAL xRet
 
    BEGIN SEQUENCE WITH s_bBreak
@@ -258,6 +270,7 @@ METHOD OleValueEqual( xArg ) CLASS TOLEAUTO
    RETURN xRet
 
 METHOD OleValueExactEqual( xArg ) CLASS TOLEAUTO
+
    LOCAL xRet
 
    BEGIN SEQUENCE WITH s_bBreak
@@ -269,6 +282,7 @@ METHOD OleValueExactEqual( xArg ) CLASS TOLEAUTO
    RETURN xRet
 
 METHOD OleValueNotEqual( xArg ) CLASS TOLEAUTO
+
    LOCAL xRet
 
    BEGIN SEQUENCE WITH s_bBreak

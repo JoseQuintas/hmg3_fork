@@ -4,27 +4,27 @@
  * Implementación del comando EDIT para la librería HMG.
  * (c) Cristóbal Mollá [cemese@terra.es]
 
- This program is free software; you can redistribute it and/or modify it under 
- the terms of the GNU General Public License as published by the Free Software 
- Foundation; either version 2 of the License, or (at your option) any later 
- version. 
+ This program is free software; you can redistribute it and/or modify it under
+ the terms of the GNU General Public License as published by the Free Software
+ Foundation; either version 2 of the License, or (at your option) any later
+ version.
 
- This program is distributed in the hope that it will be useful, but WITHOUT 
- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS 
+ This program is distributed in the hope that it will be useful, but WITHOUT
+ ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
- You should have received a copy of the GNU General Public License along with 
- this software; see the file COPYING. If not, write to the Free Software 
- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA (or 
+ You should have received a copy of the GNU General Public License along with
+ this software; see the file COPYING. If not, write to the Free Software
+ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA (or
  visit the web site http://www.gnu.org/).
 
- As a special exception, you have permission for additional uses of the text 
+ As a special exception, you have permission for additional uses of the text
  contained in this file.
 
- The exception is that, if you link this code with other 
- files to produce an executable, this does not by itself cause the resulting 
+ The exception is that, if you link this code with other
+ files to produce an executable, this does not by itself cause the resulting
  executable to be covered by the GNU General Public License.
- Your use of that executable is in no way restricted on account of linking  
+ Your use of that executable is in no way restricted on account of linking
  this code into it.
 
 */
@@ -41,14 +41,12 @@
  *                      - Añadido soporte para lenguaje Ruso (Grigory Filiatov).
  *                      - Añadido soporte para lenguaje Catalán.
  *                      - Añadido soporte para lenguaje Portugués (Clovis Nogueira Jr).
- *			- Añadido soporte para lenguaja Polaco 852 (Janusz Poura).
- *			- Añadido soporte para lenguaje Francés (C. Jouniauxdiv).
+ *         - Añadido soporte para lenguaja Polaco 852 (Janusz Poura).
+ *         - Añadido soporte para lenguaje Francés (C. Jouniauxdiv).
  *              May 03  - Añadido soporte para lenguaje Italiano (Lupano Piero).
  *                      - Añadido soporte para lenguaje Alemán (Janusz Poura).
  ***************************************************************************************/
 
-
-MEMVAR _HMG_SYSDATA
 
 #include "hmg.ch"
 
@@ -196,7 +194,7 @@ InitMessages()
 // Control de parámetros.
 // Area de la base de datos.---------------------------------------------------
 if ( ValType( cArea ) != "C" ) .or. Empty( cArea )
-        MsgHMGError( _HMG_SYSDATA [ 134 ][1], "" )
+        MsgHMGError( oHmgApp():APP134[1], "" )
 else
         _cArea       := cArea
         _aEstructura := (_cArea)->( dbStruct() )
@@ -205,7 +203,7 @@ endif
 
 // Numero de campos.-----------------------------------------------------------
 if ( nCampos > 16 )
-        MsgHMGError( _HMG_SYSDATA [ 134 ][2], "" )
+        MsgHMGError( oHmgApp():APP134[2], "" )
 endif
 
 // Titulo de la ventana.-------------------------------------------------------
@@ -352,8 +350,8 @@ end window
 // Defincición de las etiquetas.-----------------------------------------------
 for nItem := 1 to nCampos
 
-	_HMG_cMacroTemp := aEtiquetas[nItem,1]
-	
+   _HMG_cMacroTemp := aEtiquetas[nItem,1]
+
         @ aEtiquetas[nItem,2], aEtiquetas[nItem,3] label &_HMG_cMacroTemp ;
                 of     wndABM ;
                 value  _aCampos[nItem] ;
@@ -364,7 +362,7 @@ for nItem := 1 to nCampos
 next
 @ 310, 535 label  lblLabel1 ;
            of     wndABM ;
-           value  _HMG_SYSDATA [ 132 ][1] ;
+           value  oHmgApp():APP132[1] ;
            width  85 ;
            height 20 ;
            font   "ms sans serif" ;
@@ -378,7 +376,7 @@ next
            size   8
 @ 350, 535 label  lblLabel2 ;
            of     wndABM ;
-           value  _HMG_SYSDATA [ 132 ][2] ;
+           value  oHmgApp():APP132[2] ;
            width  85 ;
            height 20 ;
            font   "ms sans serif" ;
@@ -406,7 +404,7 @@ next
 // Definición de los botones.--------------------------------------------------
 @ 400, 535 button btnCerrar ;
         of      wndABM ;
-        caption _HMG_SYSDATA [ 133 ][1] ;
+        caption oHmgApp():APP133[1] ;
         action  ABMEventos( ABM_EVENTO_SALIR ) ;
         width   85 ;
         height  30 ;
@@ -414,7 +412,7 @@ next
         size    8
 @ 20, 535 button btnNuevo ;
         of      wndABM ;
-        caption _HMG_SYSDATA [ 133 ][2] ;
+        caption oHmgApp():APP133[2] ;
         action  ABMEventos( ABM_EVENTO_NUEVO ) ;
         width   85 ;
         height  30 ;
@@ -423,7 +421,7 @@ next
         notabstop
 @ 65, 535 button btnEditar ;
         of      wndABM ;
-        caption _HMG_SYSDATA [ 133 ][3] ;
+        caption oHmgApp():APP133[3] ;
         action  ABMEventos( ABM_EVENTO_EDITAR ) ;
         width   85 ;
         height  30 ;
@@ -432,7 +430,7 @@ next
         notabstop
 @ 110, 535 button btnBorrar ;
         of      wndABM ;
-        caption _HMG_SYSDATA [ 133 ][4] ;
+        caption oHmgApp():APP133[4] ;
         action  ABMEventos( ABM_EVENTO_BORRAR ) ;
         width   85 ;
         height  30 ;
@@ -441,7 +439,7 @@ next
         notabstop
 @ 155, 535 button btnBuscar ;
         of      wndABM ;
-        caption _HMG_SYSDATA [ 133 ][5] ;
+        caption oHmgApp():APP133[5] ;
         action  ABMEventos( ABM_EVENTO_BUSCAR ) ;
         width   85 ;
         height  30 ;
@@ -450,7 +448,7 @@ next
         notabstop
 @ 200, 535 button btnIr ;
         of      wndABM ;
-        caption _HMG_SYSDATA [ 133 ][6] ;
+        caption oHmgApp():APP133[6] ;
         action  ABMEventos( ABM_EVENTO_IR ) ;
         width   85 ;
         height  30 ;
@@ -459,7 +457,7 @@ next
         notabstop
 @ 245, 535 button btnListado ;
         of      wndABM ;
-        caption _HMG_SYSDATA [ 133 ][7] ;
+        caption oHmgApp():APP133[7] ;
         action  ABMEventos( ABM_EVENTO_LISTADO ) ;
         width   85 ;
         height  30 ;
@@ -468,7 +466,7 @@ next
         notabstop
 @ 260, 20 button btnPrimero ;
         of      wndABM ;
-        caption _HMG_SYSDATA [ 133 ][8] ;
+        caption oHmgApp():APP133[8] ;
         action  ABMEventos( ABM_EVENTO_PRIMERO ) ;
         width   70 ;
         height  30 ;
@@ -477,7 +475,7 @@ next
         notabstop
 @ 260, 100 button btnAnterior ;
         of      wndABM ;
-        caption _HMG_SYSDATA [ 133 ][9] ;
+        caption oHmgApp():APP133[9] ;
         action  ABMEventos( ABM_EVENTO_ANTERIOR ) ;
         width   70 ;
         height  30 ;
@@ -486,7 +484,7 @@ next
         notabstop
 @ 260, 180 button btnSiguiente ;
         of      wndABM ;
-        caption _HMG_SYSDATA [ 133 ][10] ;
+        caption oHmgApp():APP133[10] ;
         action  ABMEventos( ABM_EVENTO_SIGUIENTE ) ;
         width   70 ;
         height  30 ;
@@ -495,7 +493,7 @@ next
         notabstop
 @ 260, 260 button btnUltimo ;
         of      wndABM ;
-        caption _HMG_SYSDATA [ 133 ][11] ;
+        caption oHmgApp():APP133[11] ;
         action  ABMEventos( ABM_EVENTO_ULTIMO ) ;
         width   70 ;
         height  30 ;
@@ -504,7 +502,7 @@ next
         notabstop
 @ 260, 355 button btnGuardar ;
         of      wndABM ;
-        caption _HMG_SYSDATA [ 133 ][12] ;
+        caption oHmgApp():APP133[12] ;
         action  ABMEventos( ABM_EVENTO_GUARDAR ) ;
         width   70 ;
         height  30 ;
@@ -512,7 +510,7 @@ next
         size    8
 @ 260, 435 button btnCancelar ;
         of      wndABM ;
-        caption _HMG_SYSDATA [ 133 ][13] ;
+        caption oHmgApp():APP133[13] ;
         action  ABMEventos( ABM_EVENTO_CANCELAR ) ;
         width   70 ;
         height  30 ;
@@ -524,7 +522,7 @@ for nItem := 1 to nCampos
         do case
                 case _aEstructura[nItem,2] == "C"        // Campo tipo caracter.
 
-			_HMG_cMacroTemp := _HMG_aControles[nItem,1]
+         _HMG_cMacroTemp := _HMG_aControles[nItem,1]
 
                         @ _HMG_aControles[nItem,2], _HMG_aControles[nItem,3] textbox &_HMG_cMacroTemp ;
                                 of      wndABM ;
@@ -538,7 +536,7 @@ for nItem := 1 to nCampos
                 case _aEstructura[nItem,2] == "N"        // Campo tipo numerico
                         if _aEstructura[nItem,4] == 0
 
-				_HMG_cMacroTemp := _HMG_aControles[nItem,1]
+            _HMG_cMacroTemp := _HMG_aControles[nItem,1]
 
                                 @ _HMG_aControles[nItem,2], _HMG_aControles[nItem,3] textbox &_HMG_cMacroTemp ;
                                         of      wndABM ;
@@ -556,7 +554,7 @@ for nItem := 1 to nCampos
                                 cMascara += "."
                                 cMascara += REPLICATE( "9", nMascaraDecimales )
 
-				_HMG_cMacroTemp := _HMG_aControles[nItem,1]
+            _HMG_cMacroTemp := _HMG_aControles[nItem,1]
 
                                 @ _HMG_aControles[nItem,2], _HMG_aControles[nItem,3] textbox &_HMG_cMacroTemp ;
                                         of      wndABM ;
@@ -568,7 +566,7 @@ for nItem := 1 to nCampos
                         endif
                 case _aEstructura[nItem,2] == "D"        // Campo tipo fecha.
 
-			_HMG_cMacroTemp := _HMG_aControles[nItem,1]
+         _HMG_cMacroTemp := _HMG_aControles[nItem,1]
 
                         @ _HMG_aControles[nItem,2], _HMG_aControles[nItem,3] datepicker &_HMG_cMacroTemp ;
                                 of      wndABM ;
@@ -577,16 +575,16 @@ for nItem := 1 to nCampos
                                 font    "Arial" ;
                                 size    9
 
-			*_HMG_cMacroTemp := _HMG_aControles[nItem,1]
+         *_HMG_cMacroTemp := _HMG_aControles[nItem,1]
 
                         *wndABM.&_HMG_cMacroTemp.Height := 21
 
-			SetProperty ( 'wndABM' , _HMG_aControles[nItem,1] , 'Height' , 21 )
-        
+         SetProperty ( 'wndABM' , _HMG_aControles[nItem,1] , 'Height' , 21 )
+
 
         case _aEstructura[nItem,2] == "L"        // Campo tipo logico.
 
-			_HMG_cMacroTemp := _HMG_aControles[nItem,1]
+         _HMG_cMacroTemp := _HMG_aControles[nItem,1]
 
                         @ _HMG_aControles[nItem,2], _HMG_aControles[nItem,3] checkbox &_HMG_cMacroTemp ;
                                 of      wndABM ;
@@ -598,7 +596,7 @@ for nItem := 1 to nCampos
                                 size    9
                 case _aEstructura[nItem,2] == "M"        // Campo tipo memo.
 
-			_HMG_cMacroTemp := _HMG_aControles[nItem,1]
+         _HMG_cMacroTemp := _HMG_aControles[nItem,1]
 
                         @ _HMG_aControles[nItem,2], _HMG_aControles[nItem,3] editbox &_HMG_cMacroTemp ;
                                 of     wndABM ;
@@ -653,48 +651,48 @@ do case
                 // Estado de los controles.
                 // Botones Cerrar y Nuevo.
                 for nItem := 1 to 2
-			// _HMG_cMacroTemp := _aBotones[nItem]
+         // _HMG_cMacroTemp := _aBotones[nItem]
                         // wndABM.&_HMG_cMacroTemp.Enabled := .t.
-			SetProperty ( 'wndABM' , _aBotones[nItem] , 'Enabled' , .T. )
+         SetProperty ( 'wndABM' , _aBotones[nItem] , 'Enabled' , .T. )
                 next
 
                 // Botones Guardar y Cancelar.
                 for nItem := ( HMG_LEN( _aBotones ) - 1 ) to HMG_LEN( _aBotones )
-			*_HMG_cMacroTemp := _aBotones[nItem]
+         *_HMG_cMacroTemp := _aBotones[nItem]
                         *wndABM.&_HMG_cMacroTemp.Enabled := .f.
-			SetProperty ( 'wndABM' , _aBotones[nItem] , 'Enabled' , .F. )
+         SetProperty ( 'wndABM' , _aBotones[nItem] , 'Enabled' , .F. )
                 next
 
                 // Resto de botones.
                 if (_cArea)->( RecCount() ) == 0
                         wndABM.brwBrowse.Enabled := .f.
                         for nItem := 3 to ( HMG_LEN( _aBotones ) - 2 )
-				*_HMG_cMacroTemp := _aBotones[nItem]
+            *_HMG_cMacroTemp := _aBotones[nItem]
                                 *wndABM.&_HMG_cMacroTemp.Enabled := .f.
-				SetProperty ( 'wndABM' , _aBotones[nItem] , 'Enabled' , .F. )
+            SetProperty ( 'wndABM' , _aBotones[nItem] , 'Enabled' , .F. )
                         next
                 else
                         wndABM.brwBrowse.Enabled := .t.
                         for nItem := 3 to ( HMG_LEN( _aBotones ) - 2 )
-				*_HMG_cMacroTemp := _aBotones[nItem]
+            *_HMG_cMacroTemp := _aBotones[nItem]
                                 *wndABM.&_HMG_cMacroTemp.Enabled := .t.
-				SetProperty ( 'wndABM' , _aBotones[nItem] , 'Enabled' , .T. )
+            SetProperty ( 'wndABM' , _aBotones[nItem] , 'Enabled' , .T. )
                         next
                 endif
 
                 // Controles de edición.
                 for nItem := 1 to HMG_LEN( _HMG_aControles )
-			*_HMG_cMacroTemp := _HMG_aControles[nItem,1]
+         *_HMG_cMacroTemp := _HMG_aControles[nItem,1]
                         *wndABM.&_HMG_cMacroTemp.Enabled := .f.
-			SetProperty ( 'wndABM' , _HMG_aControles[nItem,1] , 'Enabled' , .F. )
+         SetProperty ( 'wndABM' , _HMG_aControles[nItem,1] , 'Enabled' , .F. )
                 next
 
                 // Contenido de los controles.
                 // Controles de edición.
                 for nItem := 1 to HMG_LEN( _HMG_aControles )
-			*_HMG_cMacroTemp := _HMG_aControles[nItem,1]
+         *_HMG_cMacroTemp := _HMG_aControles[nItem,1]
                         *wndABM.&_HMG_cMacroTemp.Value := (_cArea)->( FieldGet( nItem ) )
-			SetProperty ( 'wndABM' , _HMG_aControles[nItem,1] , 'Value' , (_cArea)->( FieldGet( nItem ) ) )
+         SetProperty ( 'wndABM' , _HMG_aControles[nItem,1] , 'Value' , (_cArea)->( FieldGet( nItem ) ) )
                 next
 
                 // Numero de registro y total.
@@ -707,25 +705,25 @@ do case
                 // Estado de los controles.
                 // Botones Guardar y Cancelar.
                 for nItem := ( HMG_LEN( _aBotones ) - 1 ) to HMG_LEN( _aBotones )
-			*_HMG_cMacroTemp := _aBotones[nItem]
+         *_HMG_cMacroTemp := _aBotones[nItem]
                         *wndABM.&_HMG_cMacroTemp.Enabled := .t.
-			SetProperty ( 'wndABM' , _aBotones[nItem] , 'Enabled' , .T. )
+         SetProperty ( 'wndABM' , _aBotones[nItem] , 'Enabled' , .T. )
                 next
 
                 // Resto de los botones.
                 for nItem := 1 to ( HMG_LEN( _aBotones ) - 2 )
-			*_HMG_cMacroTemp := _aBotones[nItem]
+         *_HMG_cMacroTemp := _aBotones[nItem]
                         *wndABM.&_HMG_cMacroTemp.Enabled := .f.
-			SetProperty ( 'wndABM' , _aBotones[nItem] , 'Enabled' , .f. )
+         SetProperty ( 'wndABM' , _aBotones[nItem] , 'Enabled' , .f. )
                 next
                 wndABM.brwBrowse.Enabled := .f.
 
                 // Contenido de los controles.
                 // Controles de edición.
                 for nItem := 1 to HMG_LEN( _HMG_aControles )
-			*_HMG_cMacroTemp := _HMG_aControles[nItem,1]
+         *_HMG_cMacroTemp := _HMG_aControles[nItem,1]
                         *wndABM.&_HMG_cMacroTemp.Enabled := _aEditables[nItem]
-			SetProperty ( 'wndABM' , _HMG_aControles[nItem,1] , 'Enabled' , _aEditables[nItem] )
+         SetProperty ( 'wndABM' , _HMG_aControles[nItem,1] , 'Enabled' , _aEditables[nItem] )
                 next
 
                 // Numero de registro y total.
@@ -734,7 +732,7 @@ do case
 
         // Control de error.---------------------------------------------------
         otherwise
-                MsgHMGError( _HMG_SYSDATA [ 134 ][3], "" )
+                MsgHMGError( oHmgApp():APP134[3], "" )
 end case
 
 return ( nil )
@@ -768,7 +766,7 @@ do case
         // Pulsación del botón NUEVO.------------------------------------------
         case nEvento == ABM_EVENTO_NUEVO
                 _lEditar := .f.
-                cModo := _HMG_SYSDATA [ 132 ][3]
+                cModo := oHmgApp():APP132[3]
                 wndABM.Title := wndABM.Title + cModo
 
                 // Pasa a modo de edición.
@@ -778,31 +776,31 @@ do case
                 for nItem := 1 to HMG_LEN( _HMG_aControles )
                         do case
                                 case _aEstructura[nItem, 2] == "C"
-					_HMG_cMacroTemp := _HMG_aControles[nItem,1]
+               _HMG_cMacroTemp := _HMG_aControles[nItem,1]
                                         wndABM.&(_HMG_cMacroTemp).Value := ""
                                 case _aEstructura[nItem, 2] == "N"
-					_HMG_cMacroTemp := _HMG_aControles[nItem,1]
+               _HMG_cMacroTemp := _HMG_aControles[nItem,1]
                                         wndABM.&(_HMG_cMacroTemp).Value := 0
                                 case _aEstructura[nItem, 2] == "D"
-					_HMG_cMacroTemp := _HMG_aControles[nItem,1]
+               _HMG_cMacroTemp := _HMG_aControles[nItem,1]
                                         wndABM.&(_HMG_cMacroTemp).Value := Date()
                                 case _aEstructura[nItem, 2] == "L"
-					_HMG_cMacroTemp := _HMG_aControles[nItem,1]
+               _HMG_cMacroTemp := _HMG_aControles[nItem,1]
                                         wndABM.&(_HMG_cMacroTemp).Value := .f.
                                 case _aEstructura[nItem, 2] == "M"
-					_HMG_cMacroTemp := _HMG_aControles[nItem,1]
+               _HMG_cMacroTemp := _HMG_aControles[nItem,1]
                                         wndABM.&(_HMG_cMacroTemp).Value := ""
                         endcase
                 next
 
                 // Esteblece el foco en el primer control.
-		_HMG_cMacroTemp := _HMG_aControles[1,1]
+      _HMG_cMacroTemp := _HMG_aControles[1,1]
                 wndABM.&(_HMG_cMacroTemp).SetFocus
 
         // Pulsación del botón EDITAR.-----------------------------------------
         case nEvento == ABM_EVENTO_EDITAR
                 _lEditar := .t.
-                cModo := _HMG_SYSDATA [ 132 ][4]
+                cModo := oHmgApp():APP132[4]
                 wndABM.Title := wndABM.Title + cModo
 
                 // Pasa a modo de edicion.
@@ -810,33 +808,33 @@ do case
 
                 // Actualiza los valores de los controles de edición.
                 for nItem := 1 to HMG_LEN( _HMG_aControles )
-			_HMG_cMacroTemp := _HMG_aControles[nItem,1]
+         _HMG_cMacroTemp := _HMG_aControles[nItem,1]
                         wndABM.&(_HMG_cMacroTemp).Value := (_cArea)->( FieldGet(nItem) )
                 next
 
                 // Establece el foco en el primer coltrol.
-		_HMG_cMacroTemp := _HMG_aControles[1,1]
+      _HMG_cMacroTemp := _HMG_aControles[1,1]
                 wndABM.&(_HMG_cMacroTemp).SetFocus
 
         // Pulsación del botón BORRAR.-----------------------------------------
         case nEvento == ABM_EVENTO_BORRAR
 
                 // Borra el registro si se acepta.
-                if MsgOKCancel( _HMG_SYSDATA [ 131 ][1], "" )
-	                if (_cArea)->( rlock() )
-        	           (_cArea)->( dbDelete() )
-                	   (_cArea)->( dbCommit() )
-	                   (_cArea)->( dbunlock() )
-        	           if .not. set( _SET_DELETED )
-                	      set deleted on
-	                   endif
-        	           (_cArea)->( dbSkip() )
-                	   if (_cArea)->( eof() )
-	                      (_cArea)->( dbGoBottom() )
-        	           endif
-	                else
-	                   Msgstop( _HMG_SYSDATA [ 130 ] [41] , '' )
-	                endif
+                if MsgOKCancel( oHmgApp():APP131[1], "" )
+                   if (_cArea)->( rlock() )
+                      (_cArea)->( dbDelete() )
+                      (_cArea)->( dbCommit() )
+                      (_cArea)->( dbunlock() )
+                      if .not. set( _SET_DELETED )
+                         set deleted on
+                      endif
+                      (_cArea)->( dbSkip() )
+                      if (_cArea)->( eof() )
+                         (_cArea)->( dbGoBottom() )
+                      endif
+                   else
+                      Msgstop( oHmgApp():APP130 [41] , '' )
+                   endif
                 endif
 
                 // Refresca.
@@ -847,7 +845,7 @@ do case
         case nEvento == ABM_EVENTO_BUSCAR
                 if ValType( _bBuscar ) != "B"
                         if Empty( (_cArea)->( ordSetFocus() ) )
-                                msgExclamation( _HMG_SYSDATA [ 131 ][2] , "" )
+                                msgExclamation( oHmgApp():APP131[2] , "" )
                         else
                                 ABMBuscar()
                         endif
@@ -858,7 +856,7 @@ do case
 
         // Pulsación del botón IR AL REGISTRO.---------------------------------
         case nEvento == ABM_EVENTO_IR
-                cRegistro := InputBox( _HMG_SYSDATA [ 132 ][5], "" )
+                cRegistro := InputBox( oHmgApp():APP132[5], "" )
                 if !Empty( cRegistro )
                         nRegistro := Val( cRegistro )
                         if ( nRegistro != 0 ) .and. ( nRegistro <= (_cArea)->( RecCount() ) )
@@ -907,35 +905,35 @@ do case
                         if .not. _lEditar
                                 (_cArea)->( dbAppend() )
                         endif
-  
-			if (_cArea)->(rlock())
 
-				for nItem := 1 to HMG_LEN( _HMG_aControles )
-					_HMG_cMacroTemp := _HMG_aControles[nItem,1]
-                                	(_cArea)->( FieldPut( nItem, wndABM.&(_HMG_cMacroTemp).Value ) )
-				next
+         if (_cArea)->(rlock())
 
-				(_cArea)->( dbCommit() )
+            for nItem := 1 to HMG_LEN( _HMG_aControles )
+               _HMG_cMacroTemp := _HMG_aControles[nItem,1]
+                                   (_cArea)->( FieldPut( nItem, wndABM.&(_HMG_cMacroTemp).Value ) )
+            next
 
-				Unlock
+            (_cArea)->( dbCommit() )
 
-				// Refresca el browse.
+            Unlock
 
-	                        wndABM.brwBrowse.Value := (_cArea)->( RecNo() )
-	                        wndABM.brwBrowse.Refresh
-        	                wndABM.Title := HB_USUBSTR( wndABM.Title, 1, HMG_LEN(wndABM.Title) - 12 )
+            // Refresca el browse.
 
-			else
+                           wndABM.brwBrowse.Value := (_cArea)->( RecNo() )
+                           wndABM.brwBrowse.Refresh
+                           wndABM.Title := HB_USUBSTR( wndABM.Title, 1, HMG_LEN(wndABM.Title) - 12 )
 
-				MsgStop ('Record locked by another user')
+         else
 
-			endif
+            MsgStop ('Record locked by another user')
+
+         endif
 
                 else
 
                         // Evalúa el bloque de código bGuardar.
                         for nItem := 1 to HMG_LEN( _HMG_aControles )
-				_HMG_cMacroTemp := _HMG_aControles[nItem,1]
+            _HMG_cMacroTemp := _HMG_aControles[nItem,1]
                                 aAdd( aValores, wndABM.&(_HMG_cMacroTemp).Value )
                         next
                         lGuardar := Eval( _bGuardar, aValores, _lEditar )
@@ -959,7 +957,7 @@ do case
 
         // Control de error.---------------------------------------------------
         otherwise
-                MsgHMGError( _HMG_SYSDATA [ 134 ][4], "" )
+                MsgHMGError( oHmgApp():APP134[4], "" )
 
 endcase
 
@@ -995,14 +993,14 @@ next
 cCampo := HMG_UPPER( (_cArea)->( ordSetFocus() ) )
 nTipoCampo := aScan( aCampo, cCampo )
 if nTipoCampo == 0
-        msgExclamation( _HMG_SYSDATA [ 131 ][3], "" )
+        msgExclamation( oHmgApp():APP131[3], "" )
         return ( nil )
 endif
 cTipoCampo := aTipoCampo[nTipoCampo]
 
 // Comprueba si el tipo se puede buscar.---------------------------------------
 if ( cTipoCampo == "N" ) .or. ( cTipoCampo == "L" ) .or. ( cTipoCampo == "M" )
-        MsgExclamation( _HMG_SYSDATA [ 131 ][4], "" )
+        MsgExclamation( oHmgApp():APP131[4], "" )
         return ( nil )
 endif
 
@@ -1011,7 +1009,7 @@ define window wndABMBuscar ;
                 AT 0, 0 ;
                 width  200 ;
                 height 160 ;
-                title _HMG_SYSDATA [ 132 ][6] ;
+                title oHmgApp():APP132[6] ;
                 modal ;
                 nosysmenu ;
                 font "Serif" ;
@@ -1031,7 +1029,7 @@ end window
 // Botones.
 @ 80, 20 button btnGuardar ;
         of      wndABMBuscar ;
-        caption "&" + _HMG_SYSDATA [ 133 ][5] ;
+        caption "&" + oHmgApp():APP133[5] ;
         action  {|| ABMBusqueda() } ;
         width   70 ;
         height  30 ;
@@ -1039,7 +1037,7 @@ end window
         size    8
 @ 80, 100 button btnCancelar ;
         of      wndABMBuscar ;
-        caption "&" + _HMG_SYSDATA [ 133 ][13] ;
+        caption "&" + oHmgApp():APP133[13] ;
         action  {|| wndABMBuscar.Release } ;
         width   70 ;
         height  30 ;
@@ -1049,7 +1047,7 @@ end window
 // Controles de edición.
 do case
         case cTipoCampo == "C"
-                cModo := _HMG_SYSDATA [ 132 ][7]
+                cModo := oHmgApp():APP132[7]
                 wndABMBuscar.lblEtiqueta1.Value := cModo
                 @ 45, 20 textbox txtBuscar ;
                 of wndABMBuscar ;
@@ -1060,7 +1058,7 @@ do case
                 size 9 ;
                 maxlength _aEstructura[nTipoCampo,3]
         case cTipoCampo == "D"
-                cModo := _HMG_SYSDATA [ 132 ] [8]
+                cModo := oHmgApp():APP132 [8]
                 wndABMBuscar.lblEtiqueta1.Value := cModo
                 @ 45, 20 datepicker txtBuscar ;
                         of  wndABMBuscar ;
@@ -1094,7 +1092,7 @@ local nRegistro := (_cArea)->( RecNo() )                // Registro anterior.
 if (_cArea)->( dbSeek( wndABMBuscar.txtBuscar.Value ) )
         nRegistro := (_cArea)->( RecNo() )
 else
-        msgExclamation( _HMG_SYSDATA [ 131 ][5] , "" )
+        msgExclamation( oHmgApp():APP131[5] , "" )
         (_cArea)->(dbGoTo( nRegistro ) )
 endif
 
@@ -1145,7 +1143,7 @@ define window wndABMListado ;
         AT 0, 0 ;
         width  420 ;
         height 295 ;
-        title _HMG_SYSDATA [ 132 ][10] ;
+        title oHmgApp():APP132[10] ;
         modal ;
         nosysmenu ;
         font "Serif" ;
@@ -1159,28 +1157,28 @@ end window
 // Label.
 @ 20, 20 label lblLabel1 ;
         of wndABMListado ;
-        value _HMG_SYSDATA [ 132 ][11] ;
+        value oHmgApp():APP132[11] ;
         width 140 ;
         height 21 ;
         font "ms sans serif" ;
         size 8
 @ 20, 250 label lblLabel2 ;
         of     wndABMListado ;
-        value  _HMG_SYSDATA [ 132 ][12] ;
+        value  oHmgApp():APP132[12] ;
         width  140 ;
         height 21 ;
         font   "ms sans serif" ;
         size   8
 @ 160, 20 label lblLabel3 ;
         of wndABMListado ;
-        value _HMG_SYSDATA [ 132 ][13] ;
+        value oHmgApp():APP132[13] ;
         width 140 ;
         height 21 ;
         font "ms sans serif" ;
         size 8
 @ 160, 250 label lblLabel4 ;
         of wndABMListado ;
-        value _HMG_SYSDATA [ 132 ][14] ;
+        value oHmgApp():APP132[14] ;
         width 140 ;
         height 21 ;
         font "ms sans serif" ;
@@ -1226,7 +1224,7 @@ end window
 // Botones.
 @ 45, 170 button btnMas ;
         of      wndABMListado ;
-        caption _HMG_SYSDATA [ 133 ][14] ;
+        caption oHmgApp():APP133[14] ;
         action  {|| ABMListadoEvento( ABM_LISTADO_MAS ) } ;
         width   70 ;
         height  30 ;
@@ -1234,7 +1232,7 @@ end window
         size    8
 @ 85, 170 button btnMenos ;
         of      wndABMListado ;
-        caption _HMG_SYSDATA [ 133 ][15] ;
+        caption oHmgApp():APP133[15] ;
         action  {|| ABMListadoEvento( ABM_LISTADO_MENOS ) } ;
         width   70 ;
         height  30 ;
@@ -1242,7 +1240,7 @@ end window
         size    8
 @ 225, 240 button btnImprimir ;
         of      wndABMListado ;
-        caption _HMG_SYSDATA [ 133 ][16] ;
+        caption oHmgApp():APP133[16] ;
         action  {|| ABMListadoEvento( ABM_LISTADO_IMPRIMIR ) } ;
         width   70 ;
         height  30 ;
@@ -1251,7 +1249,7 @@ end window
         notabstop
 @ 225, 330 button btnCerrar ;
         of      wndABMListado ;
-        caption _HMG_SYSDATA [ 133 ][17] ;
+        caption oHmgApp():APP133[17] ;
         action  {|| ABMListadoEvento( ABM_LISTADO_CERRAR ) } ;
         width   70 ;
         height  30 ;
@@ -1356,7 +1354,7 @@ do case
                 if nTotal > 164
 
                         // No cabe en la hoja.
-                        MsgExclamation( _HMG_SYSDATA [ 131 ][6], "" )
+                        MsgExclamation( oHmgApp():APP131[6], "" )
                 else
                         if nTotal > 109
 
@@ -1371,7 +1369,7 @@ do case
 
         // Control de error.---------------------------------------------------
         otherwise
-                MsgHMGError( _HMG_SYSDATA [ 134 ][5], "" )
+                MsgHMGError( oHmgApp():APP134[5], "" )
 endcase
 
 return ( nil )
@@ -1424,7 +1422,7 @@ SELECT PRINTER DIALOG TO lsuccess PREVIEW
 // Control de errores.---------------------------------------------------------
 
 IF lsuccess == .f.
-	RETURN NIL
+   RETURN NIL
 ENDIF
 
 // Inicio del listado.
@@ -1436,18 +1434,18 @@ do while lSalida
 
         // Cabecera.-----------------------------------------------------------
         if lCabecera
-		START PRINTPAGE
-                @ 5*RF, 10*CF PRINT _HMG_SYSDATA [ 132 ][15] + _cTitulo FONT "COURIER NEW" SIZE 14 BOLD  
+      START PRINTPAGE
+                @ 5*RF, 10*CF PRINT oHmgApp():APP132[15] + _cTitulo FONT "COURIER NEW" SIZE 14 BOLD
 
                 @ 6*RF + 2 , 10*CF PRINT LINE TO 6*RF + 2 , 62*CF PENWIDTH 0.2
-                @ 7*RF, 10*CF PRINT _HMG_SYSDATA [ 132 ][16]   FONT "COURIER NEW" SIZE 10 BOLD  
-                @ 7*RF, 18*CF PRINT Date()                     FONT "COURIER NEW" SIZE 10   
-                @ 8*RF, 10*CF PRINT _HMG_SYSDATA [ 132 ][17]    FONT "COURIER NEW" SIZE 10 BOLD  
-                @ 8*RF, 30*CF PRINT ALLTRIM( STR( nPrimero ) ) FONT "COURIER NEW" SIZE 10   
-                @ 8*RF, 40*CF PRINT _HMG_SYSDATA [ 132 ][18]     FONT "COURIER NEW" SIZE 10 BOLD  
-                @ 8*RF, 60*CF PRINT ALLTRIM( STR( nUltimo ) )  FONT "COURIER NEW" SIZE 10   
-                @ 9*RF, 10*CF PRINT _HMG_SYSDATA [ 132 ][19]     FONT "COURIER NEW" SIZE 10 BOLD  
-                @ 9*RF, 30*CF PRINT ordName()                  FONT "COURIER NEW" SIZE 10   
+                @ 7*RF, 10*CF PRINT oHmgApp():APP132[16]   FONT "COURIER NEW" SIZE 10 BOLD
+                @ 7*RF, 18*CF PRINT Date()                     FONT "COURIER NEW" SIZE 10
+                @ 8*RF, 10*CF PRINT oHmgApp():APP132[17]    FONT "COURIER NEW" SIZE 10 BOLD
+                @ 8*RF, 30*CF PRINT ALLTRIM( STR( nPrimero ) ) FONT "COURIER NEW" SIZE 10
+                @ 8*RF, 40*CF PRINT oHmgApp():APP132[18]     FONT "COURIER NEW" SIZE 10 BOLD
+                @ 8*RF, 60*CF PRINT ALLTRIM( STR( nUltimo ) )  FONT "COURIER NEW" SIZE 10
+                @ 9*RF, 10*CF PRINT oHmgApp():APP132[19]     FONT "COURIER NEW" SIZE 10 BOLD
+                @ 9*RF, 30*CF PRINT ordName()                  FONT "COURIER NEW" SIZE 10
                 nColumna := 10
                 for nItem := 1 to HMG_LEN( _aNumeroCampo )
                         nIndice := _aNumeroCampo[nItem]
@@ -1464,16 +1462,16 @@ do while lSalida
                 do case
                 case _aEstructura[nIndice,2] == "L"
 
-                        cTexto := iif( (_cArea)->( FieldGet( nIndice ) ), _HMG_SYSDATA [ 132 ][20], _HMG_SYSDATA [ 132 ][21] )
-                        @ nFila*RF, nColumna *CF PRINT cTexto FONT "COURIER NEW" SIZE 10   
+                        cTexto := iif( (_cArea)->( FieldGet( nIndice ) ), oHmgApp():APP132[20], oHmgApp():APP132[21] )
+                        @ nFila*RF, nColumna *CF PRINT cTexto FONT "COURIER NEW" SIZE 10
                         nColumna += _aAnchoCampo[nItem]
                 case _aEstructura[nIndice,2] == "N"
                         nColumna += _aAnchoCampo[nItem] - 2
-                        @ nFila*RF, nColumna *CF PRINT (_cArea)->( FieldGet( nIndice ) ) FONT "COURIER NEW" SIZE 10   
+                        @ nFila*RF, nColumna *CF PRINT (_cArea)->( FieldGet( nIndice ) ) FONT "COURIER NEW" SIZE 10
                         nColumna += 2
                 otherwise
 
-                        @ nFila*RF, nColumna *CF PRINT (_cArea)->( FieldGet( nIndice ) ) FONT "COURIER NEW" SIZE 10   
+                        @ nFila*RF, nColumna *CF PRINT (_cArea)->( FieldGet( nIndice ) ) FONT "COURIER NEW" SIZE 10
                         nColumna += _aAnchoCampo[nItem]
                 endcase
         next
@@ -1491,11 +1489,11 @@ do while lSalida
 
                         @ 45*RF, 10 *CF PRINT LINE TO 45*RF , 50 *CF PENWIDTH 0.2
 
-                        @ 45*RF, 60/2*CF PRINT _HMG_SYSDATA [ 132 ][22] + ALLTRIM( STR( nPagina ) ) + _HMG_SYSDATA [ 132 ][23] + ALLTRIM( STR( nPaginas ) ) FONT "COURIER NEW" SIZE 10 BOLD  
+                        @ 45*RF, 60/2*CF PRINT oHmgApp():APP132[22] + ALLTRIM( STR( nPagina ) ) + oHmgApp():APP132[23] + ALLTRIM( STR( nPaginas ) ) FONT "COURIER NEW" SIZE 10 BOLD
                         lCabecera := .t.
                         nPagina++
                         nFila := 12
-			END PAGE
+         END PAGE
                 endif
         else
                 // Vertical
@@ -1507,7 +1505,7 @@ do while lSalida
 
                         @ 65 * RF - 1 , 10 *CF PRINT LINE TO 65 * RF - 1 , 62 * CF PENWIDTH 0.2
 
-                        @ 65*RF, 60/2*CF PRINT _HMG_SYSDATA [ 132 ][22] + ALLTRIM( STR( nPagina ) ) + _HMG_SYSDATA [ 132 ][23] + ALLTRIM( STR( nPaginas ) ) FONT "COURIER NEW" SIZE 10 BOLD  
+                        @ 65*RF, 60/2*CF PRINT oHmgApp():APP132[22] + ALLTRIM( STR( nPagina ) ) + oHmgApp():APP132[23] + ALLTRIM( STR( nPaginas ) ) FONT "COURIER NEW" SIZE 10 BOLD
                         lCabecera := .t.
                         nPagina++
                         nFila := 12
@@ -1525,8 +1523,8 @@ do while lSalida
                         nIndice := _aNumeroCampo[nItem]
                         do case
                         case _aEstructura[nIndice,2] == "L"
-                                
-                                cTexto := iif( (_cArea)->( FieldGet( nIndice ) ), _HMG_SYSDATA [ 132 ][20], _HMG_SYSDATA [ 132 ][21] )
+
+                                cTexto := iif( (_cArea)->( FieldGet( nIndice ) ), oHmgApp():APP132[20], oHmgApp():APP132[21] )
                                 @ nFila*RF, nColumna *CF PRINT cTexto FONT "COURIER NEW" SIZE 10
                                 nColumna += _aAnchoCampo[nItem]
                         case _aEstructura[nIndice,2] == "N"
@@ -1554,7 +1552,7 @@ if lOrientacion
                         nPaginas++
                 endif
                 @ 45*RF, 10 *CF PRINT LINE TO 45*RF , 62*CF PENWIDTH 0.2
-                @ 45*RF, 60/2*CF PRINT _HMG_SYSDATA [ 132 ][22] + ALLTRIM( STR( nPagina ) ) + _HMG_SYSDATA [ 132 ][23] + ALLTRIM( STR( nPaginas ) ) FONT "COURIER NEW" SIZE 10 BOLD  
+                @ 45*RF, 60/2*CF PRINT oHmgApp():APP132[22] + ALLTRIM( STR( nPagina ) ) + oHmgApp():APP132[23] + ALLTRIM( STR( nPaginas ) ) FONT "COURIER NEW" SIZE 10 BOLD
         endif
 else
         // Vertical
@@ -1564,7 +1562,7 @@ else
                         nPaginas++
                 endif
                 @ 65*RF - 1 , 10*CF PRINT LINE TO 65*RF - 1 ,62*CF PENWIDTH 0.2
-                @ 65*RF, 60/2*CF PRINT _HMG_SYSDATA [ 132 ][22] + ALLTRIM( STR( nPagina ) ) + _HMG_SYSDATA [ 132 ][23] + ALLTRIM( STR( nPaginas ) ) FONT "COURIER NEW" SIZE 10 BOLD  
+                @ 65*RF, 60/2*CF PRINT oHmgApp():APP132[22] + ALLTRIM( STR( nPagina ) ) + oHmgApp():APP132[23] + ALLTRIM( STR( nPaginas ) ) FONT "COURIER NEW" SIZE 10 BOLD
         endif
 endif
 
@@ -1581,20 +1579,20 @@ Function NoArray (OldArray)
 Local NewArray := {}
 Local i
 
-	If ValType ( OldArray ) == 'U'
-		Return Nil
-	ELse
-		Asize ( NewArray , HMG_LEN (OldArray) )
-	EndIf
-	
-	For i := 1 To HMG_LEN ( OldArray )
+   If ValType ( OldArray ) == 'U'
+      Return Nil
+   ELse
+      Asize ( NewArray , HMG_LEN (OldArray) )
+   EndIf
 
-		If OldArray [i] == .t.
-			NewArray [i] := .f.
-		Else
-			NewArray [i] := .t.
-		EndIf
+   For i := 1 To HMG_LEN ( OldArray )
 
-	Next i
+      If OldArray [i] == .t.
+         NewArray [i] := .f.
+      Else
+         NewArray [i] := .t.
+      EndIf
+
+   Next i
 
 Return NewArray

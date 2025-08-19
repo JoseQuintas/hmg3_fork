@@ -37,83 +37,83 @@
 
  Parts of this project are based upon:
 
-	"Harbour GUI framework for Win32"
- 	Copyright 2001 Alexander S.Kresin <alex@belacy.belgorod.su>
- 	Copyright 2001 Antonio Linares <alinares@fivetech.com>
-	www - http://www.harbour-project.org
+   "Harbour GUI framework for Win32"
+    Copyright 2001 Alexander S.Kresin <alex@belacy.belgorod.su>
+    Copyright 2001 Antonio Linares <alinares@fivetech.com>
+   www - http://www.harbour-project.org
 
-	"Harbour Project"
-	Copyright 1999-2003, http://www.harbour-project.org/
+   "Harbour Project"
+   Copyright 1999-2003, http://www.harbour-project.org/
 
-	"WHAT32"
-	Copyright 2002 AJ Wos <andrwos@aust1.net> 
+   "WHAT32"
+   Copyright 2002 AJ Wos <andrwos@aust1.net> 
 
-	"HWGUI"
-  	Copyright 2001-2007 Alexander S.Kresin <alex@belacy.belgorod.su>
+   "HWGUI"
+     Copyright 2001-2007 Alexander S.Kresin <alex@belacy.belgorod.su>
 
 ---------------------------------------------------------------------------*/
 
 #xcommand @ <row>,<col> EDITBOX <name> ;
-		[ <dummy1: OF, PARENT> <parent> ] ;
-		[ WIDTH <w> ] ;
-		[ HEIGHT <h> ] ;
-		[ FIELD <field> ]		;
-		[ VALUE <value> ] ;
-		[ < readonly: READONLY > ] ;
-		[ FONT <f> ] ;
-		[ SIZE <s> ] ;
-		[ <bold : BOLD> ] ;
-		[ <italic : ITALIC> ] ;
-		[ <underline : UNDERLINE> ] ;
-		[ <strikeout : STRIKEOUT> ] ;
-		[ TOOLTIP <tooltip> ] ;
-		[ BACKCOLOR <backcolor> ] ;
-		[ FONTCOLOR <fontcolor> ] ;
-		[ DISABLEDBACKCOLOR <disabledbackcolor> ] ;
-		[ DISABLEDFONTCOLOR <disabledfontcolor> ] ;
-		[ MAXLENGTH <maxlength> ] ;
+      [ <dummy1: OF, PARENT> <parent> ] ;
+      [ WIDTH <w> ] ;
+      [ HEIGHT <h> ] ;
+      [ FIELD <field> ]      ;
+      [ VALUE <value> ] ;
+      [ < readonly: READONLY > ] ;
+      [ FONT <f> ] ;
+      [ SIZE <s> ] ;
+      [ <bold : BOLD> ] ;
+      [ <italic : ITALIC> ] ;
+      [ <underline : UNDERLINE> ] ;
+      [ <strikeout : STRIKEOUT> ] ;
+      [ TOOLTIP <tooltip> ] ;
+      [ BACKCOLOR <backcolor> ] ;
+      [ FONTCOLOR <fontcolor> ] ;
+      [ DISABLEDBACKCOLOR <disabledbackcolor> ] ;
+      [ DISABLEDFONTCOLOR <disabledfontcolor> ] ;
+      [ MAXLENGTH <maxlength> ] ;
                 [ ON GOTFOCUS <gotfocus> ] ;
                 [ ON CHANGE <change> ] ;
                 [ ON LOSTFOCUS <lostfocus> ] ;
-		[ HELPID <helpid> ] 		;
-		[ <invisible: INVISIBLE> ] ;
-		[ <notabstop: NOTABSTOP> ] ;
-		[ <novscroll: NOVSCROLL> ] 	;                             
-		[ <nohscroll: NOHSCROLL> ] 	;                             
-	=>;
-	_DefineEditBox ( <"name">, <"parent">, <col>, <row>, <w>, <h>, <value> ,<f>,<s> , <tooltip>  , <maxlength>  , <{gotfocus}>  , <{change}>  , <{lostfocus}>  , <.readonly.> , .f. , <helpid>, <.invisible.>, <.notabstop.> ,<.bold.>, <.italic.>, <.underline.>, <.strikeout.> , <"field"> , <backcolor> , <fontcolor> , <.novscroll.> , <.nohscroll.> , <disabledbackcolor> , <disabledfontcolor> )
+      [ HELPID <helpid> ]       ;
+      [ <invisible: INVISIBLE> ] ;
+      [ <notabstop: NOTABSTOP> ] ;
+      [ <novscroll: NOVSCROLL> ]    ;                             
+      [ <nohscroll: NOHSCROLL> ]    ;                             
+   =>;
+   _DefineEditBox ( <"name">, <"parent">, <col>, <row>, <w>, <h>, <value> ,<f>,<s> , <tooltip>  , <maxlength>  , <{gotfocus}>  , <{change}>  , <{lostfocus}>  , <.readonly.> , .f. , <helpid>, <.invisible.>, <.notabstop.> ,<.bold.>, <.italic.>, <.underline.>, <.strikeout.> , <"field"> , <backcolor> , <fontcolor> , <.novscroll.> , <.nohscroll.> , <disabledbackcolor> , <disabledfontcolor> )
 
 //SPLITBOX VERSION
 
 #xcommand EDITBOX <name> ;
-		[ <dummy1: OF, PARENT> <parent> ] ;
-		[ WIDTH <w> ] ;
-		[ HEIGHT <h> ] ;
-		[ FIELD <field> ]		;
-		[ VALUE <value> ] ;
-		[ < readonly: READONLY > ] ;
-		[ FONT <f> ] ;
-		[ SIZE <s> ] ;
-		[ <bold : BOLD> ] ;
-		[ <italic : ITALIC> ] ;
-		[ <underline : UNDERLINE> ] ;
-		[ <strikeout : STRIKEOUT> ] ;
-		[ TOOLTIP <tooltip> ] ;
-		[ BACKCOLOR <backcolor> ] ;
-		[ FONTCOLOR <fontcolor> ] ;
-		[ DISABLEDBACKCOLOR <disabledbackcolor> ] ;
-		[ DISABLEDFONTCOLOR <disabledfontcolor> ] ;
-		[ MAXLENGTH <maxlength> ] ;
+      [ <dummy1: OF, PARENT> <parent> ] ;
+      [ WIDTH <w> ] ;
+      [ HEIGHT <h> ] ;
+      [ FIELD <field> ]      ;
+      [ VALUE <value> ] ;
+      [ < readonly: READONLY > ] ;
+      [ FONT <f> ] ;
+      [ SIZE <s> ] ;
+      [ <bold : BOLD> ] ;
+      [ <italic : ITALIC> ] ;
+      [ <underline : UNDERLINE> ] ;
+      [ <strikeout : STRIKEOUT> ] ;
+      [ TOOLTIP <tooltip> ] ;
+      [ BACKCOLOR <backcolor> ] ;
+      [ FONTCOLOR <fontcolor> ] ;
+      [ DISABLEDBACKCOLOR <disabledbackcolor> ] ;
+      [ DISABLEDFONTCOLOR <disabledfontcolor> ] ;
+      [ MAXLENGTH <maxlength> ] ;
                 [ ON GOTFOCUS <gotfocus> ] ;
                 [ ON CHANGE <change> ] ;
                 [ ON LOSTFOCUS <lostfocus> ] ;
-		[ HELPID <helpid> ] 		;
-		[ <break: BREAK> ] ;
-		[ <invisible: INVISIBLE> ] ;
-		[ <notabstop: NOTABSTOP> ] ;
-		[ <novscroll: NOVSCROLL> ] 	;                             
-		[ <nohscroll: NOHSCROLL> ] 	;                             
-	=>;
-	_DefineEditBox ( <"name">, <"parent">, , , <w>, <h>, <value> ,<f>,<s> , <tooltip>  , <maxlength>  , <{gotfocus}>  , <{change}>  , <{lostfocus}>  , <.readonly.> , <.break.>  , <helpid>, <.invisible.>, <.notabstop.> ,<.bold.>, <.italic.>, <.underline.>, <.strikeout.> , <"field">  , <backcolor> , <fontcolor> , <.novscroll.> , <.nohscroll.> , <disabledbackcolor> , <disabledfontcolor> )
+      [ HELPID <helpid> ]       ;
+      [ <break: BREAK> ] ;
+      [ <invisible: INVISIBLE> ] ;
+      [ <notabstop: NOTABSTOP> ] ;
+      [ <novscroll: NOVSCROLL> ]    ;                             
+      [ <nohscroll: NOHSCROLL> ]    ;                             
+   =>;
+   _DefineEditBox ( <"name">, <"parent">, , , <w>, <h>, <value> ,<f>,<s> , <tooltip>  , <maxlength>  , <{gotfocus}>  , <{change}>  , <{lostfocus}>  , <.readonly.> , <.break.>  , <helpid>, <.invisible.>, <.notabstop.> ,<.bold.>, <.italic.>, <.underline.>, <.strikeout.> , <"field">  , <backcolor> , <fontcolor> , <.novscroll.> , <.nohscroll.> , <disabledbackcolor> , <disabledfontcolor> )
 
 

@@ -1,5 +1,7 @@
 -o../../ide/IDE_UNICODE
 
--w2 
+-w2
 # -es2
 IDE_SourceCode.prg
+ide_unicode.rc
+hmg3.hbc

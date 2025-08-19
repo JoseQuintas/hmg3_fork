@@ -1,8 +1,8 @@
 /*
 *
-*	HMG MySql Access Sample.
-*	Code Contributed by;
-*		Mitja Podgornik		<yamamoto@rocketmail.com>
+*   HMG MySql Access Sample.
+*   Code Contributed by;
+*      Mitja Podgornik      <yamamoto@rocketmail.com>
 * 
 */
 
@@ -34,10 +34,10 @@ DEFINE WINDOW Form_1 ;
 
   DEFINE MAIN MENU
     POPUP "Action"
-      ITEM "&Connetct to MySql server, create Database 'NAMEBOOK' and table 'NAMES', insert records from 'Names.dbf'" ACTION Prepare_data()	
-      SEPARATOR	                                       			                                    
+      ITEM "&Connetct to MySql server, create Database 'NAMEBOOK' and table 'NAMES', insert records from 'Names.dbf'" ACTION Prepare_data()   
+      SEPARATOR                                                                                       
       ITEM "&View/Edit data from MySql" ACTION Grid_edit()
-    END POPUP				
+    END POPUP            
   END MENU                          
 
 END WINDOW
@@ -124,7 +124,7 @@ Local GridMax:= iif(len(cSearch)== 0,  30, 1000000)
 DELETE ITEM ALL FROM Grid_1 Of Grid_Names
 
 oQuery := oServer:Query( "Select Code, Name From NAMES WHERE NAME LIKE "+cSearch+" Order By Name" )
-If oQuery:NetErr()												
+If oQuery:NetErr()                                    
   MsgInfo("SQL SELECT error: " + oQuery:Error())
   RELEASE WINDOW ALL
   Quit
@@ -168,7 +168,7 @@ Local oRow:= {}
             
 If status == 2
   oQuery:= oServer:Query( "Select * From NAMES WHERE CODE = " + AllTrim(pCode))
-  If oQuery:NetErr()												
+  If oQuery:NetErr()                                    
     MsgInfo("SQL SELECT error: " + oQuery:Error())
     Return Nil
   Endif               
@@ -182,7 +182,7 @@ EndIf
 DEFINE WINDOW Form_4 ;
   AT 0,0 ;
   WIDTH 485 HEIGHT 240 ;
-  TITLE iif( status==1 , "Add new record" , "Edit record" )  ;			
+  TITLE iif( status==1 , "Add new record" , "Edit record" )  ;         
   NOMAXIMIZE ;
   FONT "Arial" SIZE 09
 
@@ -206,7 +206,7 @@ DEFINE WINDOW Form_4 ;
 
   @ 24,100 TEXTBOX p_Code ;
     VALUE cCode ;
-    WIDTH 50 ;			
+    WIDTH 50 ;         
     HEIGHT 25 ;
     ON ENTER iif( !Empty(Form_4.p_Code.Value), Form_4.p_Name.SetFocus, Form_4.p_Code.SetFocus ) ;
     RIGHTALIGN
@@ -216,7 +216,7 @@ DEFINE WINDOW Form_4 ;
     VALUE cName ;
     WIDTH 350 ;
     ON ENTER iif( !Empty(Form_4.p_Name.Value),  Form_4.p_eMail.SetFocus, Form_4.p_Name.SetFocus )
-									
+                           
   @ 94,100 TEXTBOX  p_eMail ;
     HEIGHT 25 ;
     VALUE cEMail ;
@@ -268,13 +268,13 @@ Else
 Endif
 
 oQuery:=oServer:Query( cQuery )
-If oQuery:NetErr()												
+If oQuery:NetErr()                                    
   MsgInfo("SQL UPDATE/INSERT error: " + oQuery:Error())
   Return Nil
-Endif				
+Endif            
 
 oQuery:Destroy()
-					 																			
+                                                                         
 MsgInfo( iif(status== 1, "Record added", "Record updated") )
 
 Form_4.Release
@@ -300,11 +300,11 @@ Local oQuery
 If MsgYesNo( "Delete record: "+ gName+ "??" ) 
   cQuery:= "DELETE FROM NAMES  WHERE CODE = " + AllTrim(gCode)         
   oQuery:=oServer:Query( cQuery )
-  If oQuery:NetErr()												
+  If oQuery:NetErr()                                    
     MsgInfo("SQL DELETE error: " + oQuery:Error())
     Return Nil
   EndIf
-  oQuery:Destroy()			 																			
+  oQuery:Destroy()                                                                   
   MsgInfo("Record deleted!")
   Grid_fill() 
 EndIf
@@ -344,7 +344,7 @@ DEFINE WINDOW Form_0 ;
   @ 20,120 TEXTBOX p_HostName ;
     HEIGHT 25 ;      
     VALUE cHostName ;                                      
-    WIDTH 120 ;			
+    WIDTH 120 ;         
     ON ENTER iif( !Empty(Form_0.p_HostName.Value),  Form_0.p_User.SetFocus, Form_0.p_HostName.SetFocus )
 
   @ 55,120 TEXTBOX  p_User ;
@@ -352,7 +352,7 @@ DEFINE WINDOW Form_0 ;
     VALUE cUser ;
     WIDTH 120 ;
     ON ENTER iif( !Empty(Form_0.p_User.Value), Form_0.p_Password.SetFocus, Form_0.p_user.SetFocus  )
-									
+                           
   @ 90,120 TEXTBOX  p_password ;
     VALUE cPassWord ;
     PASSWORD ;
@@ -386,7 +386,7 @@ If oServer:NetErr()
   MsGInfo("Error connecting to SQL server: " + oServer:Error() )
   Release Window ALL
   Quit
-Endif               	
+Endif                  
 
 MsgInfo("Connection to MySql server completed!")
 
@@ -496,7 +496,7 @@ Return Nil
 
 
 *--------------------------------------------------------------*
-Function My_SQL_Table_Create( cTable )				
+Function My_SQL_Table_Create( cTable )            
 *--------------------------------------------------------------*
 Local i:= 0
 Local aTableList:= {}                                           
@@ -521,20 +521,20 @@ If AScan( aTableList, Lower(cTable) ) != 0
 EndIf 
 
 cQuery:= "CREATE TABLE "+ cTable+" ( Code SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT ,  Name  VarChar(40) ,  eMail  VarChar(40) , PRIMARY KEY (Code) ) "  
-oQuery := oServer:Query( cQuery )											
+oQuery := oServer:Query( cQuery )                                 
 If oServer:NetErr() 
   MsGInfo("Error creating table "+cTable+": "+oServer:Error() )
-  Release Window ALL		
+  Release Window ALL      
   Quit
 Endif 
 
 oQuery:Destroy()     
-							
+                     
 Return Nil
 
             
 *--------------------------------------------------------------*
-Function My_SQL_Table_Insert( cTable )				
+Function My_SQL_Table_Insert( cTable )            
 *--------------------------------------------------------------*
 Local cQuery:= ""    
 Local NrReg:= 0            

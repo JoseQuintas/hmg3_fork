@@ -37,78 +37,78 @@
 
  Parts of this project are based upon:
 
-	"Harbour GUI framework for Win32"
- 	Copyright 2001 Alexander S.Kresin <alex@belacy.belgorod.su>
- 	Copyright 2001 Antonio Linares <alinares@fivetech.com>
-	www - http://www.harbour-project.org
+   "Harbour GUI framework for Win32"
+    Copyright 2001 Alexander S.Kresin <alex@belacy.belgorod.su>
+    Copyright 2001 Antonio Linares <alinares@fivetech.com>
+   www - http://www.harbour-project.org
 
-	"Harbour Project"
-	Copyright 1999-2003, http://www.harbour-project.org/
+   "Harbour Project"
+   Copyright 1999-2003, http://www.harbour-project.org/
 
-	"WHAT32"
-	Copyright 2002 AJ Wos <andrwos@aust1.net>
+   "WHAT32"
+   Copyright 2002 AJ Wos <andrwos@aust1.net>
 
-	"HWGUI"
-  	Copyright 2001-2007 Alexander S.Kresin <alex@belacy.belgorod.su>
+   "HWGUI"
+     Copyright 2001-2007 Alexander S.Kresin <alex@belacy.belgorod.su>
 
 ---------------------------------------------------------------------------*/
 
 #xcommand @ <row>,<col> LABEL <name>   ;
-	[ <dummy1: OF, PARENT> <parent> ] ;
-	[ VALUE <value> ]   ;
-	[ ACTION <action> ] ;
-	[ WIDTH <width> ]   ;
-	[ HEIGHT <height> ]   ;
-	[ <autosize : AUTOSIZE> ] ;
-	[ FONT <fontname> ]   ;
-	[ SIZE <fontsize> ]   ;
-	[ <bold : BOLD> ] ;
-	[ <italic : ITALIC> ] ;
-	[ <underline : UNDERLINE> ] ;
-	[ <strikeout : STRIKEOUT> ] ;
-	[ TOOLTIP <tooltip> ] ;
-	[ BACKCOLOR <backcolor> ] ;
-	[ FONTCOLOR <fontcolor> ] ;
-	[ <border: BORDER> ] ;
-	[ <clientedge: CLIENTEDGE> ] ;
-	[ <hscroll: HSCROLL> ] ;
-	[ <vscroll: VSCROLL> ] ;
-	[ <transparent: TRANSPARENT> ] ;
-	[ <rightalign: RIGHTALIGN> ]	;
-	[ <centeralign: CENTERALIGN> ]	;
-	[ HELPID <helpid> ] 		;
-	[ <invisible: INVISIBLE> ] ;
+   [ <dummy1: OF, PARENT> <parent> ] ;
+   [ VALUE <value> ]   ;
+   [ ACTION <action> ] ;
+   [ WIDTH <width> ]   ;
+   [ HEIGHT <height> ]   ;
+   [ <autosize : AUTOSIZE> ] ;
+   [ FONT <fontname> ]   ;
+   [ SIZE <fontsize> ]   ;
+   [ <bold : BOLD> ] ;
+   [ <italic : ITALIC> ] ;
+   [ <underline : UNDERLINE> ] ;
+   [ <strikeout : STRIKEOUT> ] ;
+   [ TOOLTIP <tooltip> ] ;
+   [ BACKCOLOR <backcolor> ] ;
+   [ FONTCOLOR <fontcolor> ] ;
+   [ <border: BORDER> ] ;
+   [ <clientedge: CLIENTEDGE> ] ;
+   [ <hscroll: HSCROLL> ] ;
+   [ <vscroll: VSCROLL> ] ;
+   [ <transparent: TRANSPARENT> ] ;
+   [ <rightalign: RIGHTALIGN> ]   ;
+   [ <centeralign: CENTERALIGN> ]   ;
+   [ HELPID <helpid> ]       ;
+   [ <invisible: INVISIBLE> ] ;
    [ <EndEllipses: ENDELLIPSES> ] ;
    [ <NoPrefix: NOPREFIX> ] ;
-	=>;
-	_DefineLabel (      ;
-	<(name)>,    ;
-	<(parent)>,    ;
-	<col>,     ;
-	<row>,     ;
-	<value>,    ;
-	<width>,    ;
-	<height>,    ;
-	<fontname>,    ;
-	<fontsize>,    ;
-	<.bold.>,    ;
-	<.border.> ,   ;
-	<.clientedge.> ,  ;
-	<.hscroll.> ,   ;
-	<.vscroll.> ,   ;
-	<.transparent.> ,   ;
-	[ <backcolor> ], ;
-	[ <fontcolor> ], ;
-	<{action}>,	;
-	<tooltip>,	;
-	<helpid>, ;
-	<.invisible.>, ;
-	<.italic.>, ;
-	<.underline.>, ;
-	<.strikeout.> , ;
-	<.autosize.> , ;
-	<.rightalign.> , ;
-	<.centeralign.>, ;
+   =>;
+   _DefineLabel (      ;
+   <(name)>,    ;
+   <(parent)>,    ;
+   <col>,     ;
+   <row>,     ;
+   <value>,    ;
+   <width>,    ;
+   <height>,    ;
+   <fontname>,    ;
+   <fontsize>,    ;
+   <.bold.>,    ;
+   <.border.> ,   ;
+   <.clientedge.> ,  ;
+   <.hscroll.> ,   ;
+   <.vscroll.> ,   ;
+   <.transparent.> ,   ;
+   [ <backcolor> ], ;
+   [ <fontcolor> ], ;
+   <{action}>,   ;
+   <tooltip>,   ;
+   <helpid>, ;
+   <.invisible.>, ;
+   <.italic.>, ;
+   <.underline.>, ;
+   <.strikeout.> , ;
+   <.autosize.> , ;
+   <.rightalign.> , ;
+   <.centeralign.>, ;
    <.EndEllipses.>, ;
    <.NoPrefix.> )
 

@@ -12,47 +12,46 @@
       2012-2017 Dr. Claudio Soto <srvet@adinet.com.uy>
       http://srvet.blogspot.com
 
- This program is free software; you can redistribute it and/or modify it under 
- the terms of the GNU General Public License as published by the Free Software 
- Foundation; either version 2 of the License, or (at your option) any later 
- version. 
+ This program is free software; you can redistribute it and/or modify it under
+ the terms of the GNU General Public License as published by the Free Software
+ Foundation; either version 2 of the License, or (at your option) any later
+ version.
 
- This program is distributed in the hope that it will be useful, but WITHOUT 
- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS 
+ This program is distributed in the hope that it will be useful, but WITHOUT
+ ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
- You should have received a copy of the GNU General Public License along with 
- this software; see the file COPYING. If not, write to the Free Software 
- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA (or 
+ You should have received a copy of the GNU General Public License along with
+ this software; see the file COPYING. If not, write to the Free Software
+ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA (or
  visit the web site http://www.gnu.org/).
 
  As a special exception, you have permission for additional uses of the text
  contained in this release of HMG.
 
- The exception is that, if you link the HMG library with other 
- files to produce an executable, this does not by itself cause the resulting 
+ The exception is that, if you link the HMG library with other
+ files to produce an executable, this does not by itself cause the resulting
  executable to be covered by the GNU General Public License.
- Your use of that executable is in no way restricted on account of linking the 
+ Your use of that executable is in no way restricted on account of linking the
  HMG library code into it.
 
  Parts of this project are based upon:
 
-	"Harbour GUI framework for Win32"
- 	Copyright 2001 Alexander S.Kresin <alex@belacy.belgorod.su>
- 	Copyright 2001 Antonio Linares <alinares@fivetech.com>
-	www - http://www.harbour-project.org
+   "Harbour GUI framework for Win32"
+    Copyright 2001 Alexander S.Kresin <alex@belacy.belgorod.su>
+    Copyright 2001 Antonio Linares <alinares@fivetech.com>
+   www - http://www.harbour-project.org
 
-	"Harbour Project"
-	Copyright 1999-2008, http://www.harbour-project.org/
+   "Harbour Project"
+   Copyright 1999-2008, http://www.harbour-project.org/
 
-	"WHAT32"
-	Copyright 2002 AJ Wos <andrwos@aust1.net>
+   "WHAT32"
+   Copyright 2002 AJ Wos <andrwos@aust1.net>
 
-	"HWGUI"
-  	Copyright 2001-2008 Alexander S.Kresin <alex@belacy.belgorod.su>
+   "HWGUI"
+     Copyright 2001-2008 Alexander S.Kresin <alex@belacy.belgorod.su>
 
 ---------------------------------------------------------------------------*/
-MEMVAR _HMG_SYSDATA
 #define BM_GETCHECK      240   // ok
 #define BST_UNCHECKED    0     // ok
 #define BST_CHECKED      1     // ok
@@ -65,7 +64,7 @@ Function _DefineCheckBox ( ControlName, ParentForm, x, y, Caption, Value, ;
                            lostfocus, gotfocus, HelpId, invisible, notabstop , bold, italic, underline, strikeout , field  , backcolor , fontcolor , transparent, OnEnter )
 *-----------------------------------------------------------------------------*
 Local cParentForm , mVar , k := 0
-Local ControlHandle
+Local ControlHandle, oControl
 Local FontHandle
 Local WorkArea
 Local cParentTabName := ''
@@ -80,123 +79,126 @@ Local cParentWindowName := ''
    DEFAULT invisible       TO FALSE
    DEFAULT notabstop       TO FALSE
 
-	If ValType ( Field ) != 'U'
-		if  HB_UAT ( '>', Field ) == 0 
-			MsgHMGError ("Control: " + ControlName + " Of " + ParentForm + " : You must specify a fully qualified field name. Program Terminated" )
-		Else
-			WorkArea := HB_ULEFT ( Field , HB_UAT ( '>', Field ) - 2 )
-			If Select (WorkArea) != 0
-				Value := &(Field)
-			EndIf
-		EndIf
-	EndIf
+   If ValType ( Field ) != 'U'
+      if  HB_UAT ( '>', Field ) == 0
+         MsgHMGError ("Control: " + ControlName + " Of " + ParentForm + " : You must specify a fully qualified field name. Program Terminated" )
+      Else
+         WorkArea := HB_ULEFT ( Field , HB_UAT ( '>', Field ) - 2 )
+         If Select (WorkArea) != 0
+            Value := &(Field)
+         EndIf
+      EndIf
+   EndIf
 
-	if _HMG_SYSDATA [ 264 ] = .T.
-		ParentForm := _HMG_SYSDATA [ 223 ]
-		if .Not. Empty (_HMG_SYSDATA [ 224 ]) .And. ValType(FontName) == "U"
-			FontName := _HMG_SYSDATA [ 224 ]
-		EndIf
-		if .Not. Empty (_HMG_SYSDATA [ 182 ]) .And. ValType(FontSize) == "U"
-			FontSize := _HMG_SYSDATA [ 182 ]
-		EndIf
-	endif
-	if _HMG_SYSDATA [ 183 ] > 0
-		IF _HMG_SYSDATA [ 240 ] == .F.
-		x 	:= x + _HMG_SYSDATA [ 334 ] [_HMG_SYSDATA [ 183 ]]
-		y 	:= y + _HMG_SYSDATA [ 333 ] [_HMG_SYSDATA [ 183 ]]
-		ParentForm	:= _HMG_SYSDATA [ 332 ] [_HMG_SYSDATA [ 183 ]]
+   if oHmgApp():APP264 = .T.
+      ParentForm := oHmgApp():ActiveFormName
+      if .Not. Empty (oHmgApp():APP224) .And. ValType(FontName) == "U"
+         FontName := oHmgApp():APP224
+      EndIf
+      if .Not. Empty ( oHmgApp():ActiveFontSize ) .And. ValType(FontSize) == "U"
+         FontSize := oHmgApp():ActiveFontSize
+      EndIf
+   endif
+   if oHmgApp():FrameLevel > 0
+      IF oHmgApp():APP240 == .F.
+      x    := x + oHmgApp():APP334 [ oHmgApp():FrameLevel ]
+      y    := y + oHmgApp():APP333 [ oHmgApp():FrameLevel ]
+      ParentForm   := oHmgApp():APP332 [ oHmgApp():FrameLevel ]
 
-		cParentTabName := _HMG_SYSDATA [ 225 ] 
-		cParentWindowName := ParentForm
-		ENDIF
-	EndIf
+      cParentTabName := oHmgApp():APP225
+      cParentWindowName := ParentForm
+      ENDIF
+   EndIf
 
-	If .Not. _IsWindowDefined (ParentForm)
-		MsgHMGError("Window: "+ ParentForm + " is not defined. Program terminated" )
-	Endif
+   If .Not. _IsWindowDefined (ParentForm)
+      MsgHMGError("Window: "+ ParentForm + " is not defined. Program terminated" )
+   Endif
 
-	If _IsControlDefined (ControlName,ParentForm)
-		MsgHMGError ("Control: " + ControlName + " Of " + ParentForm + " Already defined. Program Terminated" )
-	endif
+   If _IsControlDefined (ControlName,ParentForm)
+      MsgHMGError ("Control: " + ControlName + " Of " + ParentForm + " Already defined. Program Terminated" )
+   endif
 
-	mVar := '_' + ParentForm + '_' + ControlName
+   mVar := '_' + ParentForm + '_' + ControlName
 
-	cParentForm := ParentForm
+   cParentForm := ParentForm
 
-	ParentForm = GetFormHandle (ParentForm)
+   ParentForm = GetFormHandle (ParentForm)
 
-	Controlhandle := InitCheckBox ( ParentForm, Caption, 0, x, y, '', 0 , w , h, invisible, notabstop )
+   Controlhandle := InitCheckBox ( ParentForm, Caption, 0, x, y, '', 0 , w , h, invisible, notabstop )
 
-	if valtype(fontname) != "U" .and. valtype(fontsize) != "U"
-		FontHandle := _SetFont (ControlHandle,FontName,FontSize,bold,italic,underline,strikeout)
-	Else
-		FontHandle := _SetFont (ControlHandle,_HMG_SYSDATA [ 342 ],_HMG_SYSDATA [ 343 ],bold,italic,underline,strikeout)
-	endif
+   if valtype(fontname) != "U" .and. valtype(fontsize) != "U"
+      FontHandle := _SetFont (ControlHandle,FontName,FontSize,bold,italic,underline,strikeout)
+   Else
+      FontHandle := _SetFont (ControlHandle,oHmgApp():APP342,oHmgApp():APP343,bold,italic,underline,strikeout)
+   endif
 
-	If _HMG_SYSDATA [ 265 ] = .T.
-		aAdd ( _HMG_SYSDATA [ 142 ] , Controlhandle )
-	EndIf
+   If oHmgApp():BeginTabActive = .T.
+      aAdd ( oHmgApp():APP142 , Controlhandle )
+   EndIf
 
-	if valtype(tooltip) != "U"
-		SetToolTip ( ControlHandle , tooltip , GetFormToolTipHandle (cParentForm) )
-	endif
+   if valtype(tooltip) != "U"
+      SetToolTip ( ControlHandle , tooltip , GetFormToolTipHandle (cParentForm) )
+   endif
 
-	k := _GetControlFree()
+   k := _GetControlFree()
 
-	Public &mVar. := k
+   Public &mVar. := k
+   oControl := ControlByIndex( k )
 
-	_HMG_SYSDATA [1] [k] := "CHECKBOX" 
-	_HMG_SYSDATA [2] [k] :=   ControlName 
-	_HMG_SYSDATA [3] [k] :=   ControlHandle
-	_HMG_SYSDATA [4] [k] :=   ParentForm 
-	_HMG_SYSDATA [  5 ] [k] :=   0 
-	_HMG_SYSDATA [  6 ] [k] :=   OnEnter
-	_HMG_SYSDATA [  7 ] [k] :=   Field 
-	_HMG_SYSDATA [  8 ] [k] :=   Nil 
-	_HMG_SYSDATA [  9 ] [k] :=   transparent 
-	_HMG_SYSDATA [ 10 ] [k] :=   lostfocus 
-	_HMG_SYSDATA [ 11 ] [k] :=   gotfocus 
-	_HMG_SYSDATA [ 12 ] [k] :=   changeprocedure 
-	_HMG_SYSDATA [ 13 ] [k] :=   .F. 
-	_HMG_SYSDATA [ 14 ] [k] :=   backcolor 
-	_HMG_SYSDATA [ 15 ] [k] :=   fontcolor 
-	_HMG_SYSDATA [ 16 ] [k] :=   _HMG_SYSDATA [ 266 ] 
-	_HMG_SYSDATA [ 17 ] [k] :=   {}
-	_HMG_SYSDATA [ 18 ]  [k] :=  y 
-	_HMG_SYSDATA [ 19 ] [k] :=   x 
-	_HMG_SYSDATA [ 20 ]  [k] :=  w 
-	_HMG_SYSDATA [ 21 ] [k] :=   h 
-	_HMG_SYSDATA [ 22 ]  [k] :=  0 
-	_HMG_SYSDATA [ 23 ]  [k] :=  iif ( _HMG_SYSDATA [ 183 ] > 0 ,_HMG_SYSDATA [ 333 ] [_HMG_SYSDATA [ 183 ]] , -1 )
-	_HMG_SYSDATA [ 24 ]  [k] :=  iif ( _HMG_SYSDATA [ 183 ] > 0 ,_HMG_SYSDATA [ 334 ] [_HMG_SYSDATA [ 183 ]] , -1 ) 
-	_HMG_SYSDATA [ 25 ]  [k] :=  "" 
-	_HMG_SYSDATA [ 26 ]  [k] :=  0 
-	_HMG_SYSDATA [ 27 ]  [k] :=  fontname 
-	_HMG_SYSDATA [ 28 ]  [k] :=  fontsize 
-	_HMG_SYSDATA [ 29 ]  [k] :=  {bold,italic,underline,strikeout} 
-	_HMG_SYSDATA [ 30 ]  [k] :=   tooltip  
-	_HMG_SYSDATA [ 31 ]  [k] :=  cParentTabName
-	_HMG_SYSDATA [ 32 ]  [k] :=  cParentWindowName
-	_HMG_SYSDATA [ 33 ]  [k] :=  Caption  
-	_HMG_SYSDATA [ 34 ]  [k] :=  if(invisible,FALSE,TRUE) 
-	_HMG_SYSDATA [ 35 ]  [k] :=  HelpId 
-	_HMG_SYSDATA [ 36 ]  [k] := FontHandle 
-	_HMG_SYSDATA [ 37 ] [k] :=  0
-	_HMG_SYSDATA [ 38 ] [k] :=  .T. 
-	_HMG_SYSDATA [ 39 ] [k] := 0
-	_HMG_SYSDATA [ 40 ] [k] := { NIL , NIL , NIL , NIL , NIL , NIL , NIL , NIL }
+   WITH OBJECT oControl
+      :Type := "CHECKBOX"
+      :Name :=   ControlName
+      :Handle :=   ControlHandle
+      :ParentFormHandle :=   ParentForm
+      :CTRL005 :=   0
+      :CTRL006 :=   OnEnter
+      :CTRL007 :=   Field
+      :CTRL008 :=   Nil
+      :CTRL009 :=   transparent
+      :CTRL010 :=   lostfocus
+      :CTRL011 :=   gotfocus
+      :CTRL012 :=   changeprocedure
+      :IsDeleted :=   .F.
+      :CTRL014 :=   backcolor
+      :CTRL015 :=   fontcolor
+      :CTRL016 :=   oHmgApp():ActiveTabButtons
+      :CTRL017 :=   {}
+      :CTRL018 :=  y
+      :CTRL019 :=   x
+      :CTRL020 :=  w
+      :CTRL021 :=   h
+      :CTRL022 :=  0
+      :CTRL023 :=  iif ( oHmgApp():FrameLevel > 0 ,oHmgApp():APP333 [ oHmgApp():FrameLevel ] , -1 )
+      :CTRL024 :=  iif ( oHmgApp():FrameLevel > 0 ,oHmgApp():APP334 [ oHmgApp():FrameLevel ] , -1 )
+      :CTRL025 :=  ""
+      :CTRL026 :=  0
+      :CTRL027 :=  fontname
+      :CTRL028 :=  fontsize
+      :CTRL029 :=  {bold,italic,underline,strikeout}
+      :CTRL030 :=   tooltip
+      :CTRL031 :=  cParentTabName
+      :CTRL032 :=  cParentWindowName
+      :CTRL033 :=  Caption
+      :CTRL034 :=  if(invisible,FALSE,TRUE)
+      :CTRL035 :=  HelpId
+      :CTRL036 := FontHandle
+      :CTRL037 :=  0
+      :CTRL038 :=  .T.
+      :CTRL039 := 0
+      :CTRL040 := { NIL , NIL , NIL , NIL , NIL , NIL , NIL , NIL }
+   ENDWITH
 
-	if value = .t.
-	     	SendMessage( Controlhandle , BM_SETCHECK  , BST_CHECKED , 0 )
-	endif
+   if value = .t.
+           SendMessage( Controlhandle , BM_SETCHECK  , BST_CHECKED , 0 )
+   endif
 
-	if valtype ( Field ) != 'U'
-		if k > 0
-			aAdd ( _HMG_SYSDATA [ 89 ]	[ GetFormIndex ( cParentForm ) ] , k )
-		Else
-			aAdd ( _HMG_SYSDATA [ 89 ]	[ GetFormIndex ( cParentForm ) ] , HMG_LEN (_HMG_SYSDATA [3]) )
-		EndIf
-	EndIf
+   if valtype ( Field ) != 'U'
+      if k > 0
+         aAdd ( FormByIndex( GetFormIndex ( cParentForm ) ):FORM089 , k )
+      Else
+         aAdd ( FormByIndex( GetFormIndex ( cParentForm ) ):FORM089 , oHmgApp():ControlCount )
+      EndIf
+   EndIf
 
 Return Nil
 *-----------------------------------------------------------------------------*
@@ -207,7 +209,7 @@ Function _DefineCheckButton ( ControlName, ParentForm, x, y, Caption, Value, ;
 *-----------------------------------------------------------------------------*
 Local cParentForm , mVar , k
 Local ControlHandle
-Local FontHandle
+Local FontHandle, oControl
 
    DEFAULT value           TO FALSE
    DEFAULT w               TO 100
@@ -218,101 +220,104 @@ Local FontHandle
    DEFAULT invisible       TO FALSE
    DEFAULT notabstop       TO FALSE
 
-	if _HMG_SYSDATA [ 264 ] = .T.
-		ParentForm := _HMG_SYSDATA [ 223 ]
-		if .Not. Empty (_HMG_SYSDATA [ 224 ]) .And. ValType(FontName) == "U"
-			FontName := _HMG_SYSDATA [ 224 ]
-		EndIf
-		if .Not. Empty (_HMG_SYSDATA [ 182 ]) .And. ValType(FontSize) == "U"
-			FontSize := _HMG_SYSDATA [ 182 ]
-		EndIf
-	endif
-	if _HMG_SYSDATA [ 183 ] > 0
-		IF _HMG_SYSDATA [ 240 ] == .F.
-		x 	:= x + _HMG_SYSDATA [ 334 ] [_HMG_SYSDATA [ 183 ]]
-		y 	:= y + _HMG_SYSDATA [ 333 ] [_HMG_SYSDATA [ 183 ]]
-		ParentForm := _HMG_SYSDATA [ 332 ] [_HMG_SYSDATA [ 183 ]]
-		ENDIF
-	EndIf
+   if oHmgApp():APP264 = .T.
+      ParentForm := oHmgApp():ActiveFormName
+      if .Not. Empty (oHmgApp():APP224) .And. ValType(FontName) == "U"
+         FontName := oHmgApp():APP224
+      EndIf
+      if .Not. Empty ( oHmgApp():ActiveFontSize ) .And. ValType(FontSize) == "U"
+         FontSize := oHmgApp():ActiveFontSize
+      EndIf
+   endif
+   if oHmgApp():FrameLevel > 0
+      IF oHmgApp():APP240 == .F.
+      x    := x + oHmgApp():APP334 [ oHmgApp():FrameLevel ]
+      y    := y + oHmgApp():APP333 [ oHmgApp():FrameLevel ]
+      ParentForm := oHmgApp():APP332 [ oHmgApp():FrameLevel ]
+      ENDIF
+   EndIf
 
-	If .Not. _IsWindowDefined (ParentForm)
-		MsgHMGError("Window: "+ ParentForm + " is not defined. Program terminated" )
-	Endif
+   If .Not. _IsWindowDefined (ParentForm)
+      MsgHMGError("Window: "+ ParentForm + " is not defined. Program terminated" )
+   Endif
 
-	If _IsControlDefined (ControlName,ParentForm)
-		MsgHMGError ("Control: " + ControlName + " Of " + ParentForm + " Already defined. Program Terminated" )
-	endif
+   If _IsControlDefined (ControlName,ParentForm)
+      MsgHMGError ("Control: " + ControlName + " Of " + ParentForm + " Already defined. Program Terminated" )
+   endif
 
-	mVar := '_' + ParentForm + '_' + ControlName
+   mVar := '_' + ParentForm + '_' + ControlName
 
-	cParentForm := ParentForm
+   cParentForm := ParentForm
 
-	ParentForm = GetFormHandle (ParentForm)
+   ParentForm = GetFormHandle (ParentForm)
 
-	Controlhandle := InitCheckButton ( ParentForm, Caption, 0, x, y, '', 0 , w , h, invisible, notabstop )
+   Controlhandle := InitCheckButton ( ParentForm, Caption, 0, x, y, '', 0 , w , h, invisible, notabstop )
 
-	if valtype(fontname) != "U" .and. valtype(fontsize) != "U"
-		FontHandle := _SetFont (ControlHandle,FontName,FontSize,bold,italic,underline,strikeout)
-	Else
-		FontHandle := _SetFont (ControlHandle,_HMG_SYSDATA [ 342 ],_HMG_SYSDATA [ 343 ],bold,italic,underline,strikeout)
-	endif
+   if valtype(fontname) != "U" .and. valtype(fontsize) != "U"
+      FontHandle := _SetFont (ControlHandle,FontName,FontSize,bold,italic,underline,strikeout)
+   Else
+      FontHandle := _SetFont (ControlHandle,oHmgApp():APP342,oHmgApp():APP343,bold,italic,underline,strikeout)
+   endif
 
-	If _HMG_SYSDATA [ 265 ] = .T.
-		aAdd ( _HMG_SYSDATA [ 142 ] , ControlHandle )
-	EndIf
+   If oHmgApp():BeginTabActive = .T.
+      aAdd ( oHmgApp():APP142 , ControlHandle )
+   EndIf
 
-	if valtype(tooltip) != "U"
-		SetToolTip ( ControlHandle , tooltip , GetFormToolTipHandle (cParentForm) )
-	endif
+   if valtype(tooltip) != "U"
+      SetToolTip ( ControlHandle , tooltip , GetFormToolTipHandle (cParentForm) )
+   endif
 
-	k := _GetControlFree()
+   k := _GetControlFree()
 
-	Public &mVar. := k
+   Public &mVar. := k
+   oControl := ControlByIndex( k )
 
-	_HMG_SYSDATA [1] [k] := "CHECKBOX" 
-	_HMG_SYSDATA [2] [k] :=   ControlName 
-	_HMG_SYSDATA [3] [k] :=   ControlHandle 
-	_HMG_SYSDATA [4] [k] :=   ParentForm 
-	_HMG_SYSDATA [  5 ] [k] :=   0 
-	_HMG_SYSDATA [  6 ] [k] :=  OnEnter
-	_HMG_SYSDATA [  7 ]  [k] :=  {} 
-	_HMG_SYSDATA [  8 ]  [k] :=  Nil 
-	_HMG_SYSDATA [  9 ]   [k] := "" 
-	_HMG_SYSDATA [ 10 ]  [k] :=  lostfocus 
-	_HMG_SYSDATA [ 11 ]  [k] :=  gotfocus 
-	_HMG_SYSDATA [ 12 ]  [k] :=  changeprocedure 
-	_HMG_SYSDATA [ 13 ]  [k] :=  .F. 
-	_HMG_SYSDATA [ 14 ]   [k] := Nil 
-	_HMG_SYSDATA [ 15 ]   [k] := Nil
-	_HMG_SYSDATA [ 16 ]   [k] := "" 
-	_HMG_SYSDATA [ 17 ]  [k] :=  {} 
-	_HMG_SYSDATA [ 18 ]  [k] :=  y 
-	_HMG_SYSDATA [ 19 ]   [k] := x 
-	_HMG_SYSDATA [ 20 ]   [k] := w 
-	_HMG_SYSDATA [ 21 ]   [k] := h 
-	_HMG_SYSDATA [ 22 ]   [k] := 0 
-	_HMG_SYSDATA [ 23 ]   [k] := iif ( _HMG_SYSDATA [ 183 ] > 0 ,_HMG_SYSDATA [ 333 ] [_HMG_SYSDATA [ 183 ]] , -1 ) 
-	_HMG_SYSDATA [ 24 ]  [k] :=  iif ( _HMG_SYSDATA [ 183 ] > 0 ,_HMG_SYSDATA [ 334 ] [_HMG_SYSDATA [ 183 ]] , -1 ) 
-	_HMG_SYSDATA [ 25 ]  [k] :=  "" 
-	_HMG_SYSDATA [ 26 ]  [k] :=  0 
-	_HMG_SYSDATA [ 27 ]   [k] := fontname 
-	_HMG_SYSDATA [ 28 ]   [k] := fontsize 
-	_HMG_SYSDATA [ 29 ]   [k] := {bold,italic,underline,strikeout} 
-	_HMG_SYSDATA [ 30 ]  [k] :=   tooltip  
-	_HMG_SYSDATA [ 31 ]   [k] :=  0  
-	_HMG_SYSDATA [ 32 ]   [k] :=  0  
-	_HMG_SYSDATA [ 33 ]   [k] :=  Caption  
-	_HMG_SYSDATA [ 34 ]  [k] :=   if(invisible,FALSE,TRUE) 
-	_HMG_SYSDATA [ 35 ]  [k] :=   HelpId
-	_HMG_SYSDATA [ 36 ]   [k] :=  FontHandle 
-	_HMG_SYSDATA [ 37 ]   [k] :=  0 
-	_HMG_SYSDATA [ 38 ]  [k] :=   .T. 
-	_HMG_SYSDATA [ 39 ] [k] := 0
-	_HMG_SYSDATA [ 40 ] [k] := { NIL , NIL , NIL , NIL , NIL , NIL , NIL , NIL }
+   WITH OBJECT oControl
+      :Type := "CHECKBOX"
+      :Name :=   ControlName
+      :Handle :=   ControlHandle
+      :ParentFormHandle :=   ParentForm
+      :CTRL005 :=   0
+      :CTRL006 :=  OnEnter
+      :CTRL007 :=  {}
+      :CTRL008 :=  Nil
+      :CTRL009 := ""
+      :CTRL010 :=  lostfocus
+      :CTRL011 :=  gotfocus
+      :CTRL012 :=  changeprocedure
+      :IsDeleted :=  .F.
+      :CTRL014 := Nil
+      :CTRL015 := Nil
+      :CTRL016 := ""
+      :CTRL017 :=  {}
+      :CTRL018 :=  y
+      :CTRL019 := x
+      :CTRL020 := w
+      :CTRL021 := h
+      :CTRL022 := 0
+      :CTRL023 := iif ( oHmgApp():FrameLevel > 0 ,oHmgApp():APP333 [ oHmgApp():FrameLevel ] , -1 )
+      :CTRL024 :=  iif ( oHmgApp():FrameLevel > 0 ,oHmgApp():APP334 [ oHmgApp():FrameLevel ] , -1 )
+      :CTRL025 :=  ""
+      :CTRL026 :=  0
+      :CTRL027 := fontname
+      :CTRL028 := fontsize
+      :CTRL029 := {bold,italic,underline,strikeout}
+      :CTRL030 :=   tooltip
+      :CTRL031 :=  0
+      :CTRL032 :=  0
+      :CTRL033 :=  Caption
+      :CTRL034 :=   if(invisible,FALSE,TRUE)
+      :CTRL035 :=   HelpId
+      :CTRL036 :=  FontHandle
+      :CTRL037 :=  0
+      :CTRL038 :=   .T.
+      :CTRL039 := 0
+      :CTRL040 := { NIL , NIL , NIL , NIL , NIL , NIL , NIL , NIL }
+   ENDWITH
 
-	if value = .t.
-	     	SendMessage( Controlhandle , BM_SETCHECK  , BST_CHECKED , 0 )
-	endif
+   if value = .t.
+           SendMessage( Controlhandle , BM_SETCHECK  , BST_CHECKED , 0 )
+   endif
 
 Return Nil
 *-----------------------------------------------------------------------------*
@@ -321,7 +326,7 @@ Function _DefineImageCheckButton ( ControlName, ParentForm, x, y, Picture, ;
                                    changeprocedure, w, h, lostfocus, gotfocus,;
                                    HelpId, invisible, notabstop, notrans, OnEnter )
 *-----------------------------------------------------------------------------*
-Local cParentForm , mVar , k := 0
+Local cParentForm , mVar , k := 0, oControl
 Local ControlHandle
 Local aRet
 
@@ -334,114 +339,117 @@ Local aRet
    DEFAULT invisible       TO FALSE
    DEFAULT notabstop       TO FALSE
 
-	if _HMG_SYSDATA [ 264 ] = .T.
-		ParentForm := _HMG_SYSDATA [ 223 ]
-	endif
-	if _HMG_SYSDATA [ 183 ] > 0
-		IF _HMG_SYSDATA [ 240 ] == .F.
-		x 	:= x + _HMG_SYSDATA [ 334 ] [_HMG_SYSDATA [ 183 ]]
-		y 	:= y + _HMG_SYSDATA [ 333 ] [_HMG_SYSDATA [ 183 ]]
-		ParentForm := _HMG_SYSDATA [ 332 ] [_HMG_SYSDATA [ 183 ]]
-		ENDIF
-	EndIf
+   if oHmgApp():APP264 = .T.
+      ParentForm := oHmgApp():ActiveFormName
+   endif
+   if oHmgApp():FrameLevel > 0
+      IF oHmgApp():APP240 == .F.
+      x    := x + oHmgApp():APP334 [ oHmgApp():FrameLevel ]
+      y    := y + oHmgApp():APP333 [ oHmgApp():FrameLevel ]
+      ParentForm := oHmgApp():APP332 [ oHmgApp():FrameLevel ]
+      ENDIF
+   EndIf
 
-	If .Not. _IsWindowDefined (ParentForm)
-		MsgHMGError("Window: "+ ParentForm + " is not defined. Program terminated" )
-	Endif
+   If .Not. _IsWindowDefined (ParentForm)
+      MsgHMGError("Window: "+ ParentForm + " is not defined. Program terminated" )
+   Endif
 
-	If _IsControlDefined (ControlName,ParentForm)
-		MsgHMGError ("Control: " + ControlName + " Of " + ParentForm + " Already defined. Program Terminated" )
-	endif
+   If _IsControlDefined (ControlName,ParentForm)
+      MsgHMGError ("Control: " + ControlName + " Of " + ParentForm + " Already defined. Program Terminated" )
+   endif
 
-	mVar := '_' + ParentForm + '_' + ControlName
+   mVar := '_' + ParentForm + '_' + ControlName
 
-	cParentForm := ParentForm
+   cParentForm := ParentForm
 
-	ParentForm = GetFormHandle (ParentForm)
+   ParentForm = GetFormHandle (ParentForm)
 
-	if IsAppThemed () 
-		aRet := InitImageCheckButton ( ParentForm, "", 0, x, y, '', 0, Picture, w, h, invisible, notabstop, .T., notrans )
-		Controlhandle := aRet [1]
-	else
-		aRet := InitImageCheckButton ( ParentForm, "", 0, x, y, '', 0, Picture, w, h, invisible, notabstop, .F., notrans )
-		Controlhandle := aRet [1]
-	endif
+   if IsAppThemed ()
+      aRet := InitImageCheckButton ( ParentForm, "", 0, x, y, '', 0, Picture, w, h, invisible, notabstop, .T., notrans )
+      Controlhandle := aRet [1]
+   else
+      aRet := InitImageCheckButton ( ParentForm, "", 0, x, y, '', 0, Picture, w, h, invisible, notabstop, .F., notrans )
+      Controlhandle := aRet [1]
+   endif
 
-	If _HMG_SYSDATA [ 265 ] = .T.
-		aAdd ( _HMG_SYSDATA [ 142 ] , ControlHandle )
-	EndIf
+   If oHmgApp():BeginTabActive = .T.
+      aAdd ( oHmgApp():APP142 , ControlHandle )
+   EndIf
 
-	if valtype(tooltip) != "U"
-		SetToolTip ( ControlHandle , tooltip , GetFormToolTipHandle (cParentForm) )
-	endif
+   if valtype(tooltip) != "U"
+      SetToolTip ( ControlHandle , tooltip , GetFormToolTipHandle (cParentForm) )
+   endif
 
-	k := _GetControlFree()
+   k := _GetControlFree()
 
-	Public &mVar. := k
+   Public &mVar. := k
+   oControl := ControlByIndex( K )
 
-	_HMG_SYSDATA [  1 ]  [k] :=  "CHECKBOX" 
-	_HMG_SYSDATA [  2 ]  [k] :=  ControlName 
-	_HMG_SYSDATA [  3 ]  [k] :=  ControlHandle 
-	_HMG_SYSDATA [  4 ]  [k] :=  ParentForm
-	_HMG_SYSDATA [  5 ]  [k] :=  0 
-	_HMG_SYSDATA [  6 ]  [k] :=  OnEnter
-	_HMG_SYSDATA [  7 ]  [k] :=  {}
-	_HMG_SYSDATA [  8 ]  [k] :=  Nil 
-	_HMG_SYSDATA [  9 ]  [k] :=  "" 
-	_HMG_SYSDATA [ 10 ]  [k] :=  lostfocus 
-	_HMG_SYSDATA [ 11 ]  [k] :=  gotfocus 
-	_HMG_SYSDATA [ 12 ]  [k] :=  changeprocedure 
-	_HMG_SYSDATA [ 13 ]  [k] :=  .F. 
-	_HMG_SYSDATA [ 14 ]  [k] :=  Nil 
-	_HMG_SYSDATA [ 15 ]  [k] :=  Nil 
-	_HMG_SYSDATA [ 16 ]  [k] :=  "" 
-	_HMG_SYSDATA [ 17 ]  [k] :=  {} 
-	_HMG_SYSDATA [ 18 ]  [k] :=  y 
-	_HMG_SYSDATA [ 19 ]  [k] :=  x 
-	_HMG_SYSDATA [ 20 ]  [k] :=  w 
-	_HMG_SYSDATA [ 21 ]  [k] :=  h 
-	_HMG_SYSDATA [ 22 ]  [k] :=  0 
-	_HMG_SYSDATA [ 23 ]  [k] :=  iif ( _HMG_SYSDATA [ 183 ] > 0 ,_HMG_SYSDATA [ 333 ] [_HMG_SYSDATA [ 183 ]] , -1 ) 
-	_HMG_SYSDATA [ 24 ]  [k] :=  iif ( _HMG_SYSDATA [ 183 ] > 0 ,_HMG_SYSDATA [ 334 ] [_HMG_SYSDATA [ 183 ]] , -1 )
-	_HMG_SYSDATA [ 25 ]  [k] :=  Picture 
-	_HMG_SYSDATA [ 26 ]  [k] :=  4 // BUTTON_IMAGELIST_ALIGN_CENTER
-	_HMG_SYSDATA [ 27 ]  [k] :=  fontname
-	_HMG_SYSDATA [ 28 ]  [k] :=  fontsize 
-	_HMG_SYSDATA [ 29 ]  [k] :=  {.f.,.f.,.f.,.f.} 
-	_HMG_SYSDATA [ 30 ]  [k] :=  tooltip  
-	_HMG_SYSDATA [ 31 ]  [k] :=  0  
-	_HMG_SYSDATA [ 32 ]  [k] :=  notrans // ADD  
-	_HMG_SYSDATA [ 33 ]  [k] :=  ''  
-	_HMG_SYSDATA [ 34 ]  [k] :=  if (invisible,FALSE,TRUE)
-	_HMG_SYSDATA [ 35 ]  [k] :=  HelpId 
-	_HMG_SYSDATA [ 36 ]  [k] :=  0 
-	_HMG_SYSDATA [ 37 ]  [k] :=  aRet [2]
-	_HMG_SYSDATA [ 38 ]  [k] :=  .T. 
-	_HMG_SYSDATA [ 39 ]  [k] :=  1
-	_HMG_SYSDATA [ 40 ]  [k] :=  { NIL , NIL , NIL , NIL , NIL , NIL , NIL , NIL }
+   WITH OBJECT oControl
+      :Type :=  "CHECKBOX"
+      :Name :=  ControlName
+      :Handle :=  ControlHandle
+      :ParentFormHandle :=  ParentForm
+      :CTRL005 :=  0
+      :CTRL006 :=  OnEnter
+      :CTRL007 :=  {}
+      :CTRL008 :=  Nil
+      :CTRL009 :=  ""
+      :CTRL010 :=  lostfocus
+      :CTRL011 :=  gotfocus
+      :CTRL012 :=  changeprocedure
+      :IsDeleted :=  .F.
+      :CTRL014 :=  Nil
+      :CTRL015 :=  Nil
+      :CTRL016 :=  ""
+      :CTRL017 :=  {}
+      :CTRL018 :=  y
+      :CTRL019 :=  x
+      :CTRL020 :=  w
+      :CTRL021 :=  h
+      :CTRL022 :=  0
+      :CTRL023 :=  iif ( oHmgApp():FrameLevel > 0 ,oHmgApp():APP333 [ oHmgApp():FrameLevel ] , -1 )
+      :CTRL024 :=  iif ( oHmgApp():FrameLevel > 0 ,oHmgApp():APP334 [ oHmgApp():FrameLevel ] , -1 )
+      :CTRL025 :=  Picture
+      :CTRL026 :=  4 // BUTTON_IMAGELIST_ALIGN_CENTER
+      :CTRL027 :=  fontname
+      :CTRL028 :=  fontsize
+      :CTRL029 :=  {.f.,.f.,.f.,.f.}
+      :CTRL030 :=  tooltip
+      :CTRL031 :=  0
+      :CTRL032 :=  notrans // ADD
+      :CTRL033 :=  ''
+      :CTRL034 :=  if (invisible,FALSE,TRUE)
+      :CTRL035 :=  HelpId
+      :CTRL036 :=  0
+      :CTRL037 :=  aRet [2]
+      :CTRL038 :=  .T.
+      :CTRL039 :=  1
+      :CTRL040 :=  { NIL , NIL , NIL , NIL , NIL , NIL , NIL , NIL }
+   ENDWITH
 
-	if value = .t.
-	    	SendMessage( Controlhandle , BM_SETCHECK  , BST_CHECKED , 0 )
-	endif
+   if value = .t.
+          SendMessage( Controlhandle , BM_SETCHECK  , BST_CHECKED , 0 )
+   endif
 
 Return Nil
 
 Procedure _DataCheckBoxRefresh (i)
 Local Field
 
-	Field		:= _HMG_SYSDATA [  7 ] [i]
-	_SetValue ( '' , '' , &Field , i ) 
+   Field      := ControlByIndex( I ):CTRL007
+   _SetValue ( '' , '' , &Field , i )
 
 Return
 
 Procedure _DataCheckBoxSave ( ControlName , ParentForm)
-Local Field , i 
+Local Field , i
 
-	i := GetControlIndex ( ControlName , ParentForm)	
+   i := GetControlIndex ( ControlName , ParentForm)
 
-	Field := _HMG_SYSDATA [  7 ] [i]
+   Field := ControlByIndex( I ):CTRL007
 
-	REPLACE &Field WITH _GetValue ( Controlname , ParentForm ) 
+   REPLACE &Field WITH _GetValue ( Controlname , ParentForm )
 
 Return
 

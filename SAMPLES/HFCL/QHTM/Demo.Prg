@@ -4,25 +4,25 @@
 
 Function Main()
    nZoom := 2
-   
+
    cHTMLFile := "QHTM API Reference and User Guide.htm"
 
    cBKcolor := '<body bgcolor="#99EECC">'
-   
-   cHtml := cBKcolor + HB_MEMOREAD (cHtmlFile) 
-   
-   
+
+   cHtml := cBKcolor + HB_MEMOREAD (cHtmlFile)
+
+
    QHTM_Init()
-   
-   DEFINE WINDOW Form_1; 
+
+   DEFINE WINDOW Form_1;
         AT 0 , 0;
         WIDTH 800 HEIGHT 600;
         TITLE "QHTM Demo";
-        MAIN; 
-        NOSIZE;  
+        MAIN;
+        NOSIZE;
         NOMAXIMIZE;
         ON RELEASE  QHTM_end();
-        
+
          @ 10,10 QHTM Html_1 OF Form_1  ;
          VALUE cHtml;
          WIDTH 780  ;
@@ -90,7 +90,7 @@ Return Nil
 
 Procedure GetHTMLSize()
 Local aSize := QHTM_GetSize (GetControlHandle( 'Html_1', 'Form_1' ))
-Local cMsg  := "" 
+Local cMsg  := ""
 If !Empty (aSize)
    cMsg += '<p><b>QHTM_GetSize() for HTML</b></p><p>'
    cMsg += ( 'Height: ' + Str( aSize[ 2 ] )  + '<br>' )
@@ -114,7 +114,7 @@ Local hContext, nCountPages, Cycle, lPrintSet
          PREVIEW
 
    START PRINTDOC NAME "Print form - QHTM"
-   _hmg_printer_hdc_bak := _HMG_SYSDATA [ 372 ]
+   _hmg_printer_hdc_bak := oHmgApp():APP372
    hContext := QHTM_PrintCreateContext()
 
    If cHtmlFile=Nil
@@ -126,11 +126,11 @@ Local hContext, nCountPages, Cycle, lPrintSet
       nCountPages := QHTM_PrintLayout( _hmg_printer_hdc_bak, hContext )
       For Cycle := 1 to nCountPages
          START PRINTPAGE
-            _hmg_printer_hdc := _HMG_SYSDATA [ 374 ]
+            _hmg_printer_hdc := oHmgApp():APP374
             QHTM_PrintPage( _hmg_printer_hdc, hContext, Cycle )
          END PRINTPAGE
       Next
-   Endif   
+   Endif
    END PRINTDOC
    QHTM_PrintDestroyContext( hContext )
 Return Nil

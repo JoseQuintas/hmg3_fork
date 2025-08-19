@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
- HMG Source File --> i_Class.ch  
+ HMG Source File --> i_Class.ch
 
- Copyright 2012-2017 by Dr. Claudio Soto (from Uruguay). 
+ Copyright 2012-2017 by Dr. Claudio Soto (from Uruguay).
 
  mail: <srvet@adinet.com.uy>
  blog: http://srvet.blogspot.com
@@ -16,7 +16,7 @@
 ----------------------------------------------------------------------------*/
 
 
-#xtranslate oString => _HMG_SYSDATA \[ 517 \]
+#xtranslate oString => oHmgApp():APP517
 
 #xtranslate HMG_TStringNew() => HMG_TString():New()
- 
+

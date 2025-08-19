@@ -37,51 +37,51 @@
 
  Parts of this project are based upon:
 
-	"Harbour GUI framework for Win32"
- 	Copyright 2001 Alexander S.Kresin <alex@belacy.belgorod.su>
- 	Copyright 2001 Antonio Linares <alinares@fivetech.com>
-	www - http://www.harbour-project.org
+   "Harbour GUI framework for Win32"
+    Copyright 2001 Alexander S.Kresin <alex@belacy.belgorod.su>
+    Copyright 2001 Antonio Linares <alinares@fivetech.com>
+   www - http://www.harbour-project.org
 
-	"Harbour Project"
-	Copyright 1999-2003, http://www.harbour-project.org/
+   "Harbour Project"
+   Copyright 1999-2003, http://www.harbour-project.org/
 
-	"WHAT32"
-	Copyright 2002 AJ Wos <andrwos@aust1.net> 
+   "WHAT32"
+   Copyright 2002 AJ Wos <andrwos@aust1.net> 
 
-	"HWGUI"
-  	Copyright 2001-2007 Alexander S.Kresin <alex@belacy.belgorod.su>
+   "HWGUI"
+     Copyright 2001-2007 Alexander S.Kresin <alex@belacy.belgorod.su>
 
 ---------------------------------------------------------------------------*/
 
-#xtranslate SET LANGUAGE TO SPANISH     =>  _HMG_SYSDATA \[ 211 \] := '  ' ; REQUEST HB_LANG_ES		; HB_LANGSELECT( "ES" )		; InitMessages("ES")
-#xtranslate SET LANGUAGE TO ENGLISH     =>  _HMG_SYSDATA \[ 211 \] := '  ' ; REQUEST HB_LANG_EN		; HB_LANGSELECT( "EN" )		; InitMessages("EN")
-#xtranslate SET LANGUAGE TO FRENCH		=>  _HMG_SYSDATA \[ 211 \] := '  ' ; REQUEST HB_LANG_FR		; HB_LANGSELECT( "FR" )		; InitMessages("FR")
-#xtranslate SET LANGUAGE TO PORTUGUESE  =>  _HMG_SYSDATA \[ 211 \] := '  ' ; REQUEST HB_LANG_PT     ; HB_LANGSELECT( "PT" )    ; InitMessages("PT")
-#xtranslate SET LANGUAGE TO GERMAN		=>  _HMG_SYSDATA \[ 211 \] := '  ' ; REQUEST HB_LANG_DEWIN	; HB_LANGSELECT( "DEWIN" )	; InitMessages("DE")
-#xtranslate SET LANGUAGE TO RUSSIAN		=>  _HMG_SYSDATA \[ 211 \] := '  ' ; REQUEST HB_LANG_RUWIN	; HB_LANGSELECT( "RUWIN" )	; InitMessages("RU")
-#xtranslate SET LANGUAGE TO ITALIAN		=>  _HMG_SYSDATA \[ 211 \] := '  ' ; REQUEST HB_LANG_IT		; HB_LANGSELECT( "IT" )		; InitMessages("IT")
-#xtranslate SET LANGUAGE TO POLISH		=>  _HMG_SYSDATA \[ 211 \] := '  ' ; REQUEST HB_LANG_PLWIN	; HB_LANGSELECT( "PLWIN" )	; InitMessages("PL")
-#xtranslate SET LANGUAGE TO BASQUE		=>  _HMG_SYSDATA \[ 211 \] := '  ' ; REQUEST HB_LANG_EU		; HB_LANGSELECT( "EU" )		; InitMessages("EU")
-#xtranslate SET LANGUAGE TO CROATIAN		=>  _HMG_SYSDATA \[ 211 \] := '  ' ; REQUEST HB_LANG_HR852	; HB_LANGSELECT( "HR852" )	; InitMessages("HR")
-#xtranslate SET LANGUAGE TO SLOVENIAN	=>  _HMG_SYSDATA \[ 211 \] := '  ' ; REQUEST HB_LANG_SLWIN	; HB_LANGSELECT( "SLWIN" )	; InitMessages("SL")
-#xtranslate SET LANGUAGE TO CZECH 		=>  _HMG_SYSDATA \[ 211 \] := '  ' ; REQUEST HB_LANG_CSWIN	; HB_LANGSELECT( "CSWIN" )	; InitMessages("CS")
+#xtranslate SET LANGUAGE TO SPANISH     =>  oHmgApp():APP211 := '  ' ; REQUEST HB_LANG_ES      ; HB_LANGSELECT( "ES" )      ; InitMessages("ES")
+#xtranslate SET LANGUAGE TO ENGLISH     =>  oHmgApp():APP211 := '  ' ; REQUEST HB_LANG_EN      ; HB_LANGSELECT( "EN" )      ; InitMessages("EN")
+#xtranslate SET LANGUAGE TO FRENCH      =>  oHmgApp():APP211 := '  ' ; REQUEST HB_LANG_FR      ; HB_LANGSELECT( "FR" )      ; InitMessages("FR")
+#xtranslate SET LANGUAGE TO PORTUGUESE  =>  oHmgApp():APP211 := '  ' ; REQUEST HB_LANG_PT     ; HB_LANGSELECT( "PT" )    ; InitMessages("PT")
+#xtranslate SET LANGUAGE TO GERMAN      =>  oHmgApp():APP211 := '  ' ; REQUEST HB_LANG_DEWIN   ; HB_LANGSELECT( "DEWIN" )   ; InitMessages("DE")
+#xtranslate SET LANGUAGE TO RUSSIAN      =>  oHmgApp():APP211 := '  ' ; REQUEST HB_LANG_RUWIN   ; HB_LANGSELECT( "RUWIN" )   ; InitMessages("RU")
+#xtranslate SET LANGUAGE TO ITALIAN      =>  oHmgApp():APP211 := '  ' ; REQUEST HB_LANG_IT      ; HB_LANGSELECT( "IT" )      ; InitMessages("IT")
+#xtranslate SET LANGUAGE TO POLISH      =>  oHmgApp():APP211 := '  ' ; REQUEST HB_LANG_PLWIN   ; HB_LANGSELECT( "PLWIN" )   ; InitMessages("PL")
+#xtranslate SET LANGUAGE TO BASQUE      =>  oHmgApp():APP211 := '  ' ; REQUEST HB_LANG_EU      ; HB_LANGSELECT( "EU" )      ; InitMessages("EU")
+#xtranslate SET LANGUAGE TO CROATIAN      =>  oHmgApp():APP211 := '  ' ; REQUEST HB_LANG_HR852   ; HB_LANGSELECT( "HR852" )   ; InitMessages("HR")
+#xtranslate SET LANGUAGE TO SLOVENIAN   =>  oHmgApp():APP211 := '  ' ; REQUEST HB_LANG_SLWIN   ; HB_LANGSELECT( "SLWIN" )   ; InitMessages("SL")
+#xtranslate SET LANGUAGE TO CZECH       =>  oHmgApp():APP211 := '  ' ; REQUEST HB_LANG_CSWIN   ; HB_LANGSELECT( "CSWIN" )   ; InitMessages("CS")
 
 // Languages Not Supported by hb_LangSelect()
-#xtranslate SET LANGUAGE TO FINNISH		=>  _HMG_SYSDATA \[ 211 \] := '  ' ;								; InitMessages("FI")
-#xtranslate SET LANGUAGE TO DUTCH       =>  _HMG_SYSDATA \[ 211 \] := '  ' ;								; InitMessages("NL")
+#xtranslate SET LANGUAGE TO FINNISH      =>  oHmgApp():APP211 := '  ' ;                        ; InitMessages("FI")
+#xtranslate SET LANGUAGE TO DUTCH       =>  oHmgApp():APP211 := '  ' ;                        ; InitMessages("NL")
 
 
-#xtranslate SET CODEPAGE TO ENGLISH		=>  hb_setcodepage("EN")
-#xtranslate SET CODEPAGE TO SPANISH		=>  REQUEST HB_CODEPAGE_ESWIN ; hb_setcodepage("ESWIN")
-#xtranslate SET CODEPAGE TO BULGARIAN		=>  REQUEST HB_CODEPAGE_BGWIN ; hb_setcodepage("BGWIN")
-#xtranslate SET CODEPAGE TO GERMAN		=>  REQUEST HB_CODEPAGE_DEWIN ; hb_setcodepage("DEWIN")
-#xtranslate SET CODEPAGE TO GREEK		=>  REQUEST HB_CODEPAGE_ELWIN ; hb_setcodepage("ELWIN")
-#xtranslate SET CODEPAGE TO HUNGARIAN		=>  REQUEST HB_CODEPAGE_HUWIN ; hb_setcodepage("HUWIN")
-#xtranslate SET CODEPAGE TO POLISH		=>  REQUEST HB_CODEPAGE_PLWIN ; hb_setcodepage("PLWIN")
-#xtranslate SET CODEPAGE TO PORTUGUESE		=>  REQUEST HB_CODEPAGE_PT850 ; hb_setcodepage("PT850")
-#xtranslate SET CODEPAGE TO RUSSIAN		=>  REQUEST HB_CODEPAGE_RU1251 ; hb_setcodepage("RU1251")
-#xtranslate SET CODEPAGE TO SERBIAN		=>  REQUEST HB_CODEPAGE_SRWIN ; hb_setcodepage("SRWIN")
-#xtranslate SET CODEPAGE TO SLOVENIAN		=>  REQUEST HB_CODEPAGE_SLWIN ; hb_setcodepage("SLWIN")
+#xtranslate SET CODEPAGE TO ENGLISH      =>  hb_setcodepage("EN")
+#xtranslate SET CODEPAGE TO SPANISH      =>  REQUEST HB_CODEPAGE_ESWIN ; hb_setcodepage("ESWIN")
+#xtranslate SET CODEPAGE TO BULGARIAN      =>  REQUEST HB_CODEPAGE_BGWIN ; hb_setcodepage("BGWIN")
+#xtranslate SET CODEPAGE TO GERMAN      =>  REQUEST HB_CODEPAGE_DEWIN ; hb_setcodepage("DEWIN")
+#xtranslate SET CODEPAGE TO GREEK      =>  REQUEST HB_CODEPAGE_ELWIN ; hb_setcodepage("ELWIN")
+#xtranslate SET CODEPAGE TO HUNGARIAN      =>  REQUEST HB_CODEPAGE_HUWIN ; hb_setcodepage("HUWIN")
+#xtranslate SET CODEPAGE TO POLISH      =>  REQUEST HB_CODEPAGE_PLWIN ; hb_setcodepage("PLWIN")
+#xtranslate SET CODEPAGE TO PORTUGUESE      =>  REQUEST HB_CODEPAGE_PT850 ; hb_setcodepage("PT850")
+#xtranslate SET CODEPAGE TO RUSSIAN      =>  REQUEST HB_CODEPAGE_RU1251 ; hb_setcodepage("RU1251")
+#xtranslate SET CODEPAGE TO SERBIAN      =>  REQUEST HB_CODEPAGE_SRWIN ; hb_setcodepage("SRWIN")
+#xtranslate SET CODEPAGE TO SLOVENIAN      =>  REQUEST HB_CODEPAGE_SLWIN ; hb_setcodepage("SLWIN")
 
 #xtranslate SET CODEPAGE TO UNICODE              =>  SET (_SET_CODEPAGE, "UTF8")
 

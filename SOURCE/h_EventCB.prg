@@ -19,30 +19,10 @@
 
 
 MEMVAR _HMG_SYSDATA
-MEMVAR _HMG_MainFormIndex
-MEMVAR _HMG_LastActiveFormIndex
-MEMVAR _HMG_LastActiveControlIndex
-MEMVAR _HMG_LastFormIndexWithCursor
-
-
-MEMVAR _HMG_EventData
-MEMVAR _HMG_EventIsInProgress
-MEMVAR _HMG_EventIsKeyboardMessage
-MEMVAR _HMG_EventIsMouseMessage
-MEMVAR _HMG_EventIsHMGWindowsMessage
-MEMVAR _HMG_EventHookID
-MEMVAR _HMG_EventHookCode
-MEMVAR _HMG_EventINDEX
-MEMVAR _HMG_EventHWND
-MEMVAR _HMG_EventMSG
-MEMVAR _HMG_EventWPARAM
-MEMVAR _HMG_EventLPARAM
-MEMVAR _HMG_EventPROCNAME
-
 
 *--------------------------------------------------------------------*
 Function EventCompareParam (Param1, Param2)
-*--------------------------------------------------------------------*
+
    IF ValType (Param1) <> "U" .AND. ValType (Param2) <> "U"
       IF ValType (Param1) == "C" .AND. ValType (Param2) == "C"
          Return (ALLTRIM(Param1) == ALLTRIM(Param2))
@@ -55,7 +35,7 @@ Return .T.
 
 *-------------------------------------------------------------------------------------*
 Function EventCreate (cProcName, hWnd, nMsg)
-*-------------------------------------------------------------------------------------*
+
 LOCAL lStopEvent := .F., lProcessKeyboardMessage := .T., lProcessMouseMessage := .T.
 LOCAL lProcessHMGWindowsMessage := .T., lProcessAllHookMessage := .F.
 LOCAL i, nIndex := 0
@@ -63,26 +43,26 @@ LOCAL i, nIndex := 0
       cProcName := AllTrim( cProcName )
    ENDIF
    FOR i := 1 TO EventCount()
-      IF ValType ( _HMG_EventData [i] ) <> "A"
+      IF ValType (  oHmgApp():EventData [i] ) <> "A"
          nIndex := i
-         _HMG_EventData [ nIndex ] := { cProcName, hWnd, nMsg, lStopEvent, lProcessKeyboardMessage, lProcessMouseMessage, lProcessHMGWindowsMessage, lProcessAllHookMessage, nIndex }
+          oHmgApp():EventData [ nIndex ] := { cProcName, hWnd, nMsg, lStopEvent, lProcessKeyboardMessage, lProcessMouseMessage, lProcessHMGWindowsMessage, lProcessAllHookMessage, nIndex }
          EXIT
       ENDIF
    NEXT
    IF nIndex == 0
       nIndex := EventCount() + 1
-      AADD (_HMG_EventData, { cProcName, hWnd, nMsg, lStopEvent, lProcessKeyboardMessage, lProcessMouseMessage, lProcessHMGWindowsMessage, lProcessAllHookMessage, nIndex })
+      AADD ( oHmgApp():EventData, { cProcName, hWnd, nMsg, lStopEvent, lProcessKeyboardMessage, lProcessMouseMessage, lProcessHMGWindowsMessage, lProcessAllHookMessage, nIndex })
    ENDIF
 Return nIndex
 
 
 *----------------------------------------------------------------------------------------*
 Function EventRemove (nIndex)
-*----------------------------------------------------------------------------------------*
+
 LOCAL i
    FOR i := 1 TO EventCount()
-      IF ValType (_HMG_EventData [i]) == "A" .AND. _HMG_EventData [i] [ HMG_LEN(_HMG_EventData[1]) ] == nIndex   // July 2015
-         _HMG_EventData [i] := NIL
+      IF ValType ( oHmgApp():EventData [i]) == "A" .AND.  oHmgApp():EventData [i] [ HMG_LEN( oHmgApp():EventData[1]) ] == nIndex   // July 2015
+          oHmgApp():EventData [i] := NIL
          Return .T.
       ENDIF
    NEXT
@@ -92,9 +72,9 @@ Return .F.
 
 *----------------------------------------------------------------------------------------*
 Function EventRemoveAll()
-*----------------------------------------------------------------------------------------*
-   IF HMG_LEN (_HMG_EventData) > 0
-      _HMG_EventData := {}
+
+   IF HMG_LEN ( oHmgApp():EventData) > 0
+       oHmgApp():EventData := {}
       Return .T.
    ENDIF
 Return .F.
@@ -103,20 +83,20 @@ Return .F.
 
 *---------------------------------*
 Function EventCount()
-*---------------------------------*
-Return HMG_LEN (_HMG_EventData)
+
+Return HMG_LEN ( oHmgApp():EventData)
 
 
 *------------------------------------------------------------------------------------------------------------------------------*
 Function EventProcess (hWnd, nMsg, wParam, lParam, IsKeyboardMessage, IsMouseMessage, IsHMGWindowsMessage, nHookID, nHookCode)
-*------------------------------------------------------------------------------------------------------------------------------*
+
 LOCAL nIndex
 LOCAL cProcName, Ret := NIL
 LOCAL lProcessMessage
 
    FOR nIndex = 1 TO EventCount()
 
-      IF ValType ( _HMG_EventData [ nIndex ] ) <> "A"   // avoids processing the events removed
+      IF ValType ( oHmgApp():EventData [ nIndex ] ) <> "A"   // avoids processing the events removed
          LOOP
       ENDIF
 
@@ -133,28 +113,28 @@ LOCAL lProcessMessage
 
       IF lProcessMessage == .T.                              .AND. ;
          EventSTOP (nIndex) <> .T.                           .AND. ;
-         EventCompareParam (_HMG_EventData[nIndex][2], hWnd) .AND. ;
-         EventCompareParam (_HMG_EventData[nIndex][3], nMsg)
+         EventCompareParam ( oHmgApp():EventData[nIndex][2], hWnd) .AND. ;
+         EventCompareParam ( oHmgApp():EventData[nIndex][3], nMsg)
 
          EventSTOP (nIndex, .T.)   // avoids re-entry
          _PushEventInfo()
-            _HMG_EventIsInProgress        := .T.
-            _HMG_EventIsKeyboardMessage   := IsKeyboardMessage
-            _HMG_EventIsMouseMessage      := IsMouseMessage
-            _HMG_EventIsHMGWindowsMessage := IsHMGWindowsMessage
-            _HMG_EventHookID              := nHookID
-            _HMG_EventHookCode            := nHookCode
-            _HMG_EventINDEX               := nIndex
-            _HMG_EventHWND                := hWnd
-            _HMG_EventMSG                 := nMsg
-            _HMG_EventWPARAM              := wParam
-            _HMG_EventLPARAM              := lParam
-            _HMG_EventPROCNAME := EventGetPROCNAME (nIndex)
+            oHmgApp():EventIsInProgress        := .T.
+            oHmgApp():EventIsKeyboardMessage   := IsKeyboardMessage
+            oHmgApp():EventIsMouseMessage      := IsMouseMessage
+            oHmgApp():EventIsHMGWindowsMessage := IsHMGWindowsMessage
+            oHmgApp():EventHookID              := nHookID
+            oHmgApp():EventHookCode            := nHookCode
+            oHmgApp():EventINDEX               := nIndex
+            oHmgApp():EventHWND                := hWnd
+            oHmgApp():EventMSG                 := nMsg
+            oHmgApp():EventWPARAM              := wParam
+            oHmgApp():EventLPARAM              := lParam
+            oHmgApp():EventPROCNAME := EventGetPROCNAME (nIndex)
 
-            IF ValType( _HMG_EventPROCNAME ) <> "C"
-               Ret := EVAL( _HMG_EventPROCNAME )   // is codeblock
+            IF ValType( oHmgApp():EventPROCNAME ) <> "C"
+               Ret := EVAL( oHmgApp():EventPROCNAME )   // is codeblock
             ELSE
-               cProcName := _HMG_EventPROCNAME
+               cProcName := oHmgApp():EventPROCNAME
                IF HB_URIGHT(cProcName, 1) <> ")"
                   Ret := &cProcName()
                ELSE
@@ -162,18 +142,18 @@ LOCAL lProcessMessage
                ENDIF
             ENDIF
 
-            _HMG_EventIsInProgress        := .F.
-            _HMG_EventIsKeyboardMessage   := .F.
-            _HMG_EventIsMouseMessage      := .F.
-            _HMG_EventIsHMGWindowsMessage := .F.
-            _HMG_EventHookID              := -1
-            _HMG_EventHookCode            := -1
-            _HMG_EventINDEX               := 0
-            _HMG_EventHWND                := 0
-            _HMG_EventMSG                 := 0
-            _HMG_EventWPARAM              := 0
-            _HMG_EventLPARAM              := 0
-            _HMG_EventPROCNAME            := ""
+            oHmgApp():EventIsInProgress        := .F.
+            oHmgApp():EventIsKeyboardMessage   := .F.
+            oHmgApp():EventIsMouseMessage      := .F.
+            oHmgApp():EventIsHMGWindowsMessage := .F.
+            oHmgApp():EventHookID              := -1
+            oHmgApp():EventHookCode            := -1
+            oHmgApp():EventINDEX               := 0
+            oHmgApp():EventHWND                := 0
+            oHmgApp():EventMSG                 := 0
+            oHmgApp():EventWPARAM              := 0
+            oHmgApp():EventLPARAM              := 0
+            oHmgApp():EventPROCNAME            := ""
          _PopEventInfo()
          EventSTOP (nIndex, .F.)   // restore entry
          IF ValType (Ret) == "N"
@@ -185,92 +165,112 @@ Return Ret
 
 
 *--------------------------------------------------------------------*
-Function EventIsInProgress()
-Return _HMG_EventIsInProgress
-
-Function EventIsKeyboardMessage ()
-Return _HMG_EventIsKeyboardMessage
-
-Function EventIsMouseMessage ()
-Return _HMG_EventIsMouseMessage
-
-Function EventIsHMGWindowsMessage ()
-Return _HMG_EventIsHMGWindowsMessage
-
 Function EventHookID ()
-Return _HMG_EventHookID
+
+   Return oHmgApp():EventHookID
 
 Function EventHookCode ()
-Return _HMG_EventHookCode
+
+   Return oHmgApp():EventHookCode
 
 Function EventINDEX ()
-Return _HMG_EventINDEX
+
+   Return oHmgApp():EventINDEX
 
 Function EventPROCNAME ()
-Return _HMG_EventPROCNAME
+
+   Return oHmgApp():EventPROCNAME
 
 Function EventHWND ()
-Return _HMG_EventHWND
+
+   RETURN oHmgApp():EventHWND
 
 Function EventMSG ()
-Return _HMG_EventMSG
+
+   Return oHmgApp():EventMSG
 
 Function EventWPARAM ()
-Return _HMG_EventWPARAM
+
+   Return oHmgApp():EventWPARAM
 
 Function EventLPARAM ()
-Return _HMG_EventLPARAM
+
+   Return oHmgApp():EventLPARAM
 
 *--------------------------------------------------------------------*
 
 Function EventGetPROCNAME (nIndex)
-Return _HMG_EventData [nIndex] [1]
+
+   Return oHmgApp():EventData [nIndex] [1]
+*--------------------------------------------------------------------*
 
 Function EventGetHWND (nIndex)
-Return _HMG_EventData [nIndex] [2]
+
+   Return oHmgApp():EventData [nIndex] [2]
+*--------------------------------------------------------------------*
 
 Function EventGetMSG (nIndex)
-Return _HMG_EventData [nIndex] [3]
+
+   Return oHmgApp():EventData [nIndex] [3]
+*--------------------------------------------------------------------*
 
 
 Function EventSTOP (nIndex, lStop)
-LOCAL lRet := _HMG_EventData [nIndex] [4]
+
+   LOCAL lRet := oHmgApp():EventData [nIndex] [4]
+
    IF ValType (lStop) == "L"
-      _HMG_EventData [nIndex] [4] := lStop
+      oHmgApp():EventData [nIndex] [4] := lStop
    ENDIF
-Return lRet
+
+   Return lRet
 
 
 Function EventProcessKeyboardMessage (nIndex, lProcess)
-LOCAL lRet := _HMG_EventData [nIndex] [5]
+
+   LOCAL lRet := oHmgApp():_EventData [nIndex] [5]
+
    IF ValType (lProcess) == "L"
-      _HMG_EventData [nIndex] [5] := lProcess
+      oHmgApp():EventData [nIndex] [5] := lProcess
    ENDIF
-Return lRet
+
+   RETURN lRet
+*--------------------------------------------------------------------*
 
 
-Function EventProcessMouseMessage (nIndex, lProcess)
-LOCAL lRet := _HMG_EventData [nIndex] [6]
-   IF ValType (lProcess) == "L"
-      _HMG_EventData [nIndex] [6] := lProcess
+FUNCTION EventProcessMouseMessage( nIndex, lProcess )
+
+   LOCAL lRet := oHmgApp():EventData [nIndex] [6]
+
+   IF ValType( lProcess ) == "L"
+      oHmgApp():EventData[ nIndex ] [ 6 ] := lProcess
    ENDIF
-Return lRet
+
+   RETURN lRet
+*--------------------------------------------------------------------*
 
 
-Function EventProcessHMGWindowsMessage (nIndex, lProcess)
-LOCAL lRet := _HMG_EventData [nIndex] [7]
-   IF ValType (lProcess) == "L"
-      _HMG_EventData [nIndex] [7] := lProcess
+FUNCTION EventProcessHMGWindowsMessage( nIndex, lProcess )
+
+   LOCAL lRet := oHmgApp():EventData[ nIndex ] [ 7 ]
+
+   IF ValType( lProcess ) == "L"
+      oHmgApp():EventData[ nIndex ] [ 7 ] := lProcess
    ENDIF
-Return lRet
+
+   RETURN lRet
+*--------------------------------------------------------------------*
 
 
-Function EventProcessAllHookMessage (nIndex, lProcess)
-LOCAL lRet := _HMG_EventData [nIndex] [8]
-   IF ValType (lProcess) == "L"
-      _HMG_EventData [nIndex] [8] := lProcess
+FUNCTION EventProcessAllHookMessage( nIndex, lProcess )
+
+   LOCAL lRet := oHmgApp():EventData[ nIndex ] [ 8 ]
+
+   IF ValType( lProcess ) == "L"
+      oHmgApp():EventData[ nIndex ] [ 8 ] := lProcess
    ENDIF
-Return lRet
+
+   RETURN lRet
 
 
 
@@ -278,11 +278,6 @@ Return lRet
 //*   Events Complementary Functions                                                                              *//
 //*****************************************************************************************************************//
 
-
-* GetLastFormIndexWithCursor ()  --> Return nIndex
-
-* GetLastActiveFormIndex ()      --> Return nIndex
-* GetLastActiveControlIndex ()   --> Return nIndex
 
 * ListCalledFunctions ( [ nActivation ], [ @aInfo ] ) --> Return cInfo
 
@@ -315,9 +310,6 @@ Return lRet
 
 * HMG_CompareHandle ( Handle1, Handle2, [ @nSubIndex1 ], [ @nSubIndex2 ] ) --> Return .T. or .F.
 
-* GetFormDataByIndex    (nIndex) --> Return aFormData
-* GetControlDataByIndex (nIndex) --> Return aControlData
-
 * IsFormDeletedByIndex    (nIndex) --> Return .T. or .F.
 * IsControlDeletedByIndex (nIndex) --> Return .T. or .F.
 
@@ -326,24 +318,6 @@ Return lRet
 
 
 *------------------------------------------------------------------------------*
-Function GetLastFormIndexWithCursor ()
-*------------------------------------------------------------------------------*
-Return _HMG_LastFormIndexWithCursor
-
-
-*------------------------------------------------------------------------------*
-Function GetLastActiveFormIndex ()
-*------------------------------------------------------------------------------*
-Return _HMG_LastActiveFormIndex
-
-
-*------------------------------------------------------------------------------*
-Function GetLastActiveControlIndex ()
-*------------------------------------------------------------------------------*
-Return _HMG_LastActiveControlIndex
-
-
-*-----------------------------------------------------------------------------*
 Function ListCalledFunctions (nActivation, aInfo)
 *-----------------------------------------------------------------------------*
 LOCAL cMsg := "", i:= 1
@@ -364,52 +338,50 @@ Return cMsg
 
 *-----------------------------------------------------------------------------*
 Function GetFormHandleByIndex (nIndex)
-*-----------------------------------------------------------------------------*
-LOCAL hWnd := _HMG_SYSDATA [67] [nIndex]   // aFormHandle
-Return hWnd
+
+   RETURN FormByIndex( nIndex ):nHandle
 
 
 *-----------------------------------------------------------------------------*
-Function GetControlHandleByIndex (nIndex)
-*-----------------------------------------------------------------------------*
-LOCAL hWnd := _HMG_SYSDATA [3] [nIndex]   // aControlHandle
-Return hWnd
+FUNCTION GetControlHandleByIndex (nIndex)
 
 
-*-----------------------------------------------------------------------------*
+   RETURN ControlByIndex( nIndex ):Handle   // aControlHandle
+
 Function GetFormNameByIndex (nIndex)
-*-----------------------------------------------------------------------------*
-LOCAL cName := _HMG_SYSDATA [66] [nIndex]   // aFormName
-Return cName
+
+   RETURN FormByIndex( nIndex ):Name
 
 
 *-----------------------------------------------------------------------------*
 Function GetControlNameByIndex (nIndex)
-*-----------------------------------------------------------------------------*
-LOCAL cName := _HMG_SYSDATA [2] [nIndex]   // aControlName
-Return cName
+
+
+   RETURN ControlByIndex( nIndex ):Name   // aControlName
 
 
 *-----------------------------------------------------------------------------*
 Function GetFormIndexByHandle (hWnd, nFormSubIndex1, nFormSubIndex2)
-*-----------------------------------------------------------------------------*
-LOCAL i, FormHandle, nIndex := 0
-   FOR i = 1 TO HMG_LEN (_HMG_SYSDATA [67])   // aFormHandle
-      FormHandle :=  _HMG_SYSDATA [67] [i]
+
+   LOCAL i, FormHandle, nIndex := 0
+
+   FOR i = 1 TO oHmgApp():FormCount()
+      FormHandle :=  FormByIndex( I ):Handle
       IF HMG_CompareHandle (hWnd, FormHandle, @nFormSubIndex1, @nFormSubIndex2) == .T.
          nIndex := i
          EXIT
       ENDIF
    NEXT
-Return nIndex
+
+   RETURN nIndex
 
 
 *-----------------------------------------------------------------------------*
 Function GetControlIndexByHandle (hWnd, nControlSubIndex1, nControlSubIndex2)
 *-----------------------------------------------------------------------------*
 LOCAL i, ControlHandle, nIndex := 0
-   FOR i = 1 TO HMG_LEN (_HMG_SYSDATA [3])   // aControlHandle
-      ControlHandle :=  _HMG_SYSDATA [3] [i]
+   FOR i = 1 TO oHmgApp():ControlCount()   // aControlHandle
+      ControlHandle :=  ControlByIndex( i ):Handle
       IF HMG_CompareHandle (hWnd, ControlHandle, @nControlSubIndex1, @nControlSubIndex2) == .T.
          nIndex := i
          EXIT
@@ -420,44 +392,43 @@ Return nIndex
 
 *-----------------------------------------------------------------------------*
 Function GetFormParentHandleByIndex (nIndex)
-*-----------------------------------------------------------------------------*
-LOCAL hWnd := _HMG_SYSDATA [70] [nIndex]   // aFormParentHandle
-Return hWnd
+
+RETURN FormByIndex( nIndex ):ParentHandle   // aFormParentHandle
 
 
 *-----------------------------------------------------------------------------*
 Function GetControlParentHandleByIndex (nIndex)
-*-----------------------------------------------------------------------------*
-LOCAL hWnd := _HMG_SYSDATA [4] [nIndex]   // aControlParentHandle
-Return hWnd
+
+   RETURN ControlByIndex( nIndex ):ParentFormHandle   // aControlParentHandle
 
 
 *-----------------------------------------------------------------------------*
-Function GetFormTypeByIndex (nIndex)
-*-----------------------------------------------------------------------------*
-LOCAL cType := _HMG_SYSDATA [69] [nIndex]   // aFormType
-Return cType
+Function GetFormTypeByIndex ( nIndex )
 
+   LOCAL oForm
+
+   IF nIndex != 0
+      oForm  := FormByIndex( nIndex )
+   ENDIF
+
+RETURN iif( oForm == Nil .OR. oForm:Index == 0, "", oForm:Type )
 
 *-----------------------------------------------------------------------------*
 Function GetFormTypeByIndexEx (nIndex)
+
+   LOCAL aType1 := { 'A',    'C',     'P',     'S',        'M',     'X'         }
+   LOCAL aType2 := { "MAIN", "CHILD", "PANEL", "STANDARD", "MODAL", "SPLITCHILD" }
+   LOCAL oForm := FormByIndex( nIndex )
+   LOCAL nPos := ASCAN( aType1, oForm:Type )   // aFormType
+
+   RETURN IIF( nPos > 0, aType2[ nPos ] , "<Unknown>" )
 *-----------------------------------------------------------------------------*
-LOCAL aType1 := { 'A',    'C',     'P',     'S',        'M',     'X'         }
-LOCAL aType2 := { "MAIN", "CHILD", "PANEL", "STANDARD", "MODAL", "SPLITCHILD" }
-LOCAL i := ASCAN (aType1, _HMG_SYSDATA [69] [nIndex])   // aFormType
-Return IIF ( i > 0, aType2 [i] , "<Unknown>" )
+FUNCTION GetControlTypeByIndex (nIndex)
 
-
-*-----------------------------------------------------------------------------*
-Function GetControlTypeByIndex (nIndex)
-*-----------------------------------------------------------------------------*
-LOCAL cType := _HMG_SYSDATA [1] [nIndex]   // aControlType
-Return cType
-
-
+   RETURN ControlByIndex( nIndex ):Type   // aControlType
 *-----------------------------------------------------------------------------*
 Function GetWindowInfoByHandle (hWnd, aInfo, lShowType)
-*-----------------------------------------------------------------------------*
+
 LOCAL i, ControlParentHandle:=0, FormParentHandle:=0, cInfo := "", lFlagControl := .F.
 LOCAL nIndexForm := 0, nIndexControl := 0, nInfoLen := 0, Text := "", nControlSubIndex2 := 0
 
@@ -513,7 +484,7 @@ Return cInfo
 
 *-----------------------------------------------------------------------------*
 Function GetWindowInfoByHandleEx (hWnd, aInfo, lShowType)
-*-----------------------------------------------------------------------------*
+
 LOCAL i, ControlParentHandle:=0, FormParentHandle:=0, cInfo := "", lFlagControl := .F.
 LOCAL nIndexForm := 0, nIndexControl := 0, nInfoLen := 0, Text := ""
 LOCAL nControlSubIndex1 := 0, nControlSubIndex2 := 0
@@ -577,7 +548,7 @@ Return cInfo
 
 *-----------------------------------------------------------------------------*
 Function HMG_CompareHandle (Handle1, Handle2, nSubIndex1, nSubIndex2)
-*-----------------------------------------------------------------------------*
+
 LOCAL i,k
       nSubIndex1 := nSubIndex2 := 0
 
@@ -618,7 +589,7 @@ Return .F.
 
 *-----------------------------------------------------------------------------*
 Function GetFormInfoByHandle (hWnd, aInfo, lShowType)
-*-----------------------------------------------------------------------------*
+
 LOCAL i, FormParentHandle:=0, cInfo := ""
 LOCAL nIndexForm := 0, nInfoLen := 0, Text := ""
 
@@ -650,7 +621,7 @@ Return cInfo
 
 *-----------------------------------------------------------------------------*
 Function GetControlInfoByHandle (hWnd, aInfo, lShowType)
-*-----------------------------------------------------------------------------*
+
 LOCAL i, ControlParentHandle:=0, FormParentHandle:=0, cInfo := "", lFlagControl := .F.
 LOCAL nIndexForm := 0, nIndexControl := 0, nInfoLen := 0, Text := "", nControlSubIndex2 := 0
 
@@ -703,70 +674,52 @@ Return cInfo
 
 
 *-----------------------------------------------------------------------------*
-Function GetFormDataByIndex (nIndex)
-*-----------------------------------------------------------------------------*
-LOCAL i, aFormData := {}
-   FOR i := 65 TO 108
-      AADD (aFormData, _HMG_SYSDATA [i] [nIndex])
-   NEXT
-Return aFormData
-
-
-*-----------------------------------------------------------------------------*
-Function GetControlDataByIndex (nIndex)
-*-----------------------------------------------------------------------------*
-LOCAL i, aControlData := {}
-   FOR i := 1 TO 40
-      AADD (aControlData, _HMG_SYSDATA [i] [nIndex])
-   NEXT
-Return aControlData
-
-
-*-----------------------------------------------------------------------------*
 Function IsFormDeletedByIndex (nIndex)
-*-----------------------------------------------------------------------------*
-Return _HMG_SYSDATA [65] [nIndex]   // _HMG_aFormDeleted
+
+Return FormByIndex( nIndex ):IsDeleted
 
 
 *-----------------------------------------------------------------------------*
 Function IsControlDeletedByIndex (nIndex)
-*-----------------------------------------------------------------------------*
-Return _HMG_SYSDATA [13] [nIndex]   // _HMG_aControlDeleted
+
+Return ControlByIndex( NINDEX ):IsDeleted   // _HMG_aControlDeleted
 
 
 *-----------------------------------------------------------------------------*
-Function GetMainFormName ()
-*-----------------------------------------------------------------------------*
-  IF _HMG_MainFormIndex > 0
-    Return GetFormNameByIndex (_HMG_MainFormIndex)
+FUNCTION GetMainFormName ()
+
+  IF oHmgApp():MainFormIndex > 0
+    RETURN GetFormNameByIndex ( oHmgApp():MainFormIndex )
   ENDIF
-Return ""
 
+   RETURN ""
 
 *-----------------------------------------------------------------------------*
-Function GetMainFormHandle ()
-*-----------------------------------------------------------------------------*
-  IF _HMG_MainFormIndex > 0
-    Return GetFormHandleByIndex (_HMG_MainFormIndex)
+FUNCTION GetMainFormHandle ()
+
+  IF oHmgApp():MainFormIndex > 0
+     RETURN GetFormHandleByIndex( oHmgApp():MainFormIndex )
   ENDIF
-Return 0
 
+   RETURN 0
 
 *-----------------------------------------------------------------------------*
-Function GetFormNameByHandle (hWnd, cFormName, cFormParentName)
-*-----------------------------------------------------------------------------*
-LOCAL nIndexFormParent, FormParentHandle
-LOCAL nIndexForm := GetFormIndexByHandle (hWnd)
+Function GetFormNameByHandle( hWnd, cFormName, cFormParentName )
+
+   LOCAL nIndexFormParent, FormParentHandle
+   LOCAL nIndexForm := GetFormIndexByHandle( hWnd )
+
    cFormName := cFormParentName := ""
    IF nIndexForm > 0
-      cFormName := GetFormNameByIndex (nIndexForm)
-      FormParentHandle := GetFormParentHandleByIndex (nIndexForm)
+      cFormName := GetFormNameByIndex( nIndexForm )
+      FormParentHandle := GetFormParentHandleByIndex( nIndexForm )
       IF FormParentHandle <> 0
-         nIndexFormParent := GetFormIndexByHandle (FormParentHandle)
-         cFormParentName  := GetFormNameByIndex (nIndexFormParent)
+         nIndexFormParent := GetFormIndexByHandle( FormParentHandle )
+         cFormParentName  := GetFormNameByIndex( nIndexFormParent )
       ENDIF
    ENDIF
-Return nIndexForm
+
+   RETURN nIndexForm
 
 
 *-----------------------------------------------------------------------------*
@@ -849,7 +802,7 @@ RETURN
 
 *-----------------------------------------------*
 Function HMG_GetAllSubMenu (hMenu)
-*-----------------------------------------------*
+
 LOCAL aMenuInfo:={}, hSubMenu
 LOCAL nParent:=0, n1:=0, n2:=0, nItem:=0
 // nParent := parent position in array
@@ -876,7 +829,7 @@ Return aMenuInfo
 
 *-----------------------------------------------------------------------------*
 Function HMG_GetSubMenuItemFromPoint (hWnd, aMenuInfo, x_scr, y_scr, aInfo)
-*-----------------------------------------------------------------------------*
+
 LOCAL nPos, i, cText:="", hMenu, nIndex, nParent
 // nParent := parent position in array
    aInfo := {}
@@ -918,30 +871,33 @@ Return cText
 
 
 *--------------------------------------------------------------------*
-Function GetSplitChildWindowHandle (cFormName, cParentForm)
-*--------------------------------------------------------------------*
-LOCAL i, hWnd := GetFormHandle (cParentForm)
-   FOR i = 1 TO HMG_LEN (_HMG_SYSDATA [ 66 ])
-       IF (_HMG_SYSDATA [ 66 ] [i] == cFormName) .AND. (_HMG_SYSDATA [ 69 ] [i] ==  'X') .AND. (_HMG_SYSDATA [ 70 ]  [i] == hWnd)
-           Return _HMG_SYSDATA [ 67] [i]
+FUNCTION GetSplitChildWindowHandle ( cFormName, cParentForm )
+
+LOCAL hWnd := GetFormHandle (cParentForm), oForm
+
+   FOR EACH oForm IN oHmgApp():AllForms()
+       IF oForm:Name == cFormName .AND. ;
+          oForm:Type ==  'X' .AND. oForm:ParentHandle == hWnd
+           RETURN oForm:Handle
        ENDIF
    NEXT
-Return 0
+
+RETURN 0
 
 
 *---------------------------------------------*
 Function GetSplitBoxHandle (cParentForm)
-*----------------------------------------------*
+
 LOCAL i := GetFormIndex (cParentForm)
-   if i > 0 .AND. _HMG_SYSDATA [87] [i] <> 0
-      Return _HMG_SYSDATA [ 87 ] [i]
+   if i > 0 .AND. FormByIndex( I ):FORM087 <> 0
+      Return FormByIndex( I ):FORM087
    EndIf
 Return 0
 
 
 *---------------------------------------------*
 Function GetSplitBoxRect (cParentForm)
-*---------------------------------------------*
+
 LOCAL hWnd, aPos := {0,0,0,0}
    hWnd := GetSplitBoxHandle (cParentForm)
    GetWindowRect (hWnd, aPos)
@@ -950,7 +906,7 @@ Return aPos   // return array --> { Left, Top, Right, Bottom }
 
 *---------------------------------------------*
 Function GetSplitBoxWIDTH (cParentForm)
-*---------------------------------------------*
+
 LOCAL hWnd, aPos := {0,0,0,0}
    hWnd := GetSplitBoxHandle (cParentForm)
    GetWindowRect (hWnd, aPos)
@@ -959,7 +915,7 @@ Return (aPos[3] - aPos[1])
 
 *---------------------------------------------*
 Function GetSplitBoxHEIGHT (cParentForm)
-*---------------------------------------------*
+
 LOCAL hWnd, aPos := {0,0,0,0}
    hWnd := GetSplitBoxHandle (cParentForm)
    GetWindowRect (hWnd, aPos)

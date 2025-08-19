@@ -37,37 +37,37 @@
 
  Parts of this project are based upon:
 
-	"Harbour GUI framework for Win32"
- 	Copyright 2001 Alexander S.Kresin <alex@belacy.belgorod.su>
- 	Copyright 2001 Antonio Linares <alinares@fivetech.com>
-	www - http://www.harbour-project.org
+   "Harbour GUI framework for Win32"
+    Copyright 2001 Alexander S.Kresin <alex@belacy.belgorod.su>
+    Copyright 2001 Antonio Linares <alinares@fivetech.com>
+   www - http://www.harbour-project.org
 
-	"Harbour Project"
-	Copyright 1999-2003, http://www.harbour-project.org/
+   "Harbour Project"
+   Copyright 1999-2003, http://www.harbour-project.org/
 
-	"WHAT32"
-	Copyright 2002 AJ Wos <andrwos@aust1.net> 
+   "WHAT32"
+   Copyright 2002 AJ Wos <andrwos@aust1.net> 
 
-	"HWGUI"
-  	Copyright 2001-2007 Alexander S.Kresin <alex@belacy.belgorod.su>
+   "HWGUI"
+     Copyright 2001-2007 Alexander S.Kresin <alex@belacy.belgorod.su>
 
 ---------------------------------------------------------------------------*/
 
 #xcommand ENABLE MENUITEM <control> OF <form>;
-	=>;
-	_EnableMenuItem ( <"control"> , <"form"> )
+   =>;
+   _EnableMenuItem ( <"control"> , <"form"> )
 
 #xcommand DISABLE MENUITEM <control> OF <form>;
-	=>;
-	_DisableMenuItem ( <"control"> , <"form"> )
+   =>;
+   _DisableMenuItem ( <"control"> , <"form"> )
 
 #xcommand CHECK MENUITEM <control> OF <form>;
-	=>;
-	_CheckMenuItem ( <"control"> , <"form"> )
+   =>;
+   _CheckMenuItem ( <"control"> , <"form"> )
 
 #xcommand UNCHECK MENUITEM <control> OF <form>;
-	=>;
-	_UnCheckMenuItem ( <"control"> , <"form"> )
+   =>;
+   _UnCheckMenuItem ( <"control"> , <"form"> )
 
 #xcommand DEFINE MAIN MENU [ OF <parent> ] ;
 =>;

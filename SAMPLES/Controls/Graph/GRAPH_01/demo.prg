@@ -2,17 +2,17 @@
 
 function main
 
-	define window x at 0,0 ;
-		width 800 ;
-		height 600 ;
-		title "Shapes Demo" ;
-		main on init drawshapes()
+   define window x at 0,0 ;
+      width 800 ;
+      height 600 ;
+      title "Shapes Demo" ;
+      main on init drawshapes()
 
-	end window
+   end window
 
-	x.center
+   x.center
 
-	x.activate
+   x.activate
 
 return nil
 

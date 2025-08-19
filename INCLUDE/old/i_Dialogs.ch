@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
- HMG Header File --> i_Dialogs.ch  
+ HMG Header File --> i_Dialogs.ch
 
- Copyright 2012-2017 by Dr. Claudio Soto (from Uruguay). 
+ Copyright 2012-2017 by Dr. Claudio Soto (from Uruguay).
 
  mail: <srvet@adinet.com.uy>
  blog: http://srvet.blogspot.com
@@ -26,7 +26,7 @@
            [ CHECKMATCHCASE <CheckMatchCase> ] ;
            [ CHECKWHOLEWORD <CheckWholeWord> ] ;
            [ TITLE <cTitle> ] ;
-=> FindTextDlg ( <{action}>, <cFind>, <.NoUpDown.>, <.NoMatchCase.>, <.NoWholeWord.>, <CheckDown>, <CheckMatchCase>, <CheckWholeWord>, <cTitle> ) 
+=> FindTextDlg ( <{action}>, <cFind>, <.NoUpDown.>, <.NoMatchCase.>, <.NoWholeWord.>, <CheckDown>, <CheckMatchCase>, <CheckWholeWord>, <cTitle> )
 
 
 #xtranslate REPLACETEXTDIALOG ;
@@ -38,7 +38,7 @@
            [ CHECKMATCHCASE <CheckMatchCase> ] ;
            [ CHECKWHOLEWORD <CheckWholeWord> ] ;
            [ TITLE <cTitle> ] ;
-=> ReplaceTextDlg ( <{action}>, <cFind>, <cReplace>, <.NoMatchCase.>, <.NoWholeWord.>, <CheckMatchCase>, <CheckWholeWord> , <cTitle> ) 
+=> ReplaceTextDlg ( <{action}>, <cFind>, <cReplace>, <.NoMatchCase.>, <.NoWholeWord.>, <CheckMatchCase>, <CheckWholeWord> , <cTitle> )
 
 
 
@@ -66,14 +66,12 @@
 
 
 
-#xtranslate _HMG_FindReplaceOptions => _HMG_SYSDATA \[ 503 \]
-
-#xtranslate FindReplaceDlg.RetValue      => _HMG_FindReplaceOptions \[ 1 \]
-#xtranslate FindReplaceDlg.Find          => _HMG_FindReplaceOptions \[ 2 \]
-#xtranslate FindReplaceDlg.Replace       => _HMG_FindReplaceOptions \[ 3 \]
-#xtranslate FindReplaceDlg.Down          => _HMG_FindReplaceOptions \[ 4 \]
-#xtranslate FindReplaceDlg.MatchCase     => _HMG_FindReplaceOptions \[ 5 \]
-#xtranslate FindReplaceDlg.WholeWord     => _HMG_FindReplaceOptions \[ 6 \]
+#xtranslate FindReplaceDlg.RetValue      => oHmgApp():APP503 \[ 1 \]
+#xtranslate FindReplaceDlg.Find          => oHmgApp():APP503 \[ 2 \]
+#xtranslate FindReplaceDlg.Replace       => oHmgApp():APP503 \[ 3 \]
+#xtranslate FindReplaceDlg.Down          => oHmgApp():APP503 \[ 4 \]
+#xtranslate FindReplaceDlg.MatchCase     => oHmgApp():APP503 \[ 5 \]
+#xtranslate FindReplaceDlg.WholeWord     => oHmgApp():APP503 \[ 6 \]
 
 
 //  FindReplaceDlg.RetValue

@@ -37,40 +37,40 @@
 
  Parts of this project are based upon:
 
-	"Harbour GUI framework for Win32"
- 	Copyright 2001 Alexander S.Kresin <alex@belacy.belgorod.su>
- 	Copyright 2001 Antonio Linares <alinares@fivetech.com>
-	www - http://www.harbour-project.org
+   "Harbour GUI framework for Win32"
+    Copyright 2001 Alexander S.Kresin <alex@belacy.belgorod.su>
+    Copyright 2001 Antonio Linares <alinares@fivetech.com>
+   www - http://www.harbour-project.org
 
-	"Harbour Project"
-	Copyright 1999-2003, http://www.harbour-project.org/
+   "Harbour Project"
+   Copyright 1999-2003, http://www.harbour-project.org/
 
-	"WHAT32"
-	Copyright 2002 AJ Wos <andrwos@aust1.net>
+   "WHAT32"
+   Copyright 2002 AJ Wos <andrwos@aust1.net>
 
-	"HWGUI"
-  	Copyright 2001-2007 Alexander S.Kresin <alex@belacy.belgorod.su>
+   "HWGUI"
+     Copyright 2001-2007 Alexander S.Kresin <alex@belacy.belgorod.su>
 
 ---------------------------------------------------------------------------*/
 
 #xcommand @ <row>, <col> IPADDRESS <name> ;
-	[ <dummy1: OF, PARENT> <parent> ] ;
-	[ HEIGHT <height> ]          ;
-	[ WIDTH <width> ]            ;
-	[ VALUE <value> ] ;
-	[ FONT <fontname> ]          ;
-	[ SIZE <fontsize> ]          ;
-	[ <bold : BOLD> ] ;
-	[ <italic : ITALIC> ] ;
-	[ <underline : UNDERLINE> ] ;
-	[ <strikeout : STRIKEOUT> ] ;
-	[ TOOLTIP <tooltip> ]        ;
-	[ ON CHANGE <change> ]       ;
-	[ ON GOTFOCUS <gotfocus> ]   ;
-	[ ON LOSTFOCUS <lostfocus> ] ;
-	[ HELPID <helpid> ] 		     ;
-	[ <invisible : INVISIBLE> ] ;
-	[ <notabstop : NOTABSTOP> ] ;
+   [ <dummy1: OF, PARENT> <parent> ] ;
+   [ HEIGHT <height> ]          ;
+   [ WIDTH <width> ]            ;
+   [ VALUE <value> ] ;
+   [ FONT <fontname> ]          ;
+   [ SIZE <fontsize> ]          ;
+   [ <bold : BOLD> ] ;
+   [ <italic : ITALIC> ] ;
+   [ <underline : UNDERLINE> ] ;
+   [ <strikeout : STRIKEOUT> ] ;
+   [ TOOLTIP <tooltip> ]        ;
+   [ ON CHANGE <change> ]       ;
+   [ ON GOTFOCUS <gotfocus> ]   ;
+   [ ON LOSTFOCUS <lostfocus> ] ;
+   [ HELPID <helpid> ]            ;
+   [ <invisible : INVISIBLE> ] ;
+   [ <notabstop : NOTABSTOP> ] ;
 =>;
    _DefineIPAddress( ;
       <(name)> , ;
@@ -87,10 +87,10 @@
       <{gotfocus}> , ;
       <{change}> , ;
       <helpid>, ;
-	<.invisible.>, ;
-	<.notabstop.> ,;
-	<.bold.>, ;
-	<.italic.>, ;
-	<.underline.>, ;
-	<.strikeout.> )
+   <.invisible.>, ;
+   <.notabstop.> ,;
+   <.bold.>, ;
+   <.italic.>, ;
+   <.underline.>, ;
+   <.strikeout.> )
 

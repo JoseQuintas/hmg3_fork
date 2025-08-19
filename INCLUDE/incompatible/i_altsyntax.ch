@@ -53,403 +53,403 @@
 
 ---------------------------------------------------------------------------*/
 
-#xcommand EDITOPTION          <editoption>         => _HMG_SYSDATA \[ 248 \]  := <editoption>
+#xcommand EDITOPTION          <editoption>         => oHmgApp():APP248  := <editoption>
 
-#xcommand ONKEY               <onkey>              => _HMG_SYSDATA \[ 247 \]  := <{onkey}>
+#xcommand ONKEY               <onkey>              => oHmgApp():APP247  := <{onkey}>
 
-#xcommand ON KEY              <onkey>              => _HMG_SYSDATA \[ 247 \]  := <{onkey}>
+#xcommand ON KEY              <onkey>              => oHmgApp():APP247  := <{onkey}>
 
-#xcommand ONSELECT            <onselect>           => _HMG_SYSDATA \[ 386 \]  := <{onselect}>
+#xcommand ONSELECT            <onselect>           => oHmgApp():APP386  := <{onselect}>
 
-#xcommand ONLINK              <onlink>             => _HMG_SYSDATA \[ 387 \]  := <{onlink}>
+#xcommand ONLINK              <onlink>             => oHmgApp():APP387  := <{onlink}>
 
-#xcommand ONVSCROLL           <onvscroll>          => _HMG_SYSDATA \[ 388 \]  := <{onvscroll}>
+#xcommand ONVSCROLL           <onvscroll>          => oHmgApp():APP388  := <{onvscroll}>
 
-#xcommand LOCKCOLUMNS         <value>              => _HMG_SYSDATA \[ 281 \]  := <value>
+#xcommand LOCKCOLUMNS         <value>              => oHmgApp():APP281  := <value>
 
-#xcommand DISABLEDBACKCOLOR   <value>              => _HMG_SYSDATA \[ 298 \]  := <value>
+#xcommand DISABLEDBACKCOLOR   <value>              => oHmgApp():APP298  := <value>
 
-#xcommand DISABLEDFORECOLOR   <value>              => _HMG_SYSDATA \[ 299 \]  := <value>
+#xcommand DISABLEDFORECOLOR   <value>              => oHmgApp():APP299  := <value>
 
-#xcommand DISABLEDFONTCOLOR   <value>              => _HMG_SYSDATA \[ 299 \]  := <value>
+#xcommand DISABLEDFONTCOLOR   <value>              => oHmgApp():APP299  := <value>
 
-#xcommand BORDERCOLOR         <color>              => _HMG_SYSDATA \[ 298 \]  := <color>
+#xcommand BORDERCOLOR         <color>              => oHmgApp():APP298  := <color>
 
-#xcommand OUTERFONTCOLOR      <color>              => _HMG_SYSDATA \[ 299 \]  := <color>
+#xcommand OUTERFONTCOLOR      <color>              => oHmgApp():APP299  := <color>
 
-#xcommand CELLNAVIGATION      <cellnavigation>     => _HMG_SYSDATA \[ 329 \]  := <cellnavigation>
+#xcommand CELLNAVIGATION      <cellnavigation>     => oHmgApp():APP329  := <cellnavigation>
 
-#xcommand DYNAMICDISPLAY      <value>              => _HMG_SYSDATA \[ 244 \]  := <value>
+#xcommand DYNAMICDISPLAY      <value>              => oHmgApp():APP244  := <value>
 
-#xcommand DRAGITEMS           <dragitems>          => _HMG_SYSDATA \[ 352 \]  := <dragitems>
+#xcommand DRAGITEMS           <dragitems>          => oHmgApp():APP352  := <dragitems>
 
-#xcommand MULTILINE           <multiline>          => _HMG_SYSDATA \[ 353 \]  := <multiline>
+#xcommand MULTILINE           <multiline>          => oHmgApp():APP353  := <multiline>
 
-#xcommand HEADERIMAGES        <headerimages>       => _HMG_SYSDATA \[ 246 \]  := <headerimages>
+#xcommand HEADERIMAGES        <headerimages>       => oHmgApp():APP246  := <headerimages>
 
-#xcommand ONCANCEL            <oncancel>           => _HMG_SYSDATA \[ 299 \]  := <{oncancel}>
+#xcommand ONCANCEL            <oncancel>           => oHmgApp():APP299  := <{oncancel}>
 
-#xcommand ONCLOSEUP           <oncloseup>          => _HMG_SYSDATA \[ 247 \]  := <{oncloseup}>
+#xcommand ONCLOSEUP           <oncloseup>          => oHmgApp():APP247  := <{oncloseup}>
 
-#xcommand ON CLOSEUP          <oncloseup>          => _HMG_SYSDATA \[ 247 \]  := <{oncloseup}>
+#xcommand ON CLOSEUP          <oncloseup>          => oHmgApp():APP247  := <{oncloseup}>
 
-#xcommand ONDROPDOWN          <ondropdown>         => _HMG_SYSDATA \[ 248 \]  := <{ondropdown}>
+#xcommand ONDROPDOWN          <ondropdown>         => oHmgApp():APP248  := <{ondropdown}>
 
-#xcommand ON DROPDOWN         <ondropdown>         => _HMG_SYSDATA \[ 248 \]  := <{ondropdown}>
+#xcommand ON DROPDOWN         <ondropdown>         => oHmgApp():APP248  := <{ondropdown}>
 
-#xcommand DROPPEDWIDTH        <droppedwidth>       => _HMG_SYSDATA \[ 249 \]  := <droppedwidth>
+#xcommand DROPPEDWIDTH        <droppedwidth>       => oHmgApp():APP249  := <droppedwidth>
 
-#xcommand ITEMSOURCE          <itemsource, ...>    => _HMG_SYSDATA \[ 402 \]  := \{<"itemsource">\}
+#xcommand ITEMSOURCE          <itemsource, ...>    => oHmgApp():APP402  := \{<"itemsource">\}
 
-#xcommand VALUESOURCE         <valuesource>        => _HMG_SYSDATA \[ 403 \]  := <"valuesource">
+#xcommand VALUESOURCE         <valuesource>        => oHmgApp():APP403  := <"valuesource">
 
-#xcommand COLUMNCONTROLS      <editcontrols>       => _HMG_SYSDATA \[ 388 \]  := <editcontrols>
+#xcommand COLUMNCONTROLS      <editcontrols>       => oHmgApp():APP388  := <editcontrols>
 
-#xcommand COLUMNVALID         <columnvalid>        => _HMG_SYSDATA \[ 387 \]  := <columnvalid>
+#xcommand COLUMNVALID         <columnvalid>        => oHmgApp():APP387  := <columnvalid>
 
-#xcommand COLUMNWHEN          <columnwhen>         => _HMG_SYSDATA \[ 386 \]  := <columnwhen>
+#xcommand COLUMNWHEN          <columnwhen>         => oHmgApp():APP386  := <columnwhen>
 
-#xcommand WORKAREA            <workarea>           => _HMG_SYSDATA \[ 480 \]  := <(workarea)>
+#xcommand WORKAREA            <workarea>           => oHmgApp():APP480  := <(workarea)>
 
-#xcommand FIELD               <field>              => _HMG_SYSDATA \[ 385 \]  := <(field)>
+#xcommand FIELD               <field>              => oHmgApp():APP385  := <(field)>
 
-#xcommand FIELDS              <fields>             => _HMG_SYSDATA \[ 481 \]  := <fields>
+#xcommand FIELDS              <fields>             => oHmgApp():APP481  := <fields>
 
-#xcommand ALLOWDELETE         <deletable>          => _HMG_SYSDATA \[ 482 \]  := <deletable>
+#xcommand ALLOWDELETE         <deletable>          => oHmgApp():APP482  := <deletable>
 
-#xcommand NOVSCROLLBAR        <nvs>                => _HMG_SYSDATA \[ 398 \]  := <nvs>
+#xcommand NOVSCROLLBAR        <nvs>                => oHmgApp():APP398  := <nvs>
 
-#xcommand VSCROLLBAR          <vs>                 => _HMG_SYSDATA \[ 398 \]  := .NOT. <vs>
+#xcommand VSCROLLBAR          <vs>                 => oHmgApp():APP398  := .NOT. <vs>
 
-#xcommand NOHSCROLLBAR        <nvs>                => _HMG_SYSDATA \[ 394 \]  := <nvs>
+#xcommand NOHSCROLLBAR        <nvs>                => oHmgApp():APP394  := <nvs>
 
-#xcommand HSCROLLBAR          <vs>                 => _HMG_SYSDATA \[ 394 \]  := .NOT. <vs>
+#xcommand HSCROLLBAR          <vs>                 => oHmgApp():APP394  := .NOT. <vs>
 
-#xcommand INPLACEEDIT         <inplaceedit>        => _HMG_SYSDATA \[ 401 \]  := <inplaceedit>
+#xcommand INPLACEEDIT         <inplaceedit>        => oHmgApp():APP401  := <inplaceedit>
 
-#xcommand DISPLAYITEMS        <displayitems>       => _HMG_SYSDATA \[ 354 \]  := <displayitems>
+#xcommand DISPLAYITEMS        <displayitems>       => oHmgApp():APP354  := <displayitems>
 
-#xcommand INPUTITEMS          <inputitems>         => _HMG_SYSDATA \[ 355 \]  := <inputitems>
+#xcommand INPUTITEMS          <inputitems>         => oHmgApp():APP355  := <inputitems>
 
-#xcommand DATE                <datetype>           => _HMG_SYSDATA \[ 400 \]  := <datetype>
+#xcommand DATE                <datetype>           => oHmgApp():APP400  := <datetype>
 
-#xcommand DATATYPE DATE                            => _HMG_SYSDATA \[ 400 \]  := .T.
+#xcommand DATATYPE DATE                            => oHmgApp():APP400  := .T.
 
-#xcommand DATATYPE NUMERIC                         => _HMG_SYSDATA \[ 477 \]  := .T.
+#xcommand DATATYPE NUMERIC                         => oHmgApp():APP477  := .T.
 
-#xcommand DATATYPE CHARACTER                       => _HMG_SYSDATA \[ 477 \]  := .F.; _HMG_SYSDATA\[ 400 \] := .F.
+#xcommand DATATYPE CHARACTER                       => oHmgApp():APP477  := .F.; oHmgApp():APP400 := .F.
 
-#xcommand VALID               <valid>              => _HMG_SYSDATA \[ 483 \]  := <valid>
+#xcommand VALID               <valid>              => oHmgApp():APP483  := <valid>
 
-#xcommand VALIDMESSAGES       <validmessages>      => _HMG_SYSDATA \[ 484 \]  := <validmessages>
+#xcommand VALIDMESSAGES       <validmessages>      => oHmgApp():APP484  := <validmessages>
 
-#xcommand READONLY            <readonly>           => _HMG_SYSDATA \[ 441 \]  := <readonly>
+#xcommand READONLY            <readonly>           => oHmgApp():APP441  := <readonly>
 
-#xcommand VIRTUAL             <virtual>            => _HMG_SYSDATA \[ 410 \]  := <virtual>
+#xcommand VIRTUAL             <virtual>            => oHmgApp():APP410  := <virtual>
 
-#xcommand LOCK                <lock>               => _HMG_SYSDATA \[ 485 \]  := <lock>
+#xcommand LOCK                <lock>               => oHmgApp():APP485  := <lock>
 
-#xcommand ALLOWAPPEND         <appendable>         => _HMG_SYSDATA \[ 486 \]  := <appendable>
+#xcommand ALLOWAPPEND         <appendable>         => oHmgApp():APP486  := <appendable>
 
-#xcommand FONTITALIC          <i>                  => _HMG_SYSDATA \[ 413 \]  := <i>
+#xcommand FONTITALIC          <i>                  => oHmgApp():APP413  := <i>
 
-#xcommand FONTSTRIKEOUT       <s>                  => _HMG_SYSDATA \[ 414 \]  := <s>
+#xcommand FONTSTRIKEOUT       <s>                  => oHmgApp():APP414  := <s>
 
-#xcommand FONTUNDERLINE       <u>                  => _HMG_SYSDATA \[ 415 \]  := <u>
+#xcommand FONTUNDERLINE       <u>                  => oHmgApp():APP415  := <u>
 
-#xcommand AUTOSIZE            <a>                  => _HMG_SYSDATA \[ 409 \]  := <a>
+#xcommand AUTOSIZE            <a>                  => oHmgApp():APP409  := <a>
 
-#xcommand ENDELLIPSES         <lvalue>             => _HMG_SYSDATA \[ 281 \]  := <lvalue>
+#xcommand ENDELLIPSES         <lvalue>             => oHmgApp():APP281  := <lvalue>
 
-#xcommand NOPREFIX            <lvalue>             => _HMG_SYSDATA \[ 387 \]  := <lvalue>
+#xcommand NOPREFIX            <lvalue>             => oHmgApp():APP387  := <lvalue>
 
-#xcommand ADJUSTIMAGE         <a>                  => _HMG_SYSDATA \[ 409 \]  := <a>
+#xcommand ADJUSTIMAGE         <a>                  => oHmgApp():APP409  := <a>
 
-#xcommand SHOWHEADERS         <columnheaders>      => _HMG_SYSDATA \[ 382 \]  := <columnheaders>
+#xcommand SHOWHEADERS         <columnheaders>      => oHmgApp():APP382  := <columnheaders>
 
-#xcommand HEADERS             <headers>            => _HMG_SYSDATA \[ 445 \]  := <headers>
+#xcommand HEADERS             <headers>            => oHmgApp():APP445  := <headers>
 
-#xcommand HEADER              <headers>            => _HMG_SYSDATA \[ 445 \]  := <headers>
+#xcommand HEADER              <headers>            => oHmgApp():APP445  := <headers>
 
-#xcommand WIDTHS              <widths>             => _HMG_SYSDATA \[ 446 \]  := <widths>
+#xcommand WIDTHS              <widths>             => oHmgApp():APP446  := <widths>
 
-#xcommand ONDBLCLICK          <dblclick>           => _HMG_SYSDATA \[ 447 \]  := <{dblclick}>
+#xcommand ONDBLCLICK          <dblclick>           => oHmgApp():APP447  := <{dblclick}>
 
-#xcommand ON DBLCLICK         <dblclick>           => _HMG_SYSDATA \[ 447 \]  := <{dblclick}>
+#xcommand ON DBLCLICK         <dblclick>           => oHmgApp():APP447  := <{dblclick}>
 
-#xcommand ADDRESS             <address>            => _HMG_SYSDATA \[ 406 \]  := <address>
+#xcommand ADDRESS             <address>            => oHmgApp():APP406  := <address>
 
-#xcommand ONHEADCLICK         <aHeadClick>         => _HMG_SYSDATA \[ 448 \]  := <aHeadClick>
+#xcommand ONHEADCLICK         <aHeadClick>         => oHmgApp():APP448  := <aHeadClick>
 
-#xcommand DYNAMICBACKCOLOR    <aDynamicBackColor>  => _HMG_SYSDATA \[ 391 \]  := <aDynamicBackColor>
+#xcommand DYNAMICBACKCOLOR    <aDynamicBackColor>  => oHmgApp():APP391  := <aDynamicBackColor>
 
-#xcommand DYNAMICFORECOLOR    <aDynamicForeColor>  => _HMG_SYSDATA \[ 390 \]  := <aDynamicForeColor>
+#xcommand DYNAMICFORECOLOR    <aDynamicForeColor>  => oHmgApp():APP390  := <aDynamicForeColor>
 
-#xcommand TITLEBACKCOLOR      <color>              => _HMG_SYSDATA \[ 391 \]  := <color>
+#xcommand TITLEBACKCOLOR      <color>              => oHmgApp():APP391  := <color>
 
-#xcommand TITLEFONTCOLOR      <color>              => _HMG_SYSDATA \[ 390 \]  := <color>
+#xcommand TITLEFONTCOLOR      <color>              => oHmgApp():APP390  := <color>
 
-#xcommand VIEW                <view>               => _HMG_SYSDATA \[ 464 \]  := <view>
+#xcommand VIEW                <view>               => oHmgApp():APP464  := <view>
 
-#xcommand ONGETBOLDDAYS       <getbolddays>        => _HMG_SYSDATA \[ 488 \]  := <getbolddays>
+#xcommand ONGETBOLDDAYS       <getbolddays>        => oHmgApp():APP488  := <getbolddays>
 
-#xcommand ON GETBOLDDAYS      <getbolddays>        => _HMG_SYSDATA \[ 488 \]  := <getbolddays>
+#xcommand ON GETBOLDDAYS      <getbolddays>        => oHmgApp():APP488  := <getbolddays>
 
-#xcommand ON HEADCLICK        <aHeadClick>         => _HMG_SYSDATA \[ 448 \]  := <aHeadClick>
+#xcommand ON HEADCLICK        <aHeadClick>         => oHmgApp():APP448  := <aHeadClick>
 
-#xcommand WHEN                <aWhenFields>        => _HMG_SYSDATA \[ 389 \]  := <aWhenFields>
+#xcommand WHEN                <aWhenFields>        => oHmgApp():APP389  := <aWhenFields>
 
-#xcommand NOLINES             <nolines>            => _HMG_SYSDATA \[ 449 \]  := <nolines>
+#xcommand NOLINES             <nolines>            => oHmgApp():APP449  := <nolines>
 
-#xcommand LINES               <lines>              => _HMG_SYSDATA \[ 449 \]  := .NOT. <lines>
+#xcommand LINES               <lines>              => oHmgApp():APP449  := .NOT. <lines>
 
-#xcommand IMAGE               <aImage>             => _HMG_SYSDATA \[ 450 \]  := <aImage>
+#xcommand IMAGE               <aImage>             => oHmgApp():APP450  := <aImage>
 
-#xcommand JUSTIFY             <aJustify>           => _HMG_SYSDATA \[ 451 \]  := <aJustify>
+#xcommand JUSTIFY             <aJustify>           => oHmgApp():APP451  := <aJustify>
 
-#xcommand MULTISELECT         <multiselect>        => _HMG_SYSDATA \[ 455 \]  := <multiselect>
+#xcommand MULTISELECT         <multiselect>        => oHmgApp():APP455  := <multiselect>
 
-#xcommand ALLOWEDIT           <edit>               => _HMG_SYSDATA \[ 456 \]  := <edit>
+#xcommand ALLOWEDIT           <edit>               => oHmgApp():APP456  := <edit>
 
-#xcommand PROGID              <progid>             => _HMG_SYSDATA \[ 356 \]  := <progid>
+#xcommand PROGID              <progid>             => oHmgApp():APP356  := <progid>
 
-#xcommand SORT                <sort>               => _HMG_SYSDATA \[ 464 \]  := <sort>
+#xcommand SORT                <sort>               => oHmgApp():APP464  := <sort>
 
-#xcommand OPAQUE              <opaque>             => _HMG_SYSDATA \[ 444 \]  := <opaque>
+#xcommand OPAQUE              <opaque>             => oHmgApp():APP444  := <opaque>
 
-#xcommand TRANSPARENTCOLOR    <transparentcolor>   => _HMG_SYSDATA \[ 444 \]  := <transparentcolor>
+#xcommand TRANSPARENTCOLOR    <transparentcolor>   => oHmgApp():APP444  := <transparentcolor>
 
-#xcommand AUTOPLAY            <autoplay>           => _HMG_SYSDATA \[ 488 \]  := <autoplay>
+#xcommand AUTOPLAY            <autoplay>           => oHmgApp():APP488  := <autoplay>
 
-#xcommand CENTER              <center>             => _HMG_SYSDATA \[ 489 \]  := <center>
+#xcommand CENTER              <center>             => oHmgApp():APP489  := <center>
 
-#xcommand FILE                <file>               => _HMG_SYSDATA \[ 487 \]  := <file>
+#xcommand FILE                <file>               => oHmgApp():APP487  := <file>
 
-#xcommand NOAUTOSIZEWINDOW    <noautosizewindow>   => _HMG_SYSDATA \[ 490 \]  := <noautosizewindow>
+#xcommand NOAUTOSIZEWINDOW    <noautosizewindow>   => oHmgApp():APP490  := <noautosizewindow>
 
-#xcommand AUTOSIZEWINDOW      <autosizewindow>     => _HMG_SYSDATA \[ 490 \]  := .NOT. <autosizewindow>
+#xcommand AUTOSIZEWINDOW      <autosizewindow>     => oHmgApp():APP490  := .NOT. <autosizewindow>
 
-#xcommand NOAUTOSIZEMOVIE     <noautosizemovie>    => _HMG_SYSDATA \[ 384 \]  := <noautosizemovie>
+#xcommand NOAUTOSIZEMOVIE     <noautosizemovie>    => oHmgApp():APP384  := <noautosizemovie>
 
-#xcommand AUTOSIZEMOVIE       <autosizemovie>      => _HMG_SYSDATA \[ 384 \]  := .NOT. <autosizemovie>
+#xcommand AUTOSIZEMOVIE       <autosizemovie>      => oHmgApp():APP384  := .NOT. <autosizemovie>
 
-#xcommand NOERRORDLG          <noerrordlg>         => _HMG_SYSDATA \[ 492 \]  := <noerrordlg>
+#xcommand NOERRORDLG          <noerrordlg>         => oHmgApp():APP492  := <noerrordlg>
 
-#xcommand ERRORDLG            <errordlg>           => _HMG_SYSDATA \[ 492 \]  := .NOT. <errordlg>
+#xcommand ERRORDLG            <errordlg>           => oHmgApp():APP492  := .NOT. <errordlg>
 
-#xcommand NOMENU              <nomenu>             => _HMG_SYSDATA \[ 493 \]  := <nomenu>
+#xcommand NOMENU              <nomenu>             => oHmgApp():APP493  := <nomenu>
 
-#xcommand MENU                <menu>               => _HMG_SYSDATA \[ 493 \]  := .NOT. <menu>
+#xcommand MENU                <menu>               => oHmgApp():APP493  := .NOT. <menu>
 
-#xcommand NOOPEN              <noopen>             => _HMG_SYSDATA \[ 494 \]  := <noopen>
+#xcommand NOOPEN              <noopen>             => oHmgApp():APP494  := <noopen>
 
-#xcommand OPEN                <open>               => _HMG_SYSDATA \[ 494 \]  := .NOT. <open>
+#xcommand OPEN                <open>               => oHmgApp():APP494  := .NOT. <open>
 
-#xcommand NOPLAYBAR           <noplaybar>          => _HMG_SYSDATA \[ 495 \]  := <noplaybar>
+#xcommand NOPLAYBAR           <noplaybar>          => oHmgApp():APP495  := <noplaybar>
 
-#xcommand PLAYBAR             <playbar>            => _HMG_SYSDATA \[ 495 \]  := .NOT. <playbar>
+#xcommand PLAYBAR             <playbar>            => oHmgApp():APP495  := .NOT. <playbar>
 
-#xcommand SHOWALL             <showall>            => _HMG_SYSDATA \[ 496 \]  := <showall>
+#xcommand SHOWALL             <showall>            => oHmgApp():APP496  := <showall>
 
-#xcommand SHOWMODE            <showmode>           => _HMG_SYSDATA \[ 497 \]  := <showmode>
+#xcommand SHOWMODE            <showmode>           => oHmgApp():APP497  := <showmode>
 
-#xcommand SHOWNAME            <showname>           => _HMG_SYSDATA \[ 498 \]  := <showname>
+#xcommand SHOWNAME            <showname>           => oHmgApp():APP498  := <showname>
 
-#xcommand SHOWPOSITION        <showposition>       => _HMG_SYSDATA \[ 499 \]  := <showposition>
+#xcommand SHOWPOSITION        <showposition>       => oHmgApp():APP499  := <showposition>
 
-#xcommand RANGEMIN            <lo>                 => _HMG_SYSDATA \[ 465 \]  := <lo>
+#xcommand RANGEMIN            <lo>                 => oHmgApp():APP465  := <lo>
 
-#xcommand RANGEMAX            <hi>                 => _HMG_SYSDATA \[ 466 \]  := <hi>
+#xcommand RANGEMAX            <hi>                 => oHmgApp():APP466  := <hi>
 
-#xcommand VERTICAL            <vertical>           => _HMG_SYSDATA \[ 467 \]  := <vertical>
+#xcommand VERTICAL            <vertical>           => oHmgApp():ActiveControlVertical  := <vertical>
 
-#xcommand SMOOTH              <smooth>             => _HMG_SYSDATA \[ 468 \]  := <smooth>
+#xcommand SMOOTH              <smooth>             => oHmgApp():APP468  := <smooth>
 
-#xcommand OPTIONS             <aOptions>           => _HMG_SYSDATA \[ 469 \]  := <aOptions>
+#xcommand OPTIONS             <aOptions>           => oHmgApp():APP469  := <aOptions>
 
-#xcommand SPACING             <spacing>            => _HMG_SYSDATA \[ 470 \]  := <spacing>
+#xcommand SPACING             <spacing>            => oHmgApp():APP470  := <spacing>
 
-#xcommand NOTICKS             <noticks>            => _HMG_SYSDATA \[ 471 \]  := <noticks>
+#xcommand NOTICKS             <noticks>            => oHmgApp():ActiveControlNoTicks  := <noticks>
 
-#xcommand TICKMARKS           <tickmarks>          => _HMG_SYSDATA \[ 471 \]  := .NOT. <tickmarks>
+#xcommand TICKMARKS           <tickmarks>          => oHmgApp():ActiveControlNoTicks  := .NOT. <tickmarks>
 
-#xcommand BOTH                <both>               => _HMG_SYSDATA \[ 472 \]  := <both>
+#xcommand BOTH                <both>               => oHmgApp():APP472  := <both>
 
-#xcommand TOP                 <top>                => _HMG_SYSDATA \[ 473 \]  := <top>
+#xcommand TOP                 <top>                => oHmgApp():APP473  := <top>
 
-#xcommand LEFT                <left>               => _HMG_SYSDATA \[ 474 \]  := <left>
+#xcommand LEFT                <left>               => oHmgApp():APP474  := <left>
 
-#xcommand UPPERCASE           <uppercase>          => _HMG_SYSDATA \[ 475 \]  := <uppercase>
+#xcommand UPPERCASE           <uppercase>          => oHmgApp():APP475  := <uppercase>
 
-#xcommand LOWERCASE           <lowercase>          => _HMG_SYSDATA \[ 476 \]  := <lowercase>
+#xcommand LOWERCASE           <lowercase>          => oHmgApp():APP476  := <lowercase>
 
-#xcommand CASECONVERT UPPER                        => _HMG_SYSDATA \[ 475 \]  := .T.
+#xcommand CASECONVERT UPPER                        => oHmgApp():APP475  := .T.
 
-#xcommand CASECONVERT LOWER                        => _HMG_SYSDATA \[ 476 \]  := .T.
+#xcommand CASECONVERT LOWER                        => oHmgApp():APP476  := .T.
 
-#xcommand CASECONVERT NONE                         => _HMG_SYSDATA \[ 476 \]  := .F.; _HMG_SYSDATA \[ 475 \] := .F.
+#xcommand CASECONVERT NONE                         => oHmgApp():APP476  := .F.; oHmgApp():APP475 := .F.
 
-#xcommand NUMERIC             <numeric>            => _HMG_SYSDATA \[ 477 \]  := <numeric>
+#xcommand NUMERIC             <numeric>            => oHmgApp():APP477  := <numeric>
 
-#xcommand PASSWORD            <password>           => _HMG_SYSDATA \[ 478 \]  := <password>
+#xcommand PASSWORD            <password>           => oHmgApp():APP478  := <password>
 
-#xcommand INPUTMASK           <inputmask>          => _HMG_SYSDATA \[ 479 \]  := <inputmask>
+#xcommand INPUTMASK           <inputmask>          => oHmgApp():APP479  := <inputmask>
 
-#xcommand FORMAT              <format>             => _HMG_SYSDATA \[ 500 \]  := <format>
+#xcommand FORMAT              <format>             => oHmgApp():ActiveControlFormat  := <format>
 
-#xcommand NOTODAY             <notoday>            => _HMG_SYSDATA \[ 452 \]  := <notoday>
+#xcommand NOTODAY             <notoday>            => oHmgApp():APP452  := <notoday>
 
-#xcommand TODAY               <today>              => _HMG_SYSDATA \[ 452 \]  := .NOT. <today>
+#xcommand TODAY               <today>              => oHmgApp():APP452  := .NOT. <today>
 
-#xcommand NOTODAYCIRCLE       <notodaycircle>      => _HMG_SYSDATA \[ 453 \]  := <notodaycircle>
+#xcommand NOTODAYCIRCLE       <notodaycircle>      => oHmgApp():APP453  := <notodaycircle>
 
-#xcommand TODAYCIRCLE         <todaycircle>        => _HMG_SYSDATA \[ 453 \]  := .NOT. <todaycircle>
+#xcommand TODAYCIRCLE         <todaycircle>        => oHmgApp():APP453  := .NOT. <todaycircle>
 
-#xcommand WEEKNUMBERS         <weeknumbers>        => _HMG_SYSDATA \[ 454 \]  := <weeknumbers>
+#xcommand WEEKNUMBERS         <weeknumbers>        => oHmgApp():APP454  := <weeknumbers>
 
-#xcommand ROW                 <row>                => _HMG_SYSDATA \[ 431 \]  := <row>
+#xcommand ROW                 <row>                => oHmgApp():APP431  := <row>
 
-#xcommand COL                 <col>                => _HMG_SYSDATA \[ 432 \]  := <col>
+#xcommand COL                 <col>                => oHmgApp():APP432  := <col>
 
-#xcommand PARENT              <of>                 => _HMG_SYSDATA \[ 417 \]  := <(of)>
+#xcommand PARENT              <of>                 => oHmgApp():APP417  := <(of)>
 
-#xcommand CAPTION             <caption>            => _HMG_SYSDATA \[ 418 \]  := <caption>
+#xcommand CAPTION             <caption>            => oHmgApp():APP418  := <caption>
 
-#xcommand ACTION              <action>             => _HMG_SYSDATA \[ 419 \]  := <{action}>
+#xcommand ACTION              <action>             => oHmgApp():APP419  := <{action}>
 
-#xcommand ONCLICK             <action>             => _HMG_SYSDATA \[ 419 \]  := <{action}>
+#xcommand ONCLICK             <action>             => oHmgApp():APP419  := <{action}>
 
-#xcommand ON CLICK            <action>             => _HMG_SYSDATA \[ 419 \]  := <{action}>
+#xcommand ON CLICK            <action>             => oHmgApp():APP419  := <{action}>
 
-#xcommand DYNAMICFONT         <font>               => _HMG_SYSDATA \[ 453 \]  := <font>
+#xcommand DYNAMICFONT         <font>               => oHmgApp():APP453  := <font>
 
-#xcommand ONCHECKBOXCLICKED   <action>             => _HMG_SYSDATA \[ 454 \]  := <{action}>
+#xcommand ONCHECKBOXCLICKED   <action>             => oHmgApp():APP454  := <{action}>
 
-#xcommand ON CHECKBOXCLICKED  <action>             => _HMG_SYSDATA \[ 454 \]  := <{action}>
+#xcommand ON CHECKBOXCLICKED  <action>             => oHmgApp():APP454  := <{action}>
 
-#xcommand ON INPLACEEDITEVENT <action>             => _HMG_SYSDATA \[ 352 \]  := <{action}>
+#xcommand ON INPLACEEDITEVENT <action>             => oHmgApp():APP352  := <{action}>
 
-#xcommand ONINPLACEEDITEVENT  <action>             => _HMG_SYSDATA \[ 352 \]  := <{action}>
+#xcommand ONINPLACEEDITEVENT  <action>             => oHmgApp():APP352  := <{action}>
 
-#xcommand WIDTH               <width>              => _HMG_SYSDATA \[ 420 \]  := <width>
+#xcommand WIDTH               <width>              => oHmgApp():APP420  := <width>
 
-#xcommand HEIGHT              <height>             => _HMG_SYSDATA \[ 421 \]  := <height>
+#xcommand HEIGHT              <height>             => oHmgApp():APP421  := <height>
 
-#xcommand FONTNAME            <font>               => _HMG_SYSDATA \[ 422 \]  := <font>
+#xcommand FONTNAME            <font>               => oHmgApp():APP422  := <font>
 
-#xcommand FONTSIZE            <size>               => _HMG_SYSDATA \[ 423 \]  := <size>
+#xcommand FONTSIZE            <size>               => oHmgApp():APP423  := <size>
 
-#xcommand ITEMCOUNT           <itemcount>          => _HMG_SYSDATA \[ 407 \]  := <itemcount>
+#xcommand ITEMCOUNT           <itemcount>          => oHmgApp():APP407  := <itemcount>
 
-#xcommand TOOLTIP             <tooltip>            => _HMG_SYSDATA \[ 424 \]  := <tooltip>
+#xcommand TOOLTIP             <tooltip>            => oHmgApp():APP424  := <tooltip>
 
-#xcommand FLAT                <flat>               => _HMG_SYSDATA \[ 425 \]  := <flat>
+#xcommand FLAT                <flat>               => oHmgApp():APP425  := <flat>
 
-#xcommand ONGOTFOCUS          <ongotfocus>         => _HMG_SYSDATA \[ 426 \]  := <{ongotfocus}>
+#xcommand ONGOTFOCUS          <ongotfocus>         => oHmgApp():APP426  := <{ongotfocus}>
 
-#xcommand ON GOTFOCUS         <ongotfocus>         => _HMG_SYSDATA \[ 426 \]  := <{ongotfocus}>
+#xcommand ON GOTFOCUS         <ongotfocus>         => oHmgApp():APP426  := <{ongotfocus}>
 
-#xcommand ONLOSTFOCUS         <onlostfocus>        => _HMG_SYSDATA \[ 427 \]  := <{onlostfocus}>
+#xcommand ONLOSTFOCUS         <onlostfocus>        => oHmgApp():APP427  := <{onlostfocus}>
 
-#xcommand ON LOSTFOCUS        <onlostfocus>        => _HMG_SYSDATA \[ 427 \]  := <{onlostfocus}>
+#xcommand ON LOSTFOCUS        <onlostfocus>        => oHmgApp():APP427  := <{onlostfocus}>
 
-#xcommand TABSTOP             <notabstop>          => _HMG_SYSDATA \[ 428 \]  := .NOT. <notabstop>
+#xcommand TABSTOP             <notabstop>          => oHmgApp():APP428  := .NOT. <notabstop>
 
-#xcommand HELPID              <helpid>             => _HMG_SYSDATA \[ 429 \]  := <helpid>
+#xcommand HELPID              <helpid>             => oHmgApp():APP429  := <helpid>
 
-#xcommand VISIBLE             <visible>            => _HMG_SYSDATA \[ 430 \]  := .NOT. <visible>
+#xcommand VISIBLE             <visible>            =>oHmgApp():APP430 := .NOT. <visible>
 
-#xcommand PICTURE             <picture>            => _HMG_SYSDATA \[ 433 \]  := <picture>
+#xcommand PICTURE             <picture>            => oHmgApp():APP433  := <picture>
 
-#xcommand TRANSPARENT         <transparent>        => _HMG_SYSDATA \[ 463 \]  := <transparent>
+#xcommand TRANSPARENT         <transparent>        => oHmgApp():APP463  := <transparent>
 
-#xcommand TRANSPARENTHEADER   <transparentheader>  => _HMG_SYSDATA \[ 452 \]  := <transparentheader>
+#xcommand TRANSPARENTHEADER   <transparentheader>  => oHmgApp():APP452  := <transparentheader>
 
-#xcommand PICTALIGNMENT       <alignment:LEFT,RIGHT,TOP,BOTTOM> => _HMG_SYSDATA \[ 381 \] := <"alignment">
+#xcommand PICTALIGNMENT       <alignment:LEFT,RIGHT,TOP,BOTTOM> => oHmgApp():APP381 := <"alignment">
 
-#xcommand STRETCH             <stretch>            => _HMG_SYSDATA \[ 411 \]  := <stretch>
+#xcommand STRETCH             <stretch>            => oHmgApp():APP411  := <stretch>
 
-#xcommand VALUE               <value>              => _HMG_SYSDATA \[ 434 \]  := <value>
+#xcommand VALUE               <value>              => oHmgApp():APP434  := <value>
 
-#xcommand ONCHANGE            <onchange>           => _HMG_SYSDATA \[ 435 \]  := <{onchange}>
+#xcommand ONCHANGE            <onchange>           => oHmgApp():APP435  := <{onchange}>
 
-#xcommand ONSAVE              <onsave>             => _HMG_SYSDATA \[ 277 \]  := IF ( valtype( <onsave> ) == 'U' , NIL , <{onsave}> )
+#xcommand ONSAVE              <onsave>             => oHmgApp():APP277  := IF ( valtype( <onsave> ) == 'U' , NIL , <{onsave}> )
 
-#xcommand ON CHANGE           <onchange>           => _HMG_SYSDATA \[ 435 \]  := <{onchange}>
+#xcommand ON CHANGE           <onchange>           => oHmgApp():APP435  := <{onchange}>
 
-#xcommand ON QUERYDATA        <onquerydata>        => _HMG_SYSDATA \[ 408 \]  := <{onquerydata}>
+#xcommand ON QUERYDATA        <onquerydata>        => oHmgApp():APP408  := <{onquerydata}>
 
-#xcommand ONQUERYDATA         <onquerydata>        => _HMG_SYSDATA \[ 408 \]  := <{onquerydata}>
+#xcommand ONQUERYDATA         <onquerydata>        => oHmgApp():APP408  := <{onquerydata}>
 
-#xcommand DISPLAYEDIT         <displayedit>        => _HMG_SYSDATA \[ 396 \]  := <displayedit>
+#xcommand DISPLAYEDIT         <displayedit>        => oHmgApp():APP396  := <displayedit>
 
-#xcommand GRIPPERTEXT         <grippertext>        => _HMG_SYSDATA \[ 395 \]  := <grippertext>
+#xcommand GRIPPERTEXT         <grippertext>        => oHmgApp():APP395  := <grippertext>
 
-#xcommand ON DISPLAYCHANGE    <displaychange>      => _HMG_SYSDATA \[ 397 \]  := <{displaychange}>
+#xcommand ON DISPLAYCHANGE    <displaychange>      => oHmgApp():APP397  := <{displaychange}>
 
-#xcommand ONDISPLAYCHANGE     <displaychange>      => _HMG_SYSDATA \[ 397 \]  := <{displaychange}>
+#xcommand ONDISPLAYCHANGE     <displaychange>      => oHmgApp():APP397  := <{displaychange}>
 
-#xcommand ITEM                <aRows>              => _HMG_SYSDATA \[ 436 \]  := <aRows>
+#xcommand ITEM                <aRows>              => oHmgApp():APP436  := <aRows>
 
-#xcommand ITEMS               <aRows>              => _HMG_SYSDATA \[ 436 \]  := <aRows>
+#xcommand ITEMS               <aRows>              => oHmgApp():APP436  := <aRows>
 
-#xcommand ONENTER             <enter>              => _HMG_SYSDATA \[ 437 \]  := <{enter}>
+#xcommand ONENTER             <enter>              => oHmgApp():APP437  := <{enter}>
 
-#xcommand ON ENTER            <enter>              => _HMG_SYSDATA \[ 437 \]  := <{enter}>
+#xcommand ON ENTER            <enter>              => oHmgApp():APP437  := <{enter}>
 
-#xcommand SHOWNONE            <shownone>           => _HMG_SYSDATA \[ 438 \]  := <shownone>
+#xcommand SHOWNONE            <shownone>           => oHmgApp():APP438  := <shownone>
 
-#xcommand UPDOWN              <updown>             => _HMG_SYSDATA \[ 439 \]  := <updown>
+#xcommand UPDOWN              <updown>             => oHmgApp():APP439  := <updown>
 
-#xcommand READONLYFIELDS      <readonly>           => _HMG_SYSDATA \[ 441 \]  := <readonly>
+#xcommand READONLYFIELDS      <readonly>           => oHmgApp():APP441  := <readonly>
 
-#xcommand MAXLENGTH           <maxlength>          => _HMG_SYSDATA \[ 442 \]  := <maxlength>
+#xcommand MAXLENGTH           <maxlength>          => oHmgApp():APP442  := <maxlength>
 
-#xcommand BREAK               <break>              => IF ( _HMG_SYSDATA \[ 383 \] , _HMG_SYSDATA \[ 443 \] := <break> , EVAL({|b| BREAK(b)}, <break>) )
+#xcommand BREAK               <break>              => IF ( oHmgApp():APP383 , oHmgApp():APP443 := <break> , EVAL({|b| BREAK(b)}, <break>) )
 
-#xcommand BACKCOLOR           <color>              => _HMG_SYSDATA \[ 457 \]  := <color>
+#xcommand BACKCOLOR           <color>              => oHmgApp():APP457  := <color>
 
-#xcommand BACKGROUNDCOLOR     <color>              => _HMG_SYSDATA \[ 457 \]  := <color>     /* ADD */
+#xcommand BACKGROUNDCOLOR     <color>              => oHmgApp():APP457  := <color>     /* ADD */
 
-#xcommand CENTERALIGN         <centeralign>        => _HMG_SYSDATA \[ 393 \]  := <centeralign>
+#xcommand CENTERALIGN         <centeralign>        => oHmgApp():APP393  := <centeralign>
 
-#xcommand RIGHTALIGN          <rightalign>         => _HMG_SYSDATA \[ 440 \]  := <rightalign>
+#xcommand RIGHTALIGN          <rightalign>         => oHmgApp():APP440  := <rightalign>
 
-#xcommand ALIGNMENT RIGHT                          => _HMG_SYSDATA \[ 440 \]  := .T. ; _HMG_SYSDATA \[ 393 \] := .F.
+#xcommand ALIGNMENT RIGHT                          => oHmgApp():APP440  := .T. ; oHmgApp():APP393 := .F.
 
-#xcommand ALIGNMENT CENTER                         => _HMG_SYSDATA \[ 440 \]  := .F. ; _HMG_SYSDATA \[ 393 \] := .T.
+#xcommand ALIGNMENT CENTER                         => oHmgApp():APP440  := .F. ; oHmgApp():APP393 := .T.
 
-#xcommand ALIGNMENT LEFT                           => _HMG_SYSDATA \[ 440 \]  := .F. ; _HMG_SYSDATA \[ 393 \] := .F.
+#xcommand ALIGNMENT LEFT                           => oHmgApp():APP440  := .F. ; oHmgApp():APP393 := .F.
 
-#xcommand FONTCOLOR           <color>              => _HMG_SYSDATA \[ 458 \]  := <color>
+#xcommand FONTCOLOR           <color>              => oHmgApp():APP458  := <color>
 
-#xcommand FORECOLOR           <color>              => _HMG_SYSDATA \[ 399 \]  := <color>
+#xcommand FORECOLOR           <color>              => oHmgApp():APP399  := <color>
 
-#xcommand FONTBOLD            <bold>               => _HMG_SYSDATA \[ 412 \]  := <bold>
+#xcommand FONTBOLD            <bold>               => oHmgApp():APP412  := <bold>
 
-#xcommand BORDER              <border>             => _HMG_SYSDATA \[ 459 \]  := <border>
+#xcommand BORDER              <border>             => oHmgApp():APP459  := <border>
 
-#xcommand CLIENTEDGE          <clientedge>         => _HMG_SYSDATA \[ 460 \]  := <clientedge>
+#xcommand CLIENTEDGE          <clientedge>         => oHmgApp():IsBCC77  := <clientedge>
 
-#xcommand HSCROLL             <hscroll>            => _HMG_SYSDATA \[ 461 \]  := <hscroll>
+#xcommand HSCROLL             <hscroll>            => oHmgApp():APP461  := <hscroll>
 
-#xcommand VSCROLL             <vscroll>            => _HMG_SYSDATA \[ 462 \]  := <vscroll>
+#xcommand VSCROLL             <vscroll>            => oHmgApp():APP462  := <vscroll>
 
-#xcommand TRANSPARENT         <transparent>        => _HMG_SYSDATA \[ 463 \]  := <transparent>
+#xcommand TRANSPARENT         <transparent>        => oHmgApp():APP463  := <transparent>
 
-#xcommand ROWSOURCE           <value>              => _HMG_SYSDATA \[ 327 \]  := <value>
+#xcommand ROWSOURCE           <value>              => oHmgApp():APP327  := <value>
 
-#xcommand COLUMNFIELDS        <value>              => _HMG_SYSDATA \[ 326 \]  := <value>
+#xcommand COLUMNFIELDS        <value>              => oHmgApp():APP326  := <value>
 
-#xcommand BUFFERED            <value>              => _HMG_SYSDATA \[ 325 \]  := <value>
+#xcommand BUFFERED            <value>              => oHmgApp():APP325  := <value>
 
-#xcommand HANDCURSOR          <handcursor>         => _HMG_SYSDATA \[ 392 \]  := <handcursor>
+#xcommand HANDCURSOR          <handcursor>         => oHmgApp():APP392  := <handcursor>
 
-#xcommand WRAP                <wrap>               => _HMG_SYSDATA \[ 404 \]  := <wrap>
+#xcommand WRAP                <wrap>               => oHmgApp():APP404  := <wrap>
 
-#xcommand INCREMENT           <increment>          => _HMG_SYSDATA \[ 405 \]  := <increment>
+#xcommand INCREMENT           <increment>          => oHmgApp():APP405  := <increment>
 
-#xcommand HORIZONTAL          <horizontal>         => _HMG_SYSDATA \[ 357 \]  := <horizontal>
+#xcommand HORIZONTAL          <horizontal>         => oHmgApp():APP357  := <horizontal>
 
 
 
@@ -460,45 +460,45 @@ Frame
 
 #xcommand DEFINE FRAME <name> ;
    =>;
-   _HMG_SYSDATA \[ 416 \]     := <(name)> ;;
-   _HMG_SYSDATA \[ 417 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 431 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 432 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 420 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 421 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 418 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 422 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 423 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 457 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 458 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 463 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 444 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 412 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 413 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 414 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 415 \]  := .F.
+   oHmgApp():APP416     := <(name)> ;;
+   oHmgApp():APP417     := NIL      ;;
+   oHmgApp():APP431     := NIL      ;;
+   oHmgApp():APP432     := NIL      ;;
+   oHmgApp():APP420     := NIL      ;;
+   oHmgApp():APP421     := NIL      ;;
+   oHmgApp():APP418     := NIL      ;;
+   oHmgApp():APP422     := NIL      ;;
+   oHmgApp():APP423     := NIL      ;;
+   oHmgApp():APP457     := NIL      ;;
+   oHmgApp():APP458     := NIL      ;;
+   oHmgApp():APP463  := .F.      ;;
+   oHmgApp():APP444     := .F.      ;;
+   oHmgApp():APP412     := .F.      ;;
+   oHmgApp():APP413  := .F.      ;;
+   oHmgApp():APP414  := .F.      ;;
+   oHmgApp():APP415  := .F.
 
 
 #xcommand END FRAME ;
    =>;
    _BeginFrame (;
-      _HMG_SYSDATA \[ 416 \],;
-      _HMG_SYSDATA \[ 417 \],;
-      _HMG_SYSDATA \[ 431 \],;
-      _HMG_SYSDATA \[ 432 \],;
-      _HMG_SYSDATA \[ 420 \],;
-      _HMG_SYSDATA \[ 421 \],;
-      _HMG_SYSDATA \[ 418 \],;
-      _HMG_SYSDATA \[ 422 \],;
-      _HMG_SYSDATA \[ 423 \],;
-      _HMG_SYSDATA \[ 444 \],;
-      _HMG_SYSDATA \[ 412 \],;
-      _HMG_SYSDATA \[ 413 \],;
-      _HMG_SYSDATA \[ 415 \],;
-      _HMG_SYSDATA \[ 414 \],;
-      _HMG_SYSDATA \[ 457 \],;
-      _HMG_SYSDATA \[ 458 \],;
-      _HMG_SYSDATA \[ 463 \] )
+      oHmgApp():APP416,;
+      oHmgApp():APP417,;
+      oHmgApp():APP431,;
+      oHmgApp():APP432,;
+      oHmgApp():APP420,;
+      oHmgApp():APP421,;
+      oHmgApp():APP418,;
+      oHmgApp():APP422,;
+      oHmgApp():APP423,;
+      oHmgApp():APP444,;
+      oHmgApp():APP412,;
+      oHmgApp():APP413,;
+      oHmgApp():APP415,;
+      oHmgApp():APP414,;
+      oHmgApp():APP457,;
+      oHmgApp():APP458,;
+      oHmgApp():APP463 )
 
 
 *-----------------------------------------------------------------------------*
@@ -506,92 +506,92 @@ Frame
 *-----------------------------------------------------------------------------*
 #xcommand DEFINE ACTIVEX <name>;
    =>;
-   _HMG_SYSDATA \[ 432 \]     := 0     ;;
-   _HMG_SYSDATA \[ 416 \]     := <(name)> ;;
-   _HMG_SYSDATA \[ 417 \]     := ""    ;;
-   _HMG_SYSDATA \[ 431 \]     := 0     ;;
-   _HMG_SYSDATA \[ 420 \]     := 0     ;;
-   _HMG_SYSDATA \[ 421 \]     := 0     ;;
-   _HMG_SYSDATA \[ 356 \]     := 0
+   oHmgApp():APP432     := 0     ;;
+   oHmgApp():APP416     := <(name)> ;;
+   oHmgApp():APP417     := ""    ;;
+   oHmgApp():APP431     := 0     ;;
+   oHmgApp():APP420     := 0     ;;
+   oHmgApp():APP421     := 0     ;;
+   oHmgApp():APP356     := 0
 
 #xcommand END ACTIVEX;
    =>;
    _DefineActivex(;
-      _HMG_SYSDATA \[ 416 \] , ;
-      _HMG_SYSDATA \[ 417 \] , ;
-      _HMG_SYSDATA \[ 431 \] , ;
-      _HMG_SYSDATA \[ 432 \] , ;
-      _HMG_SYSDATA \[ 420 \] , ;
-      _HMG_SYSDATA \[ 421 \] , ;
-      _HMG_SYSDATA \[ 356 \])
+      oHmgApp():APP416 , ;
+      oHmgApp():APP417 , ;
+      oHmgApp():APP431 , ;
+      oHmgApp():APP432 , ;
+      oHmgApp():APP420 , ;
+      oHmgApp():APP421 , ;
+      oHmgApp():APP356)
 
 /*----------------------------------------------------------------------------
 List Box
 ---------------------------------------------------------------------------*/
 #xcommand DEFINE LISTBOX <name>;
    =>;
-   _HMG_SYSDATA \[ 383 \]     := .T.      ;;
-   _HMG_SYSDATA \[ 416 \]     := <(name)> ;;
-   _HMG_SYSDATA \[ 417 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 432 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 431 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 421 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 436 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 434 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 422 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 423 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 424 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 426 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 435 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 427 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 447 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 455 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 429 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 443 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 430 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 428 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 464 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 412 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 457 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 458 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 413 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 414 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 352 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 415 \]  := .F.
+   oHmgApp():APP383     := .T.      ;;
+   oHmgApp():APP416     := <(name)> ;;
+   oHmgApp():APP417     := NIL      ;;
+   oHmgApp():APP432     := NIL      ;;
+   oHmgApp():APP431     := NIL      ;;
+   oHmgApp():APP421     := NIL      ;;
+   oHmgApp():APP436     := NIL      ;;
+   oHmgApp():APP434     := NIL      ;;
+   oHmgApp():APP422     := NIL      ;;
+   oHmgApp():APP423     := NIL      ;;
+   oHmgApp():APP424     := NIL      ;;
+   oHmgApp():APP426  := NIL      ;;
+   oHmgApp():APP435     := NIL      ;;
+   oHmgApp():APP427  := NIL      ;;
+   oHmgApp():APP447  := NIL      ;;
+   oHmgApp():APP455  := .F.      ;;
+   oHmgApp():APP429     := NIL      ;;
+   oHmgApp():APP443     := .F.      ;;
+  oHmgApp():APP430    := .F.      ;;
+   oHmgApp():APP428     := .F.      ;;
+   oHmgApp():APP464     := .F.      ;;
+   oHmgApp():APP412     := .F.      ;;
+   oHmgApp():APP457     := NIL      ;;
+   oHmgApp():APP458     := NIL      ;;
+   oHmgApp():APP413  := .F.      ;;
+   oHmgApp():APP414  := .F.      ;;
+   oHmgApp():APP352  := .F.      ;;
+   oHmgApp():APP415  := .F.
 
 
 #xcommand END LISTBOX;
    =>;
-   _HMG_SYSDATA \[ 383 \] := .F.;;
+   oHmgApp():APP383 := .F.;;
    _DefineListBox(;
-      _HMG_SYSDATA \[ 416 \],;
-      _HMG_SYSDATA \[ 417 \],;
-      _HMG_SYSDATA \[ 432 \],;
-      _HMG_SYSDATA \[ 431 \],;
-      _HMG_SYSDATA \[ 420 \],;
-      _HMG_SYSDATA \[ 421 \],;
-      _HMG_SYSDATA \[ 436 \],;
-      _HMG_SYSDATA \[ 434 \],;
-      _HMG_SYSDATA \[ 422 \],;
-      _HMG_SYSDATA \[ 423 \],;
-      _HMG_SYSDATA \[ 424 \],;
-      _HMG_SYSDATA \[ 435 \],;
-      _HMG_SYSDATA \[ 447 \],;
-      _HMG_SYSDATA \[ 426 \],;
-      _HMG_SYSDATA \[ 427 \],;
-      _HMG_SYSDATA \[ 443 \],;
-      _HMG_SYSDATA \[ 429 \],;
-      _HMG_SYSDATA \[ 430 \],;
-      _HMG_SYSDATA \[ 428 \],;
-      _HMG_SYSDATA \[ 464 \],;
-      _HMG_SYSDATA \[ 412 \],;
-      _HMG_SYSDATA \[ 413 \],;
-      _HMG_SYSDATA \[ 415 \],;
-      _HMG_SYSDATA \[ 414 \],;
-      _HMG_SYSDATA \[ 457 \],;
-      _HMG_SYSDATA \[ 458 \],;
-      _HMG_SYSDATA \[ 455 \],;
-      _HMG_SYSDATA \[ 352 \] )
+      oHmgApp():APP416,;
+      oHmgApp():APP417,;
+      oHmgApp():APP432,;
+      oHmgApp():APP431,;
+      oHmgApp():APP420,;
+      oHmgApp():APP421,;
+      oHmgApp():APP436,;
+      oHmgApp():APP434,;
+      oHmgApp():APP422,;
+      oHmgApp():APP423,;
+      oHmgApp():APP424,;
+      oHmgApp():APP435,;
+      oHmgApp():APP447,;
+      oHmgApp():APP426,;
+      oHmgApp():APP427,;
+      oHmgApp():APP443,;
+      oHmgApp():APP429,;
+      oHmgApp():APP430,;
+      oHmgApp():APP428,;
+      oHmgApp():APP464,;
+      oHmgApp():APP412,;
+      oHmgApp():APP413,;
+      oHmgApp():APP415,;
+      oHmgApp():APP414,;
+      oHmgApp():APP457,;
+      oHmgApp():APP458,;
+      oHmgApp():APP455,;
+      oHmgApp():APP352 )
 
 ///////////////////////////////////////////////////////////////////////////////
 // ANIMATEBOX COMMANDS
@@ -599,77 +599,77 @@ List Box
 
 #xcommand DEFINE ANIMATEBOX <name>;
    =>;
-   _HMG_SYSDATA \[ 416 \]     := <(name)> ;;
-   _HMG_SYSDATA \[ 417 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 432 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 431 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 420 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 421 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 488 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 489 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 463 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 487 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 429 \]     := NIL
+   oHmgApp():APP416     := <(name)> ;;
+   oHmgApp():APP417     := NIL      ;;
+   oHmgApp():APP432     := NIL      ;;
+   oHmgApp():APP431     := NIL      ;;
+   oHmgApp():APP420     := NIL      ;;
+   oHmgApp():APP421     := NIL      ;;
+   oHmgApp():APP488     := .F.      ;;
+   oHmgApp():APP489     := .F.      ;;
+   oHmgApp():APP463  := .F.      ;;
+   oHmgApp():APP487     := NIL      ;;
+   oHmgApp():APP429     := NIL
 
 
 #xcommand END ANIMATEBOX;
    =>;
    _DefineAnimateBox(;
-      _HMG_SYSDATA \[ 416 \],;
-      _HMG_SYSDATA \[ 417 \],;
-      _HMG_SYSDATA \[ 432 \],;
-      _HMG_SYSDATA \[ 431 \],;
-      _HMG_SYSDATA \[ 420 \],;
-      _HMG_SYSDATA \[ 421 \],;
-      _HMG_SYSDATA \[ 488 \],;
-      _HMG_SYSDATA \[ 489 \],;
-      _HMG_SYSDATA \[ 463 \],;
-      _HMG_SYSDATA \[ 487 \],;
-      _HMG_SYSDATA \[ 429 \])
+      oHmgApp():APP416,;
+      oHmgApp():APP417,;
+      oHmgApp():APP432,;
+      oHmgApp():APP431,;
+      oHmgApp():APP420,;
+      oHmgApp():APP421,;
+      oHmgApp():APP488,;
+      oHmgApp():APP489,;
+      oHmgApp():APP463,;
+      oHmgApp():APP487,;
+      oHmgApp():APP429)
 
 #xcommand DEFINE PLAYER <name> ;
    =>;
-   _HMG_SYSDATA \[ 416 \]     := <(name)> ;;
-   _HMG_SYSDATA \[ 417 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 487 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 432 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 431 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 420 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 421 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 490 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 384 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 492 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 493 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 494 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 495 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 496 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 497 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 498 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 499 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 429 \]     := NIL
+   oHmgApp():APP416     := <(name)> ;;
+   oHmgApp():APP417     := NIL      ;;
+   oHmgApp():APP487     := NIL      ;;
+   oHmgApp():APP432     := NIL      ;;
+   oHmgApp():APP431     := NIL      ;;
+   oHmgApp():APP420     := NIL      ;;
+   oHmgApp():APP421     := NIL      ;;
+   oHmgApp():APP490  := .F.      ;;
+   oHmgApp():APP384  := .F.      ;;
+   oHmgApp():APP492  := .F.      ;;
+   oHmgApp():APP493     := .F.      ;;
+   oHmgApp():APP494     := .F.      ;;
+   oHmgApp():APP495     := .F.      ;;
+   oHmgApp():APP496     := .F.      ;;
+   oHmgApp():APP497     := .F.      ;;
+   oHmgApp():APP498     := .F.      ;;
+   oHmgApp():APP499  := .F.      ;;
+   oHmgApp():APP429     := NIL
 
 
 #xcommand END PLAYER;
    =>;
    _DefinePlayer(;
-      _HMG_SYSDATA \[ 416 \],;
-      _HMG_SYSDATA \[ 417 \],;
-      _HMG_SYSDATA \[ 487 \],;
-      _HMG_SYSDATA \[ 432 \],;
-      _HMG_SYSDATA \[ 431 \],;
-      _HMG_SYSDATA \[ 420 \],;
-      _HMG_SYSDATA \[ 421 \],;
-      _HMG_SYSDATA \[ 490 \],;
-      _HMG_SYSDATA \[ 384 \],;
-      _HMG_SYSDATA \[ 492 \],;
-      _HMG_SYSDATA \[ 493 \],;
-      _HMG_SYSDATA \[ 494 \],;
-      _HMG_SYSDATA \[ 495 \],;
-      _HMG_SYSDATA \[ 496 \],;
-      _HMG_SYSDATA \[ 497 \],;
-      _HMG_SYSDATA \[ 498 \],;
-      _HMG_SYSDATA \[ 499 \],;
-      _HMG_SYSDATA \[ 429 \])
+      oHmgApp():APP416,;
+      oHmgApp():APP417,;
+      oHmgApp():APP487,;
+      oHmgApp():APP432,;
+      oHmgApp():APP431,;
+      oHmgApp():APP420,;
+      oHmgApp():APP421,;
+      oHmgApp():APP490,;
+      oHmgApp():APP384,;
+      oHmgApp():APP492,;
+      oHmgApp():APP493,;
+      oHmgApp():APP494,;
+      oHmgApp():APP495,;
+      oHmgApp():APP496,;
+      oHmgApp():APP497,;
+      oHmgApp():APP498,;
+      oHmgApp():APP499,;
+      oHmgApp():APP429)
 
 /*----------------------------------------------------------------------------
 Progress Bar
@@ -678,41 +678,41 @@ Progress Bar
 
 #xcommand DEFINE PROGRESSBAR <name>;
    =>;
-   _HMG_SYSDATA \[ 416 \]     := <(name)> ;;
-   _HMG_SYSDATA \[ 417 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 432 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 431 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 420 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 421 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 465 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 466 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 424 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 467 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 468 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 429 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 430 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 457 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 399 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 434 \]     := NIL
+   oHmgApp():APP416     := <(name)> ;;
+   oHmgApp():APP417     := NIL      ;;
+   oHmgApp():APP432     := NIL      ;;
+   oHmgApp():APP431     := NIL      ;;
+   oHmgApp():APP420     := NIL      ;;
+   oHmgApp():APP421     := NIL      ;;
+   oHmgApp():APP465     := NIL      ;;
+   oHmgApp():APP466     := NIL      ;;
+   oHmgApp():APP424     := NIL      ;;
+   oHmgApp():ActiveControlVertical := .F.      ;;
+   oHmgApp():APP468     := .F.      ;;
+   oHmgApp():APP429     := NIL      ;;
+  oHmgApp():APP430    := .F.      ;;
+   oHmgApp():APP457     := NIL      ;;
+   oHmgApp():APP399     := NIL      ;;
+   oHmgApp():APP434     := NIL
 
 
 #xcommand END PROGRESSBAR;
    =>;
    _DefineProgressBar(;
-      _HMG_SYSDATA \[ 416 \],;
-      _HMG_SYSDATA \[ 417 \],;
-      _HMG_SYSDATA \[ 432 \],;
-      _HMG_SYSDATA \[ 431 \],;
-      _HMG_SYSDATA \[ 420 \],;
-      _HMG_SYSDATA \[ 421 \],;
-      _HMG_SYSDATA \[ 465 \],;
-      _HMG_SYSDATA \[ 466 \],;
-      _HMG_SYSDATA \[ 424 \],;
-      _HMG_SYSDATA \[ 467 \],;
-      _HMG_SYSDATA \[ 468 \],;
-      _HMG_SYSDATA \[ 429 \],;
-      _HMG_SYSDATA \[ 430 \],;
-      _HMG_SYSDATA \[ 434 \] , _HMG_SYSDATA \[ 457 \] , _HMG_SYSDATA \[ 399 \] )
+      oHmgApp():APP416,;
+      oHmgApp():APP417,;
+      oHmgApp():APP432,;
+      oHmgApp():APP431,;
+      oHmgApp():APP420,;
+      oHmgApp():APP421,;
+      oHmgApp():APP465,;
+      oHmgApp():APP466,;
+      oHmgApp():APP424,;
+      oHmgApp():ActiveControlVertical,;
+      oHmgApp():APP468,;
+      oHmgApp():APP429,;
+      oHmgApp():APP430,;
+      oHmgApp():APP434 , oHmgApp():APP457 , oHmgApp():APP399 )
 
 
 /*----------------------------------------------------------------------------
@@ -721,57 +721,57 @@ Radio Group
 
 #xcommand DEFINE RADIOGROUP <name>;
    =>;
-   _HMG_SYSDATA \[ 416 \]     := <(name)> ;;
-   _HMG_SYSDATA \[ 417 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 432 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 431 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 469 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 434 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 422 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 423 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 424 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 435 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 420 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 457 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 458 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 470 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 429 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 430 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 428 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 412 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 413 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 414 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 463 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 357 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 415 \]  := .F.
+   oHmgApp():APP416     := <(name)> ;;
+   oHmgApp():APP417     := NIL      ;;
+   oHmgApp():APP432     := NIL      ;;
+   oHmgApp():APP431     := NIL      ;;
+   oHmgApp():APP469     := NIL      ;;
+   oHmgApp():APP434     := NIL      ;;
+   oHmgApp():APP422     := NIL      ;;
+   oHmgApp():APP423     := NIL      ;;
+   oHmgApp():APP424     := NIL      ;;
+   oHmgApp():APP435     := NIL      ;;
+   oHmgApp():APP420     := NIL      ;;
+   oHmgApp():APP457     := NIL      ;;
+   oHmgApp():APP458     := NIL      ;;
+   oHmgApp():APP470     := NIL      ;;
+   oHmgApp():APP429     := NIL      ;;
+  oHmgApp():APP430    := .F.      ;;
+   oHmgApp():APP428     := .F.      ;;
+   oHmgApp():APP412     := .F.      ;;
+   oHmgApp():APP413  := .F.      ;;
+   oHmgApp():APP414  := .F.      ;;
+   oHmgApp():APP463  := .F.      ;;
+   oHmgApp():APP357  := .F.      ;;
+   oHmgApp():APP415  := .F.
 
 
 #xcommand END RADIOGROUP;
    =>;
    _DefineradioGroup(;
-      _HMG_SYSDATA \[ 416 \] , ;
-      _HMG_SYSDATA \[ 417 \] , ;
-      _HMG_SYSDATA \[ 432 \] , ;
-      _HMG_SYSDATA \[ 431 \] , ;
-      _HMG_SYSDATA \[ 469 \] , ;
-      _HMG_SYSDATA \[ 434 \] , ;
-      _HMG_SYSDATA \[ 422 \] , ;
-      _HMG_SYSDATA \[ 423 \] , ;
-      _HMG_SYSDATA \[ 424 \] , ;
-      _HMG_SYSDATA \[ 435 \] , ;
-      _HMG_SYSDATA \[ 420 \] , ;
-      _HMG_SYSDATA \[ 470 \] , ;
-      _HMG_SYSDATA \[ 429 \] , ;
-      _HMG_SYSDATA \[ 430 \] , ;
-      _HMG_SYSDATA \[ 428 \] , ;
-      _HMG_SYSDATA \[ 412 \] , ;
-      _HMG_SYSDATA \[ 413 \] , ;
-      _HMG_SYSDATA \[ 415 \] , ;
-      _HMG_SYSDATA \[ 414 \] , ;
-      _HMG_SYSDATA \[ 457 \] , ;
-      _HMG_SYSDATA \[ 458 \] , ;
-      _HMG_SYSDATA \[ 463 \] , ;
-      _HMG_SYSDATA \[ 441 \] , _HMG_SYSDATA \[ 357 \] )
+      oHmgApp():APP416 , ;
+      oHmgApp():APP417 , ;
+      oHmgApp():APP432 , ;
+      oHmgApp():APP431 , ;
+      oHmgApp():APP469 , ;
+      oHmgApp():APP434 , ;
+      oHmgApp():APP422 , ;
+      oHmgApp():APP423 , ;
+      oHmgApp():APP424 , ;
+      oHmgApp():APP435 , ;
+      oHmgApp():APP420 , ;
+      oHmgApp():APP470 , ;
+      oHmgApp():APP429 , ;
+     oHmgApp():APP430, ;
+      oHmgApp():APP428 , ;
+      oHmgApp():APP412 , ;
+      oHmgApp():APP413 , ;
+      oHmgApp():APP415 , ;
+      oHmgApp():APP414 , ;
+      oHmgApp():APP457 , ;
+      oHmgApp():APP458 , ;
+      oHmgApp():APP463 , ;
+      oHmgApp():APP441 , oHmgApp():APP357 )
 
 
 /*----------------------------------------------------------------------------
@@ -780,51 +780,51 @@ Slider
 
 #xcommand DEFINE SLIDER <name>;
    =>;
-   _HMG_SYSDATA \[ 416 \]     := <(name)> ;;
-   _HMG_SYSDATA \[ 417 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 432 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 431 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 420 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 421 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 465 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 466 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 434 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 424 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 435 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 467 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 471 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 472 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 473 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 474 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 457 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 430 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 428 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 429 \]     := NIL
+   oHmgApp():APP416     := <(name)> ;;
+   oHmgApp():APP417     := NIL      ;;
+   oHmgApp():APP432     := NIL      ;;
+   oHmgApp():APP431     := NIL      ;;
+   oHmgApp():APP420     := NIL      ;;
+   oHmgApp():APP421     := NIL      ;;
+   oHmgApp():APP465     := NIL      ;;
+   oHmgApp():APP466     := NIL      ;;
+   oHmgApp():APP434     := NIL      ;;
+   oHmgApp():APP424     := NIL      ;;
+   oHmgApp():APP435     := NIL      ;;
+   oHmgApp():ActiveControlVertical := .F.      ;;
+   oHmgApp():ActiveControlNoTicks     := .F.      ;;
+   oHmgApp():APP474     := .F.      ;;
+   oHmgApp():APP473     := .F.      ;;
+   oHmgApp():APP474     := .F.      ;;
+   oHmgApp():APP457     := NIL      ;;
+  oHmgApp():APP430    := .F.      ;;
+   oHmgApp():APP428     := .F.      ;;
+   oHmgApp():APP429     := NIL
 
 
 #xcommand END SLIDER;
    =>;
    _DefineSlider(;
-      _HMG_SYSDATA \[ 416 \],;
-      _HMG_SYSDATA \[ 417 \],;
-      _HMG_SYSDATA \[ 432 \],;
-      _HMG_SYSDATA \[ 431 \],;
-      _HMG_SYSDATA \[ 420 \],;
-      _HMG_SYSDATA \[ 421 \],;
-      _HMG_SYSDATA \[ 465 \],;
-      _HMG_SYSDATA \[ 466 \],;
-      _HMG_SYSDATA \[ 434 \],;
-      _HMG_SYSDATA \[ 424 \],;
-      _HMG_SYSDATA \[ 435 \],;
-      _HMG_SYSDATA \[ 467 \],;
-      _HMG_SYSDATA \[ 471 \],;
-      _HMG_SYSDATA \[ 472 \],;
-      _HMG_SYSDATA \[ 473 \],;
-      _HMG_SYSDATA \[ 474 \],;
-      _HMG_SYSDATA \[ 429 \],;
-      _HMG_SYSDATA \[ 430 \] ,;
-      _HMG_SYSDATA \[ 428 \] , ;
-      _HMG_SYSDATA \[ 457 \] )
+      oHmgApp():APP416,;
+      oHmgApp():APP417,;
+      oHmgApp():APP432,;
+      oHmgApp():APP431,;
+      oHmgApp():APP420,;
+      oHmgApp():APP421,;
+      oHmgApp():APP465,;
+      oHmgApp():APP466,;
+      oHmgApp():APP434,;
+      oHmgApp():APP424,;
+      oHmgApp():APP435,;
+      oHmgApp():ActiveControlVertical,;
+      oHmgApp():ActiveControlNoTicks,;
+      oHmgApp():APP472,;
+      oHmgApp():APP473,;
+      oHmgApp():APP474,;
+      oHmgApp():APP429,;
+     oHmgApp():APP430,;
+      oHmgApp():APP428 , ;
+      oHmgApp():APP457 )
 
 /*----------------------------------------------------------------------------
 Text Box
@@ -832,100 +832,100 @@ Text Box
 
 #xcommand DEFINE TEXTBOX <name>;
    =>;
-   _HMG_SYSDATA \[ 416 \]  := <(name)> ;;
-   _HMG_SYSDATA \[ 417 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 432 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 298 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 299 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 431 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 420 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 421 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 434 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 422 \]  := NIL      ;;
-        _HMG_SYSDATA \[ 385 \]     := NIL          ;;
-   _HMG_SYSDATA \[ 423 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 424 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 442 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 475 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 476 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 477 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 478 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 427 \] := NIL ;;
-   _HMG_SYSDATA \[ 426 \] := NIL    ;;
-   _HMG_SYSDATA \[ 435 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 437 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 440 \] := .F.    ;;
-        _HMG_SYSDATA \[ 441 \]   := .F.         ;;
-        _HMG_SYSDATA \[ 400 \]   := .F.         ;;
-        _HMG_SYSDATA \[ 429 \]    := NIL          ;;
-   _HMG_SYSDATA \[ 479 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 500 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 457 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 458 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 412 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 428 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 430 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 413 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 414 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 415 \]  := .F.
+   oHmgApp():APP416  := <(name)> ;;
+   oHmgApp():APP417  := NIL      ;;
+   oHmgApp():APP432  := NIL      ;;
+   oHmgApp():APP298     := NIL      ;;
+   oHmgApp():APP299     := NIL      ;;
+   oHmgApp():APP431  := NIL      ;;
+   oHmgApp():APP420  := NIL      ;;
+   oHmgApp():APP421  := NIL      ;;
+   oHmgApp():APP434  := NIL      ;;
+   oHmgApp():APP422  := NIL      ;;
+        oHmgApp():APP385     := NIL          ;;
+   oHmgApp():APP423  := NIL      ;;
+   oHmgApp():APP424  := NIL      ;;
+   oHmgApp():APP442  := NIL      ;;
+   oHmgApp():APP475  := .F.      ;;
+   oHmgApp():APP476  := .F.      ;;
+   oHmgApp():APP477  := .F.      ;;
+   oHmgApp():APP478  := .F.      ;;
+   oHmgApp():APP427 := NIL ;;
+   oHmgApp():APP426 := NIL    ;;
+   oHmgApp():APP435  := NIL      ;;
+   oHmgApp():APP437  := NIL      ;;
+   oHmgApp():APP440 := .F.    ;;
+        oHmgApp():APP441   := .F.         ;;
+        oHmgApp():APP400   := .F.         ;;
+        oHmgApp():APP429    := NIL          ;;
+   oHmgApp():APP479  := NIL      ;;
+   oHmgApp():ActiveControlFormat  := NIL      ;;
+   oHmgApp():APP457     := NIL      ;;
+   oHmgApp():APP458     := NIL      ;;
+   oHmgApp():APP412     := .F.      ;;
+   oHmgApp():APP428     := .F.      ;;
+  oHmgApp():APP430    := .F.      ;;
+   oHmgApp():APP413  := .F.      ;;
+   oHmgApp():APP414  := .F.      ;;
+   oHmgApp():APP415  := .F.
 
 
 #xcommand END TEXTBOX;
    =>;
-   iif(_HMG_SYSDATA \[ 479 \] == NIL .and. _HMG_SYSDATA \[ 400 \] == .F. ,;
+   iif( oHmgApp():APP479 == NIL .and. oHmgApp():APP400 == .F. ,;
       _DefineTextBox(;
-         _HMG_SYSDATA \[ 416 \],;
-         _HMG_SYSDATA \[ 417 \],;
-         _HMG_SYSDATA \[ 432 \],;
-         _HMG_SYSDATA \[ 431 \],;
-         _HMG_SYSDATA \[ 420 \],;
-         _HMG_SYSDATA \[ 421 \],;
-         _HMG_SYSDATA \[ 434 \],;
-         _HMG_SYSDATA \[ 422 \],;
-         _HMG_SYSDATA \[ 423 \],;
-         _HMG_SYSDATA \[ 424 \],;
-         _HMG_SYSDATA \[ 442 \],;
-         _HMG_SYSDATA \[ 475 \],;
-         _HMG_SYSDATA \[ 476 \],;
-         _HMG_SYSDATA \[ 477 \],;
-         _HMG_SYSDATA \[ 478 \],;
-         _HMG_SYSDATA \[ 427 \],;
-         _HMG_SYSDATA \[ 426 \],;
-         _HMG_SYSDATA \[ 435 \],;
-         _HMG_SYSDATA \[ 437 \],;
-         _HMG_SYSDATA \[ 440 \],;
-                        _HMG_SYSDATA \[ 429 \] , ;
-                        _HMG_SYSDATA \[ 441 \],;
-                        _HMG_SYSDATA \[ 412 \] , ;
-                        _HMG_SYSDATA \[ 413 \] , ;
-                        _HMG_SYSDATA \[ 415 \] , ;
-                        _HMG_SYSDATA \[ 414 \] ,;
-                        _HMG_SYSDATA \[ 385 \],_HMG_SYSDATA \[ 457 \],_HMG_SYSDATA \[ 458 \],_HMG_SYSDATA \[ 430 \],_HMG_SYSDATA \[ 428 \] , _HMG_SYSDATA \[ 298 \] , _HMG_SYSDATA \[ 299 \] );
+         oHmgApp():APP416,;
+         oHmgApp():APP417,;
+         oHmgApp():APP432,;
+         oHmgApp():APP431,;
+         oHmgApp():APP420,;
+         oHmgApp():APP421,;
+         oHmgApp():APP434,;
+         oHmgApp():APP422,;
+         oHmgApp():APP423,;
+         oHmgApp():APP424,;
+         oHmgApp():APP442,;
+         oHmgApp():APP475,;
+         oHmgApp():APP476,;
+         oHmgApp():APP477,;
+         oHmgApp():APP478,;
+         oHmgApp():APP427,;
+         oHmgApp():APP426,;
+         oHmgApp():APP435,;
+         oHmgApp():APP437,;
+         oHmgApp():APP440,;
+                        oHmgApp():APP429 , ;
+                        oHmgApp():APP441,;
+                        oHmgApp():APP412 , ;
+                        oHmgApp():APP413 , ;
+                        oHmgApp():APP415 , ;
+                        oHmgApp():APP414 ,;
+                        oHmgApp():APP385, oHmgApp():APP457, oHmgApp():APP458,oHmgApp():APP430,oHmgApp():APP428 , oHmgApp():APP298 , oHmgApp():APP299 );
    ,;
-      IF ( _HMG_SYSDATA \[ 477 \] == .T. , _DefineMaskedTextBox(;
-         _HMG_SYSDATA \[ 416 \],;
-         _HMG_SYSDATA \[ 417 \],;
-         _HMG_SYSDATA \[ 432 \],;
-         _HMG_SYSDATA \[ 431 \],;
-         _HMG_SYSDATA \[ 479 \],;
-         _HMG_SYSDATA \[ 420 \],;
-         _HMG_SYSDATA \[ 434 \],;
-         _HMG_SYSDATA \[ 422 \],;
-         _HMG_SYSDATA \[ 423 \],;
-         _HMG_SYSDATA \[ 424 \],;
-         _HMG_SYSDATA \[ 427 \],;
-         _HMG_SYSDATA \[ 426 \],;
-         _HMG_SYSDATA \[ 435 \],;
-         _HMG_SYSDATA \[ 421 \],;
-         _HMG_SYSDATA \[ 437 \],;
-         _HMG_SYSDATA \[ 440 \],;
-         _HMG_SYSDATA \[ 429 \],;
-                        _HMG_SYSDATA \[ 500 \] , ;
-                        _HMG_SYSDATA \[ 412 \] , ;
-                        _HMG_SYSDATA \[ 413 \] , ;
-                        _HMG_SYSDATA \[ 415 \] , ;
-                        _HMG_SYSDATA \[ 414 \],;
-                        _HMG_SYSDATA \[ 385 \],_HMG_SYSDATA \[ 457 \],_HMG_SYSDATA \[ 458 \],_HMG_SYSDATA \[ 441 \],_HMG_SYSDATA \[ 430 \],_HMG_SYSDATA \[ 428 \] , _HMG_SYSDATA \[ 298 \] , _HMG_SYSDATA \[ 299 \] ) , _DefineCharMaskTextBox ( _HMG_SYSDATA \[ 416 \] , _HMG_SYSDATA \[ 417 \], _HMG_SYSDATA \[ 432 \], _HMG_SYSDATA \[ 431 \], _HMG_SYSDATA \[ 479 \] , _HMG_SYSDATA \[ 420 \] , _HMG_SYSDATA \[ 434 \] , _HMG_SYSDATA \[ 422 \] , _HMG_SYSDATA \[ 423 \] , _HMG_SYSDATA \[ 424 \] , _HMG_SYSDATA \[ 427 \] , _HMG_SYSDATA \[ 426 \] , _HMG_SYSDATA \[ 435 \] , _HMG_SYSDATA \[ 421 \] , _HMG_SYSDATA \[ 437 \] , _HMG_SYSDATA \[ 440 \] , _HMG_SYSDATA \[ 429 \] , _HMG_SYSDATA \[ 412 \] , _HMG_SYSDATA \[ 413 \] , _HMG_SYSDATA \[ 415 \] , _HMG_SYSDATA \[ 414 \] , _HMG_SYSDATA \[ 385 \] , _HMG_SYSDATA \[ 457 \] , _HMG_SYSDATA \[ 458 \] , _HMG_SYSDATA \[ 400 \] , _HMG_SYSDATA \[ 441 \] , _HMG_SYSDATA \[ 430 \] , _HMG_SYSDATA \[ 428 \] , _HMG_SYSDATA \[ 298 \] , _HMG_SYSDATA \[ 299 \] ) ) ;
+      IF ( oHmgApp():APP477 == .T. , _DefineMaskedTextBox(;
+         oHmgApp():APP416,;
+         oHmgApp():APP417,;
+         oHmgApp():APP432,;
+         oHmgApp():APP431,;
+         oHmgApp():APP479,;
+         oHmgApp():APP420,;
+         oHmgApp():APP434,;
+         oHmgApp():APP422,;
+         oHmgApp():APP423,;
+         oHmgApp():APP424,;
+         oHmgApp():APP427,;
+         oHmgApp():APP426,;
+         oHmgApp():APP435,;
+         oHmgApp():APP421,;
+         oHmgApp():APP437,;
+         oHmgApp():APP440,;
+         oHmgApp():APP429,;
+                        oHmgApp():ActiveControlFormat , ;
+                        oHmgApp():APP412 , ;
+                        oHmgApp():APP413 , ;
+                        oHmgApp():APP415 , ;
+                        oHmgApp():APP414,;
+                        oHmgApp():APP385, oHmgApp():APP457, oHmgApp():APP458,oHmgApp():APP441,oHmgApp():APP430,oHmgApp():APP428 , oHmgApp():APP298 , oHmgApp():APP299 ) , _DefineCharMaskTextBox ( oHmgApp():APP416 , oHmgApp():APP417, oHmgApp():APP432, oHmgApp():APP431, oHmgApp():APP479 , oHmgApp():APP420 , oHmgApp():APP434 , oHmgApp():APP422 , oHmgApp():APP423 , oHmgApp():APP424 , oHmgApp():APP427 , oHmgApp():APP426 , oHmgApp():APP435 , oHmgApp():APP421 , oHmgApp():APP437 , oHmgApp():APP440 , oHmgApp():APP429 , oHmgApp():APP412 , oHmgApp():APP413 , oHmgApp():APP415 , oHmgApp():APP414 , oHmgApp():APP385 , oHmgApp():APP457 , oHmgApp():APP458 , oHmgApp():APP400 , oHmgApp():APP441 ,oHmgApp():APP430, oHmgApp():APP428 , oHmgApp():APP298 , oHmgApp():APP299 ) ) ;
    )
 
 /*----------------------------------------------------------------------------
@@ -934,72 +934,72 @@ Month Calendar
 
 #xcommand DEFINE MONTHCALENDAR <name> ;
   =>;
-  _HMG_SYSDATA \[ 416 \]    := <(name)> ;;
-  _HMG_SYSDATA \[ 417 \]    := NIL    ;;
-  _HMG_SYSDATA \[ 432 \]    := NIL    ;;
-  _HMG_SYSDATA \[ 431 \]    := NIL    ;;
-  _HMG_SYSDATA \[ 420 \]    := NIL    ;;
-  _HMG_SYSDATA \[ 421 \]    := NIL    ;;
-  _HMG_SYSDATA \[ 434 \]    := NIL    ;;
-  _HMG_SYSDATA \[ 422 \]    := NIL    ;;
-  _HMG_SYSDATA \[ 423 \]    := NIL    ;;
-  _HMG_SYSDATA \[ 424 \]    := NIL    ;;
-  _HMG_SYSDATA \[ 452 \]    := .F.    ;;
-  _HMG_SYSDATA \[ 453 \]  := .F.    ;;
-  _HMG_SYSDATA \[ 454 \]  := .F.    ;;
-  _HMG_SYSDATA \[ 435 \]    := NIL    ;;
-  _HMG_SYSDATA \[ 429 \]    := NIL    ;;
-  _HMG_SYSDATA \[ 430 \]    := .F.    ;;
-  _HMG_SYSDATA \[ 428 \]    := .F.    ;;
-  _HMG_SYSDATA \[ 412 \]    := .F.    ;;
-  _HMG_SYSDATA \[ 413 \]  := .F.    ;;
-  _HMG_SYSDATA \[ 415 \]  := .F.    ;;
-  _HMG_SYSDATA \[ 414 \]  := .F.    ;;
-  _HMG_SYSDATA \[ 458 \]    := NIL    ;;
-  _HMG_SYSDATA \[ 299 \]    := NIL    ;;
-  _HMG_SYSDATA \[ 457 \]    := NIL    ;;
-  _HMG_SYSDATA \[ 298 \]    := NIL    ;;
-  _HMG_SYSDATA \[ 390 \]    := NIL    ;;
-  _HMG_SYSDATA \[ 391 \]    := NIL    ;;
-  _HMG_SYSDATA \[ 465 \]    := NIL    ;;
-  _HMG_SYSDATA \[ 466 \]    := NIL    ;;
-  _HMG_SYSDATA \[ 464 \]    := NIL    ;;
-  _HMG_SYSDATA \[ 488 \]    := NIL
+  oHmgApp():APP416    := <(name)> ;;
+  oHmgApp():APP417    := NIL    ;;
+  oHmgApp():APP432    := NIL    ;;
+  oHmgApp():APP431    := NIL    ;;
+  oHmgApp():APP420    := NIL    ;;
+  oHmgApp():APP421    := NIL    ;;
+  oHmgApp():APP434    := NIL    ;;
+  oHmgApp():APP422    := NIL    ;;
+  oHmgApp():APP423    := NIL    ;;
+  oHmgApp():APP424    := NIL    ;;
+  oHmgApp():APP452    := .F.    ;;
+  oHmgApp():APP453  := .F.    ;;
+  oHmgApp():APP454  := .F.    ;;
+  oHmgApp():APP435    := NIL    ;;
+  oHmgApp():APP429    := NIL    ;;
+ oHmgApp():APP430   := .F.    ;;
+  oHmgApp():APP428    := .F.    ;;
+  oHmgApp():APP412    := .F.    ;;
+  oHmgApp():APP413  := .F.    ;;
+  oHmgApp():APP415  := .F.    ;;
+  oHmgApp():APP414  := .F.    ;;
+  oHmgApp():APP458    := NIL    ;;
+  oHmgApp():APP299    := NIL    ;;
+  oHmgApp():APP457    := NIL    ;;
+  oHmgApp():APP298    := NIL    ;;
+  oHmgApp():APP390    := NIL    ;;
+  oHmgApp():APP391    := NIL    ;;
+  oHmgApp():APP465    := NIL    ;;
+  oHmgApp():APP466    := NIL    ;;
+  oHmgApp():APP464    := NIL    ;;
+  oHmgApp():APP488    := NIL
 
 #xcommand END MONTHCALENDAR;
   =>;
   _DefineMonthCal (;
-    _HMG_SYSDATA \[ 416 \],;
-    _HMG_SYSDATA \[ 417 \],;
-    _HMG_SYSDATA \[ 432 \],;
-    _HMG_SYSDATA \[ 431 \],;
-    _HMG_SYSDATA \[ 420 \],;
-    _HMG_SYSDATA \[ 421 \],;
-    _HMG_SYSDATA \[ 434 \],;
-    _HMG_SYSDATA \[ 422 \],;
-    _HMG_SYSDATA \[ 423 \],;
-    _HMG_SYSDATA \[ 424 \],;
-    _HMG_SYSDATA \[ 452 \],;
-    _HMG_SYSDATA \[ 453 \],;
-    _HMG_SYSDATA \[ 454 \],;
-    _HMG_SYSDATA \[ 435 \],;
-    _HMG_SYSDATA \[ 429 \],;
-    _HMG_SYSDATA \[ 430 \],;
-    _HMG_SYSDATA \[ 428 \],;
-    _HMG_SYSDATA \[ 412 \],;
-    _HMG_SYSDATA \[ 413 \],;
-    _HMG_SYSDATA \[ 415 \],;
-    _HMG_SYSDATA \[ 414 \],;
-    _HMG_SYSDATA \[ 458 \],;
-    _HMG_SYSDATA \[ 299 \],;
-    _HMG_SYSDATA \[ 457 \],;
-    _HMG_SYSDATA \[ 298 \],;
-    _HMG_SYSDATA \[ 390 \],;
-    _HMG_SYSDATA \[ 391 \],;
-    _HMG_SYSDATA \[ 465 \],;
-    _HMG_SYSDATA \[ 466 \],;
-    _HMG_SYSDATA \[ 464 \],;
-    _HMG_SYSDATA \[ 488 \] )
+    oHmgApp():APP416,;
+    oHmgApp():APP417,;
+    oHmgApp():APP432,;
+    oHmgApp():APP431,;
+    oHmgApp():APP420,;
+    oHmgApp():APP421,;
+    oHmgApp():APP434,;
+    oHmgApp():APP422,;
+    oHmgApp():APP423,;
+    oHmgApp():APP424,;
+    oHmgApp():APP452,;
+    oHmgApp():APP453,;
+    oHmgApp():APP454,;
+    oHmgApp():APP435,;
+    oHmgApp():APP429,;
+    oHmgApp():APP430,;
+    oHmgApp():APP428,;
+    oHmgApp():APP412,;
+    oHmgApp():APP413,;
+    oHmgApp():APP415,;
+    oHmgApp():APP414,;
+    oHmgApp():APP458,;
+    oHmgApp():APP299,;
+    oHmgApp():APP457,;
+    oHmgApp():APP298,;
+    oHmgApp():APP390,;
+    oHmgApp():APP391,;
+    oHmgApp():APP465,;
+    oHmgApp():APP466,;
+    oHmgApp():APP464,;
+    oHmgApp():APP488 )
 
 /*----------------------------------------------------------------------------
 Button
@@ -1007,101 +1007,101 @@ Button
 
 #xcommand DEFINE BUTTON <name> ;
         =>;
-        _HMG_SYSDATA \[ 416 \]              := <(name)> ;;
-        _HMG_SYSDATA \[ 417 \]                := NIL      ;;
-   _HMG_SYSDATA \[ 432 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 431 \]     := NIL      ;;
-        _HMG_SYSDATA \[ 418 \]           := NIL      ;;
-        _HMG_SYSDATA \[ 419 \]            := NIL      ;;
-        _HMG_SYSDATA \[ 420 \]             := NIL      ;;
-        _HMG_SYSDATA \[ 421 \]            := NIL      ;;
-        _HMG_SYSDATA \[ 422 \]              := NIL      ;;
-        _HMG_SYSDATA \[ 423 \]              := NIL      ;;
-        _HMG_SYSDATA \[ 424 \]           := NIL      ;;
-        _HMG_SYSDATA \[ 425 \]              := .F.      ;;
-        _HMG_SYSDATA \[ 426 \]        := NIL      ;;
-        _HMG_SYSDATA \[ 427 \]       := NIL      ;;
-        _HMG_SYSDATA \[ 428 \]         := .F.      ;;
-        _HMG_SYSDATA \[ 429 \]            := NIL      ;;
-        _HMG_SYSDATA \[ 430 \]         := .F.      ;;
-        _HMG_SYSDATA \[ 431 \]               := NIL      ;;
-        _HMG_SYSDATA \[ 432 \]               := NIL      ;;
-        _HMG_SYSDATA \[ 433 \]           := NIL      ;;
-        _HMG_SYSDATA \[ 463 \]     := .T.    ;;
-   _HMG_SYSDATA \[ 412 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 413 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 414 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 353 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 415 \]  := .F.
+        oHmgApp():APP416              := <(name)> ;;
+        oHmgApp():APP417                := NIL      ;;
+   oHmgApp():APP432     := NIL      ;;
+   oHmgApp():APP431     := NIL      ;;
+        oHmgApp():APP418           := NIL      ;;
+        oHmgApp():APP419            := NIL      ;;
+        oHmgApp():APP420             := NIL      ;;
+        oHmgApp():APP421            := NIL      ;;
+        oHmgApp():APP422              := NIL      ;;
+        oHmgApp():APP423              := NIL      ;;
+        oHmgApp():APP424           := NIL      ;;
+        oHmgApp():APP425              := .F.      ;;
+        oHmgApp():APP426        := NIL      ;;
+        oHmgApp():APP427       := NIL      ;;
+        oHmgApp():APP428         := .F.      ;;
+        oHmgApp():APP429            := NIL      ;;
+       oHmgApp():APP430        := .F.      ;;
+        oHmgApp():APP431               := NIL      ;;
+        oHmgApp():APP432               := NIL      ;;
+        oHmgApp():APP433           := NIL      ;;
+        oHmgApp():APP463     := .T.    ;;
+   oHmgApp():APP412     := .F.      ;;
+   oHmgApp():APP413  := .F.      ;;
+   oHmgApp():APP414  := .F.      ;;
+   oHmgApp():APP353  := .F.      ;;
+   oHmgApp():APP415  := .F.
 
 
 #xcommand END BUTTON ;
         =>;
-        iif ( _HMG_SYSDATA \[ 433 \] == NIL ,;
+        iif ( oHmgApp():APP433 == NIL ,;
             _DefineButton (;
-          _HMG_SYSDATA \[ 416 \],;
-          _HMG_SYSDATA \[ 417 \] ,;
-          _HMG_SYSDATA \[ 432 \] ,;
-          _HMG_SYSDATA \[ 431 \] ,;
-          _HMG_SYSDATA \[ 418 \] ,;
-          _HMG_SYSDATA \[ 419 \] ,;
-          _HMG_SYSDATA \[ 420 \] ,;
-          _HMG_SYSDATA \[ 421 \] ,;
-          _HMG_SYSDATA \[ 422 \] ,;
-          _HMG_SYSDATA \[ 423 \] ,;
-          _HMG_SYSDATA \[ 424 \] ,;
-          _HMG_SYSDATA \[ 426 \]  ,;
-          _HMG_SYSDATA \[ 427 \] ,;
-          _HMG_SYSDATA \[ 425 \] ,;
-          _HMG_SYSDATA \[ 428 \]  ,;
-          _HMG_SYSDATA \[ 429 \] ,;
-          _HMG_SYSDATA \[ 430 \] , ;
-      _HMG_SYSDATA \[ 412 \] , ;
-      _HMG_SYSDATA \[ 413 \] , ;
-      _HMG_SYSDATA \[ 415 \] , ;
-      _HMG_SYSDATA \[ 414 \] , _HMG_SYSDATA \[ 353 \] ;
+          oHmgApp():APP416,;
+          oHmgApp():APP417 ,;
+          oHmgApp():APP432 ,;
+          oHmgApp():APP431 ,;
+          oHmgApp():APP418 ,;
+          oHmgApp():APP419 ,;
+          oHmgApp():APP420 ,;
+          oHmgApp():APP421 ,;
+          oHmgApp():APP422 ,;
+          oHmgApp():APP423 ,;
+          oHmgApp():APP424 ,;
+          oHmgApp():APP426  ,;
+          oHmgApp():APP427 ,;
+          oHmgApp():APP425 ,;
+          oHmgApp():APP428  ,;
+          oHmgApp():APP429 ,;
+         oHmgApp():APP430, ;
+      oHmgApp():APP412 , ;
+      oHmgApp():APP413 , ;
+      oHmgApp():APP415 , ;
+      oHmgApp():APP414 , oHmgApp():APP353 ;
       ) ,;
-      iif ( _HMG_SYSDATA \[ 418 \] == NIL , ;
+      iif ( oHmgApp():APP418 == NIL , ;
       _DefineImageButton (;
-          _HMG_SYSDATA \[ 416 \],;
-          _HMG_SYSDATA \[ 417 \],;
-          _HMG_SYSDATA \[ 432 \],;
-          _HMG_SYSDATA \[ 431 \],;
+          oHmgApp():APP416,;
+          oHmgApp():APP417,;
+          oHmgApp():APP432,;
+          oHmgApp():APP431,;
           "",;
-          _HMG_SYSDATA \[ 419 \] ,;
-          _HMG_SYSDATA \[ 420 \] ,;
-          _HMG_SYSDATA \[ 421 \] ,;
-          _HMG_SYSDATA \[ 433 \] ,;
-          _HMG_SYSDATA \[ 424 \] ,;
-          _HMG_SYSDATA \[ 426 \]  ,;
-          _HMG_SYSDATA \[ 427 \]  ,;
-          _HMG_SYSDATA \[ 425 \]  ,;
-           .NOT. (_HMG_SYSDATA \[ 463 \]) ,;
-          _HMG_SYSDATA \[ 429 \] ,;
-          _HMG_SYSDATA \[ 430 \] , _HMG_SYSDATA \[ 428 \] ) , ;
+          oHmgApp():APP419 ,;
+          oHmgApp():APP420 ,;
+          oHmgApp():APP421 ,;
+          oHmgApp():APP433 ,;
+          oHmgApp():APP424 ,;
+          oHmgApp():APP426  ,;
+          oHmgApp():APP427  ,;
+          oHmgApp():APP425  ,;
+           .NOT. ( oHmgApp():APP463 ) ,;
+          oHmgApp():APP429 ,;
+         oHmgApp():APP430, oHmgApp():APP428 ) , ;
          _DefineMixedButton ( ;
-          _HMG_SYSDATA \[ 416 \],;
-          _HMG_SYSDATA \[ 417 \] ,;
-          _HMG_SYSDATA \[ 432 \] ,;
-          _HMG_SYSDATA \[ 431 \] ,;
-          _HMG_SYSDATA \[ 418 \] ,;
-          _HMG_SYSDATA \[ 419 \] ,;
-          _HMG_SYSDATA \[ 420 \] ,;
-          _HMG_SYSDATA \[ 421 \] ,;
-          _HMG_SYSDATA \[ 422 \] ,;
-          _HMG_SYSDATA \[ 423 \] ,;
-          _HMG_SYSDATA \[ 424 \] ,;
-          _HMG_SYSDATA \[ 426 \]  ,;
-          _HMG_SYSDATA \[ 427 \] ,;
-          _HMG_SYSDATA \[ 425 \] ,;
-          _HMG_SYSDATA \[ 428 \]  ,;
-          _HMG_SYSDATA \[ 429 \] ,;
-          _HMG_SYSDATA \[ 430 \] , ;
-      _HMG_SYSDATA \[ 412 \] , ;
-      _HMG_SYSDATA \[ 413 \] , ;
-      _HMG_SYSDATA \[ 415 \] , ;
-      _HMG_SYSDATA \[ 414 \] , _HMG_SYSDATA \[ 433 \] , _HMG_SYSDATA \[ 381 \] , _HMG_SYSDATA \[ 353 \], ;
-          .NOT.(_HMG_SYSDATA \[ 463 \]) ) ) )
+          oHmgApp():APP416,;
+          oHmgApp():APP417 ,;
+          oHmgApp():APP432 ,;
+          oHmgApp():APP431 ,;
+          oHmgApp():APP418 ,;
+          oHmgApp():APP419 ,;
+          oHmgApp():APP420 ,;
+          oHmgApp():APP421 ,;
+          oHmgApp():APP422 ,;
+          oHmgApp():APP423 ,;
+          oHmgApp():APP424 ,;
+          oHmgApp():APP426  ,;
+          oHmgApp():APP427 ,;
+          oHmgApp():APP425 ,;
+          oHmgApp():APP428  ,;
+          oHmgApp():APP429 ,;
+         oHmgApp():APP430, ;
+      oHmgApp():APP412 , ;
+      oHmgApp():APP413 , ;
+      oHmgApp():APP415 , ;
+      oHmgApp():APP414 , oHmgApp():APP433 , oHmgApp():APP381 , oHmgApp():APP353, ;
+          .NOT.( oHmgApp():APP463 ) ) ) )
 
 /*----------------------------------------------------------------------------
 Image
@@ -1110,42 +1110,42 @@ Image
 
 #xcommand DEFINE IMAGE <name> ;
    =>;
-   _HMG_SYSDATA \[ 416 \]     := <(name)> ;;
-   _HMG_SYSDATA \[ 417 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 432 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 431 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 433 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 420 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 421 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 419 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 429 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 411 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 430 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 463 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 457 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 409 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 444 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 424 \]     := NIL
+   oHmgApp():APP416     := <(name)> ;;
+   oHmgApp():APP417     := NIL      ;;
+   oHmgApp():APP432     := NIL      ;;
+   oHmgApp():APP431     := NIL      ;;
+   oHmgApp():APP433     := NIL      ;;
+   oHmgApp():APP420     := NIL      ;;
+   oHmgApp():APP421     := NIL      ;;
+   oHmgApp():APP419     := NIL      ;;
+   oHmgApp():APP429     := NIL      ;;
+   oHmgApp():APP411     := .F.      ;;
+  oHmgApp():APP430    := .F.      ;;
+   oHmgApp():APP463     := .F.      ;;
+   oHmgApp():APP457     := NIL      ;;
+   oHmgApp():APP409     := .F.      ;;
+   oHmgApp():APP444     := NIL      ;;
+   oHmgApp():APP424     := NIL
 
 #xcommand END IMAGE ;
    =>;
    _DefineImage(;
-      _HMG_SYSDATA \[ 416 \],;
-      _HMG_SYSDATA \[ 417 \],;
-      _HMG_SYSDATA \[ 432 \],;
-      _HMG_SYSDATA \[ 431 \],;
-      _HMG_SYSDATA \[ 433 \],;
-      _HMG_SYSDATA \[ 420 \],;
-      _HMG_SYSDATA \[ 421 \],;
-      _HMG_SYSDATA \[ 419 \],;
-      _HMG_SYSDATA \[ 429 \],;
-      _HMG_SYSDATA \[ 430 \],;
-      _HMG_SYSDATA \[ 411 \],;
-      _HMG_SYSDATA \[ 463 \],;
-      _HMG_SYSDATA \[ 457 \],;
-      _HMG_SYSDATA \[ 409 \],;
-      _HMG_SYSDATA \[ 444 \],;
-      _HMG_SYSDATA \[ 424 \] )
+      oHmgApp():APP416,;
+      oHmgApp():APP417,;
+      oHmgApp():APP432,;
+      oHmgApp():APP431,;
+      oHmgApp():APP433,;
+      oHmgApp():APP420,;
+      oHmgApp():APP421,;
+      oHmgApp():APP419,;
+      oHmgApp():APP429,;
+      oHmgApp():APP430,;
+      oHmgApp():APP411,;
+      oHmgApp():APP463,;
+      oHmgApp():APP457,;
+      oHmgApp():APP409,;
+      oHmgApp():APP444,;
+      oHmgApp():APP424 )
 
 
 
@@ -1155,130 +1155,130 @@ Check Box/Button
 
 #xcommand DEFINE CHECKBOX <name> ;
    =>;
-   _HMG_SYSDATA \[ 416 \]     := <(name)>    ;;
-   _HMG_SYSDATA \[ 417 \]        := NIL         ;;
-   _HMG_SYSDATA \[ 432 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 431 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 418 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 420 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 421 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 434 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 422 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 423 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 424 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 426 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 435 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 427 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 429 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 430 \]     := .F.      ;;
-        _HMG_SYSDATA \[ 428 \]         := .F.          ;;
-   _HMG_SYSDATA \[ 412 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 413 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 414 \]  := .F.      ;;
-        _HMG_SYSDATA \[ 415 \]     := .F.          ;;
-   _HMG_SYSDATA \[ 457 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 458 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 463 \]  := .F.      ;;
-        _HMG_SYSDATA \[ 385 \]             := NIL;;
-   _HMG_SYSDATA \[ 437 \] := NIL
+   oHmgApp():APP416     := <(name)>    ;;
+   oHmgApp():APP417        := NIL         ;;
+   oHmgApp():APP432     := NIL      ;;
+   oHmgApp():APP431     := NIL      ;;
+   oHmgApp():APP418     := NIL      ;;
+   oHmgApp():APP420     := NIL      ;;
+   oHmgApp():APP421     := NIL      ;;
+   oHmgApp():APP434     := NIL      ;;
+   oHmgApp():APP422     := NIL      ;;
+   oHmgApp():APP423     := NIL      ;;
+   oHmgApp():APP424     := NIL      ;;
+   oHmgApp():APP426  := NIL      ;;
+   oHmgApp():APP435     := NIL      ;;
+   oHmgApp():APP427  := NIL      ;;
+   oHmgApp():APP429     := NIL      ;;
+  oHmgApp():APP430    := .F.      ;;
+        oHmgApp():APP428         := .F.          ;;
+   oHmgApp():APP412     := .F.      ;;
+   oHmgApp():APP413  := .F.      ;;
+   oHmgApp():APP414  := .F.      ;;
+        oHmgApp():APP415     := .F.          ;;
+   oHmgApp():APP457     := NIL      ;;
+   oHmgApp():APP458     := NIL      ;;
+   oHmgApp():APP463  := .F.      ;;
+        oHmgApp():APP385             := NIL;;
+   oHmgApp():APP437 := NIL
 
 #xcommand DEFINE CHECKBUTTON <name> ;
    =>;
-   _HMG_SYSDATA \[ 416 \]     := <(name)>    ;;
-   _HMG_SYSDATA \[ 417 \]        := NIL         ;;
-   _HMG_SYSDATA \[ 418 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 420 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 432 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 431 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 421 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 434 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 422 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 423 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 424 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 426 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 435 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 427 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 429 \]     := NIL      ;;
-        _HMG_SYSDATA \[ 433 \]           := NIL      ;;
-   _HMG_SYSDATA \[ 430 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 412 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 413 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 414 \]  := .F.      ;;
-        _HMG_SYSDATA \[ 415 \]     := .F.          ;;
-        _HMG_SYSDATA \[ 428 \]         := .F.          ;;
-        _HMG_SYSDATA \[ 385 \] := NIL;;
-        _HMG_SYSDATA \[ 463 \] := .T.;;
-        _HMG_SYSDATA \[ 437 \] := NIL
+   oHmgApp():APP416     := <(name)>    ;;
+   oHmgApp():APP417        := NIL         ;;
+   oHmgApp():APP418     := NIL      ;;
+   oHmgApp():APP420     := NIL      ;;
+   oHmgApp():APP432     := NIL      ;;
+   oHmgApp():APP431     := NIL      ;;
+   oHmgApp():APP421     := NIL      ;;
+   oHmgApp():APP434     := NIL      ;;
+   oHmgApp():APP422     := NIL      ;;
+   oHmgApp():APP423     := NIL      ;;
+   oHmgApp():APP424     := NIL      ;;
+   oHmgApp():APP426  := NIL      ;;
+   oHmgApp():APP435     := NIL      ;;
+   oHmgApp():APP427  := NIL      ;;
+   oHmgApp():APP429     := NIL      ;;
+        oHmgApp():APP433           := NIL      ;;
+  oHmgApp():APP430    := .F.      ;;
+   oHmgApp():APP412     := .F.      ;;
+   oHmgApp():APP413  := .F.      ;;
+   oHmgApp():APP414  := .F.      ;;
+        oHmgApp():APP415     := .F.          ;;
+        oHmgApp():APP428         := .F.          ;;
+        oHmgApp():APP385 := NIL;;
+        oHmgApp():APP463 := .T.;;
+        oHmgApp():APP437 := NIL
 
 #xcommand END CHECKBOX ;
    =>;
    _DefineCheckBox (;
-      _HMG_SYSDATA \[ 416 \],;
-      _HMG_SYSDATA \[ 417 \],;
-      _HMG_SYSDATA \[ 432 \],;
-      _HMG_SYSDATA \[ 431 \],;
-      _HMG_SYSDATA \[ 418 \],;
-      _HMG_SYSDATA \[ 434 \],;
-      _HMG_SYSDATA \[ 422 \],;
-      _HMG_SYSDATA \[ 423 \],;
-      _HMG_SYSDATA \[ 424 \],;
-      _HMG_SYSDATA \[ 435 \],;
-      _HMG_SYSDATA \[ 420 \],;
-      _HMG_SYSDATA \[ 421 \],;
-      _HMG_SYSDATA \[ 427 \],;
-      _HMG_SYSDATA \[ 426 \],;
-      _HMG_SYSDATA \[ 429 \],;
-                _HMG_SYSDATA \[ 430 \],;
-                _HMG_SYSDATA \[ 428 \],;
-                _HMG_SYSDATA \[ 412 \] ,;
-                _HMG_SYSDATA \[ 413 \] , ;
-                _HMG_SYSDATA \[ 415 \] , ;
-                _HMG_SYSDATA \[ 414 \],;
-                _HMG_SYSDATA \[ 385 \] ,_HMG_SYSDATA \[ 457 \],_HMG_SYSDATA \[ 458 \] , _HMG_SYSDATA \[ 463 \], _HMG_SYSDATA \[ 437 \] )
+      oHmgApp():APP416,;
+      oHmgApp():APP417,;
+      oHmgApp():APP432,;
+      oHmgApp():APP431,;
+      oHmgApp():APP418,;
+      oHmgApp():APP434,;
+      oHmgApp():APP422,;
+      oHmgApp():APP423,;
+      oHmgApp():APP424,;
+      oHmgApp():APP435,;
+      oHmgApp():APP420,;
+      oHmgApp():APP421,;
+      oHmgApp():APP427,;
+      oHmgApp():APP426,;
+      oHmgApp():APP429,;
+                oHmgApp():APP430,;
+                oHmgApp():APP428,;
+                oHmgApp():APP412 ,;
+                oHmgApp():APP413 , ;
+                oHmgApp():APP415 , ;
+                oHmgApp():APP414,;
+                oHmgApp():APP385 , oHmgApp():APP457, oHmgApp():APP458 , oHmgApp():APP463, oHmgApp():APP437 )
 
 #xcommand END CHECKBUTTON ;
    =>;
-   IIF ( _HMG_SYSDATA \[ 433 \] == NIL , _DefineCheckButton (;
-      _HMG_SYSDATA \[ 416 \],;
-      _HMG_SYSDATA \[ 417 \],;
-      _HMG_SYSDATA \[ 432 \],;
-      _HMG_SYSDATA \[ 431 \],;
-      _HMG_SYSDATA \[ 418 \],;
-      _HMG_SYSDATA \[ 434 \],;
-      _HMG_SYSDATA \[ 422 \],;
-      _HMG_SYSDATA \[ 423 \],;
-      _HMG_SYSDATA \[ 424 \],;
-      _HMG_SYSDATA \[ 435 \],;
-      _HMG_SYSDATA \[ 420 \],;
-      _HMG_SYSDATA \[ 421 \],;
-      _HMG_SYSDATA \[ 427 \],;
-      _HMG_SYSDATA \[ 426 \],;
-      _HMG_SYSDATA \[ 429 \],;
-                _HMG_SYSDATA \[ 430 \]  , ;
-                _HMG_SYSDATA \[ 428 \] ,;
-                _HMG_SYSDATA \[ 412 \] , ;
-                _HMG_SYSDATA \[ 413 \] , ;
-                _HMG_SYSDATA \[ 415 \] , ;
-                _HMG_SYSDATA \[ 414 \] , _HMG_SYSDATA \[ 437 \] ) , ;
+   IIF ( oHmgApp():APP433 == NIL , _DefineCheckButton (;
+      oHmgApp():APP416,;
+      oHmgApp():APP417,;
+      oHmgApp():APP432,;
+      oHmgApp():APP431,;
+      oHmgApp():APP418,;
+      oHmgApp():APP434,;
+      oHmgApp():APP422,;
+      oHmgApp():APP423,;
+      oHmgApp():APP424,;
+      oHmgApp():APP435,;
+      oHmgApp():APP420,;
+      oHmgApp():APP421,;
+      oHmgApp():APP427,;
+      oHmgApp():APP426,;
+      oHmgApp():APP429,;
+               oHmgApp():APP430 , ;
+                oHmgApp():APP428 ,;
+                oHmgApp():APP412 , ;
+                oHmgApp():APP413 , ;
+                oHmgApp():APP415 , ;
+                oHmgApp():APP414 , oHmgApp():APP437 ) , ;
            _DefineImageCheckButton ( ;
-      _HMG_SYSDATA \[ 416 \],;
-      _HMG_SYSDATA \[ 417 \],;
-      _HMG_SYSDATA \[ 432 \],;
-      _HMG_SYSDATA \[ 431 \],;
-      _HMG_SYSDATA \[ 433 \],;
-      _HMG_SYSDATA \[ 434 \],;
+      oHmgApp():APP416,;
+      oHmgApp():APP417,;
+      oHmgApp():APP432,;
+      oHmgApp():APP431,;
+      oHmgApp():APP433,;
+      oHmgApp():APP434,;
       "" ,;
       0 , ;
-      _HMG_SYSDATA \[ 424 \]  , ;
-      _HMG_SYSDATA \[ 435 \]  , ;
-      _HMG_SYSDATA \[ 420 \] , ;
-      _HMG_SYSDATA \[ 421 \] , ;
-      _HMG_SYSDATA \[ 427 \], ;
-      _HMG_SYSDATA \[ 426 \] , ;
-      _HMG_SYSDATA \[ 429 \], ;
-      _HMG_SYSDATA \[ 430 \] ,;
-      _HMG_SYSDATA \[ 428 \] ,;
-      .NOT. _HMG_SYSDATA \[ 463 \], _HMG_SYSDATA \[ 437 \] ) )
+      oHmgApp():APP424  , ;
+      oHmgApp():APP435  , ;
+      oHmgApp():APP420 , ;
+      oHmgApp():APP421 , ;
+      oHmgApp():APP427, ;
+      oHmgApp():APP426 , ;
+      oHmgApp():APP429, ;
+     oHmgApp():APP430,;
+      oHmgApp():APP428 ,;
+      .NOT. oHmgApp():APP463, oHmgApp():APP437 ) )
 
 /*----------------------------------------------------------------------------
 Combo Box
@@ -1286,82 +1286,82 @@ Combo Box
 
 #xcommand DEFINE COMBOBOX <name>;
    =>;
-   _HMG_SYSDATA \[ 383 \]     := .T.      ;;
-   _HMG_SYSDATA \[ 416 \]     := <(name)> ;;
-   _HMG_SYSDATA \[ 417 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 432 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 431 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 420 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 421 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 436 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 434 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 422 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 423 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 424 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 426 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 428 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 464 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 435 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 427 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 437 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 429 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 430 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 412 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 413 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 402 \]   := NIL     ;;
-   _HMG_SYSDATA \[ 403 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 414 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 443 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 395 \]  := ""    ;;
-   _HMG_SYSDATA \[ 396 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 397 \] := NIL    ;;
-   _HMG_SYSDATA \[ 450 \] := NIL    ;;
-   _HMG_SYSDATA \[ 249 \] := NIL    ;;
-   _HMG_SYSDATA \[ 248 \] := NIL    ;;
-   _HMG_SYSDATA \[ 247 \] := NIL    ;;
-   _HMG_SYSDATA \[ 415 \]  := .F.;;
-   _HMG_SYSDATA \[ 299 \] := NIL;;
-   _HMG_SYSDATA \[ 463 \] := .T.
+   oHmgApp():APP383     := .T.      ;;
+   oHmgApp():APP416     := <(name)> ;;
+   oHmgApp():APP417     := NIL      ;;
+   oHmgApp():APP432     := NIL      ;;
+   oHmgApp():APP431     := NIL      ;;
+   oHmgApp():APP420     := NIL      ;;
+   oHmgApp():APP421  := NIL      ;;
+   oHmgApp():APP436     := NIL      ;;
+   oHmgApp():APP434     := NIL      ;;
+   oHmgApp():APP422     := NIL      ;;
+   oHmgApp():APP423     := NIL      ;;
+   oHmgApp():APP424  := NIL      ;;
+   oHmgApp():APP426  := NIL      ;;
+   oHmgApp():APP428  := .F.      ;;
+   oHmgApp():APP464     := .F.      ;;
+   oHmgApp():APP435  := NIL      ;;
+   oHmgApp():APP427  := NIL      ;;
+   oHmgApp():APP437  := NIL      ;;
+   oHmgApp():APP429  := NIL      ;;
+  oHmgApp():APP430 := .F.      ;;
+   oHmgApp():APP412  := .F.      ;;
+   oHmgApp():APP413  := .F.      ;;
+   oHmgApp():APP402   := NIL     ;;
+   oHmgApp():APP403  := NIL      ;;
+   oHmgApp():APP414  := .F.      ;;
+   oHmgApp():APP443     := .F.      ;;
+   oHmgApp():APP395  := ""    ;;
+   oHmgApp():APP396  := .F.      ;;
+   oHmgApp():APP397 := NIL    ;;
+   oHmgApp():APP450 := NIL    ;;
+   oHmgApp():APP249 := NIL    ;;
+   oHmgApp():APP248 := NIL    ;;
+   oHmgApp():APP247 := NIL    ;;
+   oHmgApp():APP415  := .F.;;
+   oHmgApp():APP299 := NIL;;
+   oHmgApp():APP463 := .T.
 
 #xcommand END COMBOBOX ;
    =>;
-   _HMG_SYSDATA \[ 383 \]     := .F.      ;;
+   oHmgApp():APP383     := .F.      ;;
    _DefineCombo (;
-      _HMG_SYSDATA \[ 416 \] , ;
-      _HMG_SYSDATA \[ 417 \] , ;
-      _HMG_SYSDATA \[ 432 \] , ;
-      _HMG_SYSDATA \[ 431 \] , ;
-      _HMG_SYSDATA \[ 420 \] , ;
-      _HMG_SYSDATA \[ 436 \] , ;
-      _HMG_SYSDATA \[ 434 \] , ;
-      _HMG_SYSDATA \[ 422 \] , ;
-      _HMG_SYSDATA \[ 423 \] , ;
-      _HMG_SYSDATA \[ 424 \] , ;
-      _HMG_SYSDATA \[ 435 \] , ;
-      _HMG_SYSDATA \[ 421 \] , ;
-      _HMG_SYSDATA \[ 426 \] , ;
-      _HMG_SYSDATA \[ 427 \] , ;
-      _HMG_SYSDATA \[ 437 \] , ;
-      _HMG_SYSDATA \[ 429 \] , ;
-      _HMG_SYSDATA \[ 430 \] , ;
-      _HMG_SYSDATA \[ 428 \] , ;
-      _HMG_SYSDATA \[ 464 \] , ;
-      _HMG_SYSDATA \[ 412 \] , ;
-      _HMG_SYSDATA \[ 413 \] , ;
-      _HMG_SYSDATA \[ 415 \] , ;
-      _HMG_SYSDATA \[ 414 \] , ;
-      _HMG_SYSDATA \[ 402 \] , ;
-      _HMG_SYSDATA \[ 403 \] , ;
-      _HMG_SYSDATA \[ 396 \] , ;
-      _HMG_SYSDATA \[ 397 \] , ;
-      _HMG_SYSDATA \[ 443 \] , ;
-      _HMG_SYSDATA \[ 395 \] , ;
-      _HMG_SYSDATA \[ 450 \] , ;
-      _HMG_SYSDATA \[ 249 \] , ;
-      _HMG_SYSDATA \[ 248 \] , ;
-      _HMG_SYSDATA \[ 247 \] , ;
-      _HMG_SYSDATA \[ 299 \] , ;
-      .not. _HMG_SYSDATA \[ 463 \] )
+      oHmgApp():APP416 , ;
+      oHmgApp():APP417 , ;
+      oHmgApp():APP432 , ;
+      oHmgApp():APP431 , ;
+      oHmgApp():APP420 , ;
+      oHmgApp():APP436 , ;
+      oHmgApp():APP434 , ;
+      oHmgApp():APP422 , ;
+      oHmgApp():APP423 , ;
+      oHmgApp():APP424 , ;
+      oHmgApp():APP435 , ;
+      oHmgApp():APP421 , ;
+      oHmgApp():APP426 , ;
+      oHmgApp():APP427 , ;
+      oHmgApp():APP437 , ;
+      oHmgApp():APP429 , ;
+     oHmgApp():APP430, ;
+      oHmgApp():APP428 , ;
+      oHmgApp():APP464 , ;
+      oHmgApp():APP412 , ;
+      oHmgApp():APP413 , ;
+      oHmgApp():APP415 , ;
+      oHmgApp():APP414 , ;
+      oHmgApp():APP402 , ;
+      oHmgApp():APP403 , ;
+      oHmgApp():APP396 , ;
+      oHmgApp():APP397 , ;
+      oHmgApp():APP443 , ;
+      oHmgApp():APP395 , ;
+      oHmgApp():APP450 , ;
+      oHmgApp():APP249 , ;
+      oHmgApp():APP248 , ;
+      oHmgApp():APP247 , ;
+      oHmgApp():APP299 , ;
+      .not. oHmgApp():APP463 )
 
 /*----------------------------------------------------------------------------
 Datepicker
@@ -1370,61 +1370,61 @@ Datepicker
 
 #xcommand DEFINE DATEPICKER <name> ;
    => ;
-   _HMG_SYSDATA \[ 416 \]     := <(name)> ;;
-   _HMG_SYSDATA \[ 417 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 432 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 431 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 434 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 420 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 421 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 422 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 423 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 424 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 438 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 439 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 440 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 426 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 385 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 428 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 435 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 427 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 429 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 430 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 412 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 413 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 414 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 437 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 415 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 500 \]     := NIL
+   oHmgApp():APP416     := <(name)> ;;
+   oHmgApp():APP417     := NIL      ;;
+   oHmgApp():APP432     := NIL      ;;
+   oHmgApp():APP431     := NIL      ;;
+   oHmgApp():APP434     := NIL      ;;
+   oHmgApp():APP420     := NIL      ;;
+   oHmgApp():APP421     := NIL      ;;
+   oHmgApp():APP422     := NIL      ;;
+   oHmgApp():APP423     := NIL      ;;
+   oHmgApp():APP424     := NIL      ;;
+   oHmgApp():APP438     := .F.      ;;
+   oHmgApp():APP439     := .F.      ;;
+   oHmgApp():APP440     := .F.      ;;
+   oHmgApp():APP426     := NIL      ;;
+   oHmgApp():APP385     := NIL      ;;
+   oHmgApp():APP428     := .F.      ;;
+   oHmgApp():APP435     := NIL      ;;
+   oHmgApp():APP427     := NIL      ;;
+   oHmgApp():APP429     := NIL      ;;
+  oHmgApp():APP430    := .F.      ;;
+   oHmgApp():APP412     := .F.      ;;
+   oHmgApp():APP413     := .F.      ;;
+   oHmgApp():APP414     := .F.      ;;
+   oHmgApp():APP437     := NIL      ;;
+   oHmgApp():APP415     := .F.      ;;
+   oHmgApp():ActiveControlFormat     := NIL
 
 
 #xcommand END DATEPICKER ;
    => ;
         _DefineDatePick (;
-      _HMG_SYSDATA \[ 416 \],;
-      _HMG_SYSDATA \[ 417 \],;
-      _HMG_SYSDATA \[ 432 \],;
-      _HMG_SYSDATA \[ 431 \],;
-      _HMG_SYSDATA \[ 420 \],;
-      _HMG_SYSDATA \[ 421 \],;
-      _HMG_SYSDATA \[ 434 \],;
-      _HMG_SYSDATA \[ 422 \],;
-      _HMG_SYSDATA \[ 423 \],;
-      _HMG_SYSDATA \[ 424 \],;
-      _HMG_SYSDATA \[ 435 \],;
-      _HMG_SYSDATA \[ 427 \],;
-      _HMG_SYSDATA \[ 426 \],;
-      _HMG_SYSDATA \[ 438 \],;
-      _HMG_SYSDATA \[ 439 \],;
-      _HMG_SYSDATA \[ 440 \],;
-      _HMG_SYSDATA \[ 429 \],;
-                _HMG_SYSDATA \[ 430 \] , ;
-                _HMG_SYSDATA \[ 428 \],;
-                _HMG_SYSDATA \[ 412 \] , ;
-                _HMG_SYSDATA \[ 413 \] , ;
-                _HMG_SYSDATA \[ 415 \] , ;
-                _HMG_SYSDATA \[ 414 \],;
-                _HMG_SYSDATA \[ 385 \] , _HMG_SYSDATA \[ 437 \] , _HMG_SYSDATA \[ 500 \] )
+      oHmgApp():APP416,;
+      oHmgApp():APP417,;
+      oHmgApp():APP432,;
+      oHmgApp():APP431,;
+      oHmgApp():APP420,;
+      oHmgApp():APP421,;
+      oHmgApp():APP434,;
+      oHmgApp():APP422,;
+      oHmgApp():APP423,;
+      oHmgApp():APP424,;
+      oHmgApp():APP435,;
+      oHmgApp():APP427,;
+      oHmgApp():APP426,;
+      oHmgApp():APP438,;
+      oHmgApp():APP439,;
+      oHmgApp():APP440,;
+      oHmgApp():APP429,;
+               oHmgApp():APP430, ;
+                oHmgApp():APP428,;
+                oHmgApp():APP412 , ;
+                oHmgApp():APP413 , ;
+                oHmgApp():APP415 , ;
+                oHmgApp():APP414,;
+                oHmgApp():APP385 , oHmgApp():APP437 , oHmgApp():ActiveControlFormat )
 
 
 
@@ -1434,61 +1434,61 @@ Timepicker  ( by Dr. Claudio Soto, April 2013 )
 
 #xcommand DEFINE TIMEPICKER <name> ;
       => ;
-      _HMG_SYSDATA \[ 416 \]  := <(name)> ;;
-      _HMG_SYSDATA \[ 417 \]  := NIL ;;
-      _HMG_SYSDATA \[ 432 \]  := NIL ;;
-      _HMG_SYSDATA \[ 431 \]  := NIL ;;
-      _HMG_SYSDATA \[ 434 \]  := NIL ;;
-      _HMG_SYSDATA \[ 420 \]  := NIL ;;
-      _HMG_SYSDATA \[ 421 \]  := NIL ;;
-      _HMG_SYSDATA \[ 422 \]  := NIL ;;
-      _HMG_SYSDATA \[ 423 \]  := NIL ;;
-      _HMG_SYSDATA \[ 424 \]  := NIL ;;
-      _HMG_SYSDATA \[ 438 \]  := .F. ;;
-      _HMG_SYSDATA \[ 439 \]  := .F. ;;
-      _HMG_SYSDATA \[ 440 \]  := .F. ;;
-      _HMG_SYSDATA \[ 426 \]  := NIL ;;
-      _HMG_SYSDATA \[ 385 \]  := NIL ;;
-      _HMG_SYSDATA \[ 428 \]  := .F. ;;
-      _HMG_SYSDATA \[ 435 \]  := NIL ;;
-      _HMG_SYSDATA \[ 427 \]  := NIL ;;
-      _HMG_SYSDATA \[ 429 \]  := NIL ;;
-      _HMG_SYSDATA \[ 430 \]  := .F. ;;
-      _HMG_SYSDATA \[ 412 \]  := .F. ;;
-      _HMG_SYSDATA \[ 413 \]  := .F. ;;
-      _HMG_SYSDATA \[ 414 \]  := .F. ;;
-      _HMG_SYSDATA \[ 437 \]  := NIL ;;
-      _HMG_SYSDATA \[ 415 \]  := .F. ;;
-      _HMG_SYSDATA \[ 500 \]  := ""
+      oHmgApp():APP416  := <(name)> ;;
+      oHmgApp():APP417  := NIL ;;
+      oHmgApp():APP432  := NIL ;;
+      oHmgApp():APP431  := NIL ;;
+      oHmgApp():APP434  := NIL ;;
+      oHmgApp():APP420  := NIL ;;
+      oHmgApp():APP421  := NIL ;;
+      oHmgApp():APP422  := NIL ;;
+      oHmgApp():APP423  := NIL ;;
+      oHmgApp():APP424  := NIL ;;
+      oHmgApp():APP438  := .F. ;;
+      oHmgApp():APP439  := .F. ;;
+      oHmgApp():APP440  := .F. ;;
+      oHmgApp():APP426  := NIL ;;
+      oHmgApp():APP385  := NIL ;;
+      oHmgApp():APP428  := .F. ;;
+      oHmgApp():APP435  := NIL ;;
+      oHmgApp():APP427  := NIL ;;
+      oHmgApp():APP429  := NIL ;;
+     oHmgApp():APP430 := .F. ;;
+      oHmgApp():APP412  := .F. ;;
+      oHmgApp():APP413  := .F. ;;
+      oHmgApp():APP414  := .F. ;;
+      oHmgApp():APP437  := NIL ;;
+      oHmgApp():APP415  := .F. ;;
+      oHmgApp():ActiveControlFormat  := ""
 
 
 #xcommand END TIMEPICKER ;
       => ;
       _DefineTimePick (;
-         _HMG_SYSDATA \[ 416 \],;
-         _HMG_SYSDATA \[ 417 \],;
-         _HMG_SYSDATA \[ 432 \],;
-         _HMG_SYSDATA \[ 431 \],;
-         _HMG_SYSDATA \[ 420 \],;
-         _HMG_SYSDATA \[ 421 \],;
-         _HMG_SYSDATA \[ 434 \],;
-         _HMG_SYSDATA \[ 422 \],;
-         _HMG_SYSDATA \[ 423 \],;
-         _HMG_SYSDATA \[ 424 \],;
-         _HMG_SYSDATA \[ 435 \],;
-         _HMG_SYSDATA \[ 427 \],;
-         _HMG_SYSDATA \[ 426 \],;
-         _HMG_SYSDATA \[ 438 \],;
-         _HMG_SYSDATA \[ 429 \],;
-         _HMG_SYSDATA \[ 430 \],;
-         _HMG_SYSDATA \[ 428 \],;
-         _HMG_SYSDATA \[ 412 \],;
-         _HMG_SYSDATA \[ 413 \],;
-         _HMG_SYSDATA \[ 415 \],;
-         _HMG_SYSDATA \[ 414 \],;
-         _HMG_SYSDATA \[ 385 \],;
-         _HMG_SYSDATA \[ 437 \],;
-         _HMG_SYSDATA \[ 500 \] )
+         oHmgApp():APP416,;
+         oHmgApp():APP417,;
+         oHmgApp():APP432,;
+         oHmgApp():APP431,;
+         oHmgApp():APP420,;
+         oHmgApp():APP421,;
+         oHmgApp():APP434,;
+         oHmgApp():APP422,;
+         oHmgApp():APP423,;
+         oHmgApp():APP424,;
+         oHmgApp():APP435,;
+         oHmgApp():APP427,;
+         oHmgApp():APP426,;
+         oHmgApp():APP438,;
+         oHmgApp():APP429,;
+         oHmgApp():APP430,;
+         oHmgApp():APP428,;
+         oHmgApp():APP412,;
+         oHmgApp():APP413,;
+         oHmgApp():APP415,;
+         oHmgApp():APP414,;
+         oHmgApp():APP385,;
+         oHmgApp():APP437,;
+         oHmgApp():ActiveControlFormat )
 
 
 /*----------------------------------------------------------------------------
@@ -1497,71 +1497,71 @@ Edit Box
 
 #xcommand DEFINE EDITBOX <name> ;
    =>;
-   _HMG_SYSDATA \[ 383 \]     := .T.      ;;
-   _HMG_SYSDATA \[ 416 \]     := <(name)> ;;
-   _HMG_SYSDATA \[ 417 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 432 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 298 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 299 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 431 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 420 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 421 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 434 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 441 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 422 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 423 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 424 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 442 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 426 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 435 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 427 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 429 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 430 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 443 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 412 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 413 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 414 \]  := .F.      ;;
-        _HMG_SYSDATA \[ 415 \]     := .F.          ;;
-        _HMG_SYSDATA \[ 428 \]         := .F.          ;;
-   _HMG_SYSDATA \[ 457 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 458 \]     := NIL      ;;
-        _HMG_SYSDATA \[ 385 \]             := NIL ;;
-   _HMG_SYSDATA \[ 398 \]         := .F.          ;;
-   _HMG_SYSDATA \[ 394 \]         := .F.
+   oHmgApp():APP383     := .T.      ;;
+   oHmgApp():APP416     := <(name)> ;;
+   oHmgApp():APP417     := NIL      ;;
+   oHmgApp():APP432     := NIL      ;;
+   oHmgApp():APP298     := NIL      ;;
+   oHmgApp():APP299     := NIL      ;;
+   oHmgApp():APP431     := NIL      ;;
+   oHmgApp():APP420     := NIL      ;;
+   oHmgApp():APP421     := NIL      ;;
+   oHmgApp():APP434     := NIL      ;;
+   oHmgApp():APP441     := .F.      ;;
+   oHmgApp():APP422     := NIL      ;;
+   oHmgApp():APP423     := NIL      ;;
+   oHmgApp():APP424     := NIL      ;;
+   oHmgApp():APP442     := NIL      ;;
+   oHmgApp():APP426  := NIL      ;;
+   oHmgApp():APP435     := NIL      ;;
+   oHmgApp():APP427  := NIL      ;;
+   oHmgApp():APP429     := NIL      ;;
+  oHmgApp():APP430    := .F.      ;;
+   oHmgApp():APP443     := .F.      ;;
+   oHmgApp():APP412     := .F.      ;;
+   oHmgApp():APP413  := .F.      ;;
+   oHmgApp():APP414  := .F.      ;;
+        oHmgApp():APP415     := .F.          ;;
+        oHmgApp():APP428         := .F.          ;;
+   oHmgApp():APP457     := NIL      ;;
+   oHmgApp():APP458     := NIL      ;;
+        oHmgApp():APP385             := NIL ;;
+   oHmgApp():APP398         := .F.          ;;
+   oHmgApp():APP394         := .F.
 
 
 #xcommand END EDITBOX ;
    =>;
-   _HMG_SYSDATA \[ 383 \]     := .F.      ;;
+   oHmgApp():APP383     := .F.      ;;
       _DefineEditBox(;
-         _HMG_SYSDATA \[ 416 \],;
-         _HMG_SYSDATA \[ 417 \],;
-         _HMG_SYSDATA \[ 432 \],;
-         _HMG_SYSDATA \[ 431 \],;
-         _HMG_SYSDATA \[ 420 \],;
-         _HMG_SYSDATA \[ 421 \],;
-         _HMG_SYSDATA \[ 434 \],;
-         _HMG_SYSDATA \[ 422 \],;
-         _HMG_SYSDATA \[ 423 \],;
-         _HMG_SYSDATA \[ 424 \],;
-         _HMG_SYSDATA \[ 442 \],;
-         _HMG_SYSDATA \[ 426 \],;
-         _HMG_SYSDATA \[ 435 \],;
-         _HMG_SYSDATA \[ 427 \],;
-         _HMG_SYSDATA \[ 441 \],;
-         _HMG_SYSDATA \[ 443 \],;
-         _HMG_SYSDATA \[ 429 \],;
-                        _HMG_SYSDATA \[ 430 \] , ;
-                        _HMG_SYSDATA \[ 428 \] ,;
-                        _HMG_SYSDATA \[ 412 \] , ;
-                        _HMG_SYSDATA \[ 413 \] , ;
-                        _HMG_SYSDATA \[ 415 \] , ;
-                        _HMG_SYSDATA \[ 414 \] ,;
-                        _HMG_SYSDATA \[ 385 \], ;
-         _HMG_SYSDATA \[ 457 \], ;
-         _HMG_SYSDATA \[ 458 \], ;
-         _HMG_SYSDATA \[ 398 \], ;
-         _HMG_SYSDATA \[ 394 \] , _HMG_SYSDATA \[ 298 \] , _HMG_SYSDATA \[ 299 \] )
+         oHmgApp():APP416,;
+         oHmgApp():APP417,;
+         oHmgApp():APP432,;
+         oHmgApp():APP431,;
+         oHmgApp():APP420,;
+         oHmgApp():APP421,;
+         oHmgApp():APP434,;
+         oHmgApp():APP422,;
+         oHmgApp():APP423,;
+         oHmgApp():APP424,;
+         oHmgApp():APP442,;
+         oHmgApp():APP426,;
+         oHmgApp():APP435,;
+         oHmgApp():APP427,;
+         oHmgApp():APP442,;
+         oHmgApp():APP443,;
+         oHmgApp():APP429,;
+                       oHmgApp():APP430, ;
+                        oHmgApp():APP428 ,;
+                        oHmgApp():APP412 , ;
+                        oHmgApp():APP413 , ;
+                        oHmgApp():APP415 , ;
+                        oHmgApp():APP414 ,;
+                        oHmgApp():APP385, ;
+         oHmgApp():APP457, ;
+         oHmgApp():APP458, ;
+         oHmgApp():APP398, ;
+         oHmgApp():APP394 , oHmgApp():APP298 , oHmgApp():APP299 )
 
 
 /*----------------------------------------------------------------------------
@@ -1570,68 +1570,68 @@ Rich Edit Box
 
 #xcommand DEFINE RICHEDITBOX <name> ;
    =>;
-   _HMG_SYSDATA \[ 383 \]     := .T.      ;;
-   _HMG_SYSDATA \[ 416 \]     := <(name)> ;;
-   _HMG_SYSDATA \[ 417 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 432 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 431 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 421 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 434 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 441 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 422 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 423 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 424 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 442 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 426 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 435 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 427 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 429 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 430 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 443 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 412 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 413 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 414 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 415 \]     := .F.          ;;
-   _HMG_SYSDATA \[ 428 \]         := .F.          ;;
-   _HMG_SYSDATA \[ 457 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 458 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 385 \]     := NIL ;;
-   _HMG_SYSDATA \[ 461 \]  := NIL ;;
-   _HMG_SYSDATA \[ 462 \]  := NIL ;;
-   _HMG_SYSDATA \[ 386 \]     := NIL ;;
-   _HMG_SYSDATA \[ 387 \]  := NIL ;;
-   _HMG_SYSDATA \[ 388 \]  := NIL
+   oHmgApp():APP383     := .T.      ;;
+   oHmgApp():APP416     := <(name)> ;;
+   oHmgApp():APP417     := NIL      ;;
+   oHmgApp():APP432     := NIL      ;;
+   oHmgApp():APP431     := NIL      ;;
+   oHmgApp():APP421     := NIL      ;;
+   oHmgApp():APP434     := NIL      ;;
+   oHmgApp():APP441     := .F.      ;;
+   oHmgApp():APP422     := NIL      ;;
+   oHmgApp():APP423     := NIL      ;;
+   oHmgApp():APP424     := NIL      ;;
+   oHmgApp():APP442     := NIL      ;;
+   oHmgApp():APP426  := NIL      ;;
+   oHmgApp():APP435     := NIL      ;;
+   oHmgApp():APP427  := NIL      ;;
+   oHmgApp():APP429     := NIL      ;;
+  oHmgApp():APP430    := .F.      ;;
+   oHmgApp():APP443     := .F.      ;;
+   oHmgApp():APP412     := .F.      ;;
+   oHmgApp():APP413  := .F.      ;;
+   oHmgApp():APP414  := .F.      ;;
+   oHmgApp():APP415     := .F.          ;;
+   oHmgApp():APP428         := .F.          ;;
+   oHmgApp():APP457     := NIL      ;;
+   oHmgApp():APP458     := NIL      ;;
+   oHmgApp():APP385     := NIL ;;
+   oHmgApp():APP461  := NIL ;;
+   oHmgApp():APP462  := NIL ;;
+   oHmgApp():APP386     := NIL ;;
+   oHmgApp():APP387  := NIL ;;
+   oHmgApp():APP388  := NIL
 
 #xcommand END RICHEDITBOX ;
    =>;
-      _HMG_SYSDATA \[ 383 \]     := .F.      ;;
+      oHmgApp():APP383     := .F.      ;;
       _DefineRichEditBox(;
-         _HMG_SYSDATA \[ 416 \],;
-         _HMG_SYSDATA \[ 417 \],;
-         _HMG_SYSDATA \[ 432 \],;
-         _HMG_SYSDATA \[ 431 \],;
-         _HMG_SYSDATA \[ 420 \],;
-         _HMG_SYSDATA \[ 421 \],;
-         _HMG_SYSDATA \[ 434 \],;
-         _HMG_SYSDATA \[ 422 \],;
-         _HMG_SYSDATA \[ 423 \],;
-         _HMG_SYSDATA \[ 424 \],;
-         _HMG_SYSDATA \[ 442 \],;
-         _HMG_SYSDATA \[ 426 \],;
-         _HMG_SYSDATA \[ 435 \],;
-         _HMG_SYSDATA \[ 427 \],;
-         _HMG_SYSDATA \[ 441 \],;
-         _HMG_SYSDATA \[ 443 \],;
-         _HMG_SYSDATA \[ 429 \],;
-                        _HMG_SYSDATA \[ 430 \] , ;
-                        _HMG_SYSDATA \[ 428 \] ,;
-                        _HMG_SYSDATA \[ 412 \] , ;
-                        _HMG_SYSDATA \[ 413 \] , ;
-                        _HMG_SYSDATA \[ 415 \] , ;
-                        _HMG_SYSDATA \[ 414 \] ,;
-                        _HMG_SYSDATA \[ 385 \],;
-         _HMG_SYSDATA \[ 457 \], _HMG_SYSDATA \[ 461 \], _HMG_SYSDATA \[ 462 \],;
-         _HMG_SYSDATA \[ 386 \], _HMG_SYSDATA \[ 387 \], _HMG_SYSDATA \[ 388 \]  )
+         oHmgApp():APP416,;
+         oHmgApp():APP417,;
+         oHmgApp():APP432,;
+         oHmgApp():APP431,;
+         oHmgApp():APP420,;
+         oHmgApp():APP421,;
+         oHmgApp():APP434,;
+         oHmgApp():APP422,;
+         oHmgApp():APP423,;
+         oHmgApp():APP424,;
+         oHmgApp():APP442,;
+         oHmgApp():APP426,;
+         oHmgApp():APP435,;
+         oHmgApp():APP427,;
+         oHmgApp():APP441,;
+         oHmgApp():APP443,;
+         oHmgApp():APP429,;
+                       oHmgApp():APP430, ;
+                        oHmgApp():APP428 ,;
+                        oHmgApp():APP412 , ;
+                        oHmgApp():APP413 , ;
+                        oHmgApp():APP415 , ;
+                        oHmgApp():APP414 ,;
+                        oHmgApp():APP385,;
+         oHmgApp():APP457, oHmgApp():APP461, oHmgApp():APP462,;
+         oHmgApp():APP386, oHmgApp():APP387, oHmgApp():APP388  )
 
 /*----------------------------------------------------------------------------
 Label
@@ -1639,69 +1639,69 @@ Label
 
 #xcommand DEFINE LABEL <name> ;
    =>;
-   _HMG_SYSDATA \[ 416 \]     := <(name)> ;;
-   _HMG_SYSDATA \[ 417 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 432 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 431 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 434 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 420 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 421 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 422 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 423 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 459 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 460 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 461 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 462 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 463 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 457 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 458 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 419 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 429 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 430 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 412 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 413 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 414 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 415 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 424 \]           := NIL          ;;
-   _HMG_SYSDATA \[ 440 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 409 \]     := .F. ;;
-   _HMG_SYSDATA \[ 393 \] := .F.;;
-   _HMG_SYSDATA \[ 281 \]  := .F.;;
-   _HMG_SYSDATA \[ 387 \]  := .F.
+   oHmgApp():APP416     := <(name)> ;;
+   oHmgApp():APP417     := NIL      ;;
+   oHmgApp():APP432     := NIL      ;;
+   oHmgApp():APP431     := NIL      ;;
+   oHmgApp():APP434     := NIL      ;;
+   oHmgApp():APP420     := NIL      ;;
+   oHmgApp():APP421     := NIL      ;;
+   oHmgApp():APP422     := NIL      ;;
+   oHmgApp():APP423     := NIL      ;;
+   oHmgApp():APP459     := .F.      ;;
+   oHmgApp():IsBCC77  := .F.      ;;
+   oHmgApp():APP461     := .F.      ;;
+   oHmgApp():APP462     := .F.      ;;
+   oHmgApp():APP463  := .F.      ;;
+   oHmgApp():APP457     := NIL      ;;
+   oHmgApp():APP458     := NIL      ;;
+   oHmgApp():APP419     := NIL      ;;
+   oHmgApp():APP429     := NIL      ;;
+  oHmgApp():APP430    := .F.      ;;
+   oHmgApp():APP412     := .F.      ;;
+   oHmgApp():APP413  := .F.      ;;
+   oHmgApp():APP414  := .F.      ;;
+   oHmgApp():APP415  := .F.      ;;
+   oHmgApp():APP424           := NIL          ;;
+   oHmgApp():APP440  := .F.      ;;
+   oHmgApp():APP409     := .F. ;;
+   oHmgApp():APP393 := .F.;;
+   oHmgApp():APP281  := .F.;;
+   oHmgApp():APP387  := .F.
 
 
 #xcommand END LABEL ;
    =>;
    _DefineLabel(;
-      _HMG_SYSDATA \[ 416 \],;
-      _HMG_SYSDATA \[ 417 \],;
-      _HMG_SYSDATA \[ 432 \],;
-      _HMG_SYSDATA \[ 431 \],;
-      _HMG_SYSDATA \[ 434 \],;
-      _HMG_SYSDATA \[ 420 \],;
-      _HMG_SYSDATA \[ 421 \],;
-      _HMG_SYSDATA \[ 422 \],;
-      _HMG_SYSDATA \[ 423 \],;
-      _HMG_SYSDATA \[ 412 \],;
-      _HMG_SYSDATA \[ 459 \],;
-      _HMG_SYSDATA \[ 460 \],;
-      _HMG_SYSDATA \[ 461 \],;
-      _HMG_SYSDATA \[ 462 \],;
-      _HMG_SYSDATA \[ 463 \],;
-      _HMG_SYSDATA \[ 457 \],;
-      _HMG_SYSDATA \[ 458 \],;
-      _HMG_SYSDATA \[ 419 \],;
-      _HMG_SYSDATA \[ 424 \],;
-      _HMG_SYSDATA \[ 429 \],;
-      _HMG_SYSDATA \[ 430 \] , ;
-      _HMG_SYSDATA \[ 413 \] , ;
-      _HMG_SYSDATA \[ 415 \] , ;
-      _HMG_SYSDATA \[ 414 \] , ;
-      _HMG_SYSDATA \[ 409 \] , ;
-      _HMG_SYSDATA \[ 440 \] , ;
-      _HMG_SYSDATA \[ 393 \] , ;
-      _HMG_SYSDATA \[ 281 \] , ;
-      _HMG_SYSDATA \[ 387 \] )
+      oHmgApp():APP416,;
+      oHmgApp():APP417,;
+      oHmgApp():APP432,;
+      oHmgApp():APP431,;
+      oHmgApp():APP434,;
+      oHmgApp():APP420,;
+      oHmgApp():APP421,;
+      oHmgApp():APP422,;
+      oHmgApp():APP423,;
+      oHmgApp():APP412,;
+      oHmgApp():APP459,;
+      oHmgApp():IsBCC77,;
+      oHmgApp():APP461,;
+      oHmgApp():APP462,;
+      oHmgApp():APP463,;
+      oHmgApp():APP457,;
+      oHmgApp():APP458,;
+      oHmgApp():APP419,;
+      oHmgApp():APP424,;
+      oHmgApp():APP429,;
+     oHmgApp():APP430, ;
+      oHmgApp():APP413 , ;
+      oHmgApp():APP415 , ;
+      oHmgApp():APP414 , ;
+      oHmgApp():APP409 , ;
+      oHmgApp():APP440 , ;
+      oHmgApp():APP393 , ;
+      oHmgApp():APP281 , ;
+      oHmgApp():APP387 )
 
 /*----------------------------------------------------------------------------
 IP Address
@@ -1709,50 +1709,50 @@ IP Address
 
 #xcommand DEFINE IPADDRESS <name> ;
    =>;
-   _HMG_SYSDATA \[ 416 \]     := <(name)> ;;
-   _HMG_SYSDATA \[ 417 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 432 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 431 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 420 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 421 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 434 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 422 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 423 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 424 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 426 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 435 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 427 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 429 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 412 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 413 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 414 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 430 \]     := .F.      ;;
-        _HMG_SYSDATA \[ 428 \]         := .F.          ;;
-   _HMG_SYSDATA \[ 415 \]  := .F.
+   oHmgApp():APP416     := <(name)> ;;
+   oHmgApp():APP417     := NIL      ;;
+   oHmgApp():APP432     := NIL      ;;
+   oHmgApp():APP431     := NIL      ;;
+   oHmgApp():APP420     := NIL      ;;
+   oHmgApp():APP421     := NIL      ;;
+   oHmgApp():APP434     := NIL      ;;
+   oHmgApp():APP422     := NIL      ;;
+   oHmgApp():APP423     := NIL      ;;
+   oHmgApp():APP424     := NIL      ;;
+   oHmgApp():APP426  := NIL      ;;
+   oHmgApp():APP435     := NIL      ;;
+   oHmgApp():APP427  := NIL      ;;
+   oHmgApp():APP429     := NIL      ;;
+   oHmgApp():APP412     := .F.      ;;
+   oHmgApp():APP413  := .F.      ;;
+   oHmgApp():APP414  := .F.      ;;
+  oHmgApp():APP430    := .F.      ;;
+        oHmgApp():APP428         := .F.          ;;
+   oHmgApp():APP415  := .F.
 
 #xcommand END IPADDRESS ;
 =>;
    _DefineIPAddress( ;
-      _HMG_SYSDATA \[ 416 \] , ;
-      _HMG_SYSDATA \[ 417 \] , ;
-      _HMG_SYSDATA \[ 432 \] , ;
-      _HMG_SYSDATA \[ 431 \] , ;
-      _HMG_SYSDATA \[ 420 \] , ;
-      _HMG_SYSDATA \[ 421 \] , ;
-      _HMG_SYSDATA \[ 434 \] , ;
-      _HMG_SYSDATA \[ 422 \] , ;
-      _HMG_SYSDATA \[ 423 \] , ;
-      _HMG_SYSDATA \[ 424 \], ;
-      _HMG_SYSDATA \[ 427 \] , ;
-      _HMG_SYSDATA \[ 426 \] , ;
-      _HMG_SYSDATA \[ 435 \] , ;
-      _HMG_SYSDATA \[ 429 \]  , ;
-   _HMG_SYSDATA \[ 430 \] , ;
-   _HMG_SYSDATA \[ 428 \] ,;
-   _HMG_SYSDATA \[ 412 \] , ;
-   _HMG_SYSDATA \[ 413 \] , ;
-   _HMG_SYSDATA \[ 415 \] , ;
-   _HMG_SYSDATA \[ 414 \] )
+      oHmgApp():APP416 , ;
+      oHmgApp():APP417 , ;
+      oHmgApp():APP432 , ;
+      oHmgApp():APP431 , ;
+      oHmgApp():APP420 , ;
+      oHmgApp():APP421 , ;
+      oHmgApp():APP434 , ;
+      oHmgApp():APP422 , ;
+      oHmgApp():APP423 , ;
+      oHmgApp():APP424, ;
+      oHmgApp():APP427 , ;
+      oHmgApp():APP426 , ;
+      oHmgApp():APP435 , ;
+      oHmgApp():APP429  , ;
+  oHmgApp():APP430, ;
+   oHmgApp():APP428 ,;
+   oHmgApp():APP412 , ;
+   oHmgApp():APP413 , ;
+   oHmgApp():APP415 , ;
+   oHmgApp():APP414 )
 
 
 /*----------------------------------------------------------------------------
@@ -1763,127 +1763,127 @@ Grid
 
 #xcommand DEFINE GRID <name> ;
    =>;
-   _HMG_SYSDATA \[ 383 \]  := .T.      ;;
-   _HMG_SYSDATA \[ 382 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 416 \]  := <(name)> ;;
-   _HMG_SYSDATA \[ 417 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 432 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 431 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 420 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 421 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 445 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 446 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 281 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 436 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 434 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 422 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 423 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 424 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 426 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 435 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 427 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 447 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 448 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 449 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 450 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 451 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 429 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 455 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 443 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 412 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 413 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 414 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 415 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 408 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 407 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 457 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 458 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 441 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 410 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 401 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 456 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 329 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 391 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 390 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 388 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 246 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 387 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 327 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 326 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 325 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 482 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 486 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 244 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 277 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 386 \]  := NIL   ;;
-   _HMG_SYSDATA \[ 419 \]  := NIL   ;; // ON CLICK
-   _HMG_SYSDATA \[ 247 \]  := NIL   ;; // ON KEY
-   _HMG_SYSDATA \[ 248 \]  := NIL   ;; // EditOption
-   _HMG_SYSDATA \[ 463 \]  := .T.   ;; // Transparent
-   _HMG_SYSDATA \[ 453 \]  := NIL   ;; // DynamicFont
-   _HMG_SYSDATA \[ 454 \]  := NIL   ;; // ON CHECKBOXCLICKED
-   _HMG_SYSDATA \[ 452 \]  := .T.   ;; // TransparentHeader
-   _HMG_SYSDATA \[ 352 \]  := NIL      // ON INPLACEEDITEVENT
+   oHmgApp():APP383  := .T.      ;;
+   oHmgApp():APP382  := NIL      ;;
+   oHmgApp():APP416  := <(name)> ;;
+   oHmgApp():APP417  := NIL      ;;
+   oHmgApp():APP432  := NIL      ;;
+   oHmgApp():APP431  := NIL      ;;
+   oHmgApp():APP420  := NIL      ;;
+   oHmgApp():APP421  := NIL      ;;
+   oHmgApp():APP445  := NIL      ;;
+   oHmgApp():APP446  := NIL      ;;
+   oHmgApp():APP281  := NIL      ;;
+   oHmgApp():APP436  := NIL      ;;
+   oHmgApp():APP434  := NIL      ;;
+   oHmgApp():APP422  := NIL      ;;
+   oHmgApp():APP423  := NIL      ;;
+   oHmgApp():APP424  := NIL      ;;
+   oHmgApp():APP426  := NIL      ;;
+   oHmgApp():APP435  := NIL      ;;
+   oHmgApp():APP427  := NIL      ;;
+   oHmgApp():APP447  := NIL      ;;
+   oHmgApp():APP448  := NIL      ;;
+   oHmgApp():APP449  := .F.      ;;
+   oHmgApp():APP450  := NIL      ;;
+   oHmgApp():APP451  := NIL      ;;
+   oHmgApp():APP429  := NIL      ;;
+   oHmgApp():APP455  := .F.      ;;
+   oHmgApp():APP443  := .F.      ;;
+   oHmgApp():APP412  := .F.      ;;
+   oHmgApp():APP413  := .F.      ;;
+   oHmgApp():APP414  := .F.      ;;
+   oHmgApp():APP415  := .F.      ;;
+   oHmgApp():APP408  := NIL      ;;
+   oHmgApp():APP407  := NIL      ;;
+   oHmgApp():APP457  := NIL      ;;
+   oHmgApp():APP458  := NIL      ;;
+   oHmgApp():APP441  := NIL      ;;
+   oHmgApp():APP410  := .F.      ;;
+   oHmgApp():APP401  := .F.      ;;
+   oHmgApp():APP456  := .F.      ;;
+   oHmgApp():APP329  := .F.      ;;
+   oHmgApp():APP391  := NIL      ;;
+   oHmgApp():APP390  := NIL      ;;
+   oHmgApp():APP388  := NIL      ;;
+   oHmgApp():APP246  := NIL      ;;
+   oHmgApp():APP387  := NIL      ;;
+   oHmgApp():APP327  := NIL      ;;
+   oHmgApp():APP326  := NIL      ;;
+   oHmgApp():APP325  := .F.      ;;
+   oHmgApp():APP482  := .F.      ;;
+   oHmgApp():APP486  := NIL      ;;
+   oHmgApp():APP244  := NIL      ;;
+   oHmgApp():APP277  := NIL      ;;
+   oHmgApp():APP386  := NIL   ;;
+   oHmgApp():APP419  := NIL   ;; // ON CLICK
+   oHmgApp():APP247  := NIL   ;; // ON KEY
+   oHmgApp():APP248  := NIL   ;; // EditOption
+   oHmgApp():APP463  := .T.   ;; // Transparent
+   oHmgApp():APP453  := NIL   ;; // DynamicFont
+   oHmgApp():APP454  := NIL   ;; // ON CHECKBOXCLICKED
+   oHmgApp():APP452  := .T.   ;; // TransparentHeader
+   oHmgApp():APP352  := NIL      // ON INPLACEEDITEVENT
 
 #xcommand END GRID ;
    =>;
-   _HMG_SYSDATA \[ 383 \]     := .F.      ;;
-_DefineGrid ( _HMG_SYSDATA \[ 416 \] ,       ;
-      _HMG_SYSDATA \[ 417 \] ,         ;
-      _HMG_SYSDATA \[ 432 \] ,         ;
-      _HMG_SYSDATA \[ 431 \] ,         ;
-      _HMG_SYSDATA \[ 420 \] ,      ;
-      _HMG_SYSDATA \[ 421 \] ,      ;
-      _HMG_SYSDATA \[ 445 \] ,      ;
-      _HMG_SYSDATA \[ 446 \] ,      ;
-      _HMG_SYSDATA \[ 436 \] ,      ;
-      _HMG_SYSDATA \[ 434 \] ,      ;
-      _HMG_SYSDATA \[ 422 \] ,      ;
-      _HMG_SYSDATA \[ 423 \] ,      ;
-      _HMG_SYSDATA \[ 424 \] ,      ;
-      _HMG_SYSDATA \[ 435 \] ,      ;
-      _HMG_SYSDATA \[ 447 \] ,   ;
-      _HMG_SYSDATA \[ 448 \] ,      ;
-      _HMG_SYSDATA \[ 426 \] ,      ;
-      _HMG_SYSDATA \[ 427 \],    ;
-      _HMG_SYSDATA \[ 449 \],    ;
-      _HMG_SYSDATA \[ 450 \],    ;
-      _HMG_SYSDATA \[ 451 \]  ,     ;
-      _HMG_SYSDATA \[ 443 \] ,      ;
-      _HMG_SYSDATA \[ 429 \] ,      ;
-      _HMG_SYSDATA \[ 412 \],       ;
-      _HMG_SYSDATA \[ 413 \],       ;
-      _HMG_SYSDATA \[ 415 \], ;
-      _HMG_SYSDATA \[ 414 \] ,   ;
-      _HMG_SYSDATA \[ 410 \] ,      ;
-      _HMG_SYSDATA \[ 408 \] ,      ;
-      _HMG_SYSDATA \[ 407 \] ,      ;
+   oHmgApp():APP383     := .F.      ;;
+_DefineGrid ( oHmgApp():APP416 ,       ;
+      oHmgApp():APP417 ,         ;
+      oHmgApp():APP432 ,         ;
+      oHmgApp():APP431 ,         ;
+      oHmgApp():APP420 ,      ;
+      oHmgApp():APP421 ,      ;
+      oHmgApp():APP445 ,      ;
+      oHmgApp():APP446 ,      ;
+      oHmgApp():APP436 ,      ;
+      oHmgApp():APP434 ,      ;
+      oHmgApp():APP422 ,      ;
+      oHmgApp():APP423 ,      ;
+      oHmgApp():APP424 ,      ;
+      oHmgApp():APP435 ,      ;
+      oHmgApp():APP447 ,   ;
+      oHmgApp():APP448 ,      ;
+      oHmgApp():APP426 ,      ;
+      oHmgApp():APP427,    ;
+      oHmgApp():APP449,    ;
+      oHmgApp():APP450,    ;
+      oHmgApp():APP451  ,     ;
+      oHmgApp():APP443 ,      ;
+      oHmgApp():APP429 ,      ;
+      oHmgApp():APP412,       ;
+      oHmgApp():APP413,       ;
+      oHmgApp():APP415, ;
+      oHmgApp():APP414 ,   ;
+      oHmgApp():APP410 ,      ;
+      oHmgApp():APP408 ,      ;
+      oHmgApp():APP407 ,      ;
       NIL ,;
       NIL ,;
       NIL ,;
-      _HMG_SYSDATA \[ 455 \] , ;
+      oHmgApp():APP455 , ;
       NIL ,;
-      _HMG_SYSDATA \[ 457 \] , ;
-      _HMG_SYSDATA \[ 458 \] , ;
-      _HMG_SYSDATA \[ 456 \] , ;
-      _HMG_SYSDATA \[ 388 \] , ;
-      _HMG_SYSDATA \[ 391 \] , ;
-      _HMG_SYSDATA \[ 390 \] , ;
-      _HMG_SYSDATA \[ 387 \] , ;
-      _HMG_SYSDATA \[ 386 \] , ;
-      _HMG_SYSDATA \[ 382 \] , ;
-      _HMG_SYSDATA \[ 246 \] , ;
-      _HMG_SYSDATA \[ 329 \] , ;
-      _HMG_SYSDATA \[ 327 \] , ;
-      _HMG_SYSDATA \[ 326 \] , ;
-      _HMG_SYSDATA \[ 486 \] , ;
-      _HMG_SYSDATA \[ 325 \] , ;
-      _HMG_SYSDATA \[ 482 \] , ;
-      _HMG_SYSDATA \[ 244 \] , ;
-      _HMG_SYSDATA \[ 277 \] , ;
-      _HMG_SYSDATA \[ 281 \] , ;
-      _HMG_SYSDATA \[ 419 \] , _HMG_SYSDATA \[ 247 \] , _HMG_SYSDATA \[ 248 \] , ;
-      .not. _HMG_SYSDATA \[ 463 \] , .not. _HMG_SYSDATA \[ 452 \], _HMG_SYSDATA \[ 453 \], _HMG_SYSDATA \[ 454 \], _HMG_SYSDATA \[ 352 \] )
+      oHmgApp():APP457 , ;
+      oHmgApp():APP458 , ;
+      oHmgApp():APP456 , ;
+      oHmgApp():APP388 , ;
+      oHmgApp():APP391 , ;
+      oHmgApp():APP390 , ;
+      oHmgApp():APP387 , ;
+      oHmgApp():APP386 , ;
+      oHmgApp():APP382 , ;
+      oHmgApp():APP246 , ;
+      oHmgApp():APP329 , ;
+      oHmgApp():APP327 , ;
+      oHmgApp():APP326 , ;
+      oHmgApp():APP486 , ;
+      oHmgApp():APP325 , ;
+      oHmgApp():APP482 , ;
+      oHmgApp():APP244 , ;
+      oHmgApp():APP277 , ;
+      oHmgApp():APP281 , ;
+      oHmgApp():APP419 , oHmgApp():APP247 , oHmgApp():APP248 , ;
+      .not. oHmgApp():APP463 , .not. oHmgApp():APP452, oHmgApp():APP453, oHmgApp():APP454, oHmgApp():APP352 )
 
 /*----------------------------------------------------------------------------
 BROWSE
@@ -1891,97 +1891,97 @@ BROWSE
 
 #xcommand DEFINE BROWSE <name> ;
    =>;
-   _HMG_SYSDATA \[ 383 \]     := .T.      ;;
-   _HMG_SYSDATA \[ 416 \]     := <(name)> ;;
-   _HMG_SYSDATA \[ 417 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 432 \]               := NIL          ;;
-   _HMG_SYSDATA \[ 431 \]               := NIL          ;;
-   _HMG_SYSDATA \[ 420 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 421 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 445 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 446 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 434 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 422 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 423 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 424 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 426 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 435 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 427 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 447 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 448 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 449 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 450 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 451 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 429 \]     := NIL      ;;
-        _HMG_SYSDATA \[ 456 \]              := .F.          ;;
-        _HMG_SYSDATA \[ 443 \]             := .F.     ;;
-   _HMG_SYSDATA \[ 412 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 413 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 414 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 415 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 480 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 481 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 482 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 486 \]        := .F.      ;;
-   _HMG_SYSDATA \[ 483 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 441 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 457 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 458 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 485 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 484 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 391 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 390 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 398 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 389 \]        := NIL ;;
-   _HMG_SYSDATA \[ 479 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 500 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 355 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 354 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 246 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 401 \]  := .F.
+   oHmgApp():APP383     := .T.      ;;
+   oHmgApp():APP416     := <(name)> ;;
+   oHmgApp():APP417     := NIL      ;;
+   oHmgApp():APP432               := NIL          ;;
+   oHmgApp():APP431               := NIL          ;;
+   oHmgApp():APP420     := NIL      ;;
+   oHmgApp():APP421     := NIL      ;;
+   oHmgApp():APP445     := NIL      ;;
+   oHmgApp():APP446     := NIL      ;;
+   oHmgApp():APP434     := NIL      ;;
+   oHmgApp():APP422     := NIL      ;;
+   oHmgApp():APP423     := NIL      ;;
+   oHmgApp():APP424     := NIL      ;;
+   oHmgApp():APP426  := NIL      ;;
+   oHmgApp():APP435     := NIL      ;;
+   oHmgApp():APP427  := NIL      ;;
+   oHmgApp():APP447  := NIL      ;;
+   oHmgApp():APP448  := NIL      ;;
+   oHmgApp():APP449     := .F.      ;;
+   oHmgApp():APP450     := NIL      ;;
+   oHmgApp():APP451     := NIL      ;;
+   oHmgApp():APP429     := NIL      ;;
+        oHmgApp():APP456              := .F.          ;;
+        oHmgApp():APP443             := .F.     ;;
+   oHmgApp():APP412     := .F.      ;;
+   oHmgApp():APP413  := .F.      ;;
+   oHmgApp():APP414  := .F.      ;;
+   oHmgApp():APP415  := .F.      ;;
+   oHmgApp():APP480     := NIL      ;;
+   oHmgApp():APP481     := NIL      ;;
+   oHmgApp():APP482     := .F.      ;;
+   oHmgApp():APP486        := .F.      ;;
+   oHmgApp():APP483     := NIL      ;;
+   oHmgApp():APP441     := NIL      ;;
+   oHmgApp():APP457     := NIL      ;;
+   oHmgApp():APP458     := NIL      ;;
+   oHmgApp():APP485     := .F.      ;;
+   oHmgApp():APP484  := NIL      ;;
+   oHmgApp():APP391  := NIL      ;;
+   oHmgApp():APP390  := NIL      ;;
+   oHmgApp():APP398     := .F.      ;;
+   oHmgApp():APP389        := NIL ;;
+   oHmgApp():APP479     := NIL      ;;
+   oHmgApp():ActiveControlFormat     := NIL      ;;
+   oHmgApp():APP355     := NIL      ;;
+   oHmgApp():APP354     := NIL      ;;
+   oHmgApp():APP246     := NIL      ;;
+   oHmgApp():APP401  := .F.
 
 #xcommand END BROWSE ;
    =>;
-   _HMG_SYSDATA \[ 383 \]     := .F.      ;;
-_DefineBrowse ( _HMG_SYSDATA \[ 416 \] ,  ;
-      _HMG_SYSDATA \[ 417 \] ,   ;
-      _HMG_SYSDATA \[ 432 \] ,      ;
-      _HMG_SYSDATA \[ 431 \] ,      ;
-      _HMG_SYSDATA \[ 420 \] ,      ;
-      _HMG_SYSDATA \[ 421 \] ,      ;
-      _HMG_SYSDATA \[ 445 \] ,   ;
-      _HMG_SYSDATA \[ 446 \] ,   ;
-      _HMG_SYSDATA \[ 481 \] ,   ;
-      _HMG_SYSDATA \[ 434 \] ,   ;
-      _HMG_SYSDATA \[ 422 \] ,   ;
-      _HMG_SYSDATA \[ 423 \] ,   ;
-      _HMG_SYSDATA \[ 424 \] ,   ;
-      _HMG_SYSDATA \[ 435 \] ,   ;
-      _HMG_SYSDATA \[ 447 \]  ,  ;
-      _HMG_SYSDATA \[ 448 \] ,;
-      _HMG_SYSDATA \[ 426 \] ,   ;
-      _HMG_SYSDATA \[ 427 \],    ;
-      _HMG_SYSDATA \[ 480 \] ,   ;
-      _HMG_SYSDATA \[ 482 \],    ;
-      _HMG_SYSDATA \[ 449 \] ,   ;
-      _HMG_SYSDATA \[ 450 \] ,   ;
-      _HMG_SYSDATA \[ 451 \] ,   ;
-      _HMG_SYSDATA \[ 429 \]  , ;
-      _HMG_SYSDATA \[ 412 \] , ;
-      _HMG_SYSDATA \[ 413 \] , ;
-      _HMG_SYSDATA \[ 415 \] , ;
-      _HMG_SYSDATA \[ 414 \] , ;
-      _HMG_SYSDATA \[ 443 \]  , ;
-      _HMG_SYSDATA \[ 457 \] , ;
-      _HMG_SYSDATA \[ 458 \] , ;
-      _HMG_SYSDATA \[ 485 \]  , ;
-      _HMG_SYSDATA \[ 401 \] , ;
-      _HMG_SYSDATA \[ 398 \] , ;
-      _HMG_SYSDATA \[ 486 \] , ;
-      _HMG_SYSDATA \[ 441 \] , ;
-      _HMG_SYSDATA \[ 483 \] , ;
-      _HMG_SYSDATA \[ 484 \] , ;
-      _HMG_SYSDATA \[ 456 \] , _HMG_SYSDATA \[ 391 \] , _HMG_SYSDATA \[ 389 \] , _HMG_SYSDATA \[ 390 \] , _HMG_SYSDATA \[ 479 \] , _HMG_SYSDATA \[ 500 \] , _HMG_SYSDATA \[ 355 \] , _HMG_SYSDATA \[ 354 \] , _HMG_SYSDATA  \[ 246 \] )
+   oHmgApp():APP383     := .F.      ;;
+_DefineBrowse ( oHmgApp():APP416 ,  ;
+      oHmgApp():APP417 ,   ;
+      oHmgApp():APP432 ,      ;
+      oHmgApp():APP431 ,      ;
+      oHmgApp():APP420 ,      ;
+      oHmgApp():APP421 ,      ;
+      oHmgApp():APP445 ,   ;
+      oHmgApp():APP446 ,   ;
+      oHmgApp():APP481 ,   ;
+      oHmgApp():APP434 ,   ;
+      oHmgApp():APP422 ,   ;
+      oHmgApp():APP423 ,   ;
+      oHmgApp():APP424 ,   ;
+      oHmgApp():APP435 ,   ;
+      oHmgApp():APP447  ,  ;
+      oHmgApp():APP448 ,;
+      oHmgApp():APP426 ,   ;
+      oHmgApp():APP427,    ;
+      oHmgApp():APP480 ,   ;
+      oHmgApp():APP482,    ;
+      oHmgApp():APP449 ,   ;
+      oHmgApp():APP450 ,   ;
+      oHmgApp():APP451 ,   ;
+      oHmgApp():APP429  , ;
+      oHmgApp():APP412 , ;
+      oHmgApp():APP413 , ;
+      oHmgApp():APP415 , ;
+      oHmgApp():APP414 , ;
+      oHmgApp():APP443  , ;
+      oHmgApp():APP457 , ;
+      oHmgApp():APP458 , ;
+      oHmgApp():APP485  , ;
+      oHmgApp():APP401 , ;
+      oHmgApp():APP398 , ;
+      oHmgApp():APP486 , ;
+      oHmgApp():APP441 , ;
+      oHmgApp():APP483 , ;
+      oHmgApp():APP484 , ;
+      oHmgApp():APP456 , oHmgApp():APP391 , oHmgApp():APP389 , oHmgApp():APP390 , oHmgApp():APP479 , oHmgApp():ActiveControlFormat , oHmgApp():APP355 , oHmgApp():APP354 , oHmgApp():APP246 )
 
 /*----------------------------------------------------------------------------
 Hyperlink
@@ -1989,66 +1989,66 @@ Hyperlink
 
 #xcommand DEFINE HYPERLINK <name> ;
    =>;
-   _HMG_SYSDATA \[ 416 \]     := <(name)> ;;
-   _HMG_SYSDATA \[ 417 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 432 \]           := NIL          ;;
-   _HMG_SYSDATA \[ 431 \]           := NIL          ;;
-   _HMG_SYSDATA \[ 420 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 421 \]  := NIL      ;;
-        _HMG_SYSDATA \[ 406 \]       := NIL          ;;
-        _HMG_SYSDATA \[ 434 \]         := NIL          ;;
-        _HMG_SYSDATA \[ 409 \]      := .F.          ;;
-        _HMG_SYSDATA \[ 422 \]          := NIL          ;;
-        _HMG_SYSDATA \[ 423 \]          := NIL          ;;
-        _HMG_SYSDATA \[ 412 \]      := .F.          ;;
-        _HMG_SYSDATA \[ 413 \]    := .F.          ;;
-        _HMG_SYSDATA \[ 424 \]       := NIL          ;;
-        _HMG_SYSDATA \[ 457 \]     := NIL          ;;
-        _HMG_SYSDATA \[ 458 \]     := NIL          ;;
-        _HMG_SYSDATA \[ 459 \]        := .F.          ;;
-        _HMG_SYSDATA \[ 460 \]    := .F.          ;;
-        _HMG_SYSDATA \[ 461 \]       := .F.          ;;
-        _HMG_SYSDATA \[ 462 \]       := .F.          ;;
-        _HMG_SYSDATA \[ 463 \]   := .F.          ;;
-        _HMG_SYSDATA \[ 429 \]        := NIL          ;;
-   _HMG_SYSDATA \[ 392 \]  := .F.      ;;
-        _HMG_SYSDATA \[ 430 \]     := .F.          ;;
-   _HMG_SYSDATA \[ 440 \]  := .F.   ;;
-   _HMG_SYSDATA \[ 393 \]  := .F.
+   oHmgApp():APP416     := <(name)> ;;
+   oHmgApp():APP417     := NIL      ;;
+   oHmgApp():APP432           := NIL          ;;
+   oHmgApp():APP431           := NIL          ;;
+   oHmgApp():APP420     := NIL      ;;
+   oHmgApp():APP421  := NIL      ;;
+        oHmgApp():APP406       := NIL          ;;
+        oHmgApp():APP434         := NIL          ;;
+        oHmgApp():APP409      := .F.          ;;
+        oHmgApp():APP422          := NIL          ;;
+        oHmgApp():APP423          := NIL          ;;
+        oHmgApp():APP412      := .F.          ;;
+        oHmgApp():APP413    := .F.          ;;
+        oHmgApp():APP424       := NIL          ;;
+        oHmgApp():APP457     := NIL          ;;
+        oHmgApp():APP458     := NIL          ;;
+        oHmgApp():APP459        := .F.          ;;
+        oHmgApp():IsBCC77    := .F.          ;;
+        oHmgApp():APP461       := .F.          ;;
+        oHmgApp():APP462       := .F.          ;;
+        oHmgApp():APP463   := .F.          ;;
+        oHmgApp():APP429        := NIL          ;;
+   oHmgApp():APP392  := .F.      ;;
+       oHmgApp():APP430    := .F.          ;;
+   oHmgApp():APP440  := .F.   ;;
+   oHmgApp():APP393  := .F.
 
 
 
 #xcommand END HYPERLINK ;
    =>;
 _DefineLabel (      ;
-   _HMG_SYSDATA \[ 416 \],    ;
-   _HMG_SYSDATA \[ 417 \],    ;
-   _HMG_SYSDATA \[ 432 \],     ;
-   _HMG_SYSDATA \[ 431 \],     ;
-   _HMG_SYSDATA \[ 434 \],    ;
-   _HMG_SYSDATA \[ 420 \],    ;
-   _HMG_SYSDATA \[ 421 \],    ;
-   _HMG_SYSDATA \[ 422 \],    ;
-   _HMG_SYSDATA \[ 423 \],    ;
-   _HMG_SYSDATA \[ 412 \],    ;
-   _HMG_SYSDATA \[ 459 \] ,   ;
-   _HMG_SYSDATA \[ 460 \] ,  ;
+   oHmgApp():APP416,    ;
+   oHmgApp():APP417,    ;
+   oHmgApp():APP432,     ;
+   oHmgApp():APP431,     ;
+   oHmgApp():APP434,    ;
+   oHmgApp():APP420,    ;
+   oHmgApp():APP421,    ;
+   oHmgApp():APP422,    ;
+   oHmgApp():APP423,    ;
+   oHmgApp():APP412,    ;
+   oHmgApp():APP459 ,   ;
+   oHmgApp():IsBCC77 ,  ;
    .F. ,   ;
    .F. ,   ;
-   _HMG_SYSDATA \[ 463 \] ,   ;
-   _HMG_SYSDATA \[ 457 \]  , ;
-   IF ( valtype(_HMG_SYSDATA \[ 458 \]) = "U" , { 0 , 0 , 255 } , _HMG_SYSDATA \[ 458 \] ) , ;
-   _HMG_SYSDATA \[ 406 \], ;
-   _HMG_SYSDATA \[ 424 \], ;
-   _HMG_SYSDATA \[ 429 \], ;
-   _HMG_SYSDATA \[ 430 \], ;
-   _HMG_SYSDATA \[ 413 \], ;
+   oHmgApp():APP463 ,   ;
+   oHmgApp():APP457  , ;
+   IF ( valtype( oHmgApp():APP458 ) = "U" , { 0 , 0 , 255 } , oHmgApp():APP458 ) , ;
+   oHmgApp():APP406, ;
+   oHmgApp():APP424, ;
+   oHmgApp():APP429, ;
+  oHmgApp():APP430, ;
+   oHmgApp():APP413, ;
    .t., ;
    .F. , ;
-   _HMG_SYSDATA \[ 409 \] , ;
-   _HMG_SYSDATA \[ 440 \] , ;
-   _HMG_SYSDATA \[ 393 \] ) ;;
-   IF ( _HMG_SYSDATA \[ 392 \] , INITHYPERLINKCURSOR ( GetControlhandle ( _HMG_SYSDATA \[ 416 \] , IF ( !empty(_HMG_SYSDATA \[ 223 \]) , _HMG_SYSDATA \[ 223 \] , _HMG_SYSDATA \[ 417 \] ) ) ) , _DUMMY() )
+   oHmgApp():APP409 , ;
+   oHmgApp():APP440 , ;
+   oHmgApp():APP393 ) ;;
+   IF ( oHmgApp():APP392 , INITHYPERLINKCURSOR ( GetControlhandle ( oHmgApp():APP416 , IF ( !empty( oHmgApp():ActiveFormName ) , oHmgApp():ActiveFormName, oHmgApp():APP417 ) ) ) , _DUMMY() )
 
 /*----------------------------------------------------------------------------
 Spinner
@@ -2057,63 +2057,63 @@ Spinner
 
 #xcommand DEFINE SPINNER <name>;
    =>;
-   _HMG_SYSDATA \[ 416 \]     := <(name)> ;;
-   _HMG_SYSDATA \[ 417 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 432 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 431 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 420 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 434 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 422 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 423 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 465 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 466 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 424 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 435 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 427 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 426 \]  := NIL      ;;
-   _HMG_SYSDATA \[ 421 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 429 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 412 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 413 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 414 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 415 \]  := .F.      ;;
-   _HMG_SYSDATA \[ 428 \]    := .F.   ;;
-   _HMG_SYSDATA \[ 457 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 458 \]     := NIL      ;;
-   _HMG_SYSDATA \[ 404 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 441 \]     := .F.      ;;
-   _HMG_SYSDATA \[ 405 \]     := NIL      ;;
-        _HMG_SYSDATA \[ 430 \]         := .F.   ;;
-   _HMG_SYSDATA \[ 428 \]     := .F.
+   oHmgApp():APP416     := <(name)> ;;
+   oHmgApp():APP417     := NIL      ;;
+   oHmgApp():APP432     := NIL      ;;
+   oHmgApp():APP431     := NIL      ;;
+   oHmgApp():APP420     := NIL      ;;
+   oHmgApp():APP434     := NIL      ;;
+   oHmgApp():APP422     := NIL      ;;
+   oHmgApp():APP423     := NIL      ;;
+   oHmgApp():APP465     := NIL      ;;
+   oHmgApp():APP466     := NIL      ;;
+   oHmgApp():APP424     := NIL      ;;
+   oHmgApp():APP435     := NIL      ;;
+   oHmgApp():APP427  := NIL      ;;
+   oHmgApp():APP426  := NIL      ;;
+   oHmgApp():APP421     := NIL      ;;
+   oHmgApp():APP429     := NIL      ;;
+   oHmgApp():APP412     := .F.      ;;
+   oHmgApp():APP413  := .F.      ;;
+   oHmgApp():APP414  := .F.      ;;
+   oHmgApp():APP415  := .F.      ;;
+   oHmgApp():APP428    := .F.   ;;
+   oHmgApp():APP457     := NIL      ;;
+   oHmgApp():APP458     := NIL      ;;
+   oHmgApp():APP404     := .F.      ;;
+   oHmgApp():APP441     := .F.      ;;
+   oHmgApp():APP405     := NIL      ;;
+       oHmgApp():APP430        := .F.   ;;
+   oHmgApp():APP428     := .F.
 
 #xcommand END SPINNER;
    =>;
    _DefineSpinner(;
-      _HMG_SYSDATA \[ 416 \],;
-      _HMG_SYSDATA \[ 417 \],;
-      _HMG_SYSDATA \[ 432 \],;
-      _HMG_SYSDATA \[ 431 \],;
-      _HMG_SYSDATA \[ 420 \],;
-      _HMG_SYSDATA \[ 434 \],;
-      _HMG_SYSDATA \[ 422 \],;
-      _HMG_SYSDATA \[ 423 \],;
-      _HMG_SYSDATA \[ 465 \],;
-      _HMG_SYSDATA \[ 466 \],;
-      _HMG_SYSDATA \[ 424 \],;
-      _HMG_SYSDATA \[ 435 \],;
-      _HMG_SYSDATA \[ 427 \],;
-      _HMG_SYSDATA \[ 426 \],;
-      _HMG_SYSDATA \[ 421 \],;
-      _HMG_SYSDATA \[ 429 \] , ;
-           _HMG_SYSDATA \[ 430 \] , ;
-      _HMG_SYSDATA \[ 428 \] , ;
-      _HMG_SYSDATA \[ 412 \] , ;
-      _HMG_SYSDATA \[ 413 \] , ;
-      _HMG_SYSDATA \[ 415 \] , ;
-      _HMG_SYSDATA \[ 414 \] , ;
-      _HMG_SYSDATA \[ 404 \] , ;
-      _HMG_SYSDATA \[ 441 \] , ;
-      _HMG_SYSDATA \[ 405 \] ,;
-      _HMG_SYSDATA \[ 457 \],;
-      _HMG_SYSDATA \[ 458 \])
+      oHmgApp():APP416,;
+      oHmgApp():APP417,;
+      oHmgApp():APP432,;
+      oHmgApp():APP431,;
+      oHmgApp():APP420,;
+      oHmgApp():APP434,;
+      oHmgApp():APP422,;
+      oHmgApp():APP423,;
+      oHmgApp():APP465,;
+      oHmgApp():APP466,;
+      oHmgApp():APP424,;
+      oHmgApp():APP435,;
+      oHmgApp():APP427,;
+      oHmgApp():APP426,;
+      oHmgApp():APP421,;
+      oHmgApp():APP429 , ;
+          oHmgApp():APP430, ;
+      oHmgApp():APP428 , ;
+      oHmgApp():APP412 , ;
+      oHmgApp():APP413 , ;
+      oHmgApp():APP415 , ;
+      oHmgApp():APP414 , ;
+      oHmgApp():APP404 , ;
+      oHmgApp():APP441 , ;
+      oHmgApp():APP405 ,;
+      oHmgApp():APP457,;
+      oHmgApp():APP458)
 

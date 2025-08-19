@@ -57,12 +57,12 @@ Function Main
             MAXLENGTH 10
 
         @ 80,200 TEXTBOX TEXT_2;
-	    WIDTH 150 ;	
+       WIDTH 150 ;   
             FIELD TEST->FIRST ;
             MAXLENGTH 30
 
         @ 110,200 TEXTBOX TEXT_3;
-	    WIDTH 150 ;	
+       WIDTH 150 ;   
             FIELD TEST->LAST ;
             MAXLENGTH 30
 

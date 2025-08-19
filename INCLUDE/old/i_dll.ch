@@ -37,19 +37,19 @@
 
  Parts of this project are based upon:
 
-	"Harbour GUI framework for Win32"
- 	Copyright 2001 Alexander S.Kresin <alex@belacy.belgorod.su>
- 	Copyright 2001 Antonio Linares <alinares@fivetech.com>
-	www - http://www.harbour-project.org
+   "Harbour GUI framework for Win32"
+    Copyright 2001 Alexander S.Kresin <alex@belacy.belgorod.su>
+    Copyright 2001 Antonio Linares <alinares@fivetech.com>
+   www - http://www.harbour-project.org
 
-	"Harbour Project"
-	Copyright 1999-2003, http://www.harbour-project.org/
+   "Harbour Project"
+   Copyright 1999-2003, http://www.harbour-project.org/
 
-	"WHAT32"
-	Copyright 2002 AJ Wos <andrwos@aust1.net> 
+   "WHAT32"
+   Copyright 2002 AJ Wos <andrwos@aust1.net> 
 
-	"HWGUI"
-  	Copyright 2001-2007 Alexander S.Kresin <alex@belacy.belgorod.su>
+   "HWGUI"
+     Copyright 2001-2007 Alexander S.Kresin <alex@belacy.belgorod.su>
 
 ---------------------------------------------------------------------------*/
 
@@ -113,19 +113,19 @@
                                                      [, <typeN> <uParamN> ] ) ;
              IN <*DllName*> [FLAGS <flags>]  ;
        => ;
-	[<static>] function <FuncName> ( [<uParam1>] [,<uParamN>] ) ;;
-	local uResult ;;
-	uResult = CallDLL32( <(FuncName)> , <(DllName)> [, <uParam1> ] [, <uParamN> ] ) ;;
-	return uResult
+   [<static>] function <FuncName> ( [<uParam1>] [,<uParamN>] ) ;;
+   local uResult ;;
+   uResult = CallDLL32( <(FuncName)> , <(DllName)> [, <uParam1> ] [, <uParamN> ] ) ;;
+   return uResult
 
 #xcommand DECLARE <return> [<static:STATIC>] <FuncName>( [ <type1> <uParam1>  ] ;
                                                      [, <typeN> <uParamN> ] ) ;
              IN <DllName> ALIAS <alias> [FLAGS <flags>]  ;
        => ;
-	[<static>] function <alias> ( [<uParam1>] [,<uParamN>] ) ;;
-	local uResult ;;
-	uResult = CallDLL32( <(FuncName)> , <(DllName)> [, <uParam1> ] [, <uParamN> ] ) ;;
-	return uResult
+   [<static>] function <alias> ( [<uParam1>] [,<uParamN>] ) ;;
+   local uResult ;;
+   uResult = CallDLL32( <(FuncName)> , <(DllName)> [, <uParam1> ] [, <uParamN> ] ) ;;
+   return uResult
 
 
 

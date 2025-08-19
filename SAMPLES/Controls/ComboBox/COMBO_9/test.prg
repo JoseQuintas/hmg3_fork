@@ -1,6 +1,6 @@
 /*
-	HMG ComboBox Image Property Demo
-	(c) 2008 Roberto Lopez
+   HMG ComboBox Image Property Demo
+   (c) 2008 Roberto Lopez
 */
 
 #Include "hmg.ch"
@@ -41,59 +41,59 @@ The first, the image index for the items, the second, the item text.
 
 */
 
-Function Main() 		
+Function Main()       
 Local aImages := { '00.bmp' ,'01.bmp' , '02.bmp' , '03.bmp' , '04.bmp' , '05.bmp' , '06.bmp' , '07.bmp' , '08.bmp' , '09.bmp' }
 
-	Use Cidades Alias Cidades New
-	Index On Descricao To Cidades1
+   Use Cidades Alias Cidades New
+   Index On Descricao To Cidades1
 
-	DEFINE WINDOW Form_1			;
-		AT 0,0				;
-		WIDTH 500			;  
-		HEIGHT 120			;
-		TITLE "Exemplos ComboBox New"	;		
-		MAIN				;      
-		NOMAXIMIZE			;
-		NOSIZE				
+   DEFINE WINDOW Form_1         ;
+      AT 0,0            ;
+      WIDTH 500         ;  
+      HEIGHT 120         ;
+      TITLE "Exemplos ComboBox New"   ;      
+      MAIN            ;      
+      NOMAXIMIZE         ;
+      NOSIZE            
 
-		DEFINE MAIN MENU
-			DEFINE POPUP '&Test'
-				MENUITEM 'Get Combo_1 Value' ACTION MsgInfo( Str ( Form_1.Combo_1.Value ) )
-				MENUITEM 'Set Combo_1 Value' ACTION Form_1.Combo_1.Value := 2
-				MENUITEM 'Refresh Combo_1' ACTION Form_1.Combo_1.Refresh
-			END POPUP
-		END MENU
-
-
-		@ 10, 10 COMBOBOX Combo_1				;
-			ITEMSOURCE CIDADES->CODIGO , CIDADES->DESCRICAO	; 
-			VALUE 5						;
-			WIDTH 200					;
-			HEIGHT 100					;
-			IMAGE aImages 					;
-			DROPPEDWIDTH 500				;
-			ON DROPDOWN PlayBeep()				;
-			ON CLOSEUP PlayAsterisk()		
+      DEFINE MAIN MENU
+         DEFINE POPUP '&Test'
+            MENUITEM 'Get Combo_1 Value' ACTION MsgInfo( Str ( Form_1.Combo_1.Value ) )
+            MENUITEM 'Set Combo_1 Value' ACTION Form_1.Combo_1.Value := 2
+            MENUITEM 'Refresh Combo_1' ACTION Form_1.Combo_1.Refresh
+         END POPUP
+      END MENU
 
 
-		DEFINE COMBOBOX Combo_2
-			ROW 10
-			COL 250
-			ITEMSOURCE CIDADES->CODIGO , CIDADES->DESCRICAO
-			VALUE 2
-			WIDTH 200					
-			HEIGHT 100					
-			IMAGE aImages
-			DROPPEDWIDTH 350
-			ONDROPDOWN PlayBeep()
-			ONCLOSEUP PlayAsterisk()		
-		END COMBOBOX
+      @ 10, 10 COMBOBOX Combo_1            ;
+         ITEMSOURCE CIDADES->CODIGO , CIDADES->DESCRICAO   ; 
+         VALUE 5                  ;
+         WIDTH 200               ;
+         HEIGHT 100               ;
+         IMAGE aImages                ;
+         DROPPEDWIDTH 500            ;
+         ON DROPDOWN PlayBeep()            ;
+         ON CLOSEUP PlayAsterisk()      
 
-	END WINDOW		
 
-	CENTER WINDOW   Form_1
+      DEFINE COMBOBOX Combo_2
+         ROW 10
+         COL 250
+         ITEMSOURCE CIDADES->CODIGO , CIDADES->DESCRICAO
+         VALUE 2
+         WIDTH 200               
+         HEIGHT 100               
+         IMAGE aImages
+         DROPPEDWIDTH 350
+         ONDROPDOWN PlayBeep()
+         ONCLOSEUP PlayAsterisk()      
+      END COMBOBOX
 
-	ACTIVATE WINDOW Form_1
+   END WINDOW      
+
+   CENTER WINDOW   Form_1
+
+   ACTIVATE WINDOW Form_1
 
 Return
 

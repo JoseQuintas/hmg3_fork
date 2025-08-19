@@ -37,27 +37,27 @@
 
  Parts of this project are based upon:
 
-	"Harbour GUI framework for Win32"
- 	Copyright 2001 Alexander S.Kresin <alex@belacy.belgorod.su>
- 	Copyright 2001 Antonio Linares <alinares@fivetech.com>
-	www - http://www.harbour-project.org
+   "Harbour GUI framework for Win32"
+    Copyright 2001 Alexander S.Kresin <alex@belacy.belgorod.su>
+    Copyright 2001 Antonio Linares <alinares@fivetech.com>
+   www - http://www.harbour-project.org
 
-	"Harbour Project"
-	Copyright 1999-2009, http://www.harbour-project.org/
+   "Harbour Project"
+   Copyright 1999-2009, http://www.harbour-project.org/
 
-	"WHAT32"
-	Copyright 2002 AJ Wos <andrwos@aust1.net>
+   "WHAT32"
+   Copyright 2002 AJ Wos <andrwos@aust1.net>
 
-	"HWGUI"
-  	Copyright 2001-2007 Alexander S.Kresin <alex@belacy.belgorod.su>
+   "HWGUI"
+     Copyright 2001-2007 Alexander S.Kresin <alex@belacy.belgorod.su>
 
 ---------------------------------------------------------------------------*/
 
-	#xcommand LOAD REPORT <w> ;
-	=> ;
-	_HMG_SYSDATA \[ 162 \] := <"w"> ;;
-	#include \<<w>.rmg\>  ;;
-	#xtranslate \<w\> . Execute ( \<p1\> , \<p2\> ) => ExecuteReport ( \<"w"\> , \<p1\> , \<p2\> )
+   #xcommand LOAD REPORT <w> ;
+   => ;
+   oHmgApp():APP162 := <"w"> ;;
+   #include \<<w>.rmg\>  ;;
+   #xtranslate \<w\> . Execute ( \<p1\> , \<p2\> ) => ExecuteReport ( \<"w"\> , \<p1\> , \<p2\> )
 
 
 * Report Main .................................................................
@@ -72,17 +72,17 @@
 
 * Skip Expression .............................................................
 
-#xcommand ITERATOR <xValue> => _HMG_SYSDATA \[206\] := <{xValue}>
-#xcommand STOPPER <xValue> => _HMG_SYSDATA \[207\] := <{xValue}>
+#xcommand ITERATOR <xValue> => oHmgApp():APP206 := <{xValue}>
+#xcommand STOPPER <xValue> => oHmgApp():APP207 := <{xValue}>
 
 * Layout ......................................................................
 
 #xcommand BEGIN LAYOUT => _BeginLayout()
-#xcommand ORIENTATION	<nValue> => _HMG_SYSDATA \[155\] := <nValue>
-#xcommand PAPERSIZE	<nValue> => _HMG_SYSDATA \[156\] := <nValue>
+#xcommand ORIENTATION   <nValue> => oHmgApp():APP155 := <nValue>
+#xcommand PAPERSIZE   <nValue> => oHmgApp():APP156 := <nValue>
 
-#xcommand PAPERWIDTH	<nValue> => _HMG_SYSDATA \[118\] := <nValue>
-#xcommand PAPERLENGTH	<nValue> => _HMG_SYSDATA \[119\] := <nValue>
+#xcommand PAPERWIDTH   <nValue> => oHmgApp():APP118 := <nValue>
+#xcommand PAPERLENGTH   <nValue> => oHmgApp():APP119 := <nValue>
 
 #xcommand END LAYOUT  => _EndLayout()
 
@@ -122,8 +122,8 @@
 #xcommand END TEXT  => _EndText()
 
 #xcommand EXPRESSION <value> ;
-	=>;
-	_HMG_SYSDATA \[ 116 \] := <"value">
+   =>;
+   oHmgApp():APP116 := <"value">
 
 
 * Line ......................................................................
@@ -139,12 +139,12 @@
 
 #xcommand END PICTURE  => _EndImage()
 
-#xcommand FROMROW	<nValue> => _HMG_SYSDATA \[ 110 \] := <nValue>
-#xcommand FROMCOL	<nValue> => _HMG_SYSDATA \[ 111 \] := <nValue>
-#xcommand TOROW		<nValue> => _HMG_SYSDATA \[ 112 \] := <nValue>
-#xcommand TOCOL		<nValue> => _HMG_SYSDATA \[ 113 \] := <nValue>
-#xcommand PENWIDTH	<nValue> => _HMG_SYSDATA \[ 114 \] := <nValue>
-#xcommand PENCOLOR	<aValue> => _HMG_SYSDATA \[ 115 \] := <aValue>
+#xcommand FROMROW   <nValue> => oHmgApp():APP110 := <nValue>
+#xcommand FROMCOL   <nValue> => oHmgApp():APP111 := <nValue>
+#xcommand TOROW      <nValue> => oHmgApp():APP112 := <nValue>
+#xcommand TOCOL      <nValue> => oHmgApp():APP113 := <nValue>
+#xcommand PENWIDTH   <nValue> => oHmgApp():APP114 := <nValue>
+#xcommand PENCOLOR   <aValue> => oHmgApp():APP115 := <aValue>
 
 * Rectangle ...................................................................
 
@@ -154,11 +154,11 @@
 
 * Misc ************************************************************************
 
-#xtranslate Application.CurrentReport.PageNumber => _HMG_SYSDATA \[ 117 \]
+#xtranslate Application.CurrentReport.PageNumber => oHmgApp():APP117
 
-#xtranslate _PageNo => _HMG_SYSDATA \[ 117 \]
+#xtranslate _PageNo => oHmgApp():APP117
 
-#xtranslate _PageCount => HMG_LEN (_HMG_SYSDATA \[ 160 \])
+#xtranslate _PageCount => HMG_LEN (oHmgApp():APP160)
 
 
 * Execute *********************************************************************
@@ -194,8 +194,8 @@ ExecuteReport ( <"ReportName"> , .f. , .f. , <FileName> )
 
 
 #xcommand GROUPEXPRESSION <value> ;
-	=>;
-	_HMG_SYSDATA \[ 125 \] := <"value">
+   =>;
+   oHmgApp():APP125 := <"value">
 
 
 #xcommand END GROUP  => _EndGroup()

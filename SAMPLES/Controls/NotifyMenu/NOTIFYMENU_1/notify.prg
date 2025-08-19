@@ -6,8 +6,8 @@
 
 Function Main
 
-	Load Window Notify
-	Activate Window Notify
+   Load Window Notify
+   Activate Window Notify
 
 Return
 

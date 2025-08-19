@@ -6,8 +6,8 @@
 
 Function Main
 
-	Load Window ToolBar
-	Activate Window ToolBar
+   Load Window ToolBar
+   Activate Window ToolBar
 
 Return
 

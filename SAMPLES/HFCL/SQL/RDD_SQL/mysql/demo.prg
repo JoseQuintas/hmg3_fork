@@ -23,41 +23,41 @@ REQUEST SDDMY, SQLMIX
 Function Main
 LOCAL hConn
 
-	RDDSETDEFAULT("SQLMIX")
+   RDDSETDEFAULT("SQLMIX")
 
-	IF RDDINFO(RDDI_CONNECT, {"MYSQL", "localhost", "root","1234", "test"}) == 0
-		MSGSTOP("Unable connect to the server")
-		RETURN 
-	ENDIF
+   IF RDDINFO(RDDI_CONNECT, {"MYSQL", "localhost", "root","1234", "test"}) == 0
+      MSGSTOP("Unable connect to the server")
+      RETURN 
+   ENDIF
 
-	CreateTable()
+   CreateTable()
 
-	DBUSEAREA( .T.,, "SELECT * FROM country", "country" )
+   DBUSEAREA( .T.,, "SELECT * FROM country", "country" )
 
-	DEFINE WINDOW Win_1 ;
-		ROW 0 ;
-		COL 0 ;
-		WIDTH 500 ;
-		HEIGHT 400 ;
-		TITLE 'RDD SQL' ;
-		WINDOWTYPE MAIN  
+   DEFINE WINDOW Win_1 ;
+      ROW 0 ;
+      COL 0 ;
+      WIDTH 500 ;
+      HEIGHT 400 ;
+      TITLE 'RDD SQL' ;
+      WINDOWTYPE MAIN  
 
-		DEFINE GRID grid1
-			ROW 		10
-			COL 		10
-			WIDTH		470			
-			HEIGHT		330
-			HEADERS 	{'Code','Name','Residents'}
-			WIDTHS		{135,155,135}
-			ROWSOURCE	"COUNTRY"
-			COLUMNFIELDS	{'Code','Name','Residents'}
-		END GRID
+      DEFINE GRID grid1
+         ROW       10
+         COL       10
+         WIDTH      470         
+         HEIGHT      330
+         HEADERS    {'Code','Name','Residents'}
+         WIDTHS      {135,155,135}
+         ROWSOURCE   "COUNTRY"
+         COLUMNFIELDS   {'Code','Name','Residents'}
+      END GRID
 
-	END WINDOW
+   END WINDOW
 
-	Win_1.Center
+   Win_1.Center
 
-	Win_1.Activate
+   Win_1.Activate
 
 Return
 

@@ -6,9 +6,9 @@
 
 Function Main
 
-	Load Window Test
-	Center Window Test
-	Activate Window Test
+   Load Window Test
+   Center Window Test
+   Activate Window Test
 
 Return
 

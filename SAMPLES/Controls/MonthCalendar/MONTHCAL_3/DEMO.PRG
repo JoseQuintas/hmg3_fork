@@ -46,7 +46,7 @@ Function Main
          CAPTION "GET DATE" ;
          ACTION MsgInfo ( GetDate ( Form_1.Month_1.Value ) , "Info" )
 
-		// month calendar 2
+      // month calendar 2
 
       @ 210,10 MONTHCALENDAR Month_2 ;
          VALUE CTOD("01/01/2001") ;
@@ -77,11 +77,11 @@ Function Main
          CAPTION "GET DATE" ;
          ACTION MsgInfo ( GetDate ( Form_1.Month_2.Value ) , "Info" )
 
-	END WINDOW
+   END WINDOW
 
-	CENTER WINDOW Form_1
+   CENTER WINDOW Form_1
 
-	ACTIVATE WINDOW Form_1
+   ACTIVATE WINDOW Form_1
 
 Return Nil
 

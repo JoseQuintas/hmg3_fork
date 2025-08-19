@@ -9,33 +9,33 @@
 
 Function Main
 
-	DEFINE WINDOW Form_Main ;
-		AT 0,0 ;
-		WIDTH 640 HEIGHT 480 ;
-		TITLE 'Main Window' ;
-		MAIN ;
-		NOSHOW 
+   DEFINE WINDOW Form_Main ;
+      AT 0,0 ;
+      WIDTH 640 HEIGHT 480 ;
+      TITLE 'Main Window' ;
+      MAIN ;
+      NOSHOW 
 
-	END WINDOW
+   END WINDOW
 
-	DEFINE WINDOW Form_Splash ;
-		AT 0,0 ;
-		WIDTH 500 HEIGHT 200 ;
-		TITLE '';
-		TOPMOST NOCAPTION ;
-		ON INIT SplashDelay() ;
-		ON RELEASE Form_Main.Maximize()
+   DEFINE WINDOW Form_Splash ;
+      AT 0,0 ;
+      WIDTH 500 HEIGHT 200 ;
+      TITLE '';
+      TOPMOST NOCAPTION ;
+      ON INIT SplashDelay() ;
+      ON RELEASE Form_Main.Maximize()
 
-		@ 70,10 LABEL Label_1 ;
-		WIDTH 500 HEIGHT 40 ;
-		VALUE 'Splash WIndow (Wait a Moment)' ;
-		FONT 'Arial' SIZE 24 
+      @ 70,10 LABEL Label_1 ;
+      WIDTH 500 HEIGHT 40 ;
+      VALUE 'Splash WIndow (Wait a Moment)' ;
+      FONT 'Arial' SIZE 24 
 
-	END WINDOW
+   END WINDOW
 
-	CENTER WINDOW Form_Splash
+   CENTER WINDOW Form_Splash
 
-	ACTIVATE WINDOW Form_Splash , Form_Main
+   ACTIVATE WINDOW Form_Splash , Form_Main
 
 Return Nil
 
@@ -43,12 +43,12 @@ Procedure SplashDelay()
 
 Local iTime
 
-	iTime := Seconds()
+   iTime := Seconds()
 
-	Do While Seconds() - iTime < 5
-	EndDo
+   Do While Seconds() - iTime < 5
+   EndDo
 
-	Form_Splash.Release
+   Form_Splash.Release
 
 Return
 

@@ -37,98 +37,98 @@
 
  Parts of this project are based upon:
 
-	"Harbour GUI framework for Win32"
- 	Copyright 2001 Alexander S.Kresin <alex@belacy.belgorod.su>
- 	Copyright 2001 Antonio Linares <alinares@fivetech.com>
-	www - http://www.harbour-project.org
+   "Harbour GUI framework for Win32"
+    Copyright 2001 Alexander S.Kresin <alex@belacy.belgorod.su>
+    Copyright 2001 Antonio Linares <alinares@fivetech.com>
+   www - http://www.harbour-project.org
 
-	"Harbour Project"
-	Copyright 1999-2003, http://www.harbour-project.org/
+   "Harbour Project"
+   Copyright 1999-2003, http://www.harbour-project.org/
 
-	"WHAT32"
-	Copyright 2002 AJ Wos <andrwos@aust1.net>
+   "WHAT32"
+   Copyright 2002 AJ Wos <andrwos@aust1.net>
 
-	"HWGUI"
-  	Copyright 2001-2007 Alexander S.Kresin <alex@belacy.belgorod.su>
+   "HWGUI"
+     Copyright 2001-2007 Alexander S.Kresin <alex@belacy.belgorod.su>
 
 ---------------------------------------------------------------------------*/
 #xcommand @ <row>,<col> COMBOBOX <name> ;
-		[ <dummy1: OF, PARENT> <parent> ] ;
-		[ WIDTH <w> ] ;
-		[ HEIGHT <h> ] ;
-		[ ITEMS <aRows> ] ;
-		[ ITEMSOURCE <itemsource, ...> ] ;
-		[ VALUE <value> ] ;
-		[ VALUESOURCE <valuesource> ] ;
-		[ <displayedit : DISPLAYEDIT> ] ;
-		[ FONT <f> ] ;
-		[ SIZE <n> ] ;
-		[ <bold : BOLD> ] ;
-		[ <italic : ITALIC> ] ;
-		[ <underline : UNDERLINE> ] ;
-		[ <strikeout : STRIKEOUT> ] ;
-		[ TOOLTIP <tooltip> ] ;
-		[ ON GOTFOCUS <gotfocus> ] ;
-		[ ON CHANGE <changeprocedure> ] ;
-		[ ON LOSTFOCUS <lostfocus> ] ;
-		[ ON ENTER <enter> ] ;
-		[ ON DISPLAYCHANGE <ondisplaychangeprocedure> ] ;
-		[ <notabstop : NOTABSTOP> ] ;
-		[ HELPID <helpid> ] 		;
-		[ <invisible : INVISIBLE> ] ;
-		[ <sort : SORT> ] ;
-		[ IMAGE <aImage> ] 		;
-		[ DROPPEDWIDTH <droppedwidth> ] ;
-		[ ON DROPDOWN <dropdown> ] ;
-		[ ON CLOSEUP <closeup> ] ;
+      [ <dummy1: OF, PARENT> <parent> ] ;
+      [ WIDTH <w> ] ;
+      [ HEIGHT <h> ] ;
+      [ ITEMS <aRows> ] ;
+      [ ITEMSOURCE <itemsource, ...> ] ;
+      [ VALUE <value> ] ;
+      [ VALUESOURCE <valuesource> ] ;
+      [ <displayedit : DISPLAYEDIT> ] ;
+      [ FONT <f> ] ;
+      [ SIZE <n> ] ;
+      [ <bold : BOLD> ] ;
+      [ <italic : ITALIC> ] ;
+      [ <underline : UNDERLINE> ] ;
+      [ <strikeout : STRIKEOUT> ] ;
+      [ TOOLTIP <tooltip> ] ;
+      [ ON GOTFOCUS <gotfocus> ] ;
+      [ ON CHANGE <changeprocedure> ] ;
+      [ ON LOSTFOCUS <lostfocus> ] ;
+      [ ON ENTER <enter> ] ;
+      [ ON DISPLAYCHANGE <ondisplaychangeprocedure> ] ;
+      [ <notabstop : NOTABSTOP> ] ;
+      [ HELPID <helpid> ]       ;
+      [ <invisible : INVISIBLE> ] ;
+      [ <sort : SORT> ] ;
+      [ IMAGE <aImage> ]       ;
+      [ DROPPEDWIDTH <droppedwidth> ] ;
+      [ ON DROPDOWN <dropdown> ] ;
+      [ ON CLOSEUP <closeup> ] ;
       [ ON CANCEL <OnCancel> ];
       [ <NoTrans : NOTRANSPARENT> ] ;
-	=>;
-	_DefineCombo ( <(name)>, <(parent)>, <col>, <row>, <w>, <aRows> , <value>, ;
+   =>;
+   _DefineCombo ( <(name)>, <(parent)>, <col>, <row>, <w>, <aRows> , <value>, ;
                   <f>, <n>, <tooltip>, <{changeprocedure}>, <h>, ;
                   <{gotfocus}>, <{lostfocus}>, <{enter}>, <helpid>, ;
                   <.invisible.>, <.notabstop.>, <.sort.> ,<.bold.>, ;
-		<.italic.>, <.underline.>, <.strikeout.> , \{<"itemsource">\} , ;
-		<"valuesource"> , <.displayedit.> , ;
-		<{ondisplaychangeprocedure}> ,  .f. , "" , <aImage> , <droppedwidth> , <{dropdown}> , <{closeup}> , <{OnCancel}>, <.NoTrans.> )
+      <.italic.>, <.underline.>, <.strikeout.> , \{<"itemsource">\} , ;
+      <"valuesource"> , <.displayedit.> , ;
+      <{ondisplaychangeprocedure}> ,  .f. , "" , <aImage> , <droppedwidth> , <{dropdown}> , <{closeup}> , <{OnCancel}>, <.NoTrans.> )
 
 // SPLITBOX VERSION
 
 #xcommand COMBOBOX <name> ;
-		[ <dummy1: OF, PARENT> <parent> ] ;
-		[ WIDTH <w> ] ;
-		[ HEIGHT <h> ] ;
-		[ ITEMS <aRows> ] ;
-		[ ITEMSOURCE <itemsource> ] ;
-		[ VALUE <value> ] ;
-		[ VALUESOURCE <valuesource> ] ;
-		[ <displayedit : DISPLAYEDIT> ] ;
-		[ FONT <f> ] ;
-		[ SIZE <n> ] ;
-		[ <bold : BOLD> ] ;
-		[ <italic : ITALIC> ] ;
-		[ <underline : UNDERLINE> ] ;
-		[ <strikeout : STRIKEOUT> ] ;
-		[ TOOLTIP <tooltip> ] ;
-		[ ON GOTFOCUS <gotfocus> ] ;
-		[ ON CHANGE <changeprocedure> ] ;
-		[ ON LOSTFOCUS <lostfocus> ] ;
-		[ ON ENTER <enter> ] ;
-		[ ON DISPLAYCHANGE <ondisplaychangeprocedure> ] ;
-		[ <notabstop : NOTABSTOP> ] ;
-		[ HELPID <helpid> ] 		;
-		[ GRIPPERTEXT <grippertext> ] ;
-		[ <break: BREAK> ] ;
-		[ <invisible : INVISIBLE> ] ;
-		[ <sort : SORT> ] ;
-		[ IMAGE <aImage> ] 		;
-		[ DROPPEDWIDTH <droppedwidth> ] ;
-		[ ON DROPDOWN <dropdown> ] ;
-		[ ON CLOSEUP <closeup> ] ;
+      [ <dummy1: OF, PARENT> <parent> ] ;
+      [ WIDTH <w> ] ;
+      [ HEIGHT <h> ] ;
+      [ ITEMS <aRows> ] ;
+      [ ITEMSOURCE <itemsource> ] ;
+      [ VALUE <value> ] ;
+      [ VALUESOURCE <valuesource> ] ;
+      [ <displayedit : DISPLAYEDIT> ] ;
+      [ FONT <f> ] ;
+      [ SIZE <n> ] ;
+      [ <bold : BOLD> ] ;
+      [ <italic : ITALIC> ] ;
+      [ <underline : UNDERLINE> ] ;
+      [ <strikeout : STRIKEOUT> ] ;
+      [ TOOLTIP <tooltip> ] ;
+      [ ON GOTFOCUS <gotfocus> ] ;
+      [ ON CHANGE <changeprocedure> ] ;
+      [ ON LOSTFOCUS <lostfocus> ] ;
+      [ ON ENTER <enter> ] ;
+      [ ON DISPLAYCHANGE <ondisplaychangeprocedure> ] ;
+      [ <notabstop : NOTABSTOP> ] ;
+      [ HELPID <helpid> ]       ;
+      [ GRIPPERTEXT <grippertext> ] ;
+      [ <break: BREAK> ] ;
+      [ <invisible : INVISIBLE> ] ;
+      [ <sort : SORT> ] ;
+      [ IMAGE <aImage> ]       ;
+      [ DROPPEDWIDTH <droppedwidth> ] ;
+      [ ON DROPDOWN <dropdown> ] ;
+      [ ON CLOSEUP <closeup> ] ;
       [ ON CANCEL <OnCancel> ];
       [ <NoTrans : NOTRANSPARENT> ] ;
-	=>;
-	_DefineCombo ( <(name)>, <(parent)>, , , <w>, <aRows> , <value>, ;
+   =>;
+   _DefineCombo ( <(name)>, <(parent)>, , , <w>, <aRows> , <value>, ;
                   <f>, <n>, <tooltip>, <{changeprocedure}>, <h>, ;
                   <{gotfocus}>, <{lostfocus}>, <{enter}>, <helpid>, ;
                   <.invisible.>, <.notabstop.>, <.sort.> ,<.bold.>, <.italic.>, <.underline.>, <.strikeout.> ,;

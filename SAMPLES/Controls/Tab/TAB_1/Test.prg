@@ -6,8 +6,8 @@
 
 Function Main
 
-	Load Window Test
-	Activate Window Test
+   Load Window Test
+   Activate Window Test
 
 Return
 

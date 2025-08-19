@@ -2,37 +2,37 @@
 /*----------------------------------------------------------------------------
  HMG DEBUGGER - GUI Debugger for HMG
 
- Copyright 2015-2016 by Dr. Claudio Soto (from Uruguay). 
+ Copyright 2015-2016 by Dr. Claudio Soto (from Uruguay).
  mail: <srvet@adinet.com.uy>
  blog: http://srvet.blogspot.com
 
- This program is free software; you can redistribute it and/or modify it under 
- the terms of the GNU General Public License as published by the Free Software 
- Foundation; either version 2 of the License, or (at your option) any later 
- version. 
+ This program is free software; you can redistribute it and/or modify it under
+ the terms of the GNU General Public License as published by the Free Software
+ Foundation; either version 2 of the License, or (at your option) any later
+ version.
 
- This program is distributed in the hope that it will be useful, but WITHOUT 
- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS 
+ This program is distributed in the hope that it will be useful, but WITHOUT
+ ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
  You should have received a copy of the GNU General Public License
  along with this program; if not, write to the Free Software
  Foundation, Inc., 51 Franklin Street, Fifth Floor Boston, MA 02110-1301, USA
  (or visit their web site at http://www.gnu.org/).
- 
- As a special exception, you have permission for additional uses of the text 
+
+ As a special exception, you have permission for additional uses of the text
  contained in this release of HMG DEBUGGER.
 
- The exception is that, if you link the HMG DEBUGGER library with other 
- files to produce an executable, this does not by itself cause the resulting 
+ The exception is that, if you link the HMG DEBUGGER library with other
+ files to produce an executable, this does not by itself cause the resulting
  executable to be covered by the GNU General Public License.
- Your use of that executable is in no way restricted on account of linking the 
+ Your use of that executable is in no way restricted on account of linking the
  HMG DEBUGGER library code into it.
 ----------------------------------------------------------------------------*/
 
 #pragma DEBUGINFO=OFF
 
-MEMVAR _HMG_SYSDATA, _HMG_MainWindowFirst
+MEMVAR _HMG_SYSDATA
 
 #include "hmg.ch"
 #include "common.ch"
@@ -43,7 +43,7 @@ MEMVAR _HMG_SYSDATA, _HMG_MainWindowFirst
 #define _HMG_DEBUGGER_ICON_       "_dbgIcon"
 /*****************************************************************************************************/
 
-#command IFENTRY( <l> ) => IF <l> == .T.; RETURN; ELSE; <l> := .T.; ENDIF 
+#command IFENTRY( <l> ) => IF <l> == .T.; RETURN; ELSE; <l> := .T.; ENDIF
 
 
 #define SM_CXVSCROLL   2   // The width of a vertical scroll bar, in pixels.
@@ -146,17 +146,18 @@ LOCAL aFiles, lOldMainFirst
 
       InitGUICodeBlocks()
 
-      lOldMainFirst := HMG_ActivateMainWindowFirst( .F. )
+      lOldMainFirst := oHmgApp():ActivateMainWindowFirst
+      oHmgApp():ActivateMainWindowFirst := .F.
 
 #define _HMG_DEBUGGER_MSG_   "Wait while the debugger is loaded ..." + hb_Eol()
 HMG_DebuggerWaitMessage( _HMG_DEBUGGER_MSG_ + "( DEFINE WINDOW )" )
 
       SET FONT TO "Calibri", 11
-      
+
       #define MIN_WIDTH  650
       #define MIN_HEIGHT 550
-      
-      DEFINE WINDOW _HMG_FormDebugger;  
+
+      DEFINE WINDOW _HMG_FormDebugger;
          AT 0,0;
          WIDTH 0;
          HEIGHT 0;
@@ -166,8 +167,8 @@ HMG_DebuggerWaitMessage( _HMG_DEBUGGER_MSG_ + "( DEFINE WINDOW )" )
          ON INTERACTIVECLOSE .F.;
          ON INIT AjustControlSize();
          ON MAXIMIZE AjustControlSize();
-         ON SIZE ( Iif( ThisWindow.WIDTH < MIN_WIDTH,   ThisWindow.WIDTH  := MIN_WIDTH,  NIL ),; 
-                   Iif( ThisWindow.HEIGHT < MIN_HEIGHT, ThisWindow.HEIGHT := MIN_HEIGHT, NIL ),; 
+         ON SIZE ( Iif( ThisWindow.WIDTH < MIN_WIDTH,   ThisWindow.WIDTH  := MIN_WIDTH,  NIL ),;
+                   Iif( ThisWindow.HEIGHT < MIN_HEIGHT, ThisWindow.HEIGHT := MIN_HEIGHT, NIL ),;
                    AjustControlSize() )
 
          ON KEY RETURN ACTION OnKeyPress( VK_RETURN )
@@ -187,7 +188,7 @@ HMG_DebuggerWaitMessage( _HMG_DEBUGGER_MSG_ + "( DEFINE WINDOW )" )
          ON KEY CONTROL+F3   ACTION  MenuOption( ID_pause )
          ON KEY F9           ACTION  MenuOption( ID_breakpoint )
          ON KEY ALT+X        ACTION  MenuOption( ID_quit )
- 
+
          DEFINE MAIN MENU
             DEFINE POPUP "Run"
                   MENUITEM "&Animate"        +Chr( 9 )+"F3"        ACTION  MenuOption( ID_animate )    TOOLTIP 'Run in Animate mode'                 NAME Menu_Animate    CHECKED
@@ -199,7 +200,7 @@ HMG_DebuggerWaitMessage( _HMG_DEBUGGER_MSG_ + "( DEFINE WINDOW )" )
                   SEPARATOR
                   MENUITEM "&Pause"          +Chr( 9 )+"Ctrl+F3"   ACTION  MenuOption( ID_pause )      TOOLTIP 'Pause any run mode'                  NAME Menu_Pause      CHECKED
             END POPUP
-            
+
             DEFINE POPUP "Point"
                   MENUITEM "&BreakPoint"     +Chr( 9 )+"F9"        ACTION  MenuOption( ID_breakpoint )    TOOLTIP 'Toggle BreakPoint'
                   MENUITEM "&TracePoint"                           ACTION  MenuOption( ID_tracepoint )    TOOLTIP 'Add TracePoint'
@@ -240,7 +241,7 @@ HMG_DebuggerWaitMessage( _HMG_DEBUGGER_MSG_ + "( DEFINE WINDOW )" )
             END TOOLBAR
 
          END SPLITBOX
-      
+
          @ 0,nWIDTH() LABEL Label_1 VALUE "" AUTOSIZE
          @ 0,0 BUTTON Button_Refresh CAPTION "Refresh" PICTURE "_refresh" LEFT ACTION UpdateGrids() TOOLTIP "Refresh Grid Data" WIDTH 100 HEIGHT 30 FONT "Calibri" SIZE 10 BOLD ITALIC
 
@@ -254,15 +255,15 @@ HMG_DebuggerWaitMessage( _HMG_DEBUGGER_MSG_ + "( DEFINE WINDOW )" )
             DEFINE PAGE "Source"
 
 HMG_DebuggerWaitMessage( _HMG_DEBUGGER_MSG_ + '( DEFINE PAGE "Source" )' )
-               @ 0,0 COMBOBOX ComboBox_SourceCode ITEMS HMG_Debugger():GetSourceFiles() FONT "Arial"  SIZE 10; 
+               @ 0,0 COMBOBOX ComboBox_SourceCode ITEMS HMG_Debugger():GetSourceFiles() FONT "Arial"  SIZE 10;
                      VALUE 1;
                      ON CHANGE UpdateGrids() ;
                      ON GOTFOCUS  ( nComboBoxValue := _HMG_FormDebugger.ComboBox_SourceCode.VALUE )
-                     
+
                bBackColor := {|| IIF ( This.CellRowIndex == nCurrentLineCode .AND. aGrid_SourceCode[ nComboBoxValue ][2], COLOR_LightGoldenrod1, NIL ) }
-   
+
                aFiles := HMG_Debugger():GetSourceFiles()
-            
+
                FOR i := 1 TO Len( aFiles )
 HMG_DebuggerWaitMessage( _HMG_DEBUGGER_MSG_ + '( DEFINE PAGE "Source" ) >>> ' + aFiles[ i ] )
                   cGrid_SourceCode := "Grid_SourceCode_" + hb_ntos( i )
@@ -275,20 +276,20 @@ HMG_DebuggerWaitMessage( _HMG_DEBUGGER_MSG_ + '( DEFINE PAGE "Source" ) >>> ' + 
                      WIDTHS  { 0, 0 };
                      FONT "Arial"  SIZE 10  BOLD;
                      BACKCOLOR COLOR_Gainsboro;
-                     FONTCOLOR COLOR_DarkGreen; 
+                     FONTCOLOR COLOR_DarkGreen;
                      DYNAMICBACKCOLOR { bBackColor, bBackColor };
                      DYNAMICFORECOLOR { {|| GetForeColorSourceCode() }, {|| GetForeColorSourceCode() } };
                      NOLINES
-                  
+
                      SetProperty( "_HMG_FormDebugger", aGrid_SourceCode[i][1], "ColumnDYNAMICFONT", 1, {|| GetFontSourceCode() } )
                      SetProperty( "_HMG_FormDebugger", aGrid_SourceCode[i][1], "ColumnDYNAMICFONT", 2, {|| GetFontSourceCode() } )
-                     
+
                      SetProperty( "_HMG_FormDebugger", aGrid_SourceCode[i][1], "Image", .T., {"_pointer"} )
                      SetProperty( "_HMG_FormDebugger", aGrid_SourceCode[i][1], "PaintDoubleBuffer", .T. )
-                  
+
                      LoadPrg( aGrid_SourceCode[i][1], aFiles[i] )
                NEXT
-               
+
             END PAGE
 
             DEFINE PAGE "Stack"
@@ -303,7 +304,7 @@ HMG_DebuggerWaitMessage( _HMG_DEBUGGER_MSG_ + '( DEFINE PAGE "Stack" )' )
                   WIDTHS  { 80, 150, 300, 100 };
                   FONT "Arial"  SIZE 10  BOLD;
                   BACKCOLOR COLOR_Gainsboro;
-                  FONTCOLOR COLOR_NavyBlue; 
+                  FONTCOLOR COLOR_NavyBlue;
                   DYNAMICFORECOLOR { bForeColor, bForeColor, bForeColor, bForeColor };
                   NOLINES;
                   TOOLTIP "Press ENTER to see the source code"
@@ -321,7 +322,7 @@ HMG_DebuggerWaitMessage( _HMG_DEBUGGER_MSG_ + '( DEFINE PAGE "Watch" )' )
                   WIDTHS  { 0, 0, 0, 100, 100, 100 };
                   FONT "Arial"  SIZE 10  BOLD;
                   BACKCOLOR COLOR_Gainsboro;
-                  FONTCOLOR COLOR_NavyBlue; 
+                  FONTCOLOR COLOR_NavyBlue;
                   DYNAMICFORECOLOR { {||GetForeColorWatch()}, {||GetForeColorWatch()}, {||GetForeColorWatch()}, {||GetForeColorWatch()}, {||GetForeColorWatch()}, {||GetForeColorWatch()} };
                   NOLINES;
                   TOOLTIP "Press ENTER to edit the expression and press DELETE to delete item"
@@ -337,7 +338,7 @@ HMG_DebuggerWaitMessage( _HMG_DEBUGGER_MSG_ + '( DEFINE PAGE "Watch" )' )
                      TOOLTIP "Watch type"
                SET CONTROL Label_WatchType OF _HMG_FormDebugger CLIENTEDGE
 
-               @ 0,0 TEXTBOX TextBox_Watch  VALUE "" BOLD BACKCOLOR COLOR_Wheat1 FONT "Arial"  SIZE 10 FONTCOLOR COLOR_Chocolate4; 
+               @ 0,0 TEXTBOX TextBox_Watch  VALUE "" BOLD BACKCOLOR COLOR_Wheat1 FONT "Arial"  SIZE 10 FONTCOLOR COLOR_Chocolate4;
                      TOOLTIP "Watch expression"
                _HMG_FormDebugger.TextBox_Watch.Enabled := .F.
 
@@ -357,7 +358,7 @@ HMG_DebuggerWaitMessage( _HMG_DEBUGGER_MSG_ + '( DEFINE PAGE "Evaluate" )' )
                   WIDTHS  { MIN_WIDTH / 2, MIN_WIDTH / 3 };
                   FONT "Arial"  SIZE 10  BOLD;
                   BACKCOLOR COLOR_Gainsboro;
-                  FONTCOLOR COLOR_NavyBlue; 
+                  FONTCOLOR COLOR_NavyBlue;
                   NOLINES;
                   TOOLTIP "Press ENTER to copy expression for evaluate and press DELETE to delete item"
 
@@ -383,13 +384,13 @@ HMG_DebuggerWaitMessage( _HMG_DEBUGGER_MSG_ + '( DEFINE PAGE "Variables" )' )
                   WIDTHS  { 80, 100, 300, 100, 100 };
                   FONT "Arial"  SIZE 10  BOLD;
                   BACKCOLOR COLOR_Gainsboro;
-                  FONTCOLOR COLOR_NavyBlue; 
+                  FONTCOLOR COLOR_NavyBlue;
                   DYNAMICFORECOLOR { {||GetForeColorVars()}, {||GetForeColorVars()}, {||GetForeColorVars()}, {||GetForeColorVars()}, {||GetForeColorVars()} };
                   NOLINES;
                   TOOLTIP "Press ENTER for inspect the value of variables"
 
                   _HMG_FormDebugger.Grid_Vars.PaintDoubleBuffer := .T.
-                  
+
             END PAGE
 
             DEFINE PAGE "Areas"
@@ -402,14 +403,14 @@ HMG_DebuggerWaitMessage( _HMG_DEBUGGER_MSG_ + '( DEFINE PAGE "Areas" )' )
                   WIDTHS  { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
                   FONT "Arial"  SIZE 10  BOLD;
                   BACKCOLOR COLOR_Gainsboro;
-                  FONTCOLOR COLOR_NavyBlue; 
+                  FONTCOLOR COLOR_NavyBlue;
                   NOLINES;
                   TOOLTIP "Available work areas";
                   ON CHANGE ( UpdateGridRec() , _HMG_FormDebugger.Grid_Areas.SETFOCUS )
-                  
+
                   _HMG_FormDebugger.Grid_Areas.PaintDoubleBuffer := .T.
-                  
-                  
+
+
                @ 0,0 GRID Grid_Rec;
                   WIDTH 0;
                   HEIGHT 0;
@@ -417,10 +418,10 @@ HMG_DebuggerWaitMessage( _HMG_DEBUGGER_MSG_ + '( DEFINE PAGE "Areas" )' )
                   WIDTHS  { 0, 0, 0, 0 };
                   FONT "Arial"  SIZE 10  BOLD;
                   BACKCOLOR COLOR_Gainsboro;
-                  FONTCOLOR COLOR_DarkGreen; 
+                  FONTCOLOR COLOR_DarkGreen;
                   NOLINES;
                   TOOLTIP "Value of current RECORD in the selected work area"
-                  
+
                   _HMG_FormDebugger.Grid_Rec.PaintDoubleBuffer := .T.
 
             END PAGE
@@ -429,20 +430,20 @@ HMG_DebuggerWaitMessage( _HMG_DEBUGGER_MSG_ + '( DEFINE PAGE "Areas" )' )
 
 HMG_DebuggerWaitMessage( _HMG_DEBUGGER_MSG_ + '( DEFINE PAGE "Setting" )' )
                   @ 0,0 FRAME Frame_Config WIDTH 0 HEIGHT 0
-                  
+
                   @ 0,0 CHECKBOX CheckBox_Config1 CAPTION "Allow Tracing of Code Blocks"       VALUE .T. FONT "Arial"  SIZE 10  ITALIC BOLD ON CHANGE( HMG_Debugger():lCBTrace := _HMG_FormDebugger.CheckBox_Config1.VALUE, HMG_Debugger():SetCBTrace( HMG_Debugger():lCBTrace ) )
                   @ 0,0 CHECKBOX CheckBox_Config2 CAPTION "Stop at BreakPoint in Animate mode" VALUE .T. FONT "Arial"  SIZE 10  ITALIC BOLD ON CHANGE( HMG_Debugger():lAnimateStopBP := _HMG_FormDebugger.CheckBox_Config2.VALUE )
                   @ 0,0 CHECKBOX CheckBox_Config3 CAPTION "Stop at TracePoint in Animate mode" VALUE .T. FONT "Arial"  SIZE 10  ITALIC BOLD ON CHANGE( HMG_Debugger():lAnimateStopTP := _HMG_FormDebugger.CheckBox_Config3.VALUE )
-                  _HMG_FormDebugger.CheckBox_Config1.WIDTH := GetTextWidth (NIL, _HMG_FormDebugger.CheckBox_Config1.CAPTION, _HMG_SYSDATA [ 36 ] [ _HMG_FormDebugger.CheckBox_Config1.INDEX ] ) + 50
-                  _HMG_FormDebugger.CheckBox_Config2.WIDTH := GetTextWidth (NIL, _HMG_FormDebugger.CheckBox_Config2.CAPTION, _HMG_SYSDATA [ 36 ] [ _HMG_FormDebugger.CheckBox_Config2.INDEX ] ) + 50
-                  _HMG_FormDebugger.CheckBox_Config3.WIDTH := GetTextWidth (NIL, _HMG_FormDebugger.CheckBox_Config3.CAPTION, _HMG_SYSDATA [ 36 ] [ _HMG_FormDebugger.CheckBox_Config3.INDEX ] ) + 50
-                  
+                  _HMG_FormDebugger.CheckBox_Config1.WIDTH := GetTextWidth (NIL, _HMG_FormDebugger.CheckBox_Config1.CAPTION, ControlByIndex( _HMG_FormDebugger.CheckBox_Config1.INDEX ):CTRL036 ) + 50
+                  _HMG_FormDebugger.CheckBox_Config2.WIDTH := GetTextWidth (NIL, _HMG_FormDebugger.CheckBox_Config2.CAPTION, ControlByIndex( _HMG_FormDebugger.CheckBox_Config2.INDEX ):CTRL036 ) + 50
+                  _HMG_FormDebugger.CheckBox_Config3.WIDTH := GetTextWidth (NIL, _HMG_FormDebugger.CheckBox_Config3.CAPTION, ControlByIndex( _HMG_FormDebugger.CheckBox_Config3.INDEX ):CTRL036 ) + 50
+
                   @ 0,0 LABEL Label_Config VALUE "Speed in Animate mode ( in milliseconds ) " AUTOSIZE FONT "Arial"  SIZE 10  ITALIC BOLD
                   @ 0,0 SPINNER Spinner_Config  RANGE 0, 65534 VALUE 0 FONT "Arial"  SIZE 10  ON CHANGE( HMG_Debugger():nSpeed := _HMG_FormDebugger.Spinner_Config.VALUE )
-                  
+
                   @ 0,0 BUTTON Button_Config1 CAPTION "Load" PICTURE "_open" LEFT ACTION LoadSettings()
                   @ 0,0 BUTTON Button_Config2 CAPTION "Save" PICTURE "_save" LEFT ACTION SaveSettings()
-                  
+
             END PAGE
 
             DEFINE PAGE "About"
@@ -450,7 +451,7 @@ HMG_DebuggerWaitMessage( _HMG_DEBUGGER_MSG_ + '( DEFINE PAGE "Setting" )' )
 HMG_DebuggerWaitMessage( _HMG_DEBUGGER_MSG_ + '( DEFINE PAGE "About" )' )
                @ 0, 0 IMAGE Image_1 PICTURE "_about" TOOLTIP "Click here for open the blog of author: http://srvet.blogspot.com" ON CLICK ShellExecute(0, "open", "rundll32.exe", "url.dll,FileProtocolHandler http://srvet.blogspot.com", NIL, 1)
                SetWindowCursor (_HMG_FormDebugger.Image_1.HANDLE, IDC_HAND)
-               
+
             END PAGE
 
          END TAB
@@ -467,7 +468,7 @@ HMG_DebuggerWaitMessage( _HMG_DEBUGGER_MSG_ + '( ACTIVATE WINDOW )' )
       MenuCheckRunMode( ID_pause )
       _HMG_FormDebugger.Menu_Setting.CHECKED := .F.
       _HMG_FormDebugger.NoClose := .T.
-      _HMG_FormDebugger.WIDTH  := 700 
+      _HMG_FormDebugger.WIDTH  := 700
       _HMG_FormDebugger.HEIGHT := GetDesktopRealHeight()
       _HMG_FormDebugger.ROW    := GetDesktopRealTop()
       _HMG_FormDebugger.COL    := ( GetDesktopRealLeft() + GetDesktopRealWidth()  - _HMG_FormDebugger.WIDTH )
@@ -477,14 +478,14 @@ HMG_DebuggerWaitMessage( _HMG_DEBUGGER_MSG_ + '( ACTIVATE WINDOW )' )
       HMG_DebuggerWaitMessage()
 
       ACTIVATE WINDOW DEBUGGER _HMG_FormDebugger   // Activate Window and Install Hooks without calling the Message Loop
-      HMG_ActivateMainWindowFirst( lOldMainFirst )
+      oHmgApp():ActivateMainWindowFirst := lOldMainFirst
 
       IF hb_FileExists( HMG_Debugger():cSettingsFileName )
          RestoreSettings( HMG_Debugger():cSettingsFileName )
       ELSE
          HMG_Debugger():cSettingsFileName := ""
       ENDIF
-      
+
       _HMG_FormDebugger.REDRAW
       DoEvents()
 
@@ -606,7 +607,7 @@ LOCAL cTitle, nRow, aInfo
 LOCAL aItems, aObjRawValue
 LOCAL cFormAux, cGridAux
 LOCAL nCol, lOldMainFirst
- 
+
    cFormName := StrTran( cFormName, " ")   // remove all spaces
    cFormName := StrTran( cFormName, "'")   // remove all quotes
    cFormName := StrTran( cFormName, '"')   // remove all double quotes
@@ -643,11 +644,12 @@ LOCAL nCol, lOldMainFirst
       ELSE
          cTitle := cVarName + " is of class: " + xVarValue:ClassName()   // Object
       ENDIF
-      
+
       aInfo := GET_HMG_SYSDATA()
-      _HMG_SYSDATA [ 223 ] := ""
-      
-      lOldMainFirst := HMG_ActivateMainWindowFirst( .F. )
+      oHmgApp():ActiveFormName := ""
+
+      lOldMainFirst := oHmgApp():ActivateMainWindowFirst
+      oHmgApp():ActivateMainWindowFirst := .F.
 
       DEFINE WINDOW &cFormName;
          AT 0,0;
@@ -658,7 +660,7 @@ LOCAL nCol, lOldMainFirst
          ON MAXIMIZE Ajust( cFormName, cGridName );
          ON SIZE     Ajust( cFormName, cGridName );
          ON RELEASE  DeleteDbgForm( cFormName )
-         
+
          @ nHEIGHT() , nWIDTH() GRID &cGridName;
             WIDTH 0;
             HEIGHT 0;
@@ -667,34 +669,34 @@ LOCAL nCol, lOldMainFirst
             ITEMS aItems;
             FONT "Arial"  SIZE 10  BOLD;
             BACKCOLOR COLOR_Gainsboro;
-            FONTCOLOR COLOR_NavyBlue; 
+            FONTCOLOR COLOR_NavyBlue;
             DYNAMICFORECOLOR { {|| aColor }, {|| aColor }, {|| aColor } };
             NOLINES;
             TOOLTIP "Press ENTER for inspect the value of variables"
-            
+
          ON KEY RETURN ACTION OnKeyPress_DisplayVars( VK_RETURN, cFormName, cGridName, xVarValue, aObjRawValue, aColor )
          ON KEY ESCAPE ACTION OnKeyPress_DisplayVars( VK_ESCAPE, cFormName )
-            
+
          SetProperty( cFormName, cGridName, "PaintDoubleBuffer", .T. )
          SetProperty( cFormName, cGridName, "ColumnWIDTH", 1, GRID_WIDTH_AUTOSIZE )
          SetProperty( cFormName, cGridName, "ColumnWIDTH", 3, GRID_WIDTH_AUTOSIZE )
-         
+
          IF GetProperty( cFormName, cGridName, "ColumnWIDTH", 1 ) < 300
             SetProperty( cFormName, cGridName, "ColumnWIDTH", 1, 300 )
          ENDIF
          IF GetProperty( cFormName, cGridName, "ColumnWIDTH", 3 ) < 100
             SetProperty( cFormName, cGridName, "ColumnWIDTH", 3, 100 )
          ENDIF
-            
+
       END WINDOW
       AddDbgForm( cFormName )
 
       CENTER WINDOW &cFormName
       ACTIVATE WINDOW DEBUGGER &cFormName   // Activate Window without calling the Message Loop and Not Exit the App at Close this Form
-      HMG_ActivateMainWindowFirst( lOldMainFirst )
+      oHmgApp():ActivateMainWindowFirst := lOldMainFirst
 
       PUT_HMG_SYSDATA( aInfo )
-      
+
 RETURN
 
 
@@ -727,54 +729,54 @@ LOCAL nHeight := GetProperty( cFormName, "HEIGHT" ) - GetProperty( cFormName, cG
 RETURN
 
 
-FUNCTION GET_HMG_SYSDATA() 
+FUNCTION GET_HMG_SYSDATA()
 LOCAL aInfo := ARRAY( 21 )
-   aInfo[  1 ] := _HMG_SYSDATA [ 223 ]   // _HMG_ActiveFormName
-   aInfo[  2 ] := _HMG_SYSDATA [ 214 ]   // _HMG_TempWindowName
-   aInfo[  3 ] := _HMG_SYSDATA [ 235 ]   // LOAD WINDOW optional row
-   aInfo[  4 ] := _HMG_SYSDATA [ 236 ]   // LOAD WINDOW optional col
-   aInfo[  5 ] := _HMG_SYSDATA [ 237 ]   // LOAD WINDOW optional width
-   aInfo[  6 ] := _HMG_SYSDATA [ 238 ]   // LOAD WINDOW optional height
-   aInfo[  7 ] := _HMG_SYSDATA [ 183 ]   // _HMG_FrameLevel
-   aInfo[  8 ] := _HMG_SYSDATA [ 181 ]   // _HMG_MainHandle
-   aInfo[  9 ] := _HMG_SYSDATA [ 240 ]   // Parent Window Active
-   aInfo[ 10 ] := _HMG_SYSDATA [ 215 ]   // _HMG_ActiveFormNameBak
-   aInfo[ 11 ] := _HMG_SYSDATA [ 224 ]   // _HMG_ActiveFontName
-   aInfo[ 12 ] := _HMG_SYSDATA [ 182 ]   // _HMG_ActiveFontSize
-   aInfo[ 13 ] := _HMG_SYSDATA [ 264 ]   // _HMG_BeginWindowActive
-   aInfo[ 14 ] := _HMG_SYSDATA [ 265 ]   // _HMG_BeginTabActive
-   aInfo[ 15 ] := _HMG_SYSDATA [ 164 ]   // _HMG_MainIndex
-   aInfo[ 16 ] := _HMG_SYSDATA [  55 ]   // ToolTip Style
-   aInfo[ 17 ] := _HMG_SYSDATA [  56 ]   // ToolTip BackColor
-   aInfo[ 18 ] := _HMG_SYSDATA [  57 ]   // Tooltip ForeColor
-   aInfo[ 19 ] := _HMG_SYSDATA [ 225 ]   // _HMG_ActiveTabName
-   aInfo[ 20 ] := _HMG_SYSDATA [ 342 ]   // _HMG_DefaultFontName
-   aInfo[ 21 ] := _HMG_SYSDATA [ 343 ]   // _HMG_DefaultFontSize
+   aInfo[  1 ] := oHmgApp():ActiveFormName // _HMG_ActiveFormName
+   aInfo[  2 ] := oHmgApp():APP214   // _HMG_TempWindowName
+   aInfo[  3 ] := oHmgApp():APP235   // LOAD WINDOW optional row
+   aInfo[  4 ] := oHmgApp():APP236   // LOAD WINDOW optional col
+   aInfo[  5 ] := oHmgApp():APP237   // LOAD WINDOW optional width
+   aInfo[  6 ] := oHmgApp():APP238   // LOAD WINDOW optional height
+   aInfo[  7 ] := oHmgApp():FrameLevel   // _HMG_FrameLevel
+   aInfo[  8 ] := oHmgApp():MainHandle   // _HMG_MainHandle
+   aInfo[  9 ] := oHmgApp():APP240   // Parent Window Active
+   aInfo[ 10 ] := oHmgApp():APP215   // _HMG_ActiveFormNameBak
+   aInfo[ 11 ] := oHmgApp():APP224   // _HMG_ActiveFontName
+   aInfo[ 12 ] := oHmgApp():ActiveFontSize   // _HMG_ActiveFontSize
+   aInfo[ 13 ] := oHmgApp():APP264   // _HMG_BeginWindowActive
+   aInfo[ 14 ] := oHmgApp():BeginTabActive   // _HMG_BeginTabActive
+   aInfo[ 15 ] := oHmgApp():MainIndex   // _HMG_MainIndex
+   aInfo[ 16 ] := oHmgApp():APP055   // ToolTip Style
+   aInfo[ 17 ] := oHmgApp():APP056   // ToolTip BackColor
+   aInfo[ 18 ] := oHmgApp():APP057   // Tooltip ForeColor
+   aInfo[ 19 ] := oHmgApp():APP225   // _HMG_ActiveTabName
+   aInfo[ 20 ] := oHmgApp():APP342   // _HMG_DefaultFontName
+   aInfo[ 21 ] := oHmgApp():APP343   // _HMG_DefaultFontSize
 RETURN aInfo
 
 
-FUNCTION PUT_HMG_SYSDATA( aInfo ) 
-   _HMG_SYSDATA [ 223 ] := aInfo[  1 ] 
-   _HMG_SYSDATA [ 214 ] := aInfo[  2 ] 
-   _HMG_SYSDATA [ 235 ] := aInfo[  3 ] 
-   _HMG_SYSDATA [ 236 ] := aInfo[  4 ] 
-   _HMG_SYSDATA [ 237 ] := aInfo[  5 ] 
-   _HMG_SYSDATA [ 238 ] := aInfo[  6 ] 
-   _HMG_SYSDATA [ 183 ] := aInfo[  7 ] 
-   _HMG_SYSDATA [ 181 ] := aInfo[  8 ] 
-   _HMG_SYSDATA [ 240 ] := aInfo[  9 ] 
-   _HMG_SYSDATA [ 215 ] := aInfo[ 10 ] 
-   _HMG_SYSDATA [ 224 ] := aInfo[ 11 ] 
-   _HMG_SYSDATA [ 182 ] := aInfo[ 12 ] 
-   _HMG_SYSDATA [ 264 ] := aInfo[ 13 ] 
-   _HMG_SYSDATA [ 265 ] := aInfo[ 14 ] 
-   _HMG_SYSDATA [ 164 ] := aInfo[ 15 ] 
-   _HMG_SYSDATA [  55 ] := aInfo[ 16 ] 
-   _HMG_SYSDATA [  56 ] := aInfo[ 17 ] 
-   _HMG_SYSDATA [  57 ] := aInfo[ 18 ] 
-   _HMG_SYSDATA [ 225 ] := aInfo[ 19 ]
-   _HMG_SYSDATA [ 342 ] := aInfo[ 20 ]
-   _HMG_SYSDATA [ 343 ] := aInfo[ 21 ]
+FUNCTION PUT_HMG_SYSDATA( aInfo )
+   oHmgApp():ActiveFormName := aInfo[  1 ]
+   oHmgApp():APP214 := aInfo[  2 ]
+   oHmgApp():APP235 := aInfo[  3 ]
+   oHmgApp():APP236 := aInfo[  4 ]
+   oHmgApp():APP237 := aInfo[  5 ]
+   oHmgApp():APP238 := aInfo[  6 ]
+   oHmgApp():FrameLevel := aInfo[  7 ]
+   oHmgApp():MainHandle := aInfo[  8 ]
+   oHmgApp():APP240 := aInfo[  9 ]
+   oHmgApp():APP215 := aInfo[ 10 ]
+   oHmgApp():APP224 := aInfo[ 11 ]
+   oHmgApp():ActiveFontSize := aInfo[ 12 ]
+   oHmgApp():APP264 := aInfo[ 13 ]
+   oHmgApp():BeginTabActive := aInfo[ 14 ]
+   oHmgApp():MainIndex := aInfo[ 15 ]
+   oHmgApp():APP055 := aInfo[ 16 ]
+   oHmgApp():APP056 := aInfo[ 17 ]
+   oHmgApp():APP057 := aInfo[ 18 ]
+   oHmgApp():APP225 := aInfo[ 19 ]
+   oHmgApp():APP342 := aInfo[ 20 ]
+   oHmgApp():APP343 := aInfo[ 21 ]
 RETURN NIL
 
 
@@ -827,7 +829,7 @@ RETURN
 
 PROCEDURE RepaintGridRow ( cFormName, cGridName, nRow )
 LOCAL xValue := GetProperty( cFormName, cGridName, "ITEM", nRow)
-   SetProperty( cFormName, cGridName, "ITEM", nRow, xValue ) 
+   SetProperty( cFormName, cGridName, "ITEM", nRow, xValue )
 RETURN
 
 
@@ -944,7 +946,7 @@ LOCAL hWnd := GetFocus()
             cType := AllTrim( _HMG_FormDebugger.Grid_Watch.CELL( _HMG_FormDebugger.Grid_Watch.CellRowFocused, 2 ) )
             IF cType $ "wp,tp"
                _HMG_FormDebugger.Label_WatchNro.VALUE  := _HMG_FormDebugger.Grid_Watch.CELL( _HMG_FormDebugger.Grid_Watch.CellRowFocused, 1 )
-               _HMG_FormDebugger.Label_WatchType.VALUE := Iif( cType == "wp", "WatchPoint", "TracePoint") 
+               _HMG_FormDebugger.Label_WatchType.VALUE := Iif( cType == "wp", "WatchPoint", "TracePoint")
                _HMG_FormDebugger.TextBox_Watch.VALUE   := _HMG_FormDebugger.Grid_Watch.CELL( _HMG_FormDebugger.Grid_Watch.CellRowFocused, 3 )
                nBtnOption := BTN_EDIT
                _HMG_FormDebugger.TextBox_Watch.ENABLED := .T.
@@ -976,7 +978,7 @@ LOCAL hWnd := GetFocus()
             ENDIF
          ENDIF
          IF nVKey == VK_RETURN .OR. nVKey == VK_ESCAPE
-            _HMG_FormDebugger.Label_WatchNro.VALUE  := "" 
+            _HMG_FormDebugger.Label_WatchNro.VALUE  := ""
             _HMG_FormDebugger.Label_WatchType.VALUE := ""
             _HMG_FormDebugger.TextBox_Watch.VALUE   := ""
             _HMG_FormDebugger.TextBox_Watch.Enabled := .F.
@@ -1008,7 +1010,7 @@ LOCAL hWnd := GetFocus()
          IF nVKey == VK_RETURN
             ViewVars()
          ENDIF
- 
+
    ENDCASE
 
 RETURN
@@ -1088,7 +1090,7 @@ LOCAL i, aux
    // LABEL CONTROL
       //_HMG_FormDebugger.Label_1.ROW  := GetSplitBoxHEIGHT( "_HMG_FormDebugger" ) + 1
       _HMG_FormDebugger.Label_1.ROW  := Iif( lShowSplitBox == .T., GetSplitBoxHEIGHT( "_HMG_FormDebugger" ), 0 ) + nHEIGHT()*0.33
-      
+
    // TAB CONTROL
       //_HMG_FormDebugger.Tab_1.ROW    := nHEIGHT()*2 + GetSplitBoxHEIGHT( "_HMG_FormDebugger" )
       _HMG_FormDebugger.Tab_1.ROW    := nHEIGHT()*2 + Iif( lShowSplitBox == .T., GetSplitBoxHEIGHT( "_HMG_FormDebugger" ), 0 )
@@ -1104,7 +1106,7 @@ LOCAL i, aux
    // TAB_ABOUT
       _HMG_FormDebugger.Image_1.ROW := (_HMG_FormDebugger.Tab_1.HEIGHT - _HMG_FormDebugger.Image_1.HEIGHT)/2
       _HMG_FormDebugger.Image_1.COL := (_HMG_FormDebugger.Tab_1.WIDTH  - _HMG_FormDebugger.Image_1.WIDTH )/2
-         
+
    // TAB_CODE
       FOR i := 1 TO Len( HMG_Debugger():GetSourceFiles() )
          AdjustCtrlInTab( aGrid_SourceCode[i][1], "Tab_1", "_HMG_FormDebugger" )
@@ -1118,7 +1120,7 @@ LOCAL i, aux
          aux := GetProperty( "_HMG_FormDebugger", aGrid_SourceCode[i][1], "HEIGHT" ) - nHEIGHT() * 2.5
          SetProperty( "_HMG_FormDebugger", aGrid_SourceCode[i][1], "HEIGHT", aux )
       NEXT
-         
+
    // TAB_STACK
       AdjustCtrlInTab( "Grid_CallStack", "Tab_1", "_HMG_FormDebugger" )
 
@@ -1205,11 +1207,11 @@ LOCAL i
             ENDIF
          NEXT
 
- 
+
       CASE _HMG_FormDebugger.Tab_1.VALUE == TAB_STACK
          UpdateGridCallStack()
          _HMG_FormDebugger.Button_Refresh.SHOW
-         
+
       CASE _HMG_FormDebugger.Tab_1.VALUE == TAB_WATCH
          UpdateGridWatch()
          _HMG_FormDebugger.Button_Refresh.SHOW
@@ -1280,7 +1282,7 @@ LOCAL i, aWatchInfo
    FOR i := 1 TO HMG_Debugger():WatchCount()
       aWatchInfo := HMG_Debugger():WatchGetInfo( i )
       hb_AIns( aWatchInfo, 1, Str( i ), .T. )   // insert watch number in the first column of grid
-      aWatchInfo[ 6 ] := Iif( aWatchInfo[ 6 ] == ".T.", "Yes", "No")   // lValidExpr 
+      aWatchInfo[ 6 ] := Iif( aWatchInfo[ 6 ] == ".T.", "Yes", "No")   // lValidExpr
       _HMG_FormDebugger.Grid_Watch.AddItem( aWatchInfo )
    NEXT
    _HMG_FormDebugger.Grid_Watch.EnableUpdate
@@ -1307,7 +1309,7 @@ PROCEDURE UpdateGridRec()
 LOCAL i, aRec, cAlias
    cAlias := _HMG_FormDebugger.Grid_Areas.CELL( _HMG_FormDebugger.Grid_Areas.VALUE, 1 )
    IF "*" $ cAlias
-      cAlias := SubStr( cAlias, 2 ) 
+      cAlias := SubStr( cAlias, 2 )
    ENDIF
    aRec := HMG_Debugger():GetRec( cAlias )
    _HMG_FormDebugger.Grid_Rec.DisableUpdate
@@ -1366,7 +1368,7 @@ LOCAL cInfo      := HMG_Debugger():aCurrentLineInfo[ 5 ]
 LOCAL lIni := .F.
 
 
-   _HMG_FormDebugger.Label_1.FONTCOLOR := Iif( Empty( cInfo ), BLACK, RED ) 
+   _HMG_FormDebugger.Label_1.FONTCOLOR := Iif( Empty( cInfo ), BLACK, RED )
    _HMG_FormDebugger.Label_1.VALUE := hb_ValToExp( HMG_Debugger():aCurrentLineInfo )
 
    IF nCurrentLineCode == 0
@@ -1379,7 +1381,7 @@ LOCAL lIni := .F.
 
    i := AScan( HMG_Debugger():GetSourceFiles(), cFileName )
    _HMG_FormDebugger.ComboBox_SourceCode.VALUE := i
-   nComboBoxValue := i 
+   nComboBoxValue := i
 
 
    nCurrentLineCode := nLineCode
@@ -1501,21 +1503,22 @@ __THREAD STATIC nEventIndex := 0
 LOCAL lOldMainFirst
 
    IF .NOT. IsWindowDefined( _HMG_FormDebuggerMessage ) .AND. ValType( cMsg ) == "C"
-      lOldMainFirst := HMG_ActivateMainWindowFirst( .F. )
+      lOldMainFirst := oHmgApp():ActivateMainWindowFirst
+      oHmgApp():ActivateMainWindowFirst := .F.
       DEFINE WINDOW _HMG_FormDebuggerMessage;
-         AT 0,0;  
+         AT 0,0;
          WIDTH  500;
          HEIGHT 120;
          TITLE iif( ValType( cTitle ) <> "C", ( _HMG_DEBUGGER_NAME_ + " - " + GetProgramFileName() ), cTitle );
          NOSYSMENU;
          NOSIZE;
          NOMINIMIZE;
-         NOMAXIMIZE; 
+         NOMAXIMIZE;
          TOPMOST;
          CHILD
 
          #define _CY    nHEIGHT()
-         #define _CX    nWIDTH()*2 
+         #define _CX    nWIDTH()*2
           @ _CY, _CX LABEL Label_1;
                   VALUE  cMsg;
                   WIDTH  _HMG_FormDebuggerMessage.ClientAreaWidth - _CX*2;
@@ -1536,7 +1539,7 @@ LOCAL lOldMainFirst
       CENTER WINDOW _HMG_FormDebuggerMessage
       CREATE EVENT CODEBLOCK {|| DoEvents() } STOREINDEX nEventIndex
       ACTIVATE WINDOW DEBUGGER _HMG_FormDebuggerMessage  // Activate Window and Install Hooks without calling the Message Loop
-      HMG_ActivateMainWindowFirst( lOldMainFirst )
+      oHmgApp():ActivateMainWindowFirst := lOldMainFirst
 
    ELSEIF IsWindowDefined( _HMG_FormDebuggerMessage ) .AND. ValType( cTitle ) == "C"
          _HMG_FormDebuggerMessage.TITLE := cTitle
@@ -1562,20 +1565,20 @@ RETURN
 *--------------------------------------------------------------------------------------------*
 PROCEDURE HMG_DebuggerWaitMessage_SetProgressbar( nValue, nRangeMin, nRangeMax, lMarquee )
 *--------------------------------------------------------------------------------------------*
-   IF  IsControlDefined ( Progressbar_1, _HMG_FormDebuggerMessage ) 
+   IF  IsControlDefined ( Progressbar_1, _HMG_FormDebuggerMessage )
 
       IF ValType( nRangeMin ) == "N"
          _HMG_FormDebuggerMessage.Progressbar_1.RANGEMIN := nRangeMin
       ENDIF
-      
+
       IF ValType( nRangeMax ) == "N"
          _HMG_FormDebuggerMessage.Progressbar_1.RANGEMAX := nRangeMax
       ENDIF
-      
+
       IF ValType( nValue ) == "N"
          _HMG_FormDebuggerMessage.Progressbar_1.VALUE := nValue
       ENDIF
-      
+
       IF ValType( lMarquee ) == "L"
          IF lMarquee == .T.
             SET PROGRESSBAR Progressbar_1 OF _HMG_FormDebuggerMessage ENABLE MARQUEE
@@ -1583,7 +1586,7 @@ PROCEDURE HMG_DebuggerWaitMessage_SetProgressbar( nValue, nRangeMin, nRangeMax, 
             SET PROGRESSBAR Progressbar_1 OF _HMG_FormDebuggerMessage DISABLE MARQUEE
          ENDIF
       ENDIF
-      
+
       DoEvents()
    ENDIF
 RETURN

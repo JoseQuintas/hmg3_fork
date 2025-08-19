@@ -14,36 +14,36 @@
 
 Function Main()
 DEFINE WINDOW Form_1 ;
-	AT 0,0 ;
-	WIDTH 640 HEIGHT 480 ;
-	TITLE 'HMG Demo' ;
-	MAIN BACKCOLOR BLUE
-		
-	DEFINE LABEL Label_1
+   AT 0,0 ;
+   WIDTH 640 HEIGHT 480 ;
+   TITLE 'HMG Demo' ;
+   MAIN BACKCOLOR BLUE
+      
+   DEFINE LABEL Label_1
         ROW    04
         COL    80
         WIDTH  300
         HEIGHT 24
         VALUE "Look at window TITLE"
         FONTNAME "Arial"
-		FONTSIZE 12
-		FONTBOLD .T.
-		FONTCOLOR YELLOW
-		TRANSPARENT .T.
+      FONTSIZE 12
+      FONTBOLD .T.
+      FONTCOLOR YELLOW
+      TRANSPARENT .T.
     END LABEL
-	
-	DEFINE LABEL Label_2
+   
+   DEFINE LABEL Label_2
         ROW    380
         COL    10
         WIDTH  630
         HEIGHT 48
         VALUE "Give a look at files: Compile.bat, MultiPrg.hbp and MultiPrg.hbc"
         FONTNAME "Arial"
-		FONTSIZE 14
-		FONTBOLD .T.
-		FONTCOLOR BLACK
-		ALIGNMENT Center
-		TRANSPARENT .T.
+      FONTSIZE 14
+      FONTBOLD .T.
+      FONTCOLOR BLACK
+      ALIGNMENT Center
+      TRANSPARENT .T.
     END LABEL
 
     DEFINE BUTTON Button_1

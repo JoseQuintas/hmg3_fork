@@ -37,19 +37,19 @@
 
  Parts of this project are based upon:
 
-	"Harbour GUI framework for Win32"
- 	Copyright 2001 Alexander S.Kresin <alex@belacy.belgorod.su>
- 	Copyright 2001 Antonio Linares <alinares@fivetech.com>
-	www - http://www.harbour-project.org
+   "Harbour GUI framework for Win32"
+    Copyright 2001 Alexander S.Kresin <alex@belacy.belgorod.su>
+    Copyright 2001 Antonio Linares <alinares@fivetech.com>
+   www - http://www.harbour-project.org
 
-	"Harbour Project"
-	Copyright 1999-2003, http://www.harbour-project.org/
+   "Harbour Project"
+   Copyright 1999-2003, http://www.harbour-project.org/
 
-	"WHAT32"
-	Copyright 2002 AJ Wos <andrwos@aust1.net> 
+   "WHAT32"
+   Copyright 2002 AJ Wos <andrwos@aust1.net> 
 
-	"HWGUI"
-  	Copyright 2001-2007 Alexander S.Kresin <alex@belacy.belgorod.su>
+   "HWGUI"
+     Copyright 2001-2007 Alexander S.Kresin <alex@belacy.belgorod.su>
 
 ---------------------------------------------------------------------------*/
 #xcommand DRAW LINE IN WINDOW <windowname> AT <frow>,<fcol> ;
@@ -133,89 +133,89 @@
 
 #xcommand DRAW GRAPH IN WINDOW <window> ;
       AT <nT>,<nL> ;
-      TO <nB>,<nR>	;
-      TITLE <cTitle>	;
+      TO <nB>,<nR>   ;
+      TITLE <cTitle>   ;
       TYPE PIE ;
       SERIES <aSer> ;
       DEPTH <nD> ;
-      SERIENAMES <aName>	;
-      COLORS <aColor>			;
-		[ <l3D : 3DVIEW> ]		;
-		[ <lxVal : SHOWXVALUES> ]	; 
-		[ <lSLeg : SHOWLEGENDS> ]	; 
-		[ <lNoborder : NOBORDER> ]	; 
+      SERIENAMES <aName>   ;
+      COLORS <aColor>         ;
+      [ <l3D : 3DVIEW> ]      ;
+      [ <lxVal : SHOWXVALUES> ]   ; 
+      [ <lSLeg : SHOWLEGENDS> ]   ; 
+      [ <lNoborder : NOBORDER> ]   ; 
       => ;
-		DrawPieGraph(<"window">,;
-		<nT>,;
-		<nL>,;
-		<nB>,;
-		<nR>,;
-		<aSer>,;
-		<aName>,;
-		<aColor>,;
-		<cTitle>,;
-		<nD>,;
-		<.l3D.>,;
-		<.lxVal.>,;
-		<.lSLeg.> , <.lNoborder.> )
+      DrawPieGraph(<"window">,;
+      <nT>,;
+      <nL>,;
+      <nB>,;
+      <nR>,;
+      <aSer>,;
+      <aName>,;
+      <aColor>,;
+      <cTitle>,;
+      <nD>,;
+      <.l3D.>,;
+      <.lxVal.>,;
+      <.lSLeg.> , <.lNoborder.> )
 
 #define BARS      1
 #define LINES     2
 #define POINTS    3
 
-#xcommand DRAW GRAPH				;
-		IN WINDOW <window>		;
-		AT <nT>,<nL>			;
-		[ TO <nB>,<nR> ]		;
-		[ TITLE <cTitle> ]		;
-		TYPE <nType>			;
-		SERIES <aSer>			;
-		YVALUES <aYVal>		;
-		DEPTH <nD>			;
-		[ BARWIDTH <nW> ]		;
-		HVALUES <nRange>		;
-		SERIENAMES <aName>		;
-		COLORS <aColor>		;
-		[ <l3D : 3DVIEW> ]		;
-		[ <lGrid : SHOWGRID> ]	; 
-		[ <lxVal : SHOWXVALUES> ]	; 
-		[ <lyVal : SHOWYVALUES> ]	; 
-		[ <lSLeg : SHOWLEGENDS> ]	; 
-		[ LEGENDSWIDTH <nLegendWindth> ] ;
-		[ <lNoborder : NOBORDER> ]	; 
+#xcommand DRAW GRAPH            ;
+      IN WINDOW <window>      ;
+      AT <nT>,<nL>         ;
+      [ TO <nB>,<nR> ]      ;
+      [ TITLE <cTitle> ]      ;
+      TYPE <nType>         ;
+      SERIES <aSer>         ;
+      YVALUES <aYVal>      ;
+      DEPTH <nD>         ;
+      [ BARWIDTH <nW> ]      ;
+      HVALUES <nRange>      ;
+      SERIENAMES <aName>      ;
+      COLORS <aColor>      ;
+      [ <l3D : 3DVIEW> ]      ;
+      [ <lGrid : SHOWGRID> ]   ; 
+      [ <lxVal : SHOWXVALUES> ]   ; 
+      [ <lyVal : SHOWYVALUES> ]   ; 
+      [ <lSLeg : SHOWLEGENDS> ]   ; 
+      [ LEGENDSWIDTH <nLegendWindth> ] ;
+      [ <lNoborder : NOBORDER> ]   ; 
 => ;
-		GraphShow(<"window">,	;
-		<nT>,				;
-		<nL>,				;
-		<nB>,				;
-		<nR>,				;
-		Nil,				;
-		Nil,				;
-		<aSer>,			;
-		<cTitle>,			;
-		<aYVal>,			;
-		<nD>,				;
-		<nW>,;
-		Nil,			;
-		<nRange>,			;
-		<.l3D.>,			;
-		<.lGrid.>,			;
-		.f.,			;
-		.f.,			;
-		<.lxVal.>,			;
-		<.lyVal.>,			;
-		<.lSLeg.>,			;
-		<aName>,			;
-		<aColor>,			;
-		<nType>,			;
-		.f.,			;
-		Nil , <nLegendWindth> , <.lNoborder.> )
+      GraphShow(<"window">,   ;
+      <nT>,            ;
+      <nL>,            ;
+      <nB>,            ;
+      <nR>,            ;
+      Nil,            ;
+      Nil,            ;
+      <aSer>,         ;
+      <cTitle>,         ;
+      <aYVal>,         ;
+      <nD>,            ;
+      <nW>,;
+      Nil,         ;
+      <nRange>,         ;
+      <.l3D.>,         ;
+      <.lGrid.>,         ;
+      .f.,         ;
+      .f.,         ;
+      <.lxVal.>,         ;
+      <.lyVal.>,         ;
+      <.lSLeg.>,         ;
+      <aName>,         ;
+      <aColor>,         ;
+      <nType>,         ;
+      .f.,         ;
+      Nil , <nLegendWindth> , <.lNoborder.> )
 
 #xtranslate PRINT GRAPH [ OF ] <windowname> ;
-	[ <lpreview : PREVIEW> ] ;
-	[ <ldialog : DIALOG> ] ;
-	=>;
-	printgraph ( <"windowname"> , <.lpreview.> , <.ldialog.> )
+   [ <lpreview : PREVIEW> ] ;
+   [ <ldialog : DIALOG> ] ;
+   =>;
+   printgraph ( <"windowname"> , <.lpreview.> , <.ldialog.> )
 
 
 

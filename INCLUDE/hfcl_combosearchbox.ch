@@ -35,92 +35,92 @@
                 <{lostfocus}>, <{gotfocus}>, <{enter}>, ;
                 <.RightAlign.>, <helpid>, <.bold.>, <.italic.>, <.underline.>, <backcolor> , <fontcolor> , <.notabstop.>, <aitems>,<.anywhere.>,<dropheight>, <.additive.>, <nrowoffset>, <ncoloffset>)
 
-	#xcommand ANYWHERESEARCH	<sort>	;
-	=>;
-	_HMG_SYSDATA \[ 464 \]		:= <sort>
-	#xcommand DROPHEIGHT	<dropheight>	;
-	=>;
-	_HMG_SYSDATA \[ 249 \]		:= <dropheight>
-	#xcommand ADDITIVE	<additive>	;
-	=>;
-	_HMG_SYSDATA \[ 439 \]		:= <additive>
-	#xcommand ROWOFFSET	<rowoffset>	;
-	=>;
-	_HMG_SYSDATA \[ 449 \]		:= <rowoffset>
-	#xcommand COLOFFSET	<coloffset>	;
-	=>;
-	_HMG_SYSDATA \[ 450 \]		:= <coloffset>
+   #xcommand ANYWHERESEARCH   <sort>   ;
+   =>;
+   oHmgApp():APP464      := <sort>
+   #xcommand DROPHEIGHT   <dropheight>   ;
+   =>;
+   oHmgApp():APP249      := <dropheight>
+   #xcommand ADDITIVE   <additive>   ;
+   =>;
+   APP:APP439       := <additive>
+   #xcommand ROWOFFSET   <rowoffset>   ;
+   =>;
+   oHmgApp():APP449      := <rowoffset>
+   #xcommand COLOFFSET   <coloffset>   ;
+   =>;
+   oHmgApp():APP450      := <coloffset>
 
 
 
     #xcommand DEFINE COMBOSEARCHBOX <name>;
        =>;
-       _HMG_SYSDATA \[ 416 \]   := <(name)>   ;; //name
-       _HMG_SYSDATA \[ 417 \]   := Nil      ;; //parent
-       _HMG_SYSDATA \[ 431 \]   := Nil      ;; //row
-       _HMG_SYSDATA \[ 432 \]   := Nil      ;; //col
-       _HMG_SYSDATA \[ 421 \]   := Nil      ;; // height
-       _HMG_SYSDATA \[ 420 \]   := Nil      ;; // width
-       _HMG_SYSDATA \[ 434 \]   := Nil      ;; //value
-       _HMG_SYSDATA \[ 422 \]  := Nil      ;; //font
-       _HMG_SYSDATA \[ 423 \]   := Nil      ;; // size
-       _HMG_SYSDATA \[ 412 \]   := .f.      ;; //bold
-       _HMG_SYSDATA \[ 413 \]   := .f.      ;; // italic
-       _HMG_SYSDATA \[ 415 \]   := .f.      ;; // underline
-       _HMG_SYSDATA \[ 424 \]   := Nil      ;; //tooltip
-       _HMG_SYSDATA \[ 457 \]   := Nil      ;; // backcolor
-       _HMG_SYSDATA \[ 458 \]   := Nil      ;; // fontcolor
-       _HMG_SYSDATA \[ 442 \] := Nil   ;; // maxlength
-       _HMG_SYSDATA \[ 475 \] := .f.      ;; //upper
-       _HMG_SYSDATA \[ 476 \]   := .f.      ;;  //lower
-       _HMG_SYSDATA \[ 477 \]   := .f.      ;;  // numeric
-       _HMG_SYSDATA \[ 426 \] := Nil      ;; // gotfocus
-       _HMG_SYSDATA \[ 427 \]   := Nil         ;; //lostfocus
-       _HMG_SYSDATA \[ 437 \]   := Nil         ;; //enter
-       _HMG_SYSDATA \[ 440 \]    := .f.          ;; //rightalign
-       _HMG_SYSDATA \[ 428 \]   := .t.      ;; //tabstop
-       _HMG_SYSDATA \[ 429 \]   := Nil      ;; // helpid
-       _HMG_SYSDATA \[ 436 \]      := Nil   ;;    // items
-       _HMG_SYSDATA \[ 464 \]      := .f.   ;;    // anywhere search
-       _HMG_SYSDATA \[ 249 \]      := 0    ;;// dropped height
-       _HMG_SYSDATA \[ 439 \]      := .f.  ;;  // additive
-       _HMG_SYSDATA \[ 449 \]      := 0    ;;// rowoffset
-       _HMG_SYSDATA \[ 450 \]      := 0    // coloffset
+       oHmgApp():APP416   := <(name)>   ;; //name
+       oHmgApp():APP417   := Nil      ;; //parent
+       oHmgApp():APP431   := Nil      ;; //row
+       oHmgApp():APP432   := Nil      ;; //col
+       oHmgApp():APP421   := Nil      ;; // height
+       oHmgApp():APP420   := Nil      ;; // width
+       oHmgApp():APP434   := Nil      ;; //value
+       oHmgApp():APP422  := Nil      ;; //font
+       oHmgApp():APP423   := Nil      ;; // size
+       oHmgApp():APP412   := .f.      ;; //bold
+       oHmgApp():APP413   := .f.      ;; // italic
+       oHmgApp():APP415   := .f.      ;; // underline
+       oHmgApp():APP424   := Nil      ;; //tooltip
+       oHmgApp():APP457   := Nil      ;; // backcolor
+       oHmgApp():APP458   := Nil      ;; // fontcolor
+       oHmgApp():APP442 := Nil   ;; // maxlength
+       oHmgApp():APP475 := .f.      ;; //upper
+       oHmgApp():APP476   := .f.      ;;  //lower
+       oHmgApp():APP477   := .f.      ;;  // numeric
+       oHmgApp():APP426 := Nil      ;; // gotfocus
+       oHmgApp():APP427   := Nil         ;; //lostfocus
+       oHmgApp():APP437    := Nil         ;; //enter
+       oHmgApp():APP440    := .f.          ;; //rightalign
+       oHmgApp():APP428   := .t.      ;; //tabstop
+       oHmgApp():APP429   := Nil      ;; // helpid
+       oHmgApp():APP436      := Nil   ;;    // items
+       oHmgApp():APP464      := .f.   ;;    // anywhere search
+       oHmgApp():APP249      := 0    ;;// dropped height
+       APP:APP439      := .f.  ;;  // additive
+       oHmgApp():APP449      := 0    ;;// rowoffset
+       oHmgApp():APP450      := 0    // coloffset
 
     #xcommand END COMBOSEARCHBOX;
        =>;
           _DefineComboSearchBox(;
-             _HMG_SYSDATA \[ 416 \],; //name
-             _HMG_SYSDATA \[ 417 \],; //parent
-             _HMG_SYSDATA \[ 432 \],; //col
-             _HMG_SYSDATA \[ 431 \],; //row
-             _HMG_SYSDATA \[ 420 \],; //width
-             _HMG_SYSDATA \[ 421 \],; //height
-             _HMG_SYSDATA \[ 434 \],; //value
-             _HMG_SYSDATA \[ 422 \],; //fontname
-             _HMG_SYSDATA \[ 423 \],; //fontsize
-             _HMG_SYSDATA \[ 424 \],; //tooltip
-             _HMG_SYSDATA \[ 442 \],; //maxlength
-             _HMG_SYSDATA \[ 475 \],; //upper
-             _HMG_SYSDATA \[ 476 \],; //lower
-             _HMG_SYSDATA \[ 477 \],; //numeric
-             _HMG_SYSDATA \[ 427 \],; //lostfocus
-             _HMG_SYSDATA \[ 426 \],; //gotfocus
-             _HMG_SYSDATA \[ 437 \],; //enter
-             _HMG_SYSDATA \[ 440 \],; //rightalign
-             _HMG_SYSDATA \[ 429 \],; //helpid
-             _HMG_SYSDATA \[ 412 \],; //bold
-             _HMG_SYSDATA \[ 413 \] , ; //italic
-             _HMG_SYSDATA \[ 415 \],; //underline
-             _HMG_SYSDATA \[ 457 \] , ; //backcolor
-             _HMG_SYSDATA \[ 458 \] , ;// fontcolor
-             _HMG_SYSDATA \[ 428 \] ,; //tabstop
-             _HMG_SYSDATA \[ 436 \] ,; // aitems
-             _HMG_SYSDATA \[ 464 \] ,; //  anywhere search
-             _HMG_SYSDATA \[ 249 \] ,; //  droppedheight
-             _HMG_SYSDATA \[ 439 \] ,; //  additive
-             _HMG_SYSDATA \[ 449 \] ,; //  rowoffset
-             _HMG_SYSDATA \[ 450 \] ; //  coloffset
+             oHmgApp():APP416,; //name
+             oHmgApp():APP417,; //parent
+             oHmgApp():APP432,; //col
+             oHmgApp():APP431,; //row
+             oHmgApp():APP420,; //width
+             oHmgApp():APP421,; //height
+             oHmgApp():APP434,; //value
+             oHmgApp():APP422,; //fontname
+             oHmgApp():APP423,; //fontsize
+             oHmgApp():APP424,; //tooltip
+             oHmgApp():APP442,; //maxlength
+             oHmgApp():APP475,; //upper
+             oHmgApp():APP476,; //lower
+             oHmgApp():APP477,; //numeric
+             oHmgApp():APP427,; //lostfocus
+             oHmgApp():APP426,; //gotfocus
+             oHmgApp():APP437,; //enter
+             oHmgApp():APP440,; //rightalign
+             oHmgApp():APP429,; //helpid
+             oHmgApp():APP412,; //bold
+             oHmgApp():APP413 , ; //italic
+             oHmgApp():APP415,; //underline
+             oHmgApp():APP457 , ; //backcolor
+             oHmgApp():APP458 , ;// fontcolor
+             oHmgApp():APP428 ,; //tabstop
+             oHmgApp():APP436 ,; // aitems
+             oHmgApp():APP464 ,; //  anywhere search
+             oHmgApp():APP249 ,; //  droppedheight
+             APP:APP439 ,; //  additive
+             oHmgApp():APP449 ,; //  rowoffset
+             oHmgApp():APP450 ; //  coloffset
              )
 
 

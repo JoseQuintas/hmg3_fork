@@ -37,48 +37,48 @@
 
  Parts of this project are based upon:
 
-	"Harbour GUI framework for Win32"
- 	Copyright 2001 Alexander S.Kresin <alex@belacy.belgorod.su>
- 	Copyright 2001 Antonio Linares <alinares@fivetech.com>
-	www - http://www.harbour-project.org
+   "Harbour GUI framework for Win32"
+    Copyright 2001 Alexander S.Kresin <alex@belacy.belgorod.su>
+    Copyright 2001 Antonio Linares <alinares@fivetech.com>
+   www - http://www.harbour-project.org
 
-	"Harbour Project"
-	Copyright 1999-2003, http://www.harbour-project.org/
+   "Harbour Project"
+   Copyright 1999-2003, http://www.harbour-project.org/
 
-	"WHAT32"
-	Copyright 2002 AJ Wos <andrwos@aust1.net> 
+   "WHAT32"
+   Copyright 2002 AJ Wos <andrwos@aust1.net> 
 
-	"HWGUI"
-  	Copyright 2001-2007 Alexander S.Kresin <alex@belacy.belgorod.su>
+   "HWGUI"
+     Copyright 2001-2007 Alexander S.Kresin <alex@belacy.belgorod.su>
 
 ---------------------------------------------------------------------------*/
 
 #xcommand @ <row>,<col> DATEPICKER <name> ;
-		[ <dummy1: OF, PARENT> <parent> ] ;
-		[ VALUE <v> ] ;
-		[ FIELD <field> ] ;
-		[ WIDTH <w> ] ;
-		[ HEIGHT <h> ] ;
-		[ FONT <fontname> ] ;
-		[ SIZE <fontsize> ] ;
-		[ <bold : BOLD> ] ;
-		[ <italic : ITALIC> ] ;
-		[ <underline : UNDERLINE> ] ;
-		[ <strikeout : STRIKEOUT> ] ;
-		[ TOOLTIP <tooltip> ] ;
-		[ < shownone: SHOWNONE > ] ;
-		[ < updown: UPDOWN > ] ;
-		[ < rightalign: RIGHTALIGN > ] ;
-		[ ON GOTFOCUS <gotfocus> ] ;
-		[ ON CHANGE <change> ] ;
-		[ ON LOSTFOCUS <lostfocus> ] ;
-                [ ON ENTER <enter> ]		;
-		[ HELPID <helpid> ] 		;
-		[ <invisible: INVISIBLE> ] ;
-		[ <notabstop: NOTABSTOP> ] ;
-		[ FORMAT <cDateFormat> ] ;
-	=> ;
-	_DefineDatePick ( <"name"> , ;
+      [ <dummy1: OF, PARENT> <parent> ] ;
+      [ VALUE <v> ] ;
+      [ FIELD <field> ] ;
+      [ WIDTH <w> ] ;
+      [ HEIGHT <h> ] ;
+      [ FONT <fontname> ] ;
+      [ SIZE <fontsize> ] ;
+      [ <bold : BOLD> ] ;
+      [ <italic : ITALIC> ] ;
+      [ <underline : UNDERLINE> ] ;
+      [ <strikeout : STRIKEOUT> ] ;
+      [ TOOLTIP <tooltip> ] ;
+      [ < shownone: SHOWNONE > ] ;
+      [ < updown: UPDOWN > ] ;
+      [ < rightalign: RIGHTALIGN > ] ;
+      [ ON GOTFOCUS <gotfocus> ] ;
+      [ ON CHANGE <change> ] ;
+      [ ON LOSTFOCUS <lostfocus> ] ;
+                [ ON ENTER <enter> ]      ;
+      [ HELPID <helpid> ]       ;
+      [ <invisible: INVISIBLE> ] ;
+      [ <notabstop: NOTABSTOP> ] ;
+      [ FORMAT <cDateFormat> ] ;
+   => ;
+   _DefineDatePick ( <"name"> , ;
                      <"parent"> , ;
                      <col> , ;
                      <row> , ;

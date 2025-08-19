@@ -16,7 +16,7 @@ Function Main
             END POPUP
         END MENU
 
-	DEFINE STATUSBAR 
+   DEFINE STATUSBAR 
             STATUSITEM "Item 1" ACTION MsgInfo('Click! 1') 
             STATUSITEM "Item 2" WIDTH 100 ACTION MsgInfo('Click! 2')
             CLOCK 

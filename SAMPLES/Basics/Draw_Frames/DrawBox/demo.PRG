@@ -77,7 +77,7 @@ function DrawWindowBoxIn(window,row,col,rowr,colr)
    Local hDC := GetDC( FormHandle )
 
    WndBoxIn( hDC, row, col, rowr, colr )
-   aadd ( _HMG_SYSDATA [ 102 ] [i] , { || WndBoxIn( hDC := GetDC( FormHandle ), row, col, rowr, colr ), ReleaseDC( FormHandle, hDC ) } )
+   aadd ( FormByIndex( I ):GraphTasks , { || WndBoxIn( hDC := GetDC( FormHandle ), row, col, rowr, colr ), ReleaseDC( FormHandle, hDC ) } )
    ReleaseDC( FormHandle, hDC )
 
 return nil
@@ -88,7 +88,7 @@ function DrawWindowBoxRaised(window,row,col,rowr,colr)
    Local hDC := GetDC( FormHandle )
 
    WndBoxIn( hDC, row, col, rowr, colr )
-   aadd ( _HMG_SYSDATA [ 102 ] [i] , { || WndBoxRaised( hDC := GetDC( FormHandle ), row, col, rowr, colr ), ReleaseDC( FormHandle, hDC ) } )
+   aadd ( FormByIndex( I ):GraphTasks , { || WndBoxRaised( hDC := GetDC( FormHandle ), row, col, rowr, colr ), ReleaseDC( FormHandle, hDC ) } )
    ReleaseDC( FormHandle, hDC )
 
 return nil
@@ -179,7 +179,7 @@ HB_FUNC( WNDBOXRAISED )
 
 
 /*
-	
+
 *------------------------------------------------------------------------------*
 Procedure _RefreshDataControls (i)
 *------------------------------------------------------------------------------*
@@ -187,8 +187,8 @@ Local SplitIndex
 Local x
 Local w
 
-   If Len ( _HMG_SYSDATA [ 102 ] [i] ) > 0
-      SendMessage( _HMG_SYSDATA [ 67 ] [i] , WM_PAINT , 0 , 0 )
+   If Len ( ControlByIndex( I ):GraphTasks ) > 0
+      SendMessage( FormByIndex( I ):Handle , WM_PAINT , 0 , 0 )
    EndIf
 ...
 

@@ -37,96 +37,96 @@
 
  Parts of this project are based upon:
 
-	"Harbour GUI framework for Win32"
- 	Copyright 2001 Alexander S.Kresin <alex@belacy.belgorod.su>
- 	Copyright 2001 Antonio Linares <alinares@fivetech.com>
-	www - http://www.harbour-project.org
+   "Harbour GUI framework for Win32"
+    Copyright 2001 Alexander S.Kresin <alex@belacy.belgorod.su>
+    Copyright 2001 Antonio Linares <alinares@fivetech.com>
+   www - http://www.harbour-project.org
 
-	"Harbour Project"
-	Copyright 1999-2003, http://www.harbour-project.org/
+   "Harbour Project"
+   Copyright 1999-2003, http://www.harbour-project.org/
 
-	"WHAT32"
-	Copyright 2002 AJ Wos <andrwos@aust1.net>
+   "WHAT32"
+   Copyright 2002 AJ Wos <andrwos@aust1.net>
 
-	"HWGUI"
-  	Copyright 2001-2007 Alexander S.Kresin <alex@belacy.belgorod.su>
+   "HWGUI"
+     Copyright 2001-2007 Alexander S.Kresin <alex@belacy.belgorod.su>
 
 ---------------------------------------------------------------------------*/
 
 * Standard Syntax
 
 #xcommand DEFINE TAB <name> ;
-		[ <dummy1: OF, PARENT> <parent> ] ;
-		AT <row> , <col> ;
-		WIDTH <w> ;
-		HEIGHT <h> ;
-		[ VALUE <value> ] ;
-		[ FONT <f> ] ;
-		[ SIZE <s> ] ;
-		[ <bold : BOLD> ] ;
-		[ <italic : ITALIC> ] ;
-		[ <underline : UNDERLINE> ] ;
-		[ <strikeout : STRIKEOUT> ] ;
-		[ TOOLTIP <tooltip> ] ;
+      [ <dummy1: OF, PARENT> <parent> ] ;
+      AT <row> , <col> ;
+      WIDTH <w> ;
+      HEIGHT <h> ;
+      [ VALUE <value> ] ;
+      [ FONT <f> ] ;
+      [ SIZE <s> ] ;
+      [ <bold : BOLD> ] ;
+      [ <italic : ITALIC> ] ;
+      [ <underline : UNDERLINE> ] ;
+      [ <strikeout : STRIKEOUT> ] ;
+      [ TOOLTIP <tooltip> ] ;
       [ <buttons: BUTTONS> ]       ;
       [ <flat: FLAT> ]       ;
       [ <hottrack: HOTTRACK> ]       ;
       [ <vertical: VERTICAL> ]       ;
-		[ ON CHANGE <change> ] ;
+      [ ON CHANGE <change> ] ;
       [ <notabstop: NOTABSTOP> ]       ;
       [ <multiline: MULTILINE> ]       ;
       [ <NoTrans: NOTRANSPARENT> ] ;
-	=>;
-	_BeginTab( <(name)> , <(parent)> , <row> , <col> , <w> , <h> , <value> , <f> , <s> , <tooltip> , <{change}> , <.buttons.> , <.flat.> , <.hottrack.> , <.vertical.>, <.notabstop.> ,<.bold.>, <.italic.>, <.underline.>, <.strikeout.> , <.multiline.> , <.NoTrans.> )
+   =>;
+   _BeginTab( <(name)> , <(parent)> , <row> , <col> , <w> , <h> , <value> , <f> , <s> , <tooltip> , <{change}> , <.buttons.> , <.flat.> , <.hottrack.> , <.vertical.>, <.notabstop.> ,<.bold.>, <.italic.>, <.underline.>, <.strikeout.> , <.multiline.> , <.NoTrans.> )
 
 
 * Alternate Syntax
 
 #xcommand DEFINE TAB <name> ;
-		[ PARENT> <parent> ] ;
-		ROW <row> ;
-		COL <col> ;
-		WIDTH <w> ;
-		HEIGHT <h> ;
-		[ VALUE <value> ] ;
-		[ FONTNAME <f> ] ;
-		[ FONTSIZE <s> ] ;
-		[ FONTBOLD <bold> ] ;
-		[ FONTITALIC <italic> ] ;
-		[ FONTUNDERLINE <underline> ] ;
-		[ FONTSTRIKEOUT <strikeout> ] ;
-		[ TOOLTIP <tooltip> ] ;
+      [ PARENT> <parent> ] ;
+      ROW <row> ;
+      COL <col> ;
+      WIDTH <w> ;
+      HEIGHT <h> ;
+      [ VALUE <value> ] ;
+      [ FONTNAME <f> ] ;
+      [ FONTSIZE <s> ] ;
+      [ FONTBOLD <bold> ] ;
+      [ FONTITALIC <italic> ] ;
+      [ FONTUNDERLINE <underline> ] ;
+      [ FONTSTRIKEOUT <strikeout> ] ;
+      [ TOOLTIP <tooltip> ] ;
       [ BUTTONS <buttons> ]       ;
       [ FLAT <flat> ]       ;
       [ HOTTRACK <hottrack> ]       ;
       [ VERTICAL <vertical> ]       ;
-		[ ON CHANGE <change> ] ;
+      [ ON CHANGE <change> ] ;
       [ TABSTOP <tabstop> ]       ;
       [ MULTILINE <multiline> ]       ;
       [ TRANSPARENT <Trans> ] ;
-	=>;
-	_BeginTab( <(name)> , <(parent)> , <row> , <col> , <w> , <h> , <value> , <f> , <s> , <tooltip> , <{change}> , <.buttons.> , <.flat.> , <.hottrack.> , <.vertical.>, !<.tabstop.> ,<.bold.>, <.italic.>, <.underline.>, <.strikeout.> , <.multiline.> , !<.Trans.>)
+   =>;
+   _BeginTab( <(name)> , <(parent)> , <row> , <col> , <w> , <h> , <value> , <f> , <s> , <tooltip> , <{change}> , <.buttons.> , <.flat.> , <.hottrack.> , <.vertical.>, !<.tabstop.> ,<.bold.>, <.italic.>, <.underline.>, <.strikeout.> , <.multiline.> , !<.Trans.>)
 
 
 
 #xcommand PAGE <caption> [ IMAGE <image> ] ;
-	=>;
-	_BeginTabPage ( <caption> , <image> )
+   =>;
+   _BeginTabPage ( <caption> , <image> )
 
 #xcommand DEFINE PAGE <caption>  [ IMAGE <image> ] ;
-	=>;
-	_BeginTabPage ( <caption> , <image> )
+   =>;
+   _BeginTabPage ( <caption> , <image> )
 
 #xcommand DEFINE TAB PAGE <caption>  [ IMAGE <image> ] ;
-	=>;
-	_BeginTabPage ( <caption> , <image> )
+   =>;
+   _BeginTabPage ( <caption> , <image> )
 
 #xcommand END PAGE ;
-	=>;
-	_EndTabPage()
+   =>;
+   _EndTabPage()
 
 #xcommand END TAB ;
-	=>;
-	_EndTab()
+   =>;
+   _EndTab()
 
 

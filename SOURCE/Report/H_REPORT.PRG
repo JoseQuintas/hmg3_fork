@@ -2,31 +2,30 @@
  * DO REPORT Command support procedures For HMG Library.
  * (c) Ciro vargas Clemow [gerente@sistemascvc.com]
 
- This program is free software; you can redistribute it and/or modify it under 
- the terms of the GNU General Public License as published by the Free Software 
- Foundation; either version 2 of the License, or (at your option) any later 
- version. 
+ This program is free software; you can redistribute it and/or modify it under
+ the terms of the GNU General Public License as published by the Free Software
+ Foundation; either version 2 of the License, or (at your option) any later
+ version.
 
- This program is distributed in the hope that it will be useful, but WITHOUT 
- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS 
+ This program is distributed in the hope that it will be useful, but WITHOUT
+ ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
- You should have received a copy of the GNU General Public License along with 
- this software; see the file COPYING. If not, write to the Free Software 
- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA (or 
+ You should have received a copy of the GNU General Public License along with
+ this software; see the file COPYING. If not, write to the Free Software
+ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA (or
  visit the web site http://www.gnu.org/).
 
- As a special exception, you have permission for additional uses of the text 
+ As a special exception, you have permission for additional uses of the text
  contained in this file.
 
- The exception is that, if you link this code with other 
- files to produce an executable, this does not by itself cause the resulting 
+ The exception is that, if you link this code with other
+ files to produce an executable, this does not by itself cause the resulting
  executable to be covered by the GNU General Public License.
- Your use of that executable is in no way restricted on account of linking  
+ Your use of that executable is in no way restricted on account of linking
  this code into it.
 
 */
-MEMVAR _HMG_SYSDATA
 #include 'hbclass.ch'
 #include 'common.ch'
 #include 'hmg.ch'
@@ -75,9 +74,9 @@ MEMVAR CROMPE
 MEMVAR CHDRGRP
 MEMVAR WFILEREPO
 MEMVAR CALIAS
-MEMVAR NLPP     
-MEMVAR NCPL     
-MEMVAR LPREVIEW 
+MEMVAR NLPP
+MEMVAR NCPL
+MEMVAR LPREVIEW
 MEMVAR CFILEREPO
 MEMVAR LMUL
 MEMVAR PAGE
@@ -116,13 +115,13 @@ if ncpl=NIL
    ncpl:=80
 endif
 
-	ctitle1:=HMG_LOWER(HB_USUBSTR(ctitle,HB_UAT('|',ctitle)+1))+'...'
+   ctitle1:=HMG_LOWER(HB_USUBSTR(ctitle,HB_UAT('|',ctitle)+1))+'...'
 
-	cheader:=''
+   cheader:=''
 
-	_sw_report:=.F.
+   _sw_report:=.F.
 
-	action_timer(CTITLE,AHEADERS1,AHEADERS2,AFIELDS,AWIDTHS,ATOTALS,NLPP,LDOS,LPREVIEW,CGRAPHIC,NFI,NCI,NFF,NCF,LMUL,CGRPBY,CHDRGRP,LLANDSCAPE,NCPL,LSELECT,CALIAS,NLLMARGIN,AFORMATS,NPAPERSIZE,CHEADER,lnoprop)
+   action_timer(CTITLE,AHEADERS1,AHEADERS2,AFIELDS,AWIDTHS,ATOTALS,NLPP,LDOS,LPREVIEW,CGRAPHIC,NFI,NCI,NFF,NCF,LMUL,CGRPBY,CHDRGRP,LLANDSCAPE,NCPL,LSELECT,CALIAS,NLLMARGIN,AFORMATS,NPAPERSIZE,CHEADER,lnoprop)
 
 RETURN NIL
 
@@ -140,10 +139,10 @@ private repobject,sicvar
 
 
 repobject:=_HMG_REPORT()
-sicvar:=_HMG_SYSDATA [ 339 ]
+sicvar:=oHmgApp():APP339
 SET INTERACTIVECLOSE ON
 repobject:easyreport1(ctitle,aheaders1,aheaders2,afields,awidths,atotals,nlpp,ldos,lpreview,cgraphic,nfi,nci,nff,ncf,lmul,cgrpby,chdrgrp,llandscape,ncpl,lselect,calias,nllmargin,aformats,npapersize,cheader,lnoprop)
-_HMG_SYSDATA [ 339 ]:=sicvar
+oHmgApp():APP339:=sicvar
 release repobject
 return nil
 
@@ -268,7 +267,7 @@ do case
            if lnoprop
               oprint:nfontsize:=7
            endif
-         case ncpl= 160 
+         case ncpl= 160
             ncvcopt:=5
             repobject:nfsize:=6
             if lnoprop
@@ -284,14 +283,14 @@ endcase
 
 *****************=======================================
 
-if ldos 
+if ldos
    oprint:init("DOS")
    if ncpl<= 80
       oprint:normaldos()
    else
       oprint:condendos()
    endif
-else   
+else
    IF type("_hmg_printlibrary")="U"
       _hmg_PRINTLIBRARY="HBPRINTER"
    ENDIF
@@ -313,7 +312,7 @@ endif
 oprint:begindoc()
 oprint:beginpage()
 nlin:=1
-if cgraphic<>NIL  
+if cgraphic<>NIL
    if .not. File(cgraphic)
       msgstop('graphic file not found','error')
    else
@@ -411,7 +410,7 @@ if nlin>nlpp
    if .not. ldos
       oprint:endpage()
       oprint:beginpage()
-      if cgraphic<>NIL .and. lmul 
+      if cgraphic<>NIL .and. lmul
          if .not. File(cgraphic)
          msgstop('graphic file not found','error')
       else
@@ -420,7 +419,7 @@ if nlin>nlpp
    endif
 endif
 nlin:=repobject:headers(aheaders1,aheaders2,awidths,nlin,ctitle,lmode,grpby,chdrgrp,cheader)
-endif 
+endif
 **************resto de memo
 if swmemo
    if nmemo > 1
@@ -437,18 +436,18 @@ if swmemo
           nlin:=1
           oprint:endpage()
           oprint:beginpage()
-	  if cgraphic<>NIL .and. lmul
+     if cgraphic<>NIL .and. lmul
              if .not. File(cgraphic)
-	         msgstop('graphic file not found','error')
+            msgstop('graphic file not found','error')
              else
                  oprint:printimage(nfi,nci+repobject:nlmargin,nff,repobject:nfc,cgraphic )
              endif
-	 endif
-	 nlin:=repobject:headers(aheaders1,aheaders2,awidths,nlin,ctitle,lmode,grpby,chdrgrp,cheader)
+    endif
+    nlin:=repobject:headers(aheaders1,aheaders2,awidths,nlin,ctitle,lmode,grpby,chdrgrp,cheader)
        endif
     next k
-////    nlin--    
-   endif   
+////    nlin--
+   endif
 endif
 **************
 skip
@@ -458,7 +457,7 @@ if swt==1
    ncol:=0+repobject:nlmargin
    if grpby<>NIL
       if .not.(&grpby == crompe)
-         if ascan(atotals,.T.)>0            
+         if ascan(atotals,.T.)>0
             oprint:printdata(nlin,repobject:nlmargin,  '** Subtotal **',,repobject:nfsize,.T.)
 **** ojo
             nlin++
@@ -534,7 +533,7 @@ if HMG_LEN(ctitle2)>0
    ncenter2:=((nsum-HMG_LEN(ctitle2))/2)-1
 endif
 repobject:npager++
-clinea:=TRIM( _HMG_SYSDATA [ 331 ] [8])+ space(6-HMG_LEN(TRIM( _HMG_SYSDATA [ 331 ] [8]))) + STR(repobject:npager,4)
+clinea:=TRIM( oHmgApp():APP331 [8])+ space(6-HMG_LEN(TRIM( oHmgApp():APP331 [8]))) + STR(repobject:npager,4)
 clinea1:=space(ncenter)+ctitle1
 clinea2:=space(nsum+HMG_LEN(awidths)-11)+dtoc(date())
 oprint:printdata(nlin,repobject:nlmargin , clinea,,repobject:nfsize )
@@ -583,11 +582,11 @@ next i
 oprint:printdata(nlin,repobject:nlmargin, clinea,,repobject:nfsize   )
 nlin:=nlin+2
 
-if grpby<>NIL 
+if grpby<>NIL
     oprint:printdata(nlin,repobject:nlmargin, '** ' +chdrgrp+' ** '+   &grpby , ,repobject:nfsize ,.T.   )
        nlin++
 endif
-_HMG_SYSDATA [ 339 ]:=sicvar
+oHmgApp():APP339:=sicvar
 return nlin
 
 
@@ -667,7 +666,7 @@ local nff,ncf,cgrpby,chdrgrp,llandscape
        cgraphicalt:=(repobject:leadato('DEFINE REPORT','IMAGE',''))
        if HMG_LEN(cgraphicalt)>0  &&& para sintaxis DEFINE REPORT
           cgraphicalt:=&cgraphicalt
-          cgraphic:=cgraphicalt[1]          
+          cgraphic:=cgraphicalt[1]
           nfi:=cgraphicalt[2]
           nci:=cgraphicalt[3]
           nff:=cgraphicalt[4]
@@ -678,7 +677,7 @@ local nff,ncf,cgrpby,chdrgrp,llandscape
           cgrpby=NIL
        endif
        chdrgrp:=repobject:clean(repobject:leadato('REPORT','HEADRGRP',''))
-       llandscape:=repobject:leadatologic('REPORT','LANDSCAPE',.F.)      
+       llandscape:=repobject:leadatologic('REPORT','LANDSCAPE',.F.)
        easyreport(ctitle,aheaders1,aheaders2,afields,awidths,atotals,nlpp,ldos,lpreview,cgraphic,nfi,nci,nff,ncf,lmul,cgrpby,chdrgrp,llandscape,ncpl,lselect,calias,nllmargin,aformats,npapersize,cheader,lnoprop)
 return Nil
 
@@ -686,7 +685,7 @@ METHOD leadato(cName,cPropmet,cDefault) CLASS _HMG_REPORT
 local i,sw,cfvalue
 sw:=0
 For i:=1 to HMG_LEN(repobject:aline)
-if .not. HB_UAT(HMG_UPPER(cname)+' ',HMG_UPPER(repobject:aline[i]))==0   
+if .not. HB_UAT(HMG_UPPER(cname)+' ',HMG_UPPER(repobject:aline[i]))==0
    sw:=1
 else
    if sw==1
@@ -695,7 +694,7 @@ else
          i=HMG_LEN(repobject:aline)+1
          return cDefault
       endif
-      if npos>0 
+      if npos>0
          cfvalue:=HB_USUBSTR(repobject:aline[i],npos+HMG_LEN(Cpropmet),HMG_LEN(repobject:aline[i]))
          i:=HMG_LEN(repobject:aline)+1
          cfvalue:=TRIM(cfvalue)
@@ -724,7 +723,7 @@ For i:=1 to HMG_LEN(repobject:aline)
        lin:=i
        i:=HMG_LEN(repobject:aline)+1
        sw1:=1
-    endif                 
+    endif
 next i
 if sw1=1
    return HB_USUBSTR(repobject:aline[lin],npos1,npos2-npos1+1)
@@ -749,7 +748,7 @@ For i:=1 to HMG_LEN(repobject:aline)
             lin:=i
             i:=HMG_LEN(repobject:aline)+1
             sw1:=1
-        endif                 
+        endif
 next i
 if sw1=1
    return HB_USUBSTR(repobject:aline[lin],npos1,npos2-npos1+1)
@@ -760,7 +759,7 @@ METHOD leadatologic(cName,cPropmet,cDefault) CLASS _HMG_REPORT
 local i,sw
 sw:=0
 For i:=1 to HMG_LEN(repobject:aline)
-if HB_UAT(HMG_UPPER(cname)+' ',HMG_UPPER(repobject:aline[i]))#0   
+if HB_UAT(HMG_UPPER(cname)+' ',HMG_UPPER(repobject:aline[i]))#0
    sw:=1
 else
    if sw==1
@@ -787,7 +786,7 @@ sw:=0
 nrow:='0'
 cname:=''
 For i:=1 to HMG_LEN(repobject:aline)
-    if HB_UAT(HMG_UPPER('IMAGE')+' ',HMG_UPPER(repobject:aline[i]))#0   
+    if HB_UAT(HMG_UPPER('IMAGE')+' ',HMG_UPPER(repobject:aline[i]))#0
        if npar=1
           npos1:=HB_UAT("HB_UAT",HMG_UPPER(repobject:aline[i]))
        else
@@ -804,7 +803,7 @@ local i,npos,ncol
 ncol:='0'
 cname:=''
 For i:=1 to HMG_LEN(repobject:aline)
-if HB_UAT(HMG_UPPER('IMAGE')+' ',HMG_UPPER(repobject:aline[i]))#0   
+if HB_UAT(HMG_UPPER('IMAGE')+' ',HMG_UPPER(repobject:aline[i]))#0
    if npar=1
       npos:=HB_UAT(",",repobject:aline[i])
    else

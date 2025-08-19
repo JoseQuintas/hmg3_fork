@@ -37,91 +37,91 @@
 
  Parts of this project are based upon:
 
-	"Harbour GUI framework for Win32"
- 	Copyright 2001 Alexander S.Kresin <alex@belacy.belgorod.su>
- 	Copyright 2001 Antonio Linares <alinares@fivetech.com>
-	www - http://www.harbour-project.org
+   "Harbour GUI framework for Win32"
+    Copyright 2001 Alexander S.Kresin <alex@belacy.belgorod.su>
+    Copyright 2001 Antonio Linares <alinares@fivetech.com>
+   www - http://www.harbour-project.org
 
-	"Harbour Project"
-	Copyright 1999-2003, http://www.harbour-project.org/
+   "Harbour Project"
+   Copyright 1999-2003, http://www.harbour-project.org/
 
-	"WHAT32"
-	Copyright 2002 AJ Wos <andrwos@aust1.net>
+   "WHAT32"
+   Copyright 2002 AJ Wos <andrwos@aust1.net>
 
-	"HWGUI"
-  	Copyright 2001-2007 Alexander S.Kresin <alex@belacy.belgorod.su>
+   "HWGUI"
+     Copyright 2001-2007 Alexander S.Kresin <alex@belacy.belgorod.su>
 
 ---------------------------------------------------------------------------*/
 
 #xcommand DEFINE STATUSBAR ;
-	[ <dummy1: OF, PARENT> <parent> ] ;
-	[ FONT <fontname> ]          ;
-	[ SIZE <fontsize> ]          ;
-	[ <bold : BOLD> ] ;
-	[ <italic : ITALIC> ] ;
-	[ <underline : UNDERLINE> ] ;
-	[ <strikeout : STRIKEOUT> ] ;
-	[ <top : TOP> ] ;
+   [ <dummy1: OF, PARENT> <parent> ] ;
+   [ FONT <fontname> ]          ;
+   [ SIZE <fontsize> ]          ;
+   [ <bold : BOLD> ] ;
+   [ <italic : ITALIC> ] ;
+   [ <underline : UNDERLINE> ] ;
+   [ <strikeout : STRIKEOUT> ] ;
+   [ <top : TOP> ] ;
       => ;
-	_StartStatusBar	(	;
-			<(parent)>	, ;
-			<fontname>	, ;
-			<fontsize>	, ;
-			<.bold.>	, ;
-			<.italic.>	, ;
-			<.underline.>	, ;
-			<.strikeout.>	, ;
-			<.top.>		;
-				)
+   _StartStatusBar   (   ;
+         <(parent)>   , ;
+         <fontname>   , ;
+         <fontsize>   , ;
+         <.bold.>   , ;
+         <.italic.>   , ;
+         <.underline.>   , ;
+         <.strikeout.>   , ;
+         <.top.>      ;
+            )
 
 
 #xcommand STATUSITEM [ <caption> ] ;
-	[ WIDTH <width> ] ;
-	[ ACTION <uAction> ] ;
-	[ ICON <image> ] ;
-	[STYLE] [ <style:FLAT,RAISED> ] ;
-	[ TOOLTIP <tooltip> ] ;
+   [ WIDTH <width> ] ;
+   [ ACTION <uAction> ] ;
+   [ ICON <image> ] ;
+   [STYLE] [ <style:FLAT,RAISED> ] ;
+   [ TOOLTIP <tooltip> ] ;
        => ;
-        _DefineStatusBarItem	(		;
-				<caption>	, ;
-				<width>		, ;
-				<image>		, ;
-				<"style">	, ;
-				<tooltip>	, ;
-				<{uAction}>	;
-				)
+        _DefineStatusBarItem   (      ;
+            <caption>   , ;
+            <width>      , ;
+            <image>      , ;
+            <"style">   , ;
+            <tooltip>   , ;
+            <{uAction}>   ;
+            )
 
 #xcommand  END STATUSBAR ;
       => ;
-_EndStatusBar (	_HMG_SYSDATA \[ 212 \]		, ;
-			_HMG_SYSDATA \[ 143 \]		, ;
-			_HMG_SYSDATA \[ 144 \]		, ;
-			_HMG_SYSDATA \[ 145 \]		, ;
-			_HMG_SYSDATA \[ 148 \]		, ;
-			_HMG_SYSDATA \[ 147 \]		, ;
-			_HMG_SYSDATA \[ 146 \]		, ;
-			_HMG_SYSDATA \[ 213 \]		, ;
-			_HMG_SYSDATA \[ 165 \]		, ;
-			_HMG_SYSDATA \[ 272 \]		, ;
-			_HMG_SYSDATA \[ 273 \]		, ;
-			_HMG_SYSDATA \[ 274 \]	, ;
-			_HMG_SYSDATA \[ 275 \]	, ;
-			_HMG_SYSDATA \[ 276 \]		;
-			)
+_EndStatusBar (   oHmgApp():APP212      , ;
+         oHmgApp():APP143      , ;
+         oHmgApp():APP144      , ;
+         oHmgApp():APP145      , ;
+         oHmgApp():APP148      , ;
+         oHmgApp():APP147      , ;
+         oHmgApp():APP146      , ;
+         oHmgApp():APP213      , ;
+         oHmgApp():CurrentStatusbarFontSize      , ;
+         oHmgApp():APP272      , ;
+         oHmgApp():APP273      , ;
+         oHmgApp():APP274   , ;
+         oHmgApp():APP275   , ;
+         oHmgApp():APP276      ;
+         )
 
 #xcommand DATE ;
-	[ <w: WIDTH > <nSize> ] ;
-	[ ACTION <uAction> ] ;
-	[ TOOLTIP <cToolTip> ] ;
+   [ <w: WIDTH > <nSize> ] ;
+   [ ACTION <uAction> ] ;
+   [ TOOLTIP <cToolTip> ] ;
        => ;
-        _DefineStatusBarItem	(		;
-				Dtoc(Date())	, ;
-				if ( <.w.> == .f. , if ( lower ( left ( set ( _SET_DATEFORMAT ) , 4 ) ) == "yyyy" .or. lower ( right ( set ( _SET_DATEFORMAT ) , 4 ) ) == "yyyy", 90 , 70 ) , <nSize> ) 		, ;
-						, ;
-						, ;
-				<cToolTip>	, ;
-				<{uAction}>	;
-				)
+        _DefineStatusBarItem   (      ;
+            Dtoc(Date())   , ;
+            if ( <.w.> == .f. , if ( lower ( left ( set ( _SET_DATEFORMAT ) , 4 ) ) == "yyyy" .or. lower ( right ( set ( _SET_DATEFORMAT ) , 4 ) ) == "yyyy", 90 , 70 ) , <nSize> )       , ;
+                  , ;
+                  , ;
+            <cToolTip>   , ;
+            <{uAction}>   ;
+            )
 
 
 #xcommand CLOCK ;
@@ -130,7 +130,7 @@ _EndStatusBar (	_HMG_SYSDATA \[ 212 \]		, ;
              [ TOOLTIP <cToolTip> ] ;
              [ INTERVAL <nIntervalUpdate> ] ;
        => ;
-        _SetStatusClock( _HMG_SYSDATA \[ 223 \] , <nSize> , <cToolTip> , <{uAction}> , <nIntervalUpdate> )
+        _SetStatusClock( oHmgApp():ActiveFormName , <nSize> , <cToolTip> , <{uAction}> , <nIntervalUpdate> )
 
 #xcommand KEYBOARD ;
              [ WIDTH <nSize> ] ;
@@ -138,31 +138,31 @@ _EndStatusBar (	_HMG_SYSDATA \[ 212 \]		, ;
              [ TOOLTIP <cToolTip> ] ;
              [ INTERVAL <nIntervalUpdate> ] ;
        => ;
-        _SetStatusKeybrd( _HMG_SYSDATA \[ 223 \] , <nSize> , <cToolTip> , <{uAction}> , <nIntervalUpdate> )
+        _SetStatusKeybrd( oHmgApp():ActiveFormName , <nSize> , <cToolTip> , <{uAction}> , <nIntervalUpdate> )
 
 
 
 
 #xcommand DEFINE STATUSBAR ;
-	[ PARENT> <parent> ] ;
-	[ FONTNAME <fontname> ]          ;
-	[ FONTSIZE <fontsize> ]          ;
-	[ FONTBOLD <bold> ] ;
-	[ FONTITALIC <italic> ] ;
-	[ FONTUNDERLINE <underline> ] ;
-	[ FONTSTRIKEOUT <strikeout> ] ;
-	[ TOP <top> ] ;
+   [ PARENT> <parent> ] ;
+   [ FONTNAME <fontname> ]          ;
+   [ FONTSIZE <fontsize> ]          ;
+   [ FONTBOLD <bold> ] ;
+   [ FONTITALIC <italic> ] ;
+   [ FONTUNDERLINE <underline> ] ;
+   [ FONTSTRIKEOUT <strikeout> ] ;
+   [ TOP <top> ] ;
       => ;
-	_StartStatusBar	(	;
-			<(parent)>	, ;
-			<fontname>	, ;
-			<fontsize>	, ;
-			<.bold.>	, ;
-			<.italic.>	, ;
-			<.underline.>	, ;
-			<.strikeout.>	, ;
-			<.top.>		;
-				)
+   _StartStatusBar   (   ;
+         <(parent)>   , ;
+         <fontname>   , ;
+         <fontsize>   , ;
+         <.bold.>   , ;
+         <.italic.>   , ;
+         <.underline.>   , ;
+         <.strikeout.>   , ;
+         <.top.>      ;
+            )
 
 
 

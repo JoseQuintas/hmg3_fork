@@ -20,13 +20,13 @@ DECLARE WINDOW Modal_Form
 
 Function Main
 
-	LOAD WINDOW Main_Form
-	LOAD WINDOW Std_Form
-	LOAD WINDOW Child_Form
-	LOAD WINDOW Topmost_Form
-	LOAD WINDOW Modal_Form
+   LOAD WINDOW Main_Form
+   LOAD WINDOW Std_Form
+   LOAD WINDOW Child_Form
+   LOAD WINDOW Topmost_Form
+   LOAD WINDOW Modal_Form
 
-	ACTIVATE WINDOW ALL 
+   ACTIVATE WINDOW ALL 
 
 Return Nil
 

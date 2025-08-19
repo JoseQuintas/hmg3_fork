@@ -29,23 +29,23 @@ DECLARE WINDOW Modal_Form
 
 Function Main
 
-	// Load windows from external '.fmg' form definition files
+   // Load windows from external '.fmg' form definition files
 
-	LOAD WINDOW Main_Form
-	LOAD WINDOW Std_Form
-	LOAD WINDOW Child_Form
-	LOAD WINDOW Topmost_Form
-	LOAD WINDOW Modal_Form
+   LOAD WINDOW Main_Form
+   LOAD WINDOW Std_Form
+   LOAD WINDOW Child_Form
+   LOAD WINDOW Topmost_Form
+   LOAD WINDOW Modal_Form
 
-	// Activate windows
-	// All except main has NOSHOW style, so only main window will be
-	// visible at program startup.
+   // Activate windows
+   // All except main has NOSHOW style, so only main window will be
+   // visible at program startup.
 
-	ACTIVATE WINDOW Std_Form	, ;
-			Child_Form	, ;
-			Topmost_Form	, ;
-			Modal_Form	, ;
-			Main_Form
+   ACTIVATE WINDOW Std_Form   , ;
+         Child_Form   , ;
+         Topmost_Form   , ;
+         Modal_Form   , ;
+         Main_Form
 
 Return Nil
 

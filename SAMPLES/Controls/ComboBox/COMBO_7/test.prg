@@ -1,6 +1,6 @@
 /*
-	HMG ComboBox Image Property Demo
-	(c) 2008 Roberto Lopez
+   HMG ComboBox Image Property Demo
+   (c) 2008 Roberto Lopez
 */
 
 /*
@@ -45,50 +45,50 @@ Local aImages := { '00.bmp' ,'01.bmp' , '02.bmp' , '03.bmp' , '04.bmp' , '05.bmp
 Local aItems := {}
 Local aRet := {}
 
-	aadd ( aItems , { 4 , 'Item 01' } )
-	aadd ( aItems , { 2 , 'Item 02' } )
-	aadd ( aItems , { 6 , 'Item 03' } )
-	aadd ( aItems , { 1 , 'Item 04' } )
-	aadd ( aItems , { 3 , 'Item 05' } )
-	aadd ( aItems , { 7 , 'Item 06' } )
+   aadd ( aItems , { 4 , 'Item 01' } )
+   aadd ( aItems , { 2 , 'Item 02' } )
+   aadd ( aItems , { 6 , 'Item 03' } )
+   aadd ( aItems , { 1 , 'Item 04' } )
+   aadd ( aItems , { 3 , 'Item 05' } )
+   aadd ( aItems , { 7 , 'Item 06' } )
 
-	DEFINE WINDOW Form_1 ;
-		AT 0,0 ;
-		WIDTH 400 ;
-		HEIGHT 200 ;
-		TITLE 'ComboBox Demo' ;
-		MAIN 
+   DEFINE WINDOW Form_1 ;
+      AT 0,0 ;
+      WIDTH 400 ;
+      HEIGHT 200 ;
+      TITLE 'ComboBox Demo' ;
+      MAIN 
 
-		DEFINE MAIN MENU
-			DEFINE POPUP '&Test'
-				MENUITEM 'Get Value' ACTION MsgInfo( Str ( Form_1.Combo_1.Value ) )
-				MENUITEM 'Set Value' ACTION Form_1.Combo_1.Value := 2
-				MENUITEM 'Add Item' ACTION Form_1.Combo_1.AddItem ( { 3 , 'New' } )
-				MENUITEM 'Delete Item' ACTION Form_1.Combo_1.DeleteItem ( 1 )
-				MENUITEM 'Set Item' ACTION Form_1.Combo_1.Item ( 2 ) := { 0 , 'Modified' }
-				MENUITEM 'Get Item' ACTION ( aRet := Form_1.Combo_1.Item ( 1 ) , MsgInfo (Str(aRet[1]) + ' ' + aRet[2] ) )
-				MENUITEM 'Get ItemCount' ACTION MsgInfo (Str(Form_1.Combo_1.ItemCount) )
-				MENUITEM 'Get DisplayValue' ACTION MsgInfo ( Form_1.Combo_1.DisplayValue )
-				MENUITEM 'Set DisplayValue' ACTION Form_1.Combo_1.DisplayValue := 'Hey'
-			END POPUP
-		END MENU
+      DEFINE MAIN MENU
+         DEFINE POPUP '&Test'
+            MENUITEM 'Get Value' ACTION MsgInfo( Str ( Form_1.Combo_1.Value ) )
+            MENUITEM 'Set Value' ACTION Form_1.Combo_1.Value := 2
+            MENUITEM 'Add Item' ACTION Form_1.Combo_1.AddItem ( { 3 , 'New' } )
+            MENUITEM 'Delete Item' ACTION Form_1.Combo_1.DeleteItem ( 1 )
+            MENUITEM 'Set Item' ACTION Form_1.Combo_1.Item ( 2 ) := { 0 , 'Modified' }
+            MENUITEM 'Get Item' ACTION ( aRet := Form_1.Combo_1.Item ( 1 ) , MsgInfo (Str(aRet[1]) + ' ' + aRet[2] ) )
+            MENUITEM 'Get ItemCount' ACTION MsgInfo (Str(Form_1.Combo_1.ItemCount) )
+            MENUITEM 'Get DisplayValue' ACTION MsgInfo ( Form_1.Combo_1.DisplayValue )
+            MENUITEM 'Set DisplayValue' ACTION Form_1.Combo_1.DisplayValue := 'Hey'
+         END POPUP
+      END MENU
 
-		DEFINE COMBOBOX Combo_1 
-			ROW		10
-			COL		10
-			WIDTH		100 
-			ITEMS		aItems 
-			VALUE		1 
-			IMAGE		aImages
-			DISPLAYEDIT	.T.
-			ONDISPLAYCHANGE	PLAYBEEP()
-		END COMBOBOX
+      DEFINE COMBOBOX Combo_1 
+         ROW      10
+         COL      10
+         WIDTH      100 
+         ITEMS      aItems 
+         VALUE      1 
+         IMAGE      aImages
+         DISPLAYEDIT   .T.
+         ONDISPLAYCHANGE   PLAYBEEP()
+      END COMBOBOX
 
-	END WINDOW
+   END WINDOW
 
-	CENTER WINDOW Form_1
+   CENTER WINDOW Form_1
 
-	ACTIVATE WINDOW Form_1
+   ACTIVATE WINDOW Form_1
 
 Return
 

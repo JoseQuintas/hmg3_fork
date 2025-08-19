@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
- HMG Source File --> h_UNICODE.prg  
+ HMG Source File --> h_UNICODE.prg
 
- Copyright 2012-2017 by Dr. Claudio Soto (from Uruguay). 
+ Copyright 2012-2017 by Dr. Claudio Soto (from Uruguay).
 
  mail: <srvet@adinet.com.uy>
  blog: http://srvet.blogspot.com
@@ -17,7 +17,6 @@
 
 // All functions this file always compile in Unicode
 
-MEMVAR _HMG_SYSDATA
 #include "common.ch"
 #include "hmg.ch"
 
@@ -34,7 +33,7 @@ Return Nil
 FUNCTION MsgDebugUnicode
 *-----------------------------------------------------------------------------*
 LOCAL i, cMsg
-   #define CRLF CHR(13)+CHR(10) 
+   #define CRLF CHR(13)+CHR(10)
    cMsg := "Called from: " + PROCNAME(1) + "(" + LTRIM(STR(PROCLINE(1))) + ") --> " + PROCFILE (1) + CRLF + CRLF
    FOR i = 1 TO PCOUNT()
        cMsg := cMsg + HB_VALTOEXP (PVALUE (i)) + IIF (i < PCOUNT(), ", ", "")

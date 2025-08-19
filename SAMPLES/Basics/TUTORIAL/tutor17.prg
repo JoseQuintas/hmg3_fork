@@ -16,7 +16,7 @@ Function Main
            END POPUP
         END MENU 
 
-	DEFINE TAB Tab_1 ;
+   DEFINE TAB Tab_1 ;
             AT 10,10 ;
             WIDTH 350 ;
             HEIGHT 150 

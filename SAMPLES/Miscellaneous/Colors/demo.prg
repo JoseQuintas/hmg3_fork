@@ -13,55 +13,55 @@ Procedure Main
 Local aData := {}
 Local lInit := .f.
 
-	SET MULTIPLE OFF
+   SET MULTIPLE OFF
 
-	aEval( ( aColors := InitColorsArray() ), { |x| aAdd( aData, { "COLOR_"+ x[1] } ) } )
+   aEval( ( aColors := InitColorsArray() ), { |x| aAdd( aData, { "COLOR_"+ x[1] } ) } )
 
-	DEFINE WINDOW Form_1 ;
-		AT 0,0 ;
-		WIDTH 400 ;
-		HEIGHT iif( IsWinXP(), 596, 600 ) ;
-		TITLE 'Table of Colors' ;
-		MAIN ;
-		NOMAXIMIZE NOSIZE
+   DEFINE WINDOW Form_1 ;
+      AT 0,0 ;
+      WIDTH 400 ;
+      HEIGHT iif( IsWinXP(), 596, 600 ) ;
+      TITLE 'Table of Colors' ;
+      MAIN ;
+      NOMAXIMIZE NOSIZE
 
-		DEFINE MAIN MENU
-			DEFINE POPUP '&File'
-				MENUITEM '&Show Items Count'	ACTION MsgInfo(Form_1.Grid_1.ItemCount, "Items Count")
-				SEPARATOR
+      DEFINE MAIN MENU
+         DEFINE POPUP '&File'
+            MENUITEM '&Show Items Count'   ACTION MsgInfo(Form_1.Grid_1.ItemCount, "Items Count")
+            SEPARATOR
             MENUITEM '&Copy to Clipboard' + Chr(9) + 'CTRL+C' ACTION CopyClipboard()
-			END POPUP
-		END MENU
+         END POPUP
+      END MENU
 
-		DEFINE GRID Grid_1
-			ROW 	12
-			COL	12
-			WIDTH	370
-			HEIGHT	iif( IsWinXP(), 497, 504 )
-			WIDTHS	{ 350 - iif(IsAppThemed(), 2, 0) }
-			VALUE	1
-			VIRTUAL .T.
-			ITEMCOUNT Len(aData)
-			ON QUERYDATA OnDataRequest( aData )
-			ON CHANGE iif( lInit, Show_RGB(), lInit := .t. )
-			HEADERS {"HMG Color Name"}
-			DYNAMICFORECOLOR { { |x,nItem| GetColumnForeColor( nItem ) } }
-			DYNAMICBACKCOLOR { { |x,nItem| GetColumnBackColor( nItem ) } }
-			FONTNAME "Verdana"
-			FONTSIZE 10
-		END GRID
+      DEFINE GRID Grid_1
+         ROW    12
+         COL   12
+         WIDTH   370
+         HEIGHT   iif( IsWinXP(), 497, 504 )
+         WIDTHS   { 350 - iif(IsAppThemed(), 2, 0) }
+         VALUE   1
+         VIRTUAL .T.
+         ITEMCOUNT Len(aData)
+         ON QUERYDATA OnDataRequest( aData )
+         ON CHANGE iif( lInit, Show_RGB(), lInit := .t. )
+         HEADERS {"HMG Color Name"}
+         DYNAMICFORECOLOR { { |x,nItem| GetColumnForeColor( nItem ) } }
+         DYNAMICBACKCOLOR { { |x,nItem| GetColumnBackColor( nItem ) } }
+         FONTNAME "Verdana"
+         FONTSIZE 10
+      END GRID
 
-		DEFINE STATUSBAR FONT "MS Sans serif" SIZE 9 BOLD
-			STATUSITEM "Value RGB: " + aColors [ 1 ] [ 2 ]
-		END STATUSBAR
+      DEFINE STATUSBAR FONT "MS Sans serif" SIZE 9 BOLD
+         STATUSITEM "Value RGB: " + aColors [ 1 ] [ 2 ]
+      END STATUSBAR
 
       ON KEY CONTROL+C ACTION CopyClipboard()
 
-	END WINDOW
+   END WINDOW
 
-	CENTER WINDOW Form_1
+   CENTER WINDOW Form_1
 
-	ACTIVATE WINDOW Form_1
+   ACTIVATE WINDOW Form_1
 
 Return
 

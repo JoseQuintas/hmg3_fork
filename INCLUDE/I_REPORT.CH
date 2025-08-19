@@ -37,36 +37,36 @@
 
  Parts of this project are based upon:
 
-	"Harbour GUI framework for Win32"
- 	Copyright 2001 Alexander S.Kresin <alex@belacy.belgorod.su>
- 	Copyright 2001 Antonio Linares <alinares@fivetech.com>
-	www - http://www.harbour-project.org
+   "Harbour GUI framework for Win32"
+    Copyright 2001 Alexander S.Kresin <alex@belacy.belgorod.su>
+    Copyright 2001 Antonio Linares <alinares@fivetech.com>
+   www - http://www.harbour-project.org
 
-	"Harbour Project"
-	Copyright 1999-2003, http://www.harbour-project.org/
+   "Harbour Project"
+   Copyright 1999-2003, http://www.harbour-project.org/
 
-	"WHAT32"
-	Copyright 2002 AJ Wos <andrwos@aust1.net> 
+   "WHAT32"
+   Copyright 2002 AJ Wos <andrwos@aust1.net> 
 
-	"HWGUI"
-  	Copyright 2001-2007 Alexander S.Kresin <alex@belacy.belgorod.su>
+   "HWGUI"
+     Copyright 2001-2007 Alexander S.Kresin <alex@belacy.belgorod.su>
 
 ---------------------------------------------------------------------------*/
 
 #xcommand       DO REPORT  ;
-                TITLE <ctitle>			;
-		HEADERS <aheaders1> , <aheaders2> ;
-		FIELDS <a>  		;
-               	WIDTHS <awidths>  	;
-               	[ TOTALS <ato> ]		;
+                TITLE <ctitle>         ;
+      HEADERS <aheaders1> , <aheaders2> ;
+      FIELDS <a>        ;
+                  WIDTHS <awidths>     ;
+                  [ TOTALS <ato> ]      ;
                 [ NFORMATS <aformats> ] ;
-                WORKAREA <calias>    		;
-                [ LPP    <nlpp>	 ]		;
-                [ CPL    <ncpl> ]		;
+                WORKAREA <calias>          ;
+                [ LPP    <nlpp>    ]      ;
+                [ CPL    <ncpl> ]      ;
                 [ LMARGIN <nllmargin> ]         ;
                 [ PAPERSIZE <npapersize> ]      ;
                 [ <lnoprop: NOFIXED> ]    ;
-		[ <ldos: DOSMODE> ]		;
+      [ <ldos: DOSMODE> ]      ;
                 [ <lpreview: PREVIEW> ]         ;
                 [ <lselect: SELECT> ]           ;
                 [ IMAGE <cgraphic> AT <nfi> , <nci> TO <nff> , <ncf> ] ;
@@ -74,15 +74,15 @@
                 [ GROUPED BY <cgrpby> ]         ;
                 [ HEADRGRP   <chdrgrp> ]         ;
                 [ <llandscape: LANDSCAPE> ]           ;
-	=>;
-easyreport  ( <ctitle> ,		 	;
-		<aheaders1> , 		;
-		<aheaders2> ,		;
-		<a> ,		;
-		<awidths> , 		;
-		<ato> , 		;
-		<nlpp> , 		;
-		<.ldos.>,               ;
+   =>;
+easyreport  ( <ctitle> ,          ;
+      <aheaders1> ,       ;
+      <aheaders2> ,      ;
+      <a> ,      ;
+      <awidths> ,       ;
+      <ato> ,       ;
+      <nlpp> ,       ;
+      <.ldos.>,               ;
                 <.lpreview.>,           ;
                 <cgraphic>,             ;
                 <nfi> , <nci> , <nff> , <ncf> ,   ;

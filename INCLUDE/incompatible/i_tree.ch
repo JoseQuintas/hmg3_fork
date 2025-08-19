@@ -37,44 +37,44 @@
 
  Parts of this project are based upon:
 
-	"Harbour GUI framework for Win32"
- 	Copyright 2001 Alexander S.Kresin <alex@belacy.belgorod.su>
- 	Copyright 2001 Antonio Linares <alinares@fivetech.com>
-	www - http://www.harbour-project.org
+   "Harbour GUI framework for Win32"
+    Copyright 2001 Alexander S.Kresin <alex@belacy.belgorod.su>
+    Copyright 2001 Antonio Linares <alinares@fivetech.com>
+   www - http://www.harbour-project.org
 
-	"Harbour Project"
-	Copyright 1999-2003, http://www.harbour-project.org/
+   "Harbour Project"
+   Copyright 1999-2003, http://www.harbour-project.org/
 
-	"WHAT32"
-	Copyright 2002 AJ Wos <andrwos@aust1.net>
+   "WHAT32"
+   Copyright 2002 AJ Wos <andrwos@aust1.net>
 
-	"HWGUI"
-  	Copyright 2001-2007 Alexander S.Kresin <alex@belacy.belgorod.su>
+   "HWGUI"
+     Copyright 2001-2007 Alexander S.Kresin <alex@belacy.belgorod.su>
 
 ---------------------------------------------------------------------------*/
 
 * Standard Syntax
 
 #xcommand DEFINE TREE <name> ;
-	[ <dummy1: OF, PARENT> <parent> ] ;
-	AT <row> , <col> ;
-	[ WIDTH <width> ] ;
-	[ HEIGHT <height> ] ;
-	[ VALUE <value> ] ;
-	[ FONT <fontname> ] ;
-	[ SIZE <fontsize> ] ;
-	[ <bold : BOLD> ] ;
-	[ <italic : ITALIC> ] ;
-	[ <underline : UNDERLINE> ] ;
-	[ <strikeout : STRIKEOUT> ] ;
-	[ TOOLTIP <tooltip> ] ;
-	[ ON GOTFOCUS <gotfocus> ] ;
-	[ ON CHANGE <change> ] ;
-	[ ON LOSTFOCUS <lostfocus> ] ;
-	[ ON DBLCLICK <dblclick> ] ;
-	[ NODEIMAGES <aImgNode> [ ITEMIMAGES <aImgItem> ] [ <noBut: NOROOTBUTTON> ]];
-	[ <itemids : ITEMIDS> ] ;
-	[ HELPID <helpid> ] 		;
+   [ <dummy1: OF, PARENT> <parent> ] ;
+   AT <row> , <col> ;
+   [ WIDTH <width> ] ;
+   [ HEIGHT <height> ] ;
+   [ VALUE <value> ] ;
+   [ FONT <fontname> ] ;
+   [ SIZE <fontsize> ] ;
+   [ <bold : BOLD> ] ;
+   [ <italic : ITALIC> ] ;
+   [ <underline : UNDERLINE> ] ;
+   [ <strikeout : STRIKEOUT> ] ;
+   [ TOOLTIP <tooltip> ] ;
+   [ ON GOTFOCUS <gotfocus> ] ;
+   [ ON CHANGE <change> ] ;
+   [ ON LOSTFOCUS <lostfocus> ] ;
+   [ ON DBLCLICK <dblclick> ] ;
+   [ NODEIMAGES <aImgNode> [ ITEMIMAGES <aImgItem> ] [ <noBut: NOROOTBUTTON> ]];
+   [ <itemids : ITEMIDS> ] ;
+   [ HELPID <helpid> ]       ;
    [ <NoTrans : NOTRANSPARENT> ] ;
    [ ON EXPAND <OnExpand> ] ;
    [ ON COLLAPSE <OnCollapse> ] ;
@@ -90,28 +90,28 @@ _DefineTree ( <(name)> , <(parent)> , <row> , <col> , <width> , <height> , <{cha
 * Alternate Syntax
 
 #xcommand DEFINE TREE <name> ;
-	[ PARENT <parent> ] ;
-	ROW <row> ;
-	COL <col> ;
-	[ WIDTH <width> ] ;
-	[ HEIGHT <height> ] ;
-	[ VALUE <value> ] ;
-	[ FONTNAME <fontname> ] ;
-	[ FONTSIZE <fontsize> ] ;
-	[ FONTBOLD <bold> ] ;
-	[ FONTITALIC <italic> ] ;
-	[ FONTUNDERLINE <underline> ] ;
-	[ FONTSTRIKEOUT <strikeout> ] ;
-	[ TOOLTIP <tooltip> ] ;
-	[ ONGOTFOCUS <gotfocus> ] ;
-	[ ONCHANGE <change> ] ;
-	[ ONLOSTFOCUS <lostfocus> ] ;
-	[ ONDBLCLICK <dblclick> ] ;
-	[ NODEIMAGES <aImgNode> ] ;
-	[ ITEMIMAGES <aImgItem> ] ;
-	[ ROOTBUTTON <rootbutton> ] ;
-	[ ITEMIDS <itemids> ] ;
-	[ HELPID <helpid> ] ;
+   [ PARENT <parent> ] ;
+   ROW <row> ;
+   COL <col> ;
+   [ WIDTH <width> ] ;
+   [ HEIGHT <height> ] ;
+   [ VALUE <value> ] ;
+   [ FONTNAME <fontname> ] ;
+   [ FONTSIZE <fontsize> ] ;
+   [ FONTBOLD <bold> ] ;
+   [ FONTITALIC <italic> ] ;
+   [ FONTUNDERLINE <underline> ] ;
+   [ FONTSTRIKEOUT <strikeout> ] ;
+   [ TOOLTIP <tooltip> ] ;
+   [ ONGOTFOCUS <gotfocus> ] ;
+   [ ONCHANGE <change> ] ;
+   [ ONLOSTFOCUS <lostfocus> ] ;
+   [ ONDBLCLICK <dblclick> ] ;
+   [ NODEIMAGES <aImgNode> ] ;
+   [ ITEMIMAGES <aImgItem> ] ;
+   [ ROOTBUTTON <rootbutton> ] ;
+   [ ITEMIDS <itemids> ] ;
+   [ HELPID <helpid> ] ;
    [ TRANSPARENT <Trans> ] ;
    [ ONEXPAND <OnExpand> ] ;
    [ ONCOLLAPSE <OnCollapse> ] ;
@@ -151,25 +151,25 @@ _EndTree()
 * Standard
 
 #xcommand DEFINE TREE <name> ;
-	[ <dummy1: OF, PARENT> <parent> ] ;
-	[ WIDTH <width> ] ;
-	[ HEIGHT <height> ] ;
-	[ VALUE <value> ] ;
-	[ FONT <fontname> ] ;
-	[ SIZE <fontsize> ] ;
-	[ <bold : BOLD> ] ;
-	[ <italic : ITALIC> ] ;
-	[ <underline : UNDERLINE> ] ;
-	[ <strikeout : STRIKEOUT> ] ;
-	[ TOOLTIP <tooltip> ] ;
-	[ ON GOTFOCUS <gotfocus> ] ;
-	[ ON CHANGE <change> ] ;
-	[ ON LOSTFOCUS <lostfocus> ] ;
-	[ ON DBLCLICK <dblclick> ] ;
-	[ <itemids : ITEMIDS> ] ;
-	[ HELPID <helpid> ] 		;
-	[ NODEIMAGES <aImgNode> [ ITEMIMAGES <aImgItem> ] [ <noBut: NOROOTBUTTON> ]];
-	[ <break: BREAK> ] ;
+   [ <dummy1: OF, PARENT> <parent> ] ;
+   [ WIDTH <width> ] ;
+   [ HEIGHT <height> ] ;
+   [ VALUE <value> ] ;
+   [ FONT <fontname> ] ;
+   [ SIZE <fontsize> ] ;
+   [ <bold : BOLD> ] ;
+   [ <italic : ITALIC> ] ;
+   [ <underline : UNDERLINE> ] ;
+   [ <strikeout : STRIKEOUT> ] ;
+   [ TOOLTIP <tooltip> ] ;
+   [ ON GOTFOCUS <gotfocus> ] ;
+   [ ON CHANGE <change> ] ;
+   [ ON LOSTFOCUS <lostfocus> ] ;
+   [ ON DBLCLICK <dblclick> ] ;
+   [ <itemids : ITEMIDS> ] ;
+   [ HELPID <helpid> ]       ;
+   [ NODEIMAGES <aImgNode> [ ITEMIMAGES <aImgItem> ] [ <noBut: NOROOTBUTTON> ]];
+   [ <break: BREAK> ] ;
    [ <NoTrans : NOTRANSPARENT> ];
    [ ON EXPAND <OnExpand> ] ;
    [ ON COLLAPSE <OnCollapse> ] ;
@@ -185,27 +185,27 @@ _DefineTree ( <(name)> , <(parent)> ,  ,  , <width> , <height> , <{change}> , <t
 * Extended
 
 #xcommand DEFINE TREE <name> ;
-	[ PARENT <parent> ] ;
-	[ WIDTH <width> ] ;
-	[ HEIGHT <height> ] ;
-	[ VALUE <value> ] ;
-	[ FONTNAME <fontname> ] ;
-	[ FONTSIZE <fontsize> ] ;
-	[ FONTBOLD <bold> ] ;
-	[ FONTITALIC <italic> ] ;
-	[ FONTUNDERLINE <underline> ] ;
-	[ FONTSTRIKEOUT <strikeout> ] ;
-	[ TOOLTIP <tooltip> ] ;
-	[ ONGOTFOCUS <gotfocus> ] ;
-	[ ONCHANGE <change> ] ;
-	[ ONLOSTFOCUS <lostfocus> ] ;
-	[ ONDBLCLICK <dblclick> ] ;
-	[ ITEMIDS <itemids> ] ;
-	[ HELPID <helpid> ] 	;
-	[ NODEIMAGES <aImgNode> ] ;
-	[ ITEMIMAGES <aImgItem> ] ;
-	[ ROOTBUTTON <rootbutton> ] ;
-	[ BREAK <break> ] ;
+   [ PARENT <parent> ] ;
+   [ WIDTH <width> ] ;
+   [ HEIGHT <height> ] ;
+   [ VALUE <value> ] ;
+   [ FONTNAME <fontname> ] ;
+   [ FONTSIZE <fontsize> ] ;
+   [ FONTBOLD <bold> ] ;
+   [ FONTITALIC <italic> ] ;
+   [ FONTUNDERLINE <underline> ] ;
+   [ FONTSTRIKEOUT <strikeout> ] ;
+   [ TOOLTIP <tooltip> ] ;
+   [ ONGOTFOCUS <gotfocus> ] ;
+   [ ONCHANGE <change> ] ;
+   [ ONLOSTFOCUS <lostfocus> ] ;
+   [ ONDBLCLICK <dblclick> ] ;
+   [ ITEMIDS <itemids> ] ;
+   [ HELPID <helpid> ]    ;
+   [ NODEIMAGES <aImgNode> ] ;
+   [ ITEMIMAGES <aImgItem> ] ;
+   [ ROOTBUTTON <rootbutton> ] ;
+   [ BREAK <break> ] ;
    [ TRANSPARENT <Trans> ] ;
    [ ONEXPAND <OnExpand> ] ;
    [ ONCOLLAPSE <OnCollapse> ] ;
@@ -238,7 +238,7 @@ _DefineTree ( <(name)> , <(parent)> ,  ,  , <width> , <height> , <{change}> , <t
    TreeItemSort (<"control">, <(parent)>, <nItem>, <lRecursive>, <lCaseSensitive>, <lAscendingOrder>, <nNodePosition>)
 
 
-#xtranslate This.TreeItemValue => _HMG_This_TreeItem_Value
+#xtranslate This.TreeItemValue => oHmgApp():This_TreeItem_Value
 
 
 //   iImageList --> TreeView_SetImageList() / TreeView_GetImageList()

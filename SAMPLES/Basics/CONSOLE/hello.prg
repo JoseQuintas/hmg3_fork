@@ -1,13 +1,13 @@
 REQUEST HB_GT_WIN_DEFAULT
 function Main()
 
-	SetMode(25,80)
+   SetMode(25,80)
 
-	CLS
+   CLS
 
-	@ 10,10 say 'Hello'
+   @ 10,10 say 'Hello'
 
-	alert('Hello')
+   alert('Hello')
 
 
 return nil

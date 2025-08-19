@@ -18,30 +18,30 @@ OpenTable()
 
 PRIVATE bckColor := { || If( (Articulos->(RecNo())) % 2 == 0, WHITE , MY_PURPLE ) }
 PRIVATE bckFore  := { || If( (Articulos->(RecNo())) % 2 == 0, BLACK , BLUE      ) }
-												
+                                    
 DEFINE WINDOW Form_1 ;
-	AT 0,0 ;
-	WIDTH 482 HEIGHT 540 ;
-	TITLE "Products in the Stock" ;
-	FONT "Segoe UI" SIZE 09 ;
-	MAIN NOSIZE ;
-	ON RELEASE DbCloseAll()
-					
-	@ 10, 10 GRID Grid_1	;
-		WIDTH 455	;
-		HEIGHT 490 	;	
-		HEADERS { "Code", "Description", "In Stock" } ;
-		WIDTHS { 55, 300, 90 }	;
-		VALUE {9,2} ;
-		FONT "Segoe UI" SIZE 09 ;
-		BACKCOLOR { 244,244,244 } ;
-		DYNAMICBACKCOLOR { bckColor, bckColor, { || If( AtCellCol( 3 ) < 0, MY_RED, If( (Articulos->(RecNo())) % 2 == 0, WHITE , MY_PURPLE ) ) } } ;
+   AT 0,0 ;
+   WIDTH 482 HEIGHT 540 ;
+   TITLE "Products in the Stock" ;
+   FONT "Segoe UI" SIZE 09 ;
+   MAIN NOSIZE ;
+   ON RELEASE DbCloseAll()
+               
+   @ 10, 10 GRID Grid_1   ;
+      WIDTH 455   ;
+      HEIGHT 490    ;   
+      HEADERS { "Code", "Description", "In Stock" } ;
+      WIDTHS { 55, 300, 90 }   ;
+      VALUE {9,2} ;
+      FONT "Segoe UI" SIZE 09 ;
+      BACKCOLOR { 244,244,244 } ;
+      DYNAMICBACKCOLOR { bckColor, bckColor, { || If( AtCellCol( 3 ) < 0, MY_RED, If( (Articulos->(RecNo())) % 2 == 0, WHITE , MY_PURPLE ) ) } } ;
         DYNAMICFORECOLOR { bckFore , bckFore , { || If( AtCellCol( 3 ) < 0, WHITE , If( (Articulos->(RecNo())) % 2 == 0, BLACK , BLUE      ) ) } } ;
-		ROWSOURCE "Articulos" ;
-		COLUMNFIELDS { "Articulos->f_cve_art", "Articulos->f_nomb_art", "Transform( ExistActual('01', Articulos->f_cve_art),'9999')" } ;
-		NOLINES ;
-		JUSTIFY { BROWSE_JTFY_LEFT, BROWSE_JTFY_LEFT, BROWSE_JTFY_RIGHT }
-		
+      ROWSOURCE "Articulos" ;
+      COLUMNFIELDS { "Articulos->f_cve_art", "Articulos->f_nomb_art", "Transform( ExistActual('01', Articulos->f_cve_art),'9999')" } ;
+      NOLINES ;
+      JUSTIFY { BROWSE_JTFY_LEFT, BROWSE_JTFY_LEFT, BROWSE_JTFY_RIGHT }
+      
 END WINDOW
 Form_1.Grid_1.SETFOCUS
 CENTER WINDOW Form_1

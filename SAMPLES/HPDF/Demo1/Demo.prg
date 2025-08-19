@@ -4,24 +4,24 @@ Function Main()
 SELECT HPDFDOC "sample.pdf" PAPERLENGTH 300 PAPERWIDTH 300 LOG
 START HPDFDOC
     START HPDFPAGE
-	
-	SET HPDFDOC ENCODING TO "WinAnsiEncoding"
-	    
-		@ 10,20  HPDFPRINT "I want Euro sign here: "+CHR(128)
-		
+   
+   SET HPDFDOC ENCODING TO "WinAnsiEncoding"
+       
+      @ 10,20  HPDFPRINT "I want Euro sign here: "+CHR(128)
+      
         @ 20,20  HPDFPRINT "I want this STRIKEOUT (not working)" STRIKEOUT
 
-		@ 18,67  HPDFPRINT "_________" // COLOR { 51, 255, 255 }
-		@ 20,92  HPDFPRINT "<----  This line was drawing to simulate a baseline (made manually)" SIZE 9 COLOR { 0, 0, 255 }
-		
+      @ 18,67  HPDFPRINT "_________" // COLOR { 51, 255, 255 }
+      @ 20,92  HPDFPRINT "<----  This line was drawing to simulate a baseline (made manually)" SIZE 9 COLOR { 0, 0, 255 }
+      
         @ 30,20  HPDFPRINT "I want this italic" ITALIC
         @ 40,20  HPDFPRINT "I want this bold" BOLD
         @ 50,20  HPDFPRINT "I want this UNDERLINE (not working)" UNDERLINE
-		
-		@ 50,67  HPDFPRINT "_________" // COLOR { 255, 0, 0 }
-		@ 52,92  HPDFPRINT "<----  This line was drawing to simulate a baseline (made manually)" SIZE 9 COLOR { 0, 0, 255 }
+      
+      @ 50,67  HPDFPRINT "_________" // COLOR { 255, 0, 0 }
+      @ 52,92  HPDFPRINT "<----  This line was drawing to simulate a baseline (made manually)" SIZE 9 COLOR { 0, 0, 255 }
         
-		@ 60,20 HPDFPRINT "I have HMG 3.2.1 (stable) in Courier-Bold" FONT "Courier-Bold"
+      @ 60,20 HPDFPRINT "I have HMG 3.2.1 (stable) in Courier-Bold" FONT "Courier-Bold"
         
         @ 80, 10 HPDFPRINT "This is a sample Text in default font in ITALIC." ITALIC
         @ 90, 10 HPDFPRINT "This is a sample Text in default font in BOLD." BOLD
