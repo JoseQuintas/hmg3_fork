@@ -635,7 +635,7 @@ FUNCTION _DefineDropDownMenu ( cButton , Parent )
 
    *------------------------------------------------------------------------------*
 
-PROCEDURE DeleteItem_HMG_SYSDATA (k)
+PROCEDURE DeleteControlByIndex (k)
 
    *------------------------------------------------------------------------------*
 
@@ -774,7 +774,7 @@ FUNCTION ReleaseMainMenu ( cParentForm )
    FOR k = 1 TO oHmgApp():ControlCount
       IF (ControlByIndex( k ):Type == "MENU") .OR. (ControlByIndex( k ):Type == "POPUP")
          IF (( ControlByIndex( K ):CTRL012 == "MAIN_MENU_ITEM" .OR. ControlByIndex( K ):CTRL012 == "MAIN_MENU_POPUP") .AND. (ControlByIndex( K ):ParentFormHandle == hWnd))
-            DeleteItem_HMG_SYSDATA (k)
+            DeleteControlByIndex (k)
             Ret ++
          ENDIF
       ENDIF
@@ -804,7 +804,7 @@ FUNCTION ReleaseContextMenu ( cParentForm )
          IF (( ControlByIndex( K ):CTRL012 == "CONTEXT_MENU_ITEM") .AND. (ControlByIndex( K ):ParentFormHandle == hWnd))
             hMenu := ControlByIndex( K ):CTRL007
             DestroyMenu (hMenu)
-            DeleteItem_HMG_SYSDATA (k)
+            DeleteControlByIndex (k)
             Ret ++
          ENDIF
       ENDIF
@@ -834,7 +834,7 @@ FUNCTION ReleaseNotifyMenu ( cParentForm )
          IF ((ControlByIndex( K ):CTRL012 == "NOTIFY_MENU_ITEM") .AND. (ControlByIndex( K ):ParentFormHandle == hWnd))
             hMenu := ControlByIndex( K ):CTRL007
             DestroyMenu (hMenu)
-            DeleteItem_HMG_SYSDATA (k)
+            DeleteControlByIndex (k)
             Ret ++
          ENDIF
       ENDIF
@@ -864,7 +864,7 @@ FUNCTION ReleaseDropDownMenu ( cButton, cParentForm )
          IF (( ControlByIndex( K ):CTRL012 == "DROPDOWN_MENU_ITEM") .AND. (ControlByIndex( K ):CTRL011 == cButton) .AND. (ControlByIndex( K ):ParentFormHandle == hWnd))
             hMenu := ControlByIndex( K ):CTRL007
             DestroyMenu (hMenu)
-            DeleteItem_HMG_SYSDATA (k)
+            DeleteControlByIndex (k)
             Ret ++
          ENDIF
       ENDIF
@@ -953,7 +953,7 @@ FUNCTION ReleaseControlContextMenu ( cControl, cParentForm )
          IF ((ControlByIndex( K ):CTRL012 == "CONTROL_MENU_ITEM") .AND. _TestControlHandle_ContextMenu (ControlByIndex( K ):CTRL018, nControlHandle) .AND. (ControlByIndex( K ):ParentFormHandle == hWnd))
             hMenu := ControlByIndex( K ):CTRL007
             DestroyMenu (hMenu)
-            DeleteItem_HMG_SYSDATA (k)
+            DeleteControlByIndex (k)
             Ret ++
          ENDIF
       ENDIF

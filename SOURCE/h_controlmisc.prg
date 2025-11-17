@@ -4431,7 +4431,7 @@ Function _GetId()
 
        RetVal := random (65000)
 
-       xTmp := ControlByBlock( { | e | E:CTRL005 == retval } )
+       xTmp := ControlByBlock( { | e | ValType( e:CTRL005 ) == "N" .AND. e:CTRL005 == retval } )
        i := iif( xTmp == Nil, 0, xTmp:Index )
 
        if i == 0 .and. retval != 0

@@ -104,29 +104,33 @@ FUNCTION _GridEx_GetColumnControl (cControlName , cParentForm, nControl, nColInd
 *-----------------------------------------------------------------------------------------*
 // cCAPTION, nWIDTH, nJUSTIFY, aCOLUMNCONTROL, bDYNAMICBACKCOLOR, bDYNAMICFORECOLOR, bCOLUMNWHEN, bCOLUMNVALID, bONHEADCLICK
 LOCAL Length, i, Data := NIL
-  i := GetControlIndex(cControlName,cParentForm)
-  IF (nControl = _GRID_COLUMN_ONHEADCLICK_) .OR. (nControl = _GRID_COLUMN_HEADER_) .OR. (nControl = _GRID_COLUMN_JUSTIFY_)
-     Length := HMG_LEN(_HMG_SYSDATA [ nControl ] [i])
-     IF nColIndex > 0 .AND. nColIndex <= Length
-        Data := _HMG_SYSDATA [ nControl ] [i] [nColIndex]
-     ELSE
-        MsgHMGError ("Grid: Invalid nColIndex. Program Terminated")
-     ENDIF
-  ELSE
-     IF Valtype (ControlByIndex( I ):CTRL040 [ nControl ]) == "A"
+LOCAL oControl, aTmp
 
-        Length := HMG_LEN(ControlByIndex( I ):CTRL040 [ nControl ])
-        IF nColIndex > 0 .AND. nColIndex <= Length
-           Data := ControlByIndex( I ):CTRL040 [ nControl ] [nColIndex]
-           IF nControl = _GRID_COLUMN_WIDTH_
-              // Low-level function in C native of HMG (source c_grid.c)
-              Data := LISTVIEW_GETCOLUMNWIDTH (GetControlHandle (cControlName, cParentForm), nColIndex-1)
-           ENDIF
-        ELSE
-           MsgHMGError ("Grid: Invalid nColIndex. Program Terminated")
-        ENDIF
-     ENDIF
-  ENDIF
+  i := GetControlIndex(cControlName,cParentForm)
+  oControl := ControlByIndex ( i )
+
+  DO CASE
+   CASE nControl == _GRID_COLUMN_ONHEADCLICK_ ; aTmp := oControl:CTRL017
+   CASE nControl == _GRID_COLUMN_HEADER_ ;      aTmp := oControl:CTRL007
+   CASE nControl == _GRID_COLUMN_HEADER2_ ;     aTmp := oControl:CTRL033
+   CASE nControl == _GRID_COLUMN_HEADERIMAGE_ ; aTmp := oControl:CTRL022
+   CASE nControl == _GRID_COLUMN_JUSTIFY_ ;     aTmp := oControl:CTRL037
+   OTHERWISE  ;                                 aTmp := oControl:CTRL040
+   ENDCASE
+   IF Valtype ( aTmp ) == "A"
+
+      Length := HMG_LEN( aTmp )
+      IF nColIndex > 0 .AND. nColIndex <= Length
+         Data := aTmp [nColIndex]
+         IF nControl = _GRID_COLUMN_WIDTH_
+            // Low-level function in C native of HMG (source c_grid.c)
+            Data := LISTVIEW_GETCOLUMNWIDTH (GetControlHandle (cControlName, cParentForm), nColIndex-1)
+         ENDIF
+      ELSE
+         MsgHMGError ("Grid: Invalid nColIndex. Program Terminated")
+      ENDIF
+   ENDIF
+
 RETURN Data
 
 
@@ -135,6 +139,7 @@ FUNCTION _GridEx_SetColumnControl (cControlName , cParentForm, nControl, nColInd
 *-----------------------------------------------------------------------------------------------------*
 // cCAPTION, nWIDTH, nJUSTIFY, aCOLUMNCONTROL, bDYNAMICBACKCOLOR, bDYNAMICFORECOLOR, bCOLUMNWHEN, bCOLUMNVALID, bONHEADCLICK
 LOCAL Length, nColumnCount, i, lGridEnableUpdate
+LOCAL oControl, aTmp
 
   nColumnCount := _GridEx_ColumnCount(cControlName,cParentForm)
   i := GetControlIndex(cControlName,cParentForm)
@@ -143,19 +148,26 @@ LOCAL Length, nColumnCount, i, lGridEnableUpdate
      lRefresh := .T.
   ENDIF
 
-  IF nControl = _GRID_COLUMN_ONHEADCLICK_ .OR. nControl = _GRID_COLUMN_HEADER_ .OR. nControl = _GRID_COLUMN_JUSTIFY_
-     Length := HMG_LEN(_HMG_SYSDATA [ nControl ] [i])
+  oControl := ControlByIndex( I )
+  IF nControl = _GRID_COLUMN_ONHEADCLICK_ ;
+     .OR. nControl = _GRID_COLUMN_HEADER_ ;
+     .OR. nControl = _GRID_COLUMN_JUSTIFY_
+     DO CASE
+     CASE nControl == _GRID_COLUMN_ONHEADCLICK_ ; aTmp := oControl:CTRL017
+     CASE nControl == _GRID_COLUMN_HEADER_ ;      aTmp := oControl:CTRL007
+     CASE nControl == _GRID_COLUMN_JUSTIFY_ ;     aTmp := oControl:CTRL037
+     ENDCASE
+     Length := HMG_LEN( aTmp )
      IF Length < nColumnCount
-        ASIZE (_HMG_SYSDATA [ nControl ] [i] , nColumnCount)
+        ASIZE( aTmp, nColumnCount )
      ENDIF
-
      _GridEx_SET_DEFAULT_COLUMN_CONTROL (cControlName , cParentForm, nControl)
 
      IF nColIndex > 0 .AND. nColIndex <= nColumnCount
-        _HMG_SYSDATA [ nControl ] [i] [nColIndex] := Data
+        aTmp[ nColIndex ] := Data
         DO CASE
            CASE nControl = _GRID_COLUMN_HEADER_
-                _HMG_SYSDATA [ _GRID_COLUMN_HEADER2_ ] [i] := _HMG_SYSDATA [ _GRID_COLUMN_HEADER_ ] [i]
+              oControl:CTRL033 := oControl:CTRL007
                 SETGRIDCOLOMNHEADER (GetControlHandle(cControlName, cParentForm), nColIndex, Data)   // Low-level function in C native of HMG (source c_grid.c)
            CASE nControl = _GRID_COLUMN_JUSTIFY_
                 LISTVIEW_SETCOLUMNJUSTIFY (GetControlHandle(cControlName, cParentForm), nColIndex-1, Data)   // Low-level function in C (source c_GridEx.c)
@@ -165,19 +177,19 @@ LOCAL Length, nColumnCount, i, lGridEnableUpdate
      ENDIF
 
   ELSE
-     IF Valtype (ControlByIndex( I ):CTRL040 [ nControl ]) <> "A"
-        ControlByIndex( I ):CTRL040 [ nControl ] := {}
+     IF Valtype ( oControl:CTRL040 ) <> "A"
+        ControlByIndex( I ):CTRL040 := {}
      ENDIF
 
-     Length := HMG_LEN(ControlByIndex( I ):CTRL040 [ nControl ])
+     Length := HMG_LEN(ControlByIndex( I ):CTRL040 )
      IF Length < nColumnCount
-        ASIZE (ControlByIndex( I ):CTRL040 [ nControl ], nColumnCount)
+        ASIZE (ControlByIndex( I ):CTRL040, nColumnCount)
      ENDIF
 
     _GridEx_SET_DEFAULT_COLUMN_CONTROL (cControlName , cParentForm, nControl)
 
     IF nColIndex > 0 .AND. nColIndex <= nColumnCount
-       ControlByIndex( I ):CTRL040 [ nControl ] [nColIndex] := Data
+       ControlByIndex( I ):CTRL040 [nColIndex] := Data
 
        IF nControl = _GRID_COLUMN_WIDTH_
           // Low-level function in C native of HMG (source c_grid.c)
@@ -497,6 +509,7 @@ FUNCTION _GridEx_SET_DEFAULT_COLUMN_CONTROL (cControlName , cParentForm, nContro
 LOCAL k, DefaultData
 LOCAL i := GetControlIndex(cControlName,cParentForm)
 LOCAL nColumnCount := _GridEx_ColumnCount(cControlName,cParentForm)
+LOCAL oControl, aTmp
 
    DO CASE
       CASE nControl = _GRID_COLUMN_HEADER_ .OR. nControl = _GRID_COLUMN_HEADER2_ .OR. nControl == _GRID_COLUMN_HEADERIMAGE_
@@ -527,22 +540,21 @@ LOCAL nColumnCount := _GridEx_ColumnCount(cControlName,cParentForm)
            DefaultData := NIL   // {||NIL}
    ENDCASE
 
-   IF nControl == _GRID_COLUMN_ONHEADCLICK_ .OR. nControl == _GRID_COLUMN_HEADER_ .OR. nControl == _GRID_COLUMN_HEADER2_ .OR. nControl == _GRID_COLUMN_HEADERIMAGE_ .OR. nControl == _GRID_COLUMN_JUSTIFY_
-      IF Valtype (_HMG_SYSDATA [ nControl ] [i]) == "A"
-         FOR k = 1 TO nColumnCount
-             IF Valtype (_HMG_SYSDATA [ nControl ] [i] [k]) == "U"
-                _HMG_SYSDATA [ nControl ] [i] [k] := DefaultData
-             ENDIF
-         NEXT
-      ENDIF
-   ELSE
-      IF Valtype (ControlByIndex( I ):CTRL040 [ nControl ]) == "A"
-         FOR k = 1 TO nColumnCount
-             IF Valtype (ControlByIndex( I ):CTRL040 [ nControl ] [k]) == "U"
-                ControlByIndex( I ):CTRL040 [ nControl ] [k] := DefaultData
-             ENDIF
-         NEXT
-      ENDIF
+   oControl := ControlByIndex( I )
+   DO CASE
+   CASE nControl == _GRID_COLUMN_ONHEADCLICK_ ; aTmp := oControl:CTRL017
+   CASE nControl == _GRID_COLUMN_HEADER_ ;      aTmp := oControl:CTRL007
+   CASE nControl == _GRID_COLUMN_HEADER2_ ;     aTmp := oControl:CTRL033
+   CASE nControl == _GRID_COLUMN_HEADERIMAGE_ ; aTmp := oControl:CTRL022
+   CASE nControl == _GRID_COLUMN_JUSTIFY_ ;     aTmp := oControl:CTRL037
+   OTHERWISE  ;                                 aTmp := oControl:CTRL040
+   ENDCASE
+   IF ValType( aTmp ) == "A"
+      FOR K = 1 TO nColumnCount
+         IF ValType( aTmp[ K ] ) == "U"
+            aTmp[ K ] := DefaultData
+         ENDIF
+      NEXT
    ENDIF
 
 RETURN NIL
@@ -553,26 +565,26 @@ RETURN NIL
 FUNCTION _GridEx_DELETE_COLUMN_CONTROL (cControlName , cParentForm, nControl, nColIndex, nColumnCount)
 *---------------------------------------------------------------------------------------------------------*
 LOCAL i := GetControlIndex(cControlName,cParentForm)
+LOCAL oControl, aTmp
 
-  IF nControl == _GRID_COLUMN_ONHEADCLICK_ .OR. nControl == _GRID_COLUMN_HEADER_ .OR. nControl == _GRID_COLUMN_HEADER2_ .OR. nControl == _GRID_COLUMN_HEADERIMAGE_ .OR. nControl == _GRID_COLUMN_JUSTIFY_
-     IF Valtype (_HMG_SYSDATA [ nControl ] [i]) == "A"
-        IF nColIndex > 0 .AND. nColIndex <= nColumnCount
-           ADEL  (_HMG_SYSDATA [ nControl ] [i], nColIndex)
-           ASIZE (_HMG_SYSDATA [ nControl ] [i], nColumnCount-1)
-        ELSE
-           MsgHMGError ("Grid: Invalid nColIndex. Program Terminated")
-        ENDIF
-     ENDIF
-  ELSE
-     IF Valtype (ControlByIndex( I ):CTRL040 [ nControl ]) == "A"
-        IF nColIndex > 0 .AND. nColIndex <= nColumnCount
-           ADEL  (ControlByIndex( I ):CTRL040 [ nControl ], nColIndex)
-           ASIZE (ControlByIndex( I ):CTRL040 [ nControl ], nColumnCount-1)
-        ELSE
-           MsgHMGError ("Grid: Invalid nColIndex. Program Terminated")
-        ENDIF
-     ENDIF
-  ENDIF
+   oControl := ControlByIndex( i )
+
+   DO CASE
+   CASE nControl == _GRID_COLUMN_ONHEADCLICK_ ;  aTmp := oControl:CTRL017
+   CASE nControl == _GRID_COLUMN_HEADER_ ;       aTmp := oControl:CTRL007
+   CASE nControl == _GRID_COLUMN_HEADER2_ ;      aTmp := oControl:CTRL033
+   CASE nControl == _GRID_COLUMN_HEADERIMAGE_ ;  aTmp := oControl:CTRL022
+   CASE nControl == _GRID_COLUMN_JUSTIFY_ ;      aTmp := oControl:CTRL037
+   OTHERWISE ;                                   aTmp := oControl:CTRL040
+   ENDCASE
+   IF Valtype ( aTmp ) == "A"
+      IF nColIndex > 0 .AND. nColIndex <= nColumnCount
+         ADEL  ( aTmp, nColIndex )
+         ASIZE ( aTmp, nColumnCount-1 )
+      ELSE
+         MsgHMGError ("Grid: Invalid nColIndex. Program Terminated")
+      ENDIF
+   ENDIF
 
   _GridEx_SET_DEFAULT_COLUMN_CONTROL (cControlName , cParentForm, nControl)
 
@@ -583,26 +595,27 @@ RETURN NIL
 FUNCTION _GridEx_ADD_COLUMN_CONTROL (cControlName , cParentForm, nControl, nColIndex, nColumnCount)
 *---------------------------------------------------------------------------------------------------*
 LOCAL i := GetControlIndex(cControlName,cParentForm)
+LOCAL oControl, aTmp
 
-  IF nControl == _GRID_COLUMN_ONHEADCLICK_ .OR. nControl == _GRID_COLUMN_HEADER_ .OR. nControl == _GRID_COLUMN_HEADER2_ .OR. nControl == _GRID_COLUMN_HEADERIMAGE_ .OR. nControl == _GRID_COLUMN_JUSTIFY_
-     IF Valtype (_HMG_SYSDATA [ nControl ] [i]) == "A"
+   oControl := ControlByIndex( i )
+
+   DO CASE
+   CASE nControl == _GRID_COLUMN_ONHEADCLICK_ ; aTmp := oControl:CTRL017
+   CASE nControl == _GRID_COLUMN_HEADER_ ;      aTmp := oControl:CTRL007
+   CASE nControl == _GRID_COLUMN_HEADER2_ ;     aTmp := oControl:CTRL033
+   CASE nControl == _GRID_COLUMN_HEADERIMAGE_ ; aTmp := oControl:CTRL022
+   CASE nControl == _GRID_COLUMN_JUSTIFY_ ;     aTmp := oControl:CTRL037
+   OTHERWISE  ;                                 aTmp := oControl:CTRL040
+   ENDCASE
+
+     IF Valtype ( aTmp ) == "A"
         IF nColIndex > 0 .AND. nColIndex <= nColumnCount+1
-           ASIZE (_HMG_SYSDATA [ nControl ] [i], nColumnCount+1)
-           AINS  (_HMG_SYSDATA [ nControl ] [i], nColIndex)
+           ASIZE ( aTmp, nColumnCount + 1 )
+           AINS  ( aTmp, nColIndex )
         ELSE
            MsgHMGError ("Grid: Invalid nColIndex. Program Terminated")
         ENDIF
      ENDIF
-  ELSE
-     IF Valtype (ControlByIndex( I ):CTRL040 [ nControl ]) == "A"
-        IF nColIndex > 0 .AND. nColIndex <= nColumnCount+1
-           ASIZE (ControlByIndex( I ):CTRL040 [ nControl ], nColumnCount+1)
-           AINS  (ControlByIndex( I ):CTRL040 [ nControl ], nColIndex)
-        ELSE
-           MsgHMGError ("Grid: Invalid nColIndex. Program Terminated")
-        ENDIF
-     ENDIF
-  ENDIF
 
   _GridEx_SET_DEFAULT_COLUMN_CONTROL (cControlName , cParentForm, nControl)
 
