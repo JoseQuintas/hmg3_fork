@@ -111,6 +111,30 @@ void HMG_GrayBitmap (HBITMAP hBitmap, int Transparent)
 }
 
 
+// ICON resource or .ico file -> imagelist, keeps icon transparency (alpha/mask)
+
+static HIMAGELIST HMG_IconImageList (TCHAR *FileName)
+{
+   HICON hIcon;
+   HIMAGELIST hImageList;
+   int nWidth  = GetSystemMetrics (SM_CXICON);
+   int nHeight = GetSystemMetrics (SM_CYICON);
+
+   hIcon = (HICON) LoadImage (GetModuleHandle(NULL), FileName, IMAGE_ICON, nWidth, nHeight, LR_DEFAULTCOLOR);
+   if (hIcon == NULL)
+      hIcon = (HICON) LoadImage (NULL, FileName, IMAGE_ICON, nWidth, nHeight, LR_LOADFROMFILE | LR_DEFAULTCOLOR);
+   if (hIcon == NULL)
+      return NULL;
+
+   hImageList = ImageList_Create (nWidth, nHeight, ILC_COLOR32 | ILC_MASK, 1, 0);
+   if (hImageList != NULL)
+      ImageList_AddIcon (hImageList, hIcon);
+   DestroyIcon (hIcon);
+
+   return hImageList;
+}
+
+
 // by Dr. Claudio Soto (May 2014)
 
 HIMAGELIST HMG_SetButtonImageList (HWND hButton, TCHAR *FileName, int Transparent, UINT uAlign, BOOL SetGray)
@@ -121,6 +145,19 @@ HIMAGELIST HMG_SetButtonImageList (HWND hButton, TCHAR *FileName, int Transparen
    BUTTON_IMAGELIST bi;
 
    UNREFERENCED_PARAMETER (SetGray);
+
+   hImageList = HMG_IconImageList (FileName);
+   if (hImageList != NULL)
+   {
+      bi.himl          = hImageList;
+      bi.margin.left   = 2;   // small margins, room for icon + caption
+      bi.margin.top    = 2;
+      bi.margin.bottom = 2;
+      bi.margin.right  = 2;
+      bi.uAlign        = uAlign;
+      SendMessage (hButton, BCM_SETIMAGELIST, (WPARAM) 0, (LPARAM) &bi);
+      return hImageList;
+   }
                                                      //    ScaleStretch,  Transparent, BackgroundColor,  AdjustImage,   TransparentColor
    hBitmap = HMG_LoadPicture (FileName, -1, -1, NULL,                 0,            0,              -1,            0,                 -1 );
    if ( hBitmap == NULL )
