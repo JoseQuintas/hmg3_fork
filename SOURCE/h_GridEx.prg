@@ -115,7 +115,7 @@ LOCAL oControl, aTmp
    CASE nControl == _GRID_COLUMN_HEADER2_ ;     aTmp := oControl:CTRL033
    CASE nControl == _GRID_COLUMN_HEADERIMAGE_ ; aTmp := oControl:CTRL022
    CASE nControl == _GRID_COLUMN_JUSTIFY_ ;     aTmp := oControl:CTRL037
-   OTHERWISE  ;                                 aTmp := oControl:CTRL040
+   OTHERWISE  ;                                 aTmp := oControl:CTRL040 [ nControl ]
    ENDCASE
    IF Valtype ( aTmp ) == "A"
 
@@ -177,19 +177,19 @@ LOCAL oControl, aTmp
      ENDIF
 
   ELSE
-     IF Valtype ( oControl:CTRL040 ) <> "A"
-        ControlByIndex( I ):CTRL040 := {}
+     IF Valtype ( oControl:CTRL040 [ nControl ] ) <> "A"
+        oControl:CTRL040 [ nControl ] := {}
      ENDIF
 
-     Length := HMG_LEN(ControlByIndex( I ):CTRL040 )
+     Length := HMG_LEN( oControl:CTRL040 [ nControl ] )
      IF Length < nColumnCount
-        ASIZE (ControlByIndex( I ):CTRL040, nColumnCount)
+        ASIZE ( oControl:CTRL040 [ nControl ], nColumnCount)
      ENDIF
 
     _GridEx_SET_DEFAULT_COLUMN_CONTROL (cControlName , cParentForm, nControl)
 
     IF nColIndex > 0 .AND. nColIndex <= nColumnCount
-       ControlByIndex( I ):CTRL040 [nColIndex] := Data
+       oControl:CTRL040 [ nControl ] [nColIndex] := Data
 
        IF nControl = _GRID_COLUMN_WIDTH_
           // Low-level function in C native of HMG (source c_grid.c)
@@ -441,9 +441,9 @@ LOCAL  aRGB_old, aRGB
 
    IF nIndex >= 348 .AND. nIndex <= 351
       aRGB := xData
-      aRGB_old := _HMG_SYSDATA [ nIndex ]
+      aRGB_old := __objSendMsg ( oHmgApp(), "APP" + hb_ntos( nIndex ) )
       IF ValType (aRGB) == "A" .AND. HMG_LEN (aRGB) == 3
-         _HMG_SYSDATA [ nIndex ] := aRGB
+         __objSendMsg ( oHmgApp(), "_APP" + hb_ntos( nIndex ), aRGB )
       ELSEIF ValType (aRGB) <> "U"
          MsgHMGError ("Grid Cell Navigation Color: Invalid parameter aRGB color. Program Terminated")
       ENDIF
@@ -547,7 +547,7 @@ LOCAL oControl, aTmp
    CASE nControl == _GRID_COLUMN_HEADER2_ ;     aTmp := oControl:CTRL033
    CASE nControl == _GRID_COLUMN_HEADERIMAGE_ ; aTmp := oControl:CTRL022
    CASE nControl == _GRID_COLUMN_JUSTIFY_ ;     aTmp := oControl:CTRL037
-   OTHERWISE  ;                                 aTmp := oControl:CTRL040
+   OTHERWISE  ;                                 aTmp := oControl:CTRL040 [ nControl ]
    ENDCASE
    IF ValType( aTmp ) == "A"
       FOR K = 1 TO nColumnCount
@@ -575,7 +575,7 @@ LOCAL oControl, aTmp
    CASE nControl == _GRID_COLUMN_HEADER2_ ;      aTmp := oControl:CTRL033
    CASE nControl == _GRID_COLUMN_HEADERIMAGE_ ;  aTmp := oControl:CTRL022
    CASE nControl == _GRID_COLUMN_JUSTIFY_ ;      aTmp := oControl:CTRL037
-   OTHERWISE ;                                   aTmp := oControl:CTRL040
+   OTHERWISE ;                                   aTmp := oControl:CTRL040 [ nControl ]
    ENDCASE
    IF Valtype ( aTmp ) == "A"
       IF nColIndex > 0 .AND. nColIndex <= nColumnCount
@@ -605,7 +605,7 @@ LOCAL oControl, aTmp
    CASE nControl == _GRID_COLUMN_HEADER2_ ;     aTmp := oControl:CTRL033
    CASE nControl == _GRID_COLUMN_HEADERIMAGE_ ; aTmp := oControl:CTRL022
    CASE nControl == _GRID_COLUMN_JUSTIFY_ ;     aTmp := oControl:CTRL037
-   OTHERWISE  ;                                 aTmp := oControl:CTRL040
+   OTHERWISE  ;                                 aTmp := oControl:CTRL040 [ nControl ]
    ENDCASE
 
      IF Valtype ( aTmp ) == "A"
@@ -900,11 +900,11 @@ Return DefaultFontHandle
 
 
 FUNCTION SetGridCustomDrawNewBehavior ( lValue )
-LOCAL i, OldValue := oHmgApp():APP514
+LOCAL oControl, OldValue := oHmgApp():APP514
    IF ValType ( lValue ) == "L"
       oHmgApp():APP514 := lValue
-      i := ASCAN ( _HMG_SYSDATA [ 3 ], GetFocus () )
-      IF i > 0 .AND. ( ControlByIndex( I ):Type == 'GRID' .OR. ControlByIndex( I ):Type == 'MULTIGRID' )
+      oControl := ControlByHandle ( GetFocus () )
+      IF oControl != NIL .AND. ( oControl:Type == 'GRID' .OR. oControl:Type == 'MULTIGRID' )
          SetEventProcessHMGWindowsMessage ( .NOT. lValue )
       ENDIF
    ENDIF
