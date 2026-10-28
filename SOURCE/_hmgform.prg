@@ -26,6 +26,7 @@ CREATE CLASS _HmgFormClass
    VAR    TooltipHandle             INIT 0
    VAR    FormContextMenuHandle     INIT 0
 
+   VAR    FORM073                   INIT 0     // _HMG_SYSDATA [ 73 ] _HMG_aFormToolTipHandle
    VAR    FORM075                   INIT ""
    VAR    FORM076                   INIT ""
    VAR    FORM077                   INIT ""

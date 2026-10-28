@@ -203,7 +203,7 @@ Local cImageField
 
          If ValType ( aImage ) == 'U'
 
-            ControlHandle := InitComboBox ( FormByHandle( I ):FORM087, 0, x, y, w, '', 0 , h, invisible, notabstop, sort, displayedit , oHmgApp():IsXP , DroppedWidth )
+            ControlHandle := InitComboBox ( FormByIndex( I ):FORM087, 0, x, y, w, '', 0 , h, invisible, notabstop, sort, displayedit , oHmgApp():IsXP , DroppedWidth )
 
          Else
 

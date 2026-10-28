@@ -4094,7 +4094,7 @@ ENDIF
 
       ElseIf   .Not. Empty( oHmgApp():ActiveFormName )
 
-         if FormByIndex( oHmgApp():ActiveFormName ) == 'X'
+         if GetWindowType ( oHmgApp():ActiveFormName ) == 'X'
             MsgHMGError("panel Windows Can't Have SplitChild Parents. Program Terminated" )
          endif
 
@@ -4963,7 +4963,7 @@ Local i
 
    i := GetFormIndex ( FormName )
 
-Return FormByIndex( I ):FORM082
+Return FormByIndex( I ):NotifyIconName
 *-----------------------------------------------------------------------------*
 Function _GetNotifyIconTooltip ( FormName )
 *-----------------------------------------------------------------------------*
@@ -5306,6 +5306,7 @@ LOCAL oFormX, oFormI
          EndIf
 
          i := GetFormIndex ( FormName )
+         oFormI := FormByIndex( i )
 
          FOR EACH oFormX IN oHmgApp():AllForms
 
@@ -5460,7 +5461,7 @@ LOCAL oForm
 
    * If Already Active Windows Abort Command
 
-   IF FormByBlock( { | e | e:IsActive }:Index ) != Nil
+   IF FormByBlock( { | e | e:IsActive } ) != Nil
       MsgHMGError("ACTIVATE WINDOW ALL: This Command Should Be Used At Application Startup Only. Program terminated" )
    ENDIF
 
@@ -5618,7 +5619,7 @@ Function _SetFocusedSplitChild(i)
 
       FOR EACH nIndex IN oFormI:FORM090
          oForm2 := FormByIndex( nIndex )
-         IF oForm2:APP093 == .t.
+         IF oForm2:FORM093 == .t.
             setfocus ( oForm2:Handle )
             SplitFocusFlag := .T.
          ENDIF

@@ -43,7 +43,7 @@
    oHmgApp():APP249      := <dropheight>
    #xcommand ADDITIVE   <additive>   ;
    =>;
-   APP:APP439       := <additive>
+   oHmgApp():APP439       := <additive>
    #xcommand ROWOFFSET   <rowoffset>   ;
    =>;
    oHmgApp():APP449      := <rowoffset>
@@ -83,7 +83,7 @@
        oHmgApp():APP436      := Nil   ;;    // items
        oHmgApp():APP464      := .f.   ;;    // anywhere search
        oHmgApp():APP249      := 0    ;;// dropped height
-       APP:APP439      := .f.  ;;  // additive
+       oHmgApp():APP439      := .f.  ;;  // additive
        oHmgApp():APP449      := 0    ;;// rowoffset
        oHmgApp():APP450      := 0    // coloffset
 
@@ -118,7 +118,7 @@
              oHmgApp():APP436 ,; // aitems
              oHmgApp():APP464 ,; //  anywhere search
              oHmgApp():APP249 ,; //  droppedheight
-             APP:APP439 ,; //  additive
+             oHmgApp():APP439 ,; //  additive
              oHmgApp():APP449 ,; //  rowoffset
              oHmgApp():APP450 ; //  coloffset
              )

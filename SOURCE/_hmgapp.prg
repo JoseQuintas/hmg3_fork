@@ -101,6 +101,7 @@ CREATE CLASS _HmgAppClass STATIC
    VAR    This_TreeItem_Value            INIT Nil
    VAR    xContextMenuButtonIndex        INIT 0
    VAR    xMainMenuParentName            INIT ""
+   VAR    APP052                         INIT 0     // _HMG_SYSDATA [ 52 ] Drag ListBox ListId
    VAR    APP053                         INIT {}
    VAR    APP054                         INIT _GETDDLMESSAGE()
    VAR    APP055                         INIT .F.
@@ -174,6 +175,7 @@ CREATE CLASS _HmgAppClass STATIC
    VAR    APP168                         INIT 0
    VAR    APP169                         INIT 0
    VAR    APP170                         INIT 0
+   VAR    APP171                         INIT 0     // _HMG_SYSDATA [ 171 ] _HMG_ActiveSplitChildIndex
    VAR    APP172                         INIT 0
    VAR    APP173                         INIT 0
    VAR    APP174                         INIT 0
@@ -500,9 +502,12 @@ CREATE CLASS _HmgAppClass STATIC
    VAR    APP497                         INIT Nil
    VAR    APP498                         INIT Nil
    VAR    APP499                         INIT Nil
+   VAR    APP500                         INIT Nil   // _HMG_SYSDATA [ 500 ] _HMG_ActiveControlFormat
    VAR    APP501                         INIT 20
    VAR    APP502                         INIT 0
    VAR    APP503                         INIT { Nil, Nil, Nil, Nil, Nil, Nil, Nil, Nil, Nil }
+   VAR    APP505                         INIT Nil   // _HMG_SYSDATA [ 505 ] PrintPreview NotSaveButton
+   VAR    APP506                         INIT Nil   // _HMG_SYSDATA [ 506 ] PrintPreview Dialog cFileName
    VAR    APP507                         INIT Nil
    VAR    APP508                         INIT Nil
    VAR    APP509                         INIT .F.

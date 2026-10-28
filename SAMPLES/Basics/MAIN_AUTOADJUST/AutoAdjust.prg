@@ -35,7 +35,7 @@ ELSE
 ENDIF
 
 oFormTmp := FormByHandle( hWnd )
-i := iif( xTmp == Nil, 0, oFormTmp:Index )
+i := iif( oFormTmp == Nil, 0, oFormTmp:Index )
 
 ParentForm := FormByIndex( I ):Name
 
@@ -53,7 +53,7 @@ FOR k := 1 To ControlCount
     ControlName := ControlByIndex( K ):Name
 
     IF _IsControlDefined ( ControlName, ParentForm )
-       ControlType := ControlByIndex( K ):Name
+       ControlType := ControlByIndex( K ):Type
 
        IF !EMPTY( ControlName ) .AND. !( ControlType $ "MENU,HOTKEY,TOOLBAR,MESSAGEBAR,ITEMMESSAGE,TIMER" )
 
@@ -88,8 +88,8 @@ FOR k := 1 To ControlCount
     ENDIF
 NEXT k
 
-FormByIndex( I ):FORM092 := nWidth
-FOrmByIndex( I ):FORM091 := nHeight
+FormByIndex( I ):VirtualWidth := nWidth
+FOrmByIndex( I ):VirtualHeight := nHeight
 
 IF lvisible
    ShowWindow ( hWnd )

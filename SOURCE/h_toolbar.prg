@@ -292,7 +292,7 @@ FUNCTION _DefineToolButton ( cControlName , ;
 
    oControl:Type := "TOOLBUTTON"
    oControl:Name :=  cControlName
-   oControl:Handle      [k] :=  nControlHandle
+   oControl:Handle :=  nControlHandle
    ControlByIndex( K ):ParentFormHandle :=  nParentWindowHandle
    oControl:CTRL005 :=  nId
    oControl:CTRL006 :=  bAction
